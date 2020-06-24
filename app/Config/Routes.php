@@ -8,7 +8,7 @@ $routes = Services::routes();
 // Load the system's routing file first, so that the app and ENVIRONMENT
 // can override as needed.
 if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
-	require SYSTEMPATH . 'Config/Routes.php';
+    require SYSTEMPATH . 'Config/Routes.php';
 }
 
 /**
@@ -37,7 +37,7 @@ $routes->get('/login', 'Pages::view/login');
 $routes->get('/daftar', 'Pages::view/daftar');
 $routes->get('/test', 'Pages::view/test');
 $routes->get('/form', 'Pages::view/form');
-$routes->get('/submit', 'Submit::index');
+$routes->post('/submit', 'User::daftar');
 
 
 /**
@@ -54,5 +54,5 @@ $routes->get('/submit', 'Submit::index');
  * needing to reload it.
  */
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
-	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+    require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
