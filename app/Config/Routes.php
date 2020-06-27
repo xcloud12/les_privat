@@ -37,6 +37,9 @@ $routes->get('/login', 'Pages::view/login');
 $routes->get('/daftar', 'Pages::view/daftar');
 $routes->get('/test', 'Pages::view/test');
 $routes->get('/form', 'Pages::view/form');
+
+// user login, register
+$routes->post('/', 'User::login');
 $routes->post('/submit', 'User::daftar');
 
 

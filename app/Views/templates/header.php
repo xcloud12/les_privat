@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>LPPK</title>
+    <title><?= $title ?></title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
