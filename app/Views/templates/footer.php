@@ -32,7 +32,6 @@
 <p class="text-center font-weight-bolder mt-5">
     Universitas Nurul Jadid &copy; 2020
 </p>
-</div>
 
 
 <!-- Tutorial Bootstrap -->
@@ -45,36 +44,21 @@
 
 <!-- COPAS TEMPLATE -->
 <!-- Bootstrap core JavaScript-->
-<!-- <script src="vendor/jquery/jquery.min.js"></script> -->
-<!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<!-- <script src="js/sb-admin-2.min.js"></script> -->
+<script src="js/sb-admin-2.min.js"></script>
 
 <!-- Page level plugins -->
-<!-- <script src="vendor/chart.js/Chart.min.js"></script> -->
+<script src="vendor/chart.js/Chart.min.js"></script>
 
 <!-- Page level custom scripts -->
-<!-- <script src="js/demo/chart-area-demo.js"></script> -->
-<!-- <script src="js/demo/chart-pie-demo.js"></script> -->
-<script>
-    function openCity(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-</script>
+<script src="js/demo/chart-area-demo.js"></script>
+<script src="js/demo/chart-pie-demo.js"></script>
 </body>
 
 </html>

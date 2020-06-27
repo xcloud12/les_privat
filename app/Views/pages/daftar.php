@@ -32,7 +32,7 @@
     <div class="form-group row">
         <label for="tanggal_lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
         <div class="col-sm-10">
-            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="2020-06-06" min="1970-01-01">
+            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="" min="1970-01-01">
         </div>
     </div>
     <div class="form-group row">

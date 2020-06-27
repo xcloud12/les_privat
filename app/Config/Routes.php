@@ -35,7 +35,25 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Pages::view/home');
 $routes->get('/login', 'Pages::view/login');
 $routes->get('/daftar', 'Pages::view/daftar');
-$routes->get('/test', 'Pages::view/test');
+
+//route untuk menu admin
+$routes->get('/admin', function () {
+    echo view("pages/admin/index");
+});
+
+
+//route untuk tentor
+$routes->get('/tentor', function () {
+    echo view("pages/tentor/index");
+});
+
+//route untuk peserta
+$routes->get('/peserta', function () {
+    echo view("pages/peserta/index");
+});
+
+
+$routes->get('/isi', 'Pages::view/isi');
 $routes->get('/form', 'Pages::view/form');
 $routes->post('/submit', 'User::daftar');
 
