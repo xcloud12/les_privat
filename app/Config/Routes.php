@@ -34,7 +34,6 @@ $routes->setAutoRoute(true);
 // $routes->get('/', 'Home::index');
 $routes->get('/', 'Pages::view/home');
 $routes->get('/login', 'Pages::view/login');
-$routes->get('/daftar', 'Pages::view/daftar');
 
 //route untuk menu admin
 $routes->get('/admin', function () {
