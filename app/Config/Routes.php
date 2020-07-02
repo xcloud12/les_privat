@@ -41,6 +41,8 @@ $routes->get('/form', 'Pages::view/form');
 // user login, register
 $routes->post('/', 'User::login');
 $routes->post('/submit', 'User::daftar');
+$routes->get('/dashboard', 'User::index');
+
 
 
 /**

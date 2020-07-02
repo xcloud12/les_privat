@@ -7,6 +7,10 @@ use CodeIgniter\Controller;
 
 class User extends Controller
 {
+    public function index()
+    {
+        echo view("page/dashboard");
+    }
 
     public function daftar()
     {
@@ -28,30 +32,34 @@ class User extends Controller
     {
         $model = new M_User();
 
-        if (!$this->validate([
+        // form is filled
+        if ($this->validate([
             'username' => 'required',
             'password' => 'required'
         ])) {
-            $data = [
-                'failed' => true,
-                'title' => "Home"
-            ];
-            echo view("templates/header", $data);
-            echo view("pages/home", $data);
-            echo view("templates/footer", $data);
-            die;
-        } else {
 
             $username = $this->request->getVar('username');
             $password = $this->request->getVar('password');
-
             $user = $model->where('username', $username)->first();
 
-            if ($user['password'] == $password) {
-                echo "login sukses<br/>";
-                echo $user['level'];
-            } else {
+            // make sure user exist on database
+            if (!is_null($user)) {
+                // check password
+                if ($user['password'] == $password) {
+                    // jump to '/dashboard'
+                    header('Location: http://localhost:8080/dashboard');
+                    exit;
+                }
             }
         }
+
+        // if error login
+        $data = [
+            'failed' => true,
+            'title' => "Home"
+        ];
+        echo view("templates/header", $data);
+        echo view("pages/home", $data);
+        echo view("templates/footer", $data);
     }
 }
