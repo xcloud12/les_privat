@@ -1,7 +1,7 @@
 <br>
 
 <div class="row">
-    <div class="col-4 col-sm-3 text-center">
+    <div class="col-12 col-sm-6 col-md-3 text-center">
         <a href="https://twitter.com/@unuja" target="blank">
             <span style="font-size: 48px; color: Dodgerblue;"><i class="fab fa-twitter-square"></i></span>
             <p class="text-body">
@@ -9,19 +9,19 @@
             </p>
         </a>
     </div>
-    <div class="col-4 col-sm-3  text-center">
+    <div class="col-12 col-sm-6 col-md-3 text-center">
         <a href="https://www.youtube.com/channel/UCq-VDezP1Vj4pEOYiPn3Qxw" target="blank">
             <span style="font-size: 48px; color: red;"><i class="fab fa-youtube"></i></span>
             <p class="text-body">
                 Universitas Nurul Jadid
             </p>
         </a></div>
-    <div class="col-4 col-sm-3  text-center">
+    <div class="col-12 col-sm-6 col-md-3 text-center">
         <a href="https://web.facebook.com/universitasnuruljadid" target="blank">
             <span style="font-size: 48px; color: #3b5998;"><i class="fab fa-facebook-square"></i></span>
             <p class="text-body"> Universitas Nurul Jadid</p>
         </a></div>
-    <div class="col-4 col-sm-3  text-center">
+    <div class="col-12 col-sm-6 col-md-3 text-center">
         <a href="https://www.instagram.com/unujaofficial/?hl=id" target="blank">
             <span style="font-size: 48px; color: #3f729b;"><i class="fab fa-instagram"></i></span>
             <p class="text-body">

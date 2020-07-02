@@ -9,29 +9,25 @@
             <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia tempore quisquam, aliquam iste quas dolor quo eius officiis? Impedit vel rem ab accusamus. Animi voluptatum placeat aspernatur ad, fugiat hic.</p>
         </div>
         <div class="col-sm-4 pt-5">
-            <form class="user">
+            <form action="/" method="POST" class="user">
                 <div class="input-group mb-3 ">
-                    <input type="text" class="form-control tf rounded-left bg-white border-right-0" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control tf rounded-left bg-white border-right-0" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username">
                     <div class="input-group-prepend">
                         <span class="input-group-text rounded-right bg-white border-left-0"><i class="fas fa-at"></i></span>
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control tf rounded-left bg-white border-right-0" id="exampleInputPassword" placeholder="Password">
+                    <input type="password" class="form-control tf rounded-left bg-white border-right-0" id="exampleInputPassword" placeholder="Password" name="password">
                     <div class="input-group-prepend">
                         <span class="input-group-text rounded-right bg-white border-left-0"><i class="fas fa-lock"></i></span>
                     </div>
                 </div>
-                <div class="input-group d-flex justify-content-between">
-                    <div class="custom-control custom-checkbox small pt-2">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                <div class="form-group d-flex flex-row align-items-center justify-content-between">
+                    <div class="custom-control custom-checkbox small">
+                        <input type="checkbox" class="custom-control-input" id="customCheck" name="remember">
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                     </div>
-                    <div class="input-group-prepend">
-                        <a href="index.html" class="btn btn-primary btn-block rounded-lg">
-                            Login
-                        </a>
-                    </div>
+                    <button type="submit" class="btn btn-primary w-50">Login</button>
                 </div>
 
                 <hr class="pb-3 pt-4 ">

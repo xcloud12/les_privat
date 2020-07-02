@@ -64,7 +64,13 @@ $routes->get('/peserta', function () {
 
 $routes->get('/isi', 'Pages::view/isi');
 $routes->get('/form', 'Pages::view/form');
+
+// user login, register
+$routes->post('/', 'User::login');
+$routes->get('/logout', 'User::logout');
 $routes->post('/submit', 'User::daftar');
+$routes->get('/dashboard', 'User::index');
+
 
 
 /**
