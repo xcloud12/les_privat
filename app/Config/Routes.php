@@ -37,36 +37,6 @@ $routes->get('/login', 'Pages::view/login');
 
 // user login, register
 $routes->post('/', 'User::login');
-$routes->post('/submit', 'User::daftar');
-
-//route untuk menu admin
-$routes->get('/admin', function () {
-    echo view("pages/admin/index");
-});
-$routes->get('/l_tentor', function () {
-    echo view("pages/admin/l_tentor");
-});
-$routes->get('/detail_data', function () {
-    echo view("pages/admin/detail_data");
-});
-
-
-//route untuk tentor
-$routes->get('/tentor', function () {
-    echo view("pages/tentor/index");
-});
-
-//route untuk peserta
-$routes->get('/peserta', function () {
-    echo view("pages/peserta/index");
-});
-
-
-$routes->get('/isi', 'Pages::view/isi');
-$routes->get('/form', 'Pages::view/form');
-
-// user login, register
-$routes->post('/', 'User::login');
 $routes->get('/logout', 'User::logout');
 $routes->post('/submit', 'User::daftar');
 $routes->get('/dashboard', 'User::index');
