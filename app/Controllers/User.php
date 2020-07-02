@@ -9,7 +9,22 @@ class User extends Controller
 {
     public function index()
     {
-        echo view("page/dashboard");
+        $session = session();
+        if ($session->has('username')) {
+            $data = [
+                'title' => 'Dashboard',
+                'username' => $session->username,
+                'nama' => $session->nama,
+                'level' => $session->level,
+                'email' => $session->email
+            ];
+
+            echo view('user/dashboard', $data);
+        } else {
+            $session->destroy();
+            header('Location: http://localhost:8080/');
+            exit;
+        }
     }
 
     public function daftar()
@@ -31,6 +46,7 @@ class User extends Controller
     public function login()
     {
         $model = new M_User();
+        $session = session();
 
         // form is filled
         if ($this->validate([
@@ -46,6 +62,9 @@ class User extends Controller
             if (!is_null($user)) {
                 // check password
                 if ($user['password'] == $password) {
+                    // set sessions
+                    $session->set($user);
+
                     // jump to '/dashboard'
                     header('Location: http://localhost:8080/dashboard');
                     exit;
@@ -61,5 +80,13 @@ class User extends Controller
         echo view("templates/header", $data);
         echo view("pages/home", $data);
         echo view("templates/footer", $data);
+    }
+
+    public function logout()
+    {
+        $session = session();
+        $session->destroy();
+        header('Location: http://localhost:8080/');
+        exit;
     }
 }
