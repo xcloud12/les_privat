@@ -77,9 +77,7 @@ class User extends Controller
             'failed' => true,
             'title' => "Home"
         ];
-        echo view("templates/header", $data);
         echo view("pages/home", $data);
-        echo view("templates/footer", $data);
     }
 
     public function logout()
