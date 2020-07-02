@@ -32,7 +32,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-book-reader"></i> <!-- Ubah Dulu Ikonnya-->
                 </div>
-                <div class="sidebar-brand-text mx-3">Les Privat</div>
+                <div class="sidebar-brand-text mx-3 judul">Les Privat</div>
             </a>
 
             <!-- Divider -->

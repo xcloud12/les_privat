@@ -1,7 +1,7 @@
 <div class="container pt-5">
     <div class="row">
         <div class="col-sm-8 pt-3">
-            <h2 class="pb-3">Selamat Datang di LPPK Universitas Nurul Jadid</h2>
+            <h2 class="pb-3 judul">Selamat Datang di LPPK Universitas Nurul Jadid</h2>
             <h3 class="mt-3">Visi</h3>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis minima ipsam excepturi illo non cumque maiores cum facilis. Nemo repudiandae ut at quis magni consectetur doloremque, nihil maxime perspiciatis sequi?</p>
 
@@ -10,22 +10,31 @@
         </div>
         <div class="col-sm-4 pt-5">
             <form class="user">
-                <div class="form-group">
-                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                <div class="input-group mb-3 ">
+                    <input type="text" class="form-control tf rounded-left bg-white border-right-0" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text rounded-right bg-white border-left-0"><i class="fas fa-at"></i></span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control tf rounded-left bg-white border-right-0" id="exampleInputPassword" placeholder="Password">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text rounded-right bg-white border-left-0"><i class="fas fa-lock"></i></span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <div class="custom-control custom-checkbox small">
+                <div class="input-group d-flex justify-content-between">
+                    <div class="custom-control custom-checkbox small pt-2">
                         <input type="checkbox" class="custom-control-input" id="customCheck">
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                     </div>
+                    <div class="input-group-prepend">
+                        <a href="index.html" class="btn btn-primary btn-block rounded-lg">
+                            Login
+                        </a>
+                    </div>
                 </div>
-                <a href="index.html" class="btn btn-primary btn-user btn-block">
-                    Login
-                </a>
-                <hr class="pb-3 pt-1 ">
+
+                <hr class="pb-3 pt-4 ">
                 <div class="text-center">
                     <a class="small" href="#">Lupa Password ?</a>
                 </div>

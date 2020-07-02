@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/mine.css" rel="stylesheet">
 
 </head>
 
@@ -25,14 +26,14 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion nt" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-book-reader"></i> <!-- Ubah Dulu Ikonnya-->
                 </div>
-                <div class="sidebar-brand-text mx-3">Les Privat</div>
+                <div class="sidebar-brand-text mx-3 judul">Les Privat</div>
             </a>
 
             <!-- Divider -->
@@ -50,82 +51,38 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Ini Tentor
+                Daftar Pelayanan
             </div>
 
-            <!-- Menu Tentor -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTentor" aria-expanded="true" aria-controls="collapseTentor">
-                    <i class="fas fa-chalkboard-teacher"></i> <!-- ubah ikon terlebih dahulu-->
-                    <span>Tentor</span>
-                </a>
-                <div id="collapseTentor" class="collapse" aria-labelledby="HeadingTentor" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Layanan Menu :</h6>
-                        <a class="collapse-item" href="#">Daftar Tentor</a>
-                        <a class="collapse-item" href="#">Pengajuan Tentor</a>
-                        <a class="collapse-item" href="#">Laporan Data Tentor</a>
-                        <a class="collapse-item" href="#">Jadwal Tentor</a>
-                        <a class="collapse-item" href="#">Reset Password</a>
-                    </div>
-                </div>
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-address-card"></i>
+                    <span>Profil Saya</span></a>
             </li>
 
-            <!-- Menu Peserta -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeserta" aria-expanded="true" aria-controls="collapsePeserta">
-                    <i class="far fa-user"></i> <!-- ubah ikon terlebih dahulu-->
-                    <span>Peserta</span>
-                </a>
-                <div id="collapsePeserta" class="collapse" aria-labelledby="HeadingPeserta" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Layanan Menu :</h6>
-                        <a class="collapse-item" href="#">Daftar Peserta</a>
-                        <a class="collapse-item" href="#">Laporan Data Peserta</a>
-                        <a class="collapse-item" href="#">Reset Password</a>
-                    </div>
-                </div>
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-book"></i>
+                    <span>Mata Pelajaran</span></a>
             </li>
 
-            <!-- Menu Les (Mata Pelajaran) -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLes" aria-expanded="true" aria-controls="collapseLes">
-                    <i class="fas fa-book"></i> <!-- ubah ikon terlebih dahulu-->
-                    <span>Mata Pelajaran</span>
-                </a>
-                <div id="collapseLes" class="collapse" aria-labelledby="HeadingLes" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Layanan Menu :</h6>
-                        <a class="collapse-item" href="#">Daftar Mata Pelajaran</a>
-                        <a class="collapse-item" href="#">Laporan Data</a>
-                    </div>
-                </div>
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Kinerja Saya</span></a>
             </li>
 
-            <!-- Menu Rating -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRating" aria-expanded="true" aria-controls="collapseRating">
-                    <i class="fas fa-star"></i> <!-- ubah ikon terlebih dahulu-->
-                    <span>Rating</span>
-                </a>
-                <div id="collapseRating" class="collapse" aria-labelledby="headingrating" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Layanan Menu :</h6>
-                        <!-- <i class="fas fa-fw fa-table"></i> digunakan untuk menambahkan gambar di depan-->
-                        <a class="collapse-item" href="#">Daftar Rating</a>
-                        <a class="collapse-item" href="#">Top Rating</a>
-                        <a class="collapse-item" href="#">Rating Terbawah</a>
-                    </div>
-                </div>
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-key"></i>
+                    <span>Ubah Password</span></a>
             </li>
-            <!-- Divider -->
-            <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Tambahan
-            </div>
-
+            <li class="nav-item">
+                <a class="nav-link" href="charts.html">
+                    <i class="far fa-comment-alt"></i>
+                    <span>Ulasan</span></a>
+            </li>
             <!-- Nav Item - Pages Collapse Menu
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
@@ -145,13 +102,6 @@
                     </div>
                 </div>
             </li> menu tambahan jika diperlukan-->
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Data Diagram</span></a>
-            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -169,7 +119,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-light topbar mb-4 static-top shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -177,7 +127,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
@@ -186,7 +136,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> -->
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -356,14 +306,13 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <h1 class="h3 mb-0 text-gray-800">Halaman Utama</h1>
                     </div>
 
                     <!-- Content Row -->
                     <div class="row">
 
-                        <!-- Earnings (Monthly) Card Example -->
+                        <!-- Isi Halaman -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">

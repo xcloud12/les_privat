@@ -35,9 +35,19 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Pages::view/home');
 $routes->get('/login', 'Pages::view/login');
 
+// user login, register
+$routes->post('/', 'User::login');
+$routes->post('/submit', 'User::daftar');
+
 //route untuk menu admin
 $routes->get('/admin', function () {
     echo view("pages/admin/index");
+});
+$routes->get('/l_tentor', function () {
+    echo view("pages/admin/l_tentor");
+});
+$routes->get('/detail_data', function () {
+    echo view("pages/admin/detail_data");
 });
 
 

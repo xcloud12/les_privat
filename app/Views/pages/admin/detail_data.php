@@ -299,63 +299,8 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Halaman Utama</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Detail Data</h1>
                         <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-                    </div>
-
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Banyak Tentor -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Tentor</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-chalkboard-teacher fa-2x text-gray-400"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Banyak Peserta -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Peserta</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="far fa-user fa-2x text-gray-400"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pending Requests Pengajaran Tentor -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pengajuan Pengajaran</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-400"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- Content Row -->
@@ -365,13 +310,19 @@
                         <!-- Area Chart -->
                         <div class="col-lg">
                             <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Isi Menu Utama</h6>
-                                </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    Ini Adalah Isi dan ulasan untuk admin di dalam menu utama
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            inikanan <br>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi asperiores debitis necessitatibus, molestias quos quam in officiis dolor quidem cum, tempore blanditiis possimus quae vitae suscipit, dolorum ullam aliquam dolorem.
+                                        </div>
+                                        <div class="col-sm-4">
+                                            ini mid <br>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, maxime aut distinctio earum provident minus. Exercitationem quae modi blanditiis reiciendis delectus doloremque eveniet amet provident possimus pariatur est, sequi dolorem!
+                                        </div>
+                                        <div class="col">ini foto<br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus cum consequuntur officiis magnam commodi quisquam, magni consequatur, reiciendis voluptas laudantium nemo eum id delectus. Illum adipisci qui dolor tenetur eum!</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
