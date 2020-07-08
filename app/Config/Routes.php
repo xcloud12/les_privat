@@ -21,7 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 
 /**
  * --------------------------------------------------------------------
@@ -41,7 +41,13 @@ $routes->get('/logout', 'User::logout');
 $routes->post('/submit', 'User::daftar');
 $routes->get('/dashboard', 'User::index');
 
-
+// admin
+$routes->get('/data/tentor', 'Admin::index');
+$routes->get('/data/pengajuan', 'Admin::index');
+$routes->get('/data/peserta', 'Admin::index');
+$routes->get('/data/pemesanan', 'Admin::index');
+$routes->get('/data/les', 'Admin::index');
+$routes->get('/data/rating', 'Admin::index');
 
 /**
  * --------------------------------------------------------------------
