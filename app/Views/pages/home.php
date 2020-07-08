@@ -30,7 +30,7 @@
             <div class="col-sm-4 pt-5">
                 <form action="/" method="POST" class="user">
                     <div class="input-group mb-3 ">
-                        <input type="text" class="form-control tf rounded-left bg-white border-right-0" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username">
+                        <input type="text" class="form-control tf rounded-left bg-white border-right-0" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="username" autofocus=true>
                         <div class="input-group-prepend">
                             <span class="input-group-text rounded-right bg-white border-left-0"><i class="fas fa-at"></i></span>
                         </div>

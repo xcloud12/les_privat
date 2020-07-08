@@ -19,7 +19,21 @@ class User extends Controller
                 'email' => $session->email
             ];
 
+
+            echo view('templates/header', $data);
+            switch ($session->get('level')) {
+                case 'peserta':
+                    echo view('user/sidebar/peserta', $data);
+                    break;
+                case 'tentor':
+                    echo view('user/sidebar/tentor', $data);
+                    break;
+                case 'admin':
+                    echo view('user/sidebar/admin', $data);
+                    break;
+            }
             echo view('user/dashboard', $data);
+            echo view('templates/footer');
         } else {
             $session->destroy();
             header('Location: http://localhost:8080/');
