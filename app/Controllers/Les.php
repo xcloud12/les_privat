@@ -18,7 +18,7 @@ class Les extends BaseController
 
         echo view('templates/header', $data);
         echo view('user/sidebar/admin', $data);
-        echo view("user/data/mat_pel", $data);
+        echo view("user/data/les", $data);
         echo view('templates/footer');
     }
 }
