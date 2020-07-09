@@ -21,7 +21,7 @@
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Jenis Kelamin</th>
-                                <th>A</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
