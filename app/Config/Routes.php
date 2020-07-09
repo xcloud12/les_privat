@@ -42,7 +42,7 @@ $routes->post('/submit', 'User::daftar');
 $routes->get('/dashboard', 'User::index');
 
 // admin
-$routes->get('/data/tentor', 'Admin::index');
+$routes->get('/data/tentor', 'Admin::index/tentor');
 $routes->get('/data/pengajuan', 'Admin::index');
 $routes->get('/data/peserta', 'Admin::index');
 $routes->get('/data/pemesanan', 'Admin::index');

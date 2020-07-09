@@ -1,35 +1,51 @@
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid pt-4">
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Daftar Tentor</h6>
+        <div class="card-header py-3 d-flex flex-row align-items-center">
+            <h5 class="m-0 font-weight-bold text-primary flex-fill">Daftar Tentor</h5>
+            <button class="btn btn-primary btn-sm">Tambah</button>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered bgr" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
+                <table class="table table-bordered bgr table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
+                    <thead class="thead-light">
                         <tr>
-                            <th width="10px">No</th>
-                            <th>Username</th>
+                            <th>#</th>
                             <th>Nama</th>
-                            <th>Alamat</th>
+                            <th>Username</th>
+                            <th>Email</th>
                             <th>Jenis Kelamin</th>
+                            <th>Alamat</th>
+                            <th>Telp</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        $i = 1;
+                        foreach ($user as $u) : ?>
                         <tr>
-                            <td>1</td>
-                            <td>Edinburgh</td>
-                            <td>System Architect</td>
-                            <td>2dadasdadasdas</td>
-                            <td>laki laki</td>
+                            <td><?= $i ?></td>
+                            <td><?= $u['nama'] ?></td>
+                            <td><?= $u['username'] ?></td>
+                            <td><?= $u['email'] ?></td>
+                            <td><?= $u['jenis_kelamin'] ?></td>
+                            <td><?= $u['alamat'] ?></td>
+                            <td><?= $u['no_telp'] ?></td>
                             <td>
-
+                                <center>
+                                    <button class="btn btn-primary btn-sm">
+                                        <i class="fas fa-user-cog"></i>
+                                    </button>
+                                </center>
                             </td>
                         </tr>
+                        <?php
+                            $i++;
+                        endforeach;
+                        ?>
                     </tbody>
                 </table>
             </div>
