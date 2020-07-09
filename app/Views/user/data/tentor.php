@@ -7,9 +7,8 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Data Tentor</h1>
-                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
+                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white"></i> Tambah Data</a>
             </div>
-
             <!-- Content Row -->
             <div class="row">
                 <div class="table-responsive">
@@ -21,6 +20,12 @@
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Jenis Kelamin</th>
+                                <th hidden></th>
+                                <th hidden></th>
+                                <th hidden></th>
+                                <th hidden></th>
+                                <th hidden></th>
+                                <th hidden></th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -76,7 +81,7 @@
             <div class="row">
                 <div class="col-3">
                     <center>
-                        <img alig class="rounded" style="max-width: 200px; max-height: 250px; " src="/img/images.png" alt="Profile Picture">
+                        <img id="foto" class="rounded" style="max-width: 200px; max-height: 250px; " src="/img/images.png" alt="Profile Picture">
                     </center>
                 </div>
                 <div class="col-9">
@@ -167,6 +172,7 @@
     const detail_alamat = document.getElementById('alamat');
     const detail_agama = document.getElementById('agama');
     const detail_no_telp = document.getElementById('no_telp');
+    const detail_foto = document.getElementById('foto');
 
     detail.style.display = 'none'
 
@@ -186,8 +192,6 @@
             detail.style.display = 'block'
 
             fill_form(elm.parentNode.parentNode.parentNode.children)
-            // detail_nama.value = elm.parentNode.parentNode.parentNode
-            // console.log(elm.parentNode.parentNode.parentNode);
             toggle_form(true)
         })
     })
@@ -200,6 +204,8 @@
             btn_reset_password.style.display = 'block'
             halaman.style.display = 'none'
             detail.style.display = 'block'
+
+            fill_form(elm.parentNode.parentNode.parentNode.children)
             toggle_form(false)
         })
     })
