@@ -19,6 +19,6 @@ class Admin extends BaseController
 		echo view('templates/header', $data);
 		echo view('user/sidebar/admin', $data);
 		echo view("user/data/$master", $data);
-		echo view('templates/footer');
+		echo view('templates/footer', $data);
 	}
 }
