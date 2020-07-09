@@ -17,8 +17,6 @@
                             <th>Username</th>
                             <th>Email</th>
                             <th>Jenis Kelamin</th>
-                            <th>Alamat</th>
-                            <th>Telp</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -26,22 +24,20 @@
                         <?php
                         $i = 1;
                         foreach ($user as $u) : ?>
-                        <tr>
-                            <td><?= $i ?></td>
-                            <td><?= $u['nama'] ?></td>
-                            <td><?= $u['username'] ?></td>
-                            <td><?= $u['email'] ?></td>
-                            <td><?= $u['jenis_kelamin'] ?></td>
-                            <td><?= $u['alamat'] ?></td>
-                            <td><?= $u['no_telp'] ?></td>
-                            <td>
-                                <center>
-                                    <button class="btn btn-primary btn-sm">
-                                        <i class="fas fa-user-cog"></i>
-                                    </button>
-                                </center>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td><?= $i ?></td>
+                                <td><?= $u['nama'] ?></td>
+                                <td><?= $u['username'] ?></td>
+                                <td><?= $u['email'] ?></td>
+                                <td><?= $u['jenis_kelamin'] ?></td>
+                                <td>
+                                    <center>
+                                        <button class="btn btn-info btn-sm">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
+                                    </center>
+                                </td>
+                            </tr>
                         <?php
                             $i++;
                         endforeach;
