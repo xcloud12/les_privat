@@ -44,7 +44,7 @@ $routes->get('/dashboard', 'User::index');
 // admin
 $routes->get('/data/tentor', 'Admin::index/tentor');
 $routes->get('/data/pengajuan', 'Admin::index');
-$routes->get('/data/peserta', 'Admin::index');
+$routes->get('/data/peserta', 'Admin::index/peserta');
 $routes->get('/data/pemesanan', 'Admin::index');
 $routes->get('/data/les', 'Admin::index');
 $routes->get('/data/rating', 'Admin::index');
