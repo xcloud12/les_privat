@@ -8,7 +8,11 @@ class Pages extends Controller
 {
     public function index()
     {
-        return view('welcome_message');
+        echo view('pages/daftar');
+    }
+    public function ls()
+    {
+        echo view('pages/lupa_password');
     }
 
     public function view($page = 'home')

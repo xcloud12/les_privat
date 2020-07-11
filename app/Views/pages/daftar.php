@@ -1,69 +1,174 @@
-<form action="/submit" method="POST">
-    <div class="form-group row">
-        <label for="Nama" class="col-sm-2 col-form-label">Nama</label>
-        <div class="col-sm-10">
-            <input type="text" name="nama" placeholder="Masukkan Nama" class="form-control" required>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="email" class="col-sm-2 col-form-label">Email</label>
-        <div class="col-sm-10">
-            <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" required>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="username" class="col-sm-2 col-form-label">Username</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username" required>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="username" class="col-sm-2 col-form-label">Password</label>
-        <div class="col-sm-10">
-            <input type="password" class="form-control" id="Passowrd" name="password" placeholder="Masukkan Kata Sandi" required>
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="tempat_lahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
-        <div class="col-sm-10">
-            <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder=" Masukkan Tempat Lahir">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="tanggal_lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
-        <div class="col-sm-10">
-            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="" min="1970-01-01">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
-        <div class="col-sm-10">
-            <div class="custom-control custom-radio">
-                <input class="custom-control-input" type="radio" name="jenis_kelamin" id="laki_laki" value="L" checked>
-                <label class="custom-control-label" for="laki_laki">Laki Laki</label>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title id="">Form Pendaftaran</title>
+    <link rel="icon" href="img/logo.png" sizes="32x32" type="image/png">
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* body {
+            background: #007bff;
+            background: linear-gradient(to right, #0062E6, #33AEFF);
+        } */
+
+        img {
+            height: auto;
+            background-size: auto 100%;
+            width: 500px;
+        }
+
+        .card-body {
+            height: 550px !important;
+        }
+
+        button:active {
+            color: #2259ab !important;
+        }
+    </style>
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container pt-5">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block ">
+                        <img src="img/murid1.png" id="murid" data-aos="fade-up" data-aos-duration="2000">
+                        <img src="img/tentor.png" id="tentor" data-aos="fade-up" data-aos-duration="2000" style="height: 100%; max-height: 550px; max-width: 320px;" align="right">
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Buat Akun Baru !</h1>
+                            </div>
+                            <!-- Dibawah ini form untuk tentor -->
+                            <form class="user" id="form_tentor">
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="tentor_nama" placeholder="Masukkan Nama Anda">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="tentor_email" placeholder="Masukkan Email Anda">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user" id="pas_tentor" placeholder="Masukkan Password">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user" id="repas_tentor" placeholder="Masukkan Ulang Password">
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary btn-user btn-block" id="tentor_buton">Buat Akun Baru</button>
+                                <hr>
+                            </form>
+                            <!-- Dibawah Ini Untuk Murid -->
+                            <form class="user" id="form_murid">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nama Awal">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Nama Belakang">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Ulangi Password">
+                                    </div>
+                                </div>
+                                <a href="login.html" class="btn btn-primary btn-user btn-block">
+                                    Buat Akun Baru
+                                </a>
+                                <hr>
+                            </form>
+                            <div class="text-center d-flex justify-content-center">
+                                <button class="btn text-primary shadow-none" id="btn_murid"> <small>Daftar Sebagai Murid ?</small> </button>
+                                <button class="btn text-primary shadow-none" id="btn_tentor"> <small>Daftar Sebagai Tentor ?</small></button>
+                            </div>
+                            <div class="text-center mt-n2">
+                                <a class=" text-primary text-decoration-none small" href="/">Sudah Punya Akun ? Masuk ke akun !</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="custom-control custom-radio">
-                <input class="custom-control-input" type="radio" name="jenis_kelamin" id="perempuan" value="P">
-                <label class="custom-control-label" for="perempuan">Perempuan</label>
-            </div>
         </div>
+
     </div>
-    <div class="form-group row">
-        <label for="level" class="col-sm-2 col-form-label">Daftar Sebagai : </label>
-        <div class="col-sm-10">
-            <div class="custom-control custom-radio">
-                <input class="custom-control-input" type="radio" name="level" id="Tentor" value="tentor">
-                <label class="custom-control-label" for="Tentor">Tentor / Pengajar</label>
-            </div>
-            <div class="custom-control custom-radio">
-                <input class="custom-control-input" type="radio" name="level" id="peserta" value="peserta">
-                <label class="custom-control-label" for="peserta">Peserta</label>
-            </div>
-        </div>
-    </div>
-    <div class="form-group row">
-        <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary">Daftar</button>
-        </div>
-    </div>
-</form>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+    <script>
+        // untuk murid
+        const foto_murid = document.getElementById('murid');
+        const form_murid = document.getElementById('form_murid');
+        const link_murid = document.getElementById('btn_murid');
+
+        // untuk tentor
+        const foto_tentor = document.getElementById('tentor');
+        const form_tentor = document.getElementById('form_tentor');
+        const link_tentor = document.getElementById('btn_tentor');
+
+        foto_tentor.style.display = 'none'
+        form_tentor.style.display = 'none'
+        link_murid.style.display = 'none'
+
+        link_tentor.addEventListener('click', () => {
+            foto_tentor.style.display = 'block'
+            form_tentor.style.display = 'block'
+            foto_murid.style.display = 'none'
+            form_murid.style.display = 'none'
+            link_tentor.style.display = 'none'
+            link_murid.style.display = 'block'
+        })
+
+        link_murid.addEventListener('click', () => {
+            foto_tentor.style.display = 'none'
+            form_tentor.style.display = 'none'
+            foto_murid.style.display = 'block'
+            form_murid.style.display = 'block'
+            link_tentor.style.display = 'block'
+            link_murid.style.display = 'none'
+        })
+    </script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>
