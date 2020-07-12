@@ -10,35 +10,30 @@ class User extends Controller
     public function index()
     {
         $session = session();
-        if ($session->has('username')) {
-            $data = [
-                'title' => 'Dashboard',
-                'username' => $session->username,
-                'nama' => $session->nama,
-                'level' => $session->level,
-                'email' => $session->email
-            ];
 
+        $this->cek_login($session);
+        $data = [
+            'title' => 'Dashboard',
+            'username' => $session->username,
+            'nama' => $session->nama,
+            'level' => $session->level,
+            'email' => $session->email
+        ];
 
-            echo view('templates/header', $data);
-            switch ($session->get('level')) {
-                case 'peserta':
-                    echo view('user/sidebar/peserta', $data);
-                    break;
-                case 'tentor':
-                    echo view('user/sidebar/tentor', $data);
-                    break;
-                case 'admin':
-                    echo view('user/sidebar/admin', $data);
-                    break;
-            }
-            echo view('user/dashboard', $data);
-            echo view('templates/footer');
-        } else {
-            $session->destroy();
-            header('Location: http://localhost:8080/');
-            exit;
+        echo view('templates/header', $data);
+        switch ($session->get('level')) {
+            case 'peserta':
+                echo view('user/sidebar/peserta', $data);
+                break;
+            case 'tentor':
+                echo view('user/sidebar/tentor', $data);
+                break;
+            case 'admin':
+                echo view('user/sidebar/admin', $data);
+                break;
         }
+        echo view('user/dashboard', $data);
+        echo view('templates/footer');
     }
 
     public function daftar()
@@ -100,5 +95,14 @@ class User extends Controller
         $session->destroy();
         header('Location: http://localhost:8080/');
         exit;
+    }
+
+    protected function cek_login($session)
+    {
+        if (!$session->has('username')) {
+            $session->destroy();
+            header('Location: http://localhost:8080/');
+            exit;
+        }
     }
 }

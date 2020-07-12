@@ -8,6 +8,7 @@ class Admin extends BaseController
 {
 	public function index($master)
 	{
+		$this->cek_login(session());
 		$user   = new M_user();
 
 		$data = [
@@ -20,5 +21,14 @@ class Admin extends BaseController
 		echo view('user/sidebar/admin', $data);
 		echo view("user/data/$master", $data);
 		echo view('templates/footer', $data);
+	}
+
+	protected function cek_login($session)
+	{
+		if (!$session->has('username')) {
+			$session->destroy();
+			header('Location: http://localhost:8080/');
+			exit;
+		}
 	}
 }

@@ -8,6 +8,7 @@ class Les extends BaseController
 {
     public function index()
     {
+        $this->cek_login(session());
         $les   = new M_Les();
 
         $data = [
@@ -20,5 +21,14 @@ class Les extends BaseController
         echo view('user/sidebar/admin', $data);
         echo view("user/data/les", $data);
         echo view('templates/footer');
+    }
+
+    protected function cek_login($session)
+    {
+        if (!$session->has('username')) {
+            $session->destroy();
+            header('Location: http://localhost:8080/');
+            exit;
+        }
     }
 }
