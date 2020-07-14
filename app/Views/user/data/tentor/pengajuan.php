@@ -34,8 +34,6 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <button class="btn btn-secondary" id="btn_kembali"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</button>
-                <button class="btn btn-primary pl-5 pr-5" id="btn_simpan"><i class="fas fa-plus fa-sm text-white"></i> Simpan</button>
-
             </div>
             <div>
                 <h1 class="h3 mb-0 text-gray-800">Daftar Pengajaran Saja</h1>
@@ -43,7 +41,6 @@
             </div>
 
             <!-- Content Row -->
-
             <div class="col-9">
                 <form action="">
                     <div class="form-group row">
@@ -70,7 +67,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </form>

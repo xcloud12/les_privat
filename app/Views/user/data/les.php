@@ -7,7 +7,7 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Data Mata Pelajaran</h1>
-                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white"></i> Tambah Data</a>
+                <button class="btn btn-primary shadow-sm" id="btn_tambah"><i class="fas fa-plus fa-sm text-white"></i> Tambah Data</button>
             </div>
 
             <!-- Content Row -->
@@ -33,7 +33,7 @@
                                     <td><?= $u['kategori'] ?></td>
                                     <td><?= $u['nama_mapel'] ?></td>
                                     <td><?= $u['harga'] ?></td>
-                                    <td hidden><?= $u['bonus'] ?></td>
+                                    <td hidden><?= $u['deskribsi'] ?></td>
                                     <td>
                                         <center>
                                             <button class="btn btn-info btn-sm btn_info">
@@ -89,12 +89,54 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="bonus" class="col-sm-2 col-form-label">Bonus</label>
+                    <label for="deskribsi" class="col-sm-2 col-form-label">Deskribsi</label>
                     <div class="col-sm-10">
-                        <input type="text" name="bonus" id='bonus' placeholder="Masukkan Bonus" class="form-control" required disabled>
+                        <input type="text" name="deskribsi" id='deskribsi' placeholder="Masukkan Deskribsi" class="form-control" required disabled>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container-fluid" id="tambah">
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <button class="btn btn-secondary" id="btn_kembali"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</button>
+                <form action="">
+                    <div class="d-sm-flex justify-content-end">
+                        <button class="btn btn-primary" id="btn_simpan" type="submit"><i class="fas fa-plus"></i> Simpan Data</button>
+                    </div>
+            </div>
+
+            <!-- Content Row -->
+            <div class="col-11">
+                <div class="form-group row">
+                    <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" id="kategori" name="kategori" required>
+                            <option value="Praktek">Praktek</option>
+                            <option value="Teori">Teori</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="mapel" class="col-sm-2 col-form-label">Nama Mata Pelajaran</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="mapel" id="mapel" placeholder="Masukkan Mata Pelajaran" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="harga" class="col-sm-2 col-form-label">Harga</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="harga" id='harga' placeholder="Masukkan Harga" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="deskribsi" class="col-sm-2 col-form-label">Deskribsi</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="deskribsi" id='deskribsi' placeholder="Masukkan Deskribsi" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+            </form>
         </div>
     </div>
 </div>
@@ -102,10 +144,12 @@
 <script>
     const halaman = document.getElementById('halaman');
     const detail = document.getElementById('detail');
+    const tambah = document.getElementById('tambah');
     const btn_info = document.getElementsByClassName('btn_info');
     const btn_edit = document.getElementsByClassName('btn_edit');
     const btn_kembali = document.getElementById('btn_kembali');
     const btn_simpan = document.getElementById('btn_simpan');
+    const btn_tambah = document.getElementById('btn_tambah');
     const btn_hapus = document.getElementById('btn_hapus');
     const detail_kategori = document.getElementById('kategori');
     const detail_mapel = document.getElementById('mapel');
@@ -113,10 +157,17 @@
     const detail_bonus = document.getElementById('bonus');
 
     detail.style.display = 'none'
+    tambah.style.display = 'none'
 
 
     btn_kembali.addEventListener('click', () => {
         halaman.style.display = 'block'
+        detail.style.display = 'none'
+        tambah.style.display = 'none'
+    })
+    btn_tambah.addEventListener('click', () => {
+        tambah.style.display = 'block'
+        halaman.style.display = 'none'
         detail.style.display = 'none'
     })
 
@@ -124,6 +175,7 @@
     Array.from(btn_info).forEach((elm) => {
         elm.addEventListener('click', () => {
             halaman.style.display = 'none'
+            tambah.style.display = 'none'
             btn_simpan.style.display = 'none'
             btn_hapus.style.display = 'block'
             detail.style.display = 'block'
@@ -138,6 +190,7 @@
         elm.addEventListener('click', () => {
             btn_hapus.style.display = 'none'
             btn_simpan.style.display = 'block'
+            tambah.style.display = 'none'
             halaman.style.display = 'none'
             detail.style.display = 'block'
 
