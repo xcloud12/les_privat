@@ -36,6 +36,8 @@ $routes->get('/', 'Pages::view/home');
 $routes->get('/login', 'Pages::view/login');
 $routes->get('/daftar', 'Pages::index');
 $routes->get('/ls', 'Pages::ls');
+$routes->get('/pengajuan', 'Pages::pengajuan');
+
 
 
 // user login, register
@@ -51,6 +53,9 @@ $routes->get('/data/peserta', 'Admin::index/peserta');
 $routes->get('/data/pemesanan', 'Admin::index');
 $routes->get('/data/les', 'Les::index');
 $routes->get('/data/rating', 'Admin::index');
+
+//tentor
+
 
 /**
  * --------------------------------------------------------------------

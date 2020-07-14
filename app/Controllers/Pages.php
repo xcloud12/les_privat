@@ -14,6 +14,16 @@ class Pages extends Controller
     {
         echo view('pages/lupa_password');
     }
+    public function pengajuan()
+    {
+        $data = [
+            'title' => "Pengajuan Mengajar"
+        ];
+        echo view('templates/header', $data);
+        echo view('user/sidebar/tentor', $data);
+        echo view('user/data/tentor/pengajuan', $data);
+        echo view('templates/footer', $data);
+    }
 
     public function view($page = 'home')
     {
