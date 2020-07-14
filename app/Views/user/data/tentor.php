@@ -7,7 +7,6 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Data Tentor</h1>
-                <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white"></i> Tambah Data</a>
             </div>
             <!-- Content Row -->
             <div class="row">
@@ -25,7 +24,6 @@
                                 <th hidden></th>
                                 <th hidden></th>
                                 <th hidden></th>
-                                <th hidden></th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -38,12 +36,11 @@
                                     <td><?= $u['nama'] ?></td>
                                     <td><?= $u['username'] ?></td>
                                     <td><?= $u['email'] ?></td>
-                                    <td><?= $u['jenis_kelamin'] ?></td>
+                                    <td><?= $u['jk'] ?></td>
                                     <td hidden><?= $u['tempat_lahir'] ?></td>
-                                    <td hidden><?= $u['tanggal_lahir'] ?></td>
+                                    <td hidden><?= $u['tgl_lahir'] ?></td>
                                     <td hidden><?= $u['alamat'] ?></td>
-                                    <td hidden><?= $u['agama'] ?></td>
-                                    <td hidden><?= $u['no_telp'] ?></td>
+                                    <td hidden><?= $u['telp'] ?></td>
                                     <td hidden><?= $u['foto'] ?></td>
                                     <td>
                                         <center>
@@ -131,18 +128,6 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="agama" class="col-sm-2 col-form-label">Agama</label>
-                        <div class="col-sm-10">
-                            <select class="form-control" id="agama" name="agama" required disabled>
-                                <option value="Islam" selected>Islam</option>
-                                <option value="Kristen">Kristen</option>
-                                <option value="Hindu">Hindu</option>
-                                <option value="Budha">Budha</option>
-                                <option value="Konghuchu">Kong Guan</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
                         <label for="no_telp" class="col-sm-2 col-form-label">No Telp</label>
                         <div class="col-sm-10">
                             <input type="text" name="no_telp" id='no_telp' placeholder="Masukkan No Telp" class="form-control" required disabled>
@@ -170,7 +155,6 @@
     const detail_tanggal_lahir = document.getElementById('tanggal_lahir');
     const detail_jenis_kelamin = document.getElementById('jenis_kelamin');
     const detail_alamat = document.getElementById('alamat');
-    const detail_agama = document.getElementById('agama');
     const detail_no_telp = document.getElementById('no_telp');
     const detail_foto = document.getElementById('foto');
 
@@ -218,7 +202,6 @@
         detail_tanggal_lahir.disabled = isHide;
         detail_jenis_kelamin.disabled = isHide;
         detail_alamat.disabled = isHide;
-        detail_agama.disabled = isHide;
         detail_no_telp.disabled = isHide;
     }
 
@@ -230,7 +213,6 @@
         detail_tempat_lahir.value = data[5].textContent;
         detail_tanggal_lahir.value = data[6].textContent;
         detail_alamat.value = data[7].textContent;
-        detail_agama.value = data[8].textContent;
         detail_no_telp.value = data[9].textContent;
         detail_foto.value = data[10].textContent;
     }
