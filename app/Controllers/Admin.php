@@ -30,5 +30,12 @@ class Admin extends BaseController
 			header('Location: http://localhost:8080/');
 			exit;
 		}
+		switch ($session->get('level')) {
+			case 'admin':
+				break;
+			default:
+				header('Location: http://localhost:8080/dashboard');
+				exit;
+		}
 	}
 }
