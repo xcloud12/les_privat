@@ -9,24 +9,9 @@
         <div class="sidebar-brand-text mx-3 judul">Les Privat</div>
     </a>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link" href="/admin">
-            <i class="fas fa-home"></i>
-            <span>Halaman Utama</span></a>
-    </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Daftar Pelayanan
-    </div>
-
     <li class="nav-item">
         <a class="nav-link" href="charts.html">
             <i class="fas fa-address-card"></i>
@@ -45,11 +30,11 @@
             <span>Kinerja Saya</span></a>
     </li>
 
-    <li class="nav-item">
+    <!-- <li class="nav-item">
         <a class="nav-link" href="charts.html">
             <i class="fas fa-key"></i>
             <span>Ubah Password</span></a>
-    </li>
+    </li> -->
 
     <li class="nav-item">
         <a class="nav-link" href="charts.html">

@@ -110,29 +110,29 @@
 
     <div>
         <div class="row">
-            <div class="col-12 col-sm-6 col-md-3 text-center " data-aos="fade-up-right" data-aos-duration="2000">
-                <a href="https://twitter.com/@unuja" target="blank">
-                    <span style="font-size: 48px; color: aliceblue;"><i class="fab fa-twitter-square"></i></span>
+            <div class="col-12 col-sm-6 col-md-3 text-center " data-aos="zoom-in-up" data-aos-duration="1000">
+                <a href="https://twitter.com/@unuja" target="blank" class="text-decoration-none">
+                    <span style="font-size: 40px; color: aliceblue;"><i class="fab fa-twitter-square"></i></span>
                     <p class="text-white ">
                         @Unuja.ac.id
                     </p>
                 </a>
             </div>
-            <div class="col-12 col-sm-6 col-md-3 text-center" data-aos="fade-down-right" data-aos-duration="2000">
+            <div class="col-12 col-sm-6 col-md-3 text-center" data-aos="zoom-in-up" data-aos-duration="1000">
                 <a href="https://www.youtube.com/channel/UCq-VDezP1Vj4pEOYiPn3Qxw" target="blank" class="text-decoration-none">
-                    <span style="font-size: 48px; color: aliceblue;"><i class="fab fa-youtube"></i></span>
+                    <span style="font-size: 40px; color: aliceblue;"><i class="fab fa-youtube"></i></span>
                     <p class="text-white ">
                         Universitas Nurul Jadid
                     </p>
                 </a></div>
-            <div class="col-12 col-sm-6 col-md-3 text-center" data-aos="fade-down-left" data-aos-duration="2000">
+            <div class="col-12 col-sm-6 col-md-3 text-center" data-aos="zoom-in-up" data-aos-duration="1000">
                 <a href="https://web.facebook.com/universitasnuruljadid" target="blank" class="text-decoration-none">
-                    <span style="font-size: 48px; color: aliceblue;"><i class="fab fa-facebook-square"></i></span>
+                    <span style="font-size: 40px; color: aliceblue;"><i class="fab fa-facebook-square"></i></span>
                     <p class="text-white "> Universitas Nurul Jadid</p>
                 </a></div>
-            <div class="col-12 col-sm-6 col-md-3 text-center" data-aos="fade-up-left" data-aos-duration="2000">
+            <div class="col-12 col-sm-6 col-md-3 text-center" data-aos="zoom-in-up" data-aos-duration="1000">
                 <a href="https://www.instagram.com/unujaofficial/?hl=id" target="blank" class="text-decoration-none">
-                    <span style="font-size: 48px; color: aliceblue;"><i class="fab fa-instagram"></i></span>
+                    <span style="font-size: 40px; color: aliceblue;"><i class="fab fa-instagram"></i></span>
                     <p class="text-white ">
                         Universitas Nurul Jadid
                     </p>
