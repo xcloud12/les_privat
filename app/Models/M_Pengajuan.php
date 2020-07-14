@@ -6,10 +6,16 @@ use CodeIgniter\Model;
 
 class M_Pengajuan extends Model
 {
-    protected $table         = 'jadwal_tentor';
-    protected $primaryKey    = 'id_jadwal_tentor';
+    protected $table         = 'pengajuan_mengajar';
+    protected $primaryKey    = 'id_pengajuan';
     protected $returnType    = 'array';
-    protected $allowedFields = ['id_user_tentor', 'id_les', 'hari_aktif', 'aktif', 'no_ujian', 'nilai_ujian'];
+    protected $allowedFields = [
+        'id_tentor',
+        'hari',
+        'aktif',
+        'kode',
+        'jam_kerja'
+    ];
 
     public function create($data)
     {
