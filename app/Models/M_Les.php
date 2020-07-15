@@ -12,7 +12,8 @@ class M_Les extends Model
     protected $allowedFields = [
         'nama',
         'kategori',
-        'harga'
+        'harga',
+        'deskripsi'
     ];
 
     public function create($data)

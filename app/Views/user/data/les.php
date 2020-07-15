@@ -7,7 +7,7 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Data Mata Pelajaran</h1>
-                <button class="btn btn-primary shadow-sm" id="btn_tambah"><i class="fas fa-plus fa-sm text-white"></i> Tambah Data</button>
+                <button class="btn btn-primary shadow-sm" id="btn_tambah" onclick="tambah()"><i class="fas fa-plus fa-sm text-white"></i> Tambah Data</button>
             </div>
 
             <!-- Content Row -->
@@ -17,7 +17,7 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>#</th>
-                                <th>Ketgori</th>
+                                <th>Kategori</th>
                                 <th>Nama Mata Pelajaran</th>
                                 <th>Harga</th>
                                 <th hidden></th>
@@ -31,15 +31,15 @@
                                 <tr>
                                     <td><?= $i ?></td>
                                     <td><?= $u['kategori'] ?></td>
-                                    <td><?= $u['nama_mapel'] ?></td>
+                                    <td><?= $u['nama'] ?></td>
                                     <td><?= $u['harga'] ?></td>
-                                    <td hidden><?= $u['deskribsi'] ?></td>
+                                    <td hidden><?= $u['deskripsi'] ?></td>
                                     <td>
                                         <center>
-                                            <button class="btn btn-info btn-sm btn_info">
+                                            <button class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
                                                 <i class="fas fa-info-circle"></i>
                                             </button>
-                                            <button class="btn btn-secondary btn-sm btn_edit">
+                                            <button class="btn btn-secondary btn-sm btn_edit" onclick="edit(parentElement.parentElement.parentElement)">
                                                 <i class="far fa-edit"></i>
                                             </button>
                                         </center>
@@ -71,8 +71,8 @@
                     <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
                     <div class="col-sm-10">
                         <select class="form-control" id="kategori" name="kategori" required disabled>
-                            <option selected value="Praktek">Praktek</option>
-                            <option value="Teori">Teori</option>
+                            <option value="praktek">Praktek</option>
+                            <option value="teori">Teori</option>
                         </select>
                     </div>
                 </div>
@@ -96,121 +96,82 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid" id="tambah">
-            <!-- Page Heading -->
-            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <button class="btn btn-secondary" id="btn_kembali"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</button>
-                <form action="">
-                    <div class="d-sm-flex justify-content-end">
-                        <button class="btn btn-primary" id="btn_simpan" type="submit"><i class="fas fa-plus"></i> Simpan Data</button>
-                    </div>
-            </div>
-
-            <!-- Content Row -->
-            <div class="col-11">
-                <div class="form-group row">
-                    <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
-                    <div class="col-sm-10">
-                        <select class="form-control" id="kategori" name="kategori" required>
-                            <option value="Praktek">Praktek</option>
-                            <option value="Teori">Teori</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="mapel" class="col-sm-2 col-form-label">Nama Mata Pelajaran</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="mapel" id="mapel" placeholder="Masukkan Mata Pelajaran" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="harga" class="col-sm-2 col-form-label">Harga</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="harga" id='harga' placeholder="Masukkan Harga" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="deskribsi" class="col-sm-2 col-form-label">Deskribsi</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="deskribsi" id='deskribsi' placeholder="Masukkan Deskribsi" class="form-control" required>
-                    </div>
-                </div>
-            </div>
-            </form>
-        </div>
     </div>
 </div>
 
 <script>
-    const halaman = document.getElementById('halaman');
-    const detail = document.getElementById('detail');
-    const tambah = document.getElementById('tambah');
-    const btn_info = document.getElementsByClassName('btn_info');
-    const btn_edit = document.getElementsByClassName('btn_edit');
-    const btn_kembali = document.getElementById('btn_kembali');
-    const btn_simpan = document.getElementById('btn_simpan');
-    const btn_tambah = document.getElementById('btn_tambah');
-    const btn_hapus = document.getElementById('btn_hapus');
-    const detail_kategori = document.getElementById('kategori');
-    const detail_mapel = document.getElementById('mapel');
-    const detail_harga = document.getElementById('harga');
-    const detail_bonus = document.getElementById('bonus');
+    const halaman = $('#halaman');
+    const detail = $('#detail');
+    const btn_info = $('.btn_info');
+    const btn_edit = $('.btn_edit');
+    const btn_kembali = $('#btn_kembali');
+    const btn_simpan = $('#btn_simpan');
+    const btn_tambah = $('#btn_tambah');
+    const btn_hapus = $('#btn_hapus');
+    const detail_kategori = $('#kategori');
+    const detail_mapel = $('#mapel');
+    const detail_harga = $('#harga');
+    const detail_desk = $('#deskribsi');
 
-    detail.style.display = 'none'
-    tambah.style.display = 'none'
+    detail.hide()
 
 
-    btn_kembali.addEventListener('click', () => {
-        halaman.style.display = 'block'
-        detail.style.display = 'none'
-        tambah.style.display = 'none'
-    })
-    btn_tambah.addEventListener('click', () => {
-        tambah.style.display = 'block'
-        halaman.style.display = 'none'
-        detail.style.display = 'none'
+    btn_kembali.click(() => {
+        halaman.show()
+        detail.hide()
     })
 
     //untuk button info
-    Array.from(btn_info).forEach((elm) => {
-        elm.addEventListener('click', () => {
-            halaman.style.display = 'none'
-            tambah.style.display = 'none'
-            btn_simpan.style.display = 'none'
-            btn_hapus.style.display = 'block'
-            detail.style.display = 'block'
+    function tambah(baris) {
+        halaman.hide()
+        btn_simpan.show()
+        btn_hapus.hide()
+        detail.show()
 
-            fill_form(elm.parentNode.parentNode.parentNode.children)
-            toggle_form(true)
-        })
-    })
+        toggle_form(false)
+        reset_form()
+    }
 
-    // untuk button edit
-    Array.from(btn_edit).forEach((elm) => {
-        elm.addEventListener('click', () => {
-            btn_hapus.style.display = 'none'
-            btn_simpan.style.display = 'block'
-            tambah.style.display = 'none'
-            halaman.style.display = 'none'
-            detail.style.display = 'block'
+    //untuk button info
+    function info(baris) {
+        halaman.hide()
+        btn_simpan.hide()
+        btn_hapus.show()
+        detail.show()
 
-            fill_form(elm.parentNode.parentNode.parentNode.children)
-            toggle_form(false)
-        })
-    })
+        fill_form(baris.children)
+        toggle_form(true)
+    }
+
+    //untuk button info
+    function edit(baris) {
+        halaman.hide()
+        btn_simpan.hide()
+        btn_hapus.show()
+        detail.show()
+
+        fill_form(baris.children)
+        toggle_form(false)
+    }
 
     function toggle_form(isHide) {
-        detail_kategori.disabled = isHide;
-        detail_mapel.disabled = isHide;
-        detail_harga.disabled = isHide;
-        detail_bonus.disabled = isHide;
-
+        detail_kategori.prop('disabled', isHide);
+        detail_mapel.prop('disabled', isHide);
+        detail_harga.prop('disabled', isHide);
+        detail_desk.prop('disabled', isHide);
     }
 
     function fill_form(data) {
-        detail_kategori.value = data[1].textContent;
-        detail_mapel.value = data[2].textContent;
-        detail_harga.value = data[3].textContent;
-        detail_bonus.value = data[4].textContent;
+        detail_kategori.val(data[1].textContent);
+        detail_mapel.val(data[2].textContent);
+        detail_harga.val(data[3].textContent);
+        detail_desk.val(data[4].textContent);
+    }
+
+    function reset_form() {
+        detail_kategori.val('praktek');
+        detail_mapel.val('');
+        detail_harga.val('');
+        detail_desk.val('');
     }
 </script>

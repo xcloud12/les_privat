@@ -22,6 +22,7 @@
 </head>
 
 <body id="page-top">
+    <script src="/vendor/jquery/jquery.min.js"></script>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
