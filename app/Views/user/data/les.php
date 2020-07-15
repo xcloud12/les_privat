@@ -60,7 +60,7 @@
                 <button class="btn btn-secondary" id="btn_kembali"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</button>
                 <div class="d-sm-flex justify-content-end">
                     <button class="btn btn-danger" id="btn_hapus"><i class="fas fa-trash-alt"></i> Hapus Data</button>
-                    <button class="btn btn-primary" id="btn_simpan"><i class="fas fa-plus"></i> Simpan Data</button>
+                    <button class="btn btn-primary" id="btn_simpan"><i class="fas fa-save"></i> Simpan Data</button>
                 </div>
             </div>
 
@@ -135,9 +135,9 @@
     //untuk button info
     function info(baris) {
         halaman.hide()
+        detail.show()
         btn_simpan.hide()
         btn_hapus.show()
-        detail.show()
 
         fill_form(baris.children)
         toggle_form(true)
@@ -146,9 +146,9 @@
     //untuk button info
     function edit(baris) {
         halaman.hide()
-        btn_simpan.hide()
-        btn_hapus.show()
         detail.show()
+        btn_simpan.show()
+        btn_hapus.hide()
 
         fill_form(baris.children)
         toggle_form(false)

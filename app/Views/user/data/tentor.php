@@ -44,10 +44,10 @@
                                     <td hidden><?= $u['foto'] ?></td>
                                     <td>
                                         <center>
-                                            <button type="button" class="btn btn-info btn-sm btn_info">
+                                            <button type="button" class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
                                                 <i class="fas fa-info-circle"></i>
                                             </button>
-                                            <button class="btn btn-secondary btn-sm btn_edit">
+                                            <button class="btn btn-secondary btn-sm btn_edit" onclick="edit(parentElement.parentElement.parentElement)">
                                                 <i class="far fa-edit"></i>
                                             </button>
                                         </center>
@@ -70,7 +70,7 @@
                     <button class="btn btn-danger" id="btn_hapus"><i class="fas fa-trash-alt"></i> Hapus Data</button>
                     <button class="btn btn-danger mr-2" id="btn_reset_password"><i class="fas fa-key"></i> Reset Password</button>
 
-                    <button class="btn btn-primary" id="btn_simpan"><i class="fas fa-plus"></i> Simpan Data</button>
+                    <button class="btn btn-primary" id="btn_simpan"><i class="fas fa-save"></i> Simpan Data</button>
                 </div>
             </div>
 
@@ -140,80 +140,76 @@
 </div>
 
 <script>
-    const halaman = document.getElementById('halaman');
-    const detail = document.getElementById('detail');
-    const btn_info = document.getElementsByClassName('btn_info');
-    const btn_edit = document.getElementsByClassName('btn_edit');
-    const btn_kembali = document.getElementById('btn_kembali');
-    const btn_simpan = document.getElementById('btn_simpan');
-    const btn_hapus = document.getElementById('btn_hapus');
-    const btn_reset_password = document.getElementById('btn_reset_password');
-    const detail_nama = document.getElementById('nama');
-    const detail_username = document.getElementById('username');
-    const detail_email = document.getElementById('email');
-    const detail_tempat_lahir = document.getElementById('tempat_lahir');
-    const detail_tanggal_lahir = document.getElementById('tanggal_lahir');
-    const detail_jenis_kelamin = document.getElementById('jenis_kelamin');
-    const detail_alamat = document.getElementById('alamat');
-    const detail_no_telp = document.getElementById('no_telp');
-    const detail_foto = document.getElementById('foto');
+    const halaman = $('#halaman');
+    const detail = $('#detail');
+    const btn_info = $('.btn_info');
+    const btn_edit = $('.btn_edit');
+    const btn_kembali = $('#btn_kembali');
+    const btn_simpan = $('#btn_simpan');
+    const btn_hapus = $('#btn_hapus');
+    const btn_reset_password = $('#btn_reset_password');
+    const detail_nama = $('#nama');
+    const detail_username = $('#username');
+    const detail_email = $('#email');
+    const detail_tempat_lahir = $('#tempat_lahir');
+    const detail_tanggal_lahir = $('#tanggal_lahir');
+    const detail_jenis_kelamin = $('#jenis_kelamin');
+    const detail_alamat = $('#alamat');
+    const detail_no_telp = $('#no_telp');
+    const detail_foto = $('#foto');
 
-    detail.style.display = 'none'
+    detail.hide()
 
 
-    btn_kembali.addEventListener('click', () => {
-        halaman.style.display = 'block'
-        detail.style.display = 'none'
+    btn_kembali.click(() => {
+        halaman.show()
+        detail.hide()
     })
 
     //untuk button info
-    Array.from(btn_info).forEach((elm) => {
-        elm.addEventListener('click', () => {
-            halaman.style.display = 'none'
-            btn_simpan.style.display = 'none'
-            btn_hapus.style.display = 'block'
-            btn_reset_password.style.display = 'none'
-            detail.style.display = 'block'
+    function info(baris) {
+        halaman.hide()
+        btn_simpan.hide()
+        btn_hapus.show()
+        btn_reset_password.hide()
+        detail.show()
 
-            fill_form(elm.parentNode.parentNode.parentNode.children)
-            toggle_form(true)
-        })
-    })
+        fill_form(baris.children)
+        toggle_form(true)
+    }
 
     // untuk button edit
-    Array.from(btn_edit).forEach((elm) => {
-        elm.addEventListener('click', () => {
-            btn_hapus.style.display = 'none'
-            btn_simpan.style.display = 'block'
-            btn_reset_password.style.display = 'block'
-            halaman.style.display = 'none'
-            detail.style.display = 'block'
+    function edit(baris) {
+        btn_hapus.hide()
+        btn_simpan.show()
+        btn_reset_password.show()
+        halaman.hide()
+        detail.show()
 
-            fill_form(elm.parentNode.parentNode.parentNode.children)
-            toggle_form(false)
-        })
-    })
+        fill_form(baris.children)
+        toggle_form(false)
+    }
 
     function toggle_form(isHide) {
-        detail_nama.disabled = isHide;
-        detail_username.disabled = isHide;
-        detail_email.disabled = isHide;
-        detail_tempat_lahir.disabled = isHide;
-        detail_tanggal_lahir.disabled = isHide;
-        detail_jenis_kelamin.disabled = isHide;
-        detail_alamat.disabled = isHide;
-        detail_no_telp.disabled = isHide;
+        detail_nama.prop('disabled', isHide);
+        detail_username.prop('disabled', isHide);
+        detail_email.prop('disabled', isHide);
+        detail_tempat_lahir.prop('disabled', isHide);
+        detail_tanggal_lahir.prop('disabled', isHide);
+        detail_jenis_kelamin.prop('disabled', isHide);
+        detail_alamat.prop('disabled', isHide);
+        detail_no_telp.prop('disabled', isHide);
     }
 
     function fill_form(data) {
-        detail_nama.value = data[1].textContent;
-        detail_username.value = data[2].textContent;
-        detail_email.value = data[3].textContent;
-        detail_jenis_kelamin.value = data[4].textContent;
-        detail_tempat_lahir.value = data[5].textContent;
-        detail_tanggal_lahir.value = data[6].textContent;
-        detail_alamat.value = data[7].textContent;
-        detail_no_telp.value = data[9].textContent;
-        detail_foto.value = data[10].textContent;
+        detail_nama.val(data[1].textContent);
+        detail_username.val(data[2].textContent);
+        detail_email.val(data[3].textContent);
+        detail_jenis_kelamin.val(data[4].textContent);
+        detail_tempat_lahir.val(data[5].textContent);
+        detail_tanggal_lahir.val(data[6].textContent);
+        detail_alamat.val(data[7].textContent);
+        detail_no_telp.val(data[9].textContent);
+        detail_foto.val(data[10].textContent);
     }
 </script>
