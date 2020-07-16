@@ -14,7 +14,8 @@ class M_Pemesanan extends Model
         'id_peserta',
         'tgl_pesan',
         'diterima',
-        'banyak_pertemuan'
+        'banyak_pertemuan',
+        'deskripsi'
     ];
 
     public function create($data)

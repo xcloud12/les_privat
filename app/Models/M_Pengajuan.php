@@ -11,10 +11,12 @@ class M_Pengajuan extends Model
     protected $returnType    = 'array';
     protected $allowedFields = [
         'id_tentor',
+        'id_les',
         'hari',
         'aktif',
         'kode',
-        'jam_kerja'
+        'jam_kerja',
+        'deskripsi'
     ];
 
     public function create($data)
