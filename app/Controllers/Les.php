@@ -27,15 +27,62 @@ class Les extends BaseController
     {
         if (!$session->has('username')) {
             $session->destroy();
-            header('Location: http://localhost:8080/');
+            redirect()->to('/');
             exit;
         }
         switch ($session->get('level')) {
             case 'admin':
                 break;
             default:
-                header('Location: http://localhost:8080/dashboard');
+                redirect()->to('/dashboard');
                 exit;
         }
+    }
+
+    public function update($id)
+    {
+        if ($this->validate([
+            'kategori' => 'required',
+            'nama' => 'required',
+            'harga' => 'required',
+        ])) {
+            $model = new M_Les();
+
+            $data = [
+                'kategori' => $this->request->getVar('kategori'),
+                'nama' => $this->request->getVar('nama'),
+                'harga' => $this->request->getVar('harga'),
+                'deskripsi' => $this->request->getVar('deskripsi')
+            ];
+            $model->update($id, $data);
+            return redirect()->to('/data/les');
+        }
+    }
+
+    public function create()
+    {
+        if ($this->validate([
+            'kategori' => 'required',
+            'nama' => 'required',
+            'harga' => 'required',
+        ])) {
+            $model = new M_Les();
+
+            $data = [
+                'kategori' => $this->request->getVar('kategori'),
+                'nama' => $this->request->getVar('nama'),
+                'harga' => $this->request->getVar('harga'),
+                'deskripsi' => $this->request->getVar('deskripsi')
+            ];
+            $model->insert($data);
+            return redirect()->to('/data/les');
+        }
+    }
+
+    public function delete($id)
+    {
+        $model = new M_Les();
+        $model->delete($id);
+        return redirect()->to('/data/les');
     }
 }

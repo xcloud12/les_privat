@@ -15,6 +15,11 @@ class M_Les extends Model
         'harga',
         'deskripsi'
     ];
+    protected $validationRules    = [
+        'nama'     => 'required',
+        'kategori' => 'required',
+        'harga'    => 'required|numeric',
+    ];
 
     public function create($data)
     {

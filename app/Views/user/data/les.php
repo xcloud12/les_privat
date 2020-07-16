@@ -21,6 +21,7 @@
                                 <th>Nama Mata Pelajaran</th>
                                 <th>Harga</th>
                                 <th hidden></th>
+                                <th hidden></th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -28,23 +29,24 @@
                             <?php
                             $i = 1;
                             foreach ($les as $u) : ?>
-                                <tr>
-                                    <td><?= $i ?></td>
-                                    <td><?= $u['kategori'] ?></td>
-                                    <td><?= $u['nama'] ?></td>
-                                    <td><?= $u['harga'] ?></td>
-                                    <td hidden><?= $u['deskripsi'] ?></td>
-                                    <td>
-                                        <center>
-                                            <button class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
-                                                <i class="fas fa-info-circle"></i>
-                                            </button>
-                                            <button class="btn btn-secondary btn-sm btn_edit" onclick="edit(parentElement.parentElement.parentElement)">
-                                                <i class="far fa-edit"></i>
-                                            </button>
-                                        </center>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td><?= $i ?></td>
+                                <td><?= ucfirst($u['kategori']) ?></td>
+                                <td><?= $u['nama'] ?></td>
+                                <td><?= $u['harga'] ?></td>
+                                <td hidden><?= $u['deskripsi'] ?></td>
+                                <td hidden><?= $u['id_les'] ?></td>
+                                <td>
+                                    <center>
+                                        <button class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
+                                        <button class="btn btn-secondary btn-sm btn_edit" onclick="edit(parentElement.parentElement.parentElement)">
+                                            <i class="far fa-edit"></i>
+                                        </button>
+                                    </center>
+                                </td>
+                            </tr>
                             <?php
                                 $i++;
                             endforeach;
@@ -56,122 +58,133 @@
         </div>
         <div class="container-fluid" id="detail">
             <!-- Page Heading -->
-            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <button class="btn btn-secondary" id="btn_kembali"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</button>
-                <div class="d-sm-flex justify-content-end">
-                    <button class="btn btn-danger" id="btn_hapus"><i class="fas fa-trash-alt"></i> Hapus Data</button>
-                    <button class="btn btn-primary" id="btn_simpan"><i class="fas fa-save"></i> Simpan Data</button>
+            <form action="/data/les" method="post" id="form_submit">
+                <input type="hidden" name="_method" id='rest_method' value="PUT" />
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <a class="btn btn-secondary" id="btn_kembali" href="#"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</a>
+                    <div class="d-sm-flex justify-content-end">
+                        <button class="btn btn-danger" id="btn_hapus"><i class="fas fa-trash-alt"></i> Hapus Data</button>
+                        <button class="btn btn-primary" id="btn_simpan" type="submit" name="simpan"><i class="fas fa-save"></i> Simpan Data</button>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Content Row -->
+                <!-- Content Row -->
 
-            <div class="col-9">
-                <div class="form-group row">
-                    <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
-                    <div class="col-sm-10">
-                        <select class="form-control" id="kategori" name="kategori" required disabled>
-                            <option value="praktek">Praktek</option>
-                            <option value="teori">Teori</option>
-                        </select>
+                <div class="col-9">
+                    <div class="form-group row">
+                        <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="kategori" name="kategori" required disabled>
+                                <option value="praktek">Praktek</option>
+                                <option value="teori">Teori</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="mapel" class="col-sm-2 col-form-label">Nama Mata Pelajaran</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="nama" id="mapel" placeholder="Masukkan Mata Pelajaran" class="form-control" required disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="harga" class="col-sm-2 col-form-label">Harga</label>
+                        <div class="col-sm-10">
+                            <input type="number" name="harga" id='harga' placeholder="Masukkan Harga" class="form-control" required disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="deskripsi" id='deskripsi' placeholder="Masukkan deskripsi" class="form-control" disabled>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label for="mapel" class="col-sm-2 col-form-label">Nama Mata Pelajaran</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="mapel" id="mapel" placeholder="Masukkan Mata Pelajaran" class="form-control" required disabled>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="harga" class="col-sm-2 col-form-label">Harga</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="harga" id='harga' placeholder="Masukkan Harga" class="form-control" required disabled>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="deskribsi" class="col-sm-2 col-form-label">Deskribsi</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="deskribsi" id='deskribsi' placeholder="Masukkan Deskribsi" class="form-control" required disabled>
-                    </div>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
 
 <script>
-    const halaman = $('#halaman');
-    const detail = $('#detail');
-    const btn_info = $('.btn_info');
-    const btn_edit = $('.btn_edit');
-    const btn_kembali = $('#btn_kembali');
-    const btn_simpan = $('#btn_simpan');
-    const btn_tambah = $('#btn_tambah');
-    const btn_hapus = $('#btn_hapus');
-    const detail_kategori = $('#kategori');
-    const detail_mapel = $('#mapel');
-    const detail_harga = $('#harga');
-    const detail_desk = $('#deskribsi');
+const halaman = $('#halaman');
+const detail = $('#detail');
+const btn_info = $('.btn_info');
+const btn_edit = $('.btn_edit');
+const btn_kembali = $('#btn_kembali');
+const btn_simpan = $('#btn_simpan');
+const btn_tambah = $('#btn_tambah');
+const btn_hapus = $('#btn_hapus');
+const detail_kategori = $('#kategori');
+const detail_mapel = $('#mapel');
+const detail_harga = $('#harga');
+const detail_desk = $('#deskripsi');
+const rest_method = $("#rest_method")
+const form_submit = $('#form_submit');
 
+
+detail.hide()
+
+
+btn_kembali.click(() => {
+    halaman.show()
     detail.hide()
+})
 
+//untuk button info
+function tambah(baris) {
+    halaman.hide()
+    btn_simpan.show()
+    btn_hapus.hide()
+    detail.show()
+    rest_method.val('POST')
 
-    btn_kembali.click(() => {
-        halaman.show()
-        detail.hide()
-    })
+    toggle_form(false)
+    reset_form()
+}
 
-    //untuk button info
-    function tambah(baris) {
-        halaman.hide()
-        btn_simpan.show()
-        btn_hapus.hide()
-        detail.show()
+//untuk button info
+function info(baris) {
+    halaman.hide()
+    detail.show()
+    btn_simpan.hide()
+    btn_hapus.show()
+    rest_method.val('DELETE')
 
-        toggle_form(false)
-        reset_form()
-    }
+    fill_form(baris.children)
+    form_submit.prop('action', `/data/les/${baris.children[5].textContent}`)
+    toggle_form(true)
+}
 
-    //untuk button info
-    function info(baris) {
-        halaman.hide()
-        detail.show()
-        btn_simpan.hide()
-        btn_hapus.show()
+//untuk button info
+function edit(baris) {
+    halaman.hide()
+    detail.show()
+    btn_simpan.show()
+    btn_hapus.hide()
+    rest_method.val('PUT')
 
-        fill_form(baris.children)
-        toggle_form(true)
-    }
+    fill_form(baris.children)
+    form_submit.prop('action', `/data/les/${baris.children[5].textContent}`)
+    toggle_form(false)
+}
 
-    //untuk button info
-    function edit(baris) {
-        halaman.hide()
-        detail.show()
-        btn_simpan.show()
-        btn_hapus.hide()
+function toggle_form(isHide) {
+    detail_kategori.prop('disabled', isHide);
+    detail_mapel.prop('disabled', isHide);
+    detail_harga.prop('disabled', isHide);
+    detail_desk.prop('disabled', isHide);
+}
 
-        fill_form(baris.children)
-        toggle_form(false)
-    }
+function fill_form(data) {
+    detail_kategori.val(data[1].textContent.toLowerCase());
+    detail_mapel.val(data[2].textContent);
+    detail_harga.val(data[3].textContent);
+    detail_desk.val(data[4].textContent);
+}
 
-    function toggle_form(isHide) {
-        detail_kategori.prop('disabled', isHide);
-        detail_mapel.prop('disabled', isHide);
-        detail_harga.prop('disabled', isHide);
-        detail_desk.prop('disabled', isHide);
-    }
-
-    function fill_form(data) {
-        detail_kategori.val(data[1].textContent);
-        detail_mapel.val(data[2].textContent);
-        detail_harga.val(data[3].textContent);
-        detail_desk.val(data[4].textContent);
-    }
-
-    function reset_form() {
-        detail_kategori.val('praktek');
-        detail_mapel.val('');
-        detail_harga.val('');
-        detail_desk.val('');
-    }
+function reset_form() {
+    detail_kategori.val('praktek');
+    detail_mapel.val('');
+    detail_harga.val('');
+    detail_desk.val('');
+}
 </script>
