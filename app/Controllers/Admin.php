@@ -39,7 +39,7 @@ class Admin extends BaseController
 		}
 	}
 
-	public function update($id)
+	public function update($table, $id )
 	{
 		$model = new M_user();
 
@@ -56,13 +56,13 @@ class Admin extends BaseController
 
 		$model->update($id, $data);
 
-		return redirect()->to('/data/tentor');
+		return redirect()->to("/data/$table");
 	}
 
-	public function delete($id)
+	public function delete($table, $id)
 	{
 		$model = new M_user();
 		$model->delete($id);
-		return redirect()->to('/data/tentor');
+		return redirect()->to("/data/$table");
 	}
 }

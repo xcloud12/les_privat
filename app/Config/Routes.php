@@ -46,17 +46,22 @@ $routes->get('/logout', 'User::logout');
 $routes->post('/submit', 'User::daftar');
 $routes->get('/dashboard', 'User::index');
 
-// admin
+// update, delete data pengguna (tentor, peserta)
 $routes->get('/data/tentor', 'Admin::index/tentor');
-$routes->put('/data/tentor/(.*)', 'Admin::update/$1');
-$routes->delete('/data/tentor/(.*)', 'Admin::delete/$1');
-$routes->get('/data/pengajuan', 'Admin::index');
+$routes->put('/data/tentor/(.*)', 'Admin::update/tentor/$1');
+$routes->delete('/data/tentor/(.*)', 'Admin::delete/tentor/$1');
 $routes->get('/data/peserta', 'Admin::index/peserta');
-$routes->get('/data/pemesanan', 'Admin::index');
+$routes->put('/data/peserta/(.*)', 'Admin::update/peserta/$1');
+$routes->delete('/data/peserta/(.*)', 'Admin::delete/peserta/$1');
+
+// list, tambah, update, delete data les
 $routes->get('/data/les', 'Les::index');
 $routes->post('/data/les', 'Les::create');
 $routes->put('/data/les/(.*)', 'Les::update/$1');
 $routes->delete('/data/les/(.*)', 'Les::delete/$1');
+
+$routes->get('/data/pengajuan', 'Admin::index');
+$routes->get('/data/pemesanan', 'Admin::index');
 $routes->get('/data/rating', 'Admin::index');
 
 //tentor

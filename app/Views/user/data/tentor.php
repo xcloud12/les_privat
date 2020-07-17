@@ -32,29 +32,29 @@
                             <?php
                             $i = 1;
                             foreach ($user as $u) : ?>
-                            <tr>
-                                <td><?= $i ?></td>
-                                <td><?= $u['nama'] ?></td>
-                                <td><?= $u['username'] ?></td>
-                                <td><?= $u['email'] ?></td>
-                                <td><?= $u['jk'] ?></td>
-                                <td hidden><?= $u['tempat_lahir'] ?></td>
-                                <td hidden><?= $u['tgl_lahir'] ?></td>
-                                <td hidden><?= $u['alamat'] ?></td>
-                                <td hidden><?= $u['telp'] ?></td>
-                                <td hidden><?= $u['foto'] ?></td>
-                                <td hidden><?= $u['id_user'] ?></td>
-                                <td>
-                                    <center>
-                                        <button type="button" class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
-                                            <i class="fas fa-info-circle"></i>
-                                        </button>
-                                        <button class="btn btn-secondary btn-sm btn_edit" onclick="edit(parentElement.parentElement.parentElement)">
-                                            <i class="far fa-edit"></i>
-                                        </button>
-                                    </center>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td><?= $i ?></td>
+                                    <td><?= $u['nama'] ?></td>
+                                    <td><?= $u['username'] ?></td>
+                                    <td><?= $u['email'] ?></td>
+                                    <td><?= $u['jk'] ?></td>
+                                    <td hidden><?= $u['tempat_lahir'] ?></td>
+                                    <td hidden><?= $u['tgl_lahir'] ?></td>
+                                    <td hidden><?= $u['alamat'] ?></td>
+                                    <td hidden><?= $u['telp'] ?></td>
+                                    <td hidden><?= $u['foto'] ?></td>
+                                    <td hidden><?= $u['id_user'] ?></td>
+                                    <td>
+                                        <center>
+                                            <button type="button" class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
+                                                <i class="fas fa-info-circle"></i>
+                                            </button>
+                                            <button class="btn btn-secondary btn-sm btn_edit" onclick="edit(parentElement.parentElement.parentElement)">
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </center>
+                                    </td>
+                                </tr>
                             <?php
                                 $i++;
                             endforeach;
@@ -145,82 +145,82 @@
 </div>
 
 <script>
-const halaman = $('#halaman');
-const detail = $('#detail');
-const btn_info = $('.btn_info');
-const btn_edit = $('.btn_edit');
-const btn_kembali = $('#btn_kembali');
-const btn_simpan = $('#btn_simpan');
-const btn_hapus = $('#btn_hapus');
-const btn_reset_password = $('#btn_reset_password');
-const detail_nama = $('#nama');
-const detail_username = $('#username');
-const detail_email = $('#email');
-const detail_tempat_lahir = $('#tempat_lahir');
-const detail_tanggal_lahir = $('#tanggal_lahir');
-const detail_jenis_kelamin = $('#jenis_kelamin');
-const detail_alamat = $('#alamat');
-const detail_no_telp = $('#no_telp');
-const detail_foto = $('#foto');
-const rest_method = $("#rest_method")
-const form_submit = $('#form_submit');
+    const halaman = $('#halaman');
+    const detail = $('#detail');
+    const btn_info = $('.btn_info');
+    const btn_edit = $('.btn_edit');
+    const btn_kembali = $('#btn_kembali');
+    const btn_simpan = $('#btn_simpan');
+    const btn_hapus = $('#btn_hapus');
+    const btn_reset_password = $('#btn_reset_password');
+    const detail_nama = $('#nama');
+    const detail_username = $('#username');
+    const detail_email = $('#email');
+    const detail_tempat_lahir = $('#tempat_lahir');
+    const detail_tanggal_lahir = $('#tanggal_lahir');
+    const detail_jenis_kelamin = $('#jenis_kelamin');
+    const detail_alamat = $('#alamat');
+    const detail_no_telp = $('#no_telp');
+    const detail_foto = $('#foto');
+    const rest_method = $("#rest_method")
+    const form_submit = $('#form_submit');
 
-detail.hide()
-
-
-btn_kembali.click(() => {
-    halaman.show()
     detail.hide()
-})
 
-//untuk button info
-function info(baris) {
-    halaman.hide()
-    btn_simpan.hide()
-    btn_hapus.show()
-    btn_reset_password.hide()
-    detail.show()
-    rest_method.val('DELETE')
 
-    fill_form(baris.children)
-    form_submit.prop('action', `/data/tentor/${baris.children[10].textContent}`)
-    toggle_form(true)
-}
+    btn_kembali.click(() => {
+        halaman.show()
+        detail.hide()
+    })
 
-// untuk button edit
-function edit(baris) {
-    btn_hapus.hide()
-    btn_simpan.show()
-    btn_reset_password.show()
-    halaman.hide()
-    detail.show()
-    rest_method.val('PUT')
+    //untuk button info
+    function info(baris) {
+        halaman.hide()
+        btn_simpan.hide()
+        btn_hapus.show()
+        btn_reset_password.hide()
+        detail.show()
+        rest_method.val('DELETE')
 
-    fill_form(baris.children)
-    form_submit.prop('action', `/data/tentor/${baris.children[10].textContent}`)
-    toggle_form(false)
-}
+        fill_form(baris.children)
+        form_submit.prop('action', `/data/tentor/${baris.children[10].textContent}`)
+        toggle_form(true)
+    }
 
-function toggle_form(isHide) {
-    detail_nama.prop('disabled', isHide);
-    detail_username.prop('disabled', isHide);
-    detail_email.prop('disabled', isHide);
-    detail_tempat_lahir.prop('disabled', isHide);
-    detail_tanggal_lahir.prop('disabled', isHide);
-    detail_jenis_kelamin.prop('disabled', isHide);
-    detail_alamat.prop('disabled', isHide);
-    detail_no_telp.prop('disabled', isHide);
-}
+    // untuk button edit
+    function edit(baris) {
+        btn_hapus.hide()
+        btn_simpan.show()
+        btn_reset_password.show()
+        halaman.hide()
+        detail.show()
+        rest_method.val('PUT')
 
-function fill_form(data) {
-    detail_nama.val(data[1].textContent);
-    detail_username.val(data[2].textContent);
-    detail_email.val(data[3].textContent);
-    detail_jenis_kelamin.val(data[4].textContent);
-    detail_tempat_lahir.val(data[5].textContent);
-    detail_tanggal_lahir.val(data[6].textContent);
-    detail_alamat.val(data[7].textContent);
-    detail_no_telp.val(data[9].textContent);
-    detail_foto.val(data[10].textContent);
-}
+        fill_form(baris.children)
+        form_submit.prop('action', `/data/tentor/${baris.children[10].textContent}`)
+        toggle_form(false)
+    }
+
+    function toggle_form(isHide) {
+        detail_nama.prop('disabled', isHide);
+        detail_username.prop('disabled', isHide);
+        detail_email.prop('disabled', isHide);
+        detail_tempat_lahir.prop('disabled', isHide);
+        detail_tanggal_lahir.prop('disabled', isHide);
+        detail_jenis_kelamin.prop('disabled', isHide);
+        detail_alamat.prop('disabled', isHide);
+        detail_no_telp.prop('disabled', isHide);
+    }
+
+    function fill_form(data) {
+        detail_nama.val(data[1].textContent);
+        detail_username.val(data[2].textContent);
+        detail_email.val(data[3].textContent);
+        detail_jenis_kelamin.val(data[4].textContent);
+        detail_tempat_lahir.val(data[5].textContent);
+        detail_tanggal_lahir.val(data[6].textContent);
+        detail_alamat.val(data[7].textContent);
+        detail_no_telp.val(data[8].textContent);
+        detail_foto.val(data[9].textContent);
+    }
 </script>
