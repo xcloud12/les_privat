@@ -168,19 +168,20 @@
 
     detail.hide()
 
-
     btn_kembali.click(() => {
-        halaman.show()
-        detail.hide()
+        detail.fadeOut(300, () => {
+            halaman.fadeIn(300)
+        })
     })
 
     //untuk button info
     function info(baris) {
-        halaman.hide()
         btn_simpan.hide()
         btn_hapus.show()
         btn_reset_password.hide()
-        detail.show()
+        halaman.fadeToggle(300, () => {
+            detail.fadeToggle(300)
+        })
         rest_method.val('DELETE')
 
         fill_form(baris.children)
@@ -194,12 +195,13 @@
         btn_hapus.hide()
         btn_simpan.show()
         btn_reset_password.show()
-        halaman.hide()
-        detail.show()
+        halaman.fadeToggle(300, () => {
+            detail.fadeToggle(300)
+        })
         rest_method.val('PUT')
 
         fill_form(baris.children)
-        form_submit.prop('action', `/data/tentor/${baris.children[10].textContent}`)
+        form_submit.prop('action', `/data/peserta/${baris.children[10].textContent}`)
         toggle_form(false)
     }
 

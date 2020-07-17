@@ -29,24 +29,24 @@
                             <?php
                             $i = 1;
                             foreach ($les as $u) : ?>
-                            <tr>
-                                <td><?= $i ?></td>
-                                <td><?= ucfirst($u['kategori']) ?></td>
-                                <td><?= $u['nama'] ?></td>
-                                <td><?= $u['harga'] ?></td>
-                                <td hidden><?= $u['deskripsi'] ?></td>
-                                <td hidden><?= $u['id_les'] ?></td>
-                                <td>
-                                    <center>
-                                        <button class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
-                                            <i class="fas fa-info-circle"></i>
-                                        </button>
-                                        <button class="btn btn-secondary btn-sm btn_edit" onclick="edit(parentElement.parentElement.parentElement)">
-                                            <i class="far fa-edit"></i>
-                                        </button>
-                                    </center>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td><?= $i ?></td>
+                                    <td><?= ucfirst($u['kategori']) ?></td>
+                                    <td><?= $u['nama'] ?></td>
+                                    <td><?= $u['harga'] ?></td>
+                                    <td hidden><?= $u['deskripsi'] ?></td>
+                                    <td hidden><?= $u['id_les'] ?></td>
+                                    <td>
+                                        <center>
+                                            <button class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
+                                                <i class="fas fa-info-circle"></i>
+                                            </button>
+                                            <button class="btn btn-secondary btn-sm btn_edit" onclick="edit(parentElement.parentElement.parentElement)">
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </center>
+                                    </td>
+                                </tr>
                             <?php
                                 $i++;
                             endforeach;
@@ -105,86 +105,90 @@
 </div>
 
 <script>
-const halaman = $('#halaman');
-const detail = $('#detail');
-const btn_info = $('.btn_info');
-const btn_edit = $('.btn_edit');
-const btn_kembali = $('#btn_kembali');
-const btn_simpan = $('#btn_simpan');
-const btn_tambah = $('#btn_tambah');
-const btn_hapus = $('#btn_hapus');
-const detail_kategori = $('#kategori');
-const detail_mapel = $('#mapel');
-const detail_harga = $('#harga');
-const detail_desk = $('#deskripsi');
-const rest_method = $("#rest_method")
-const form_submit = $('#form_submit');
+    const halaman = $('#halaman');
+    const detail = $('#detail');
+    const btn_info = $('.btn_info');
+    const btn_edit = $('.btn_edit');
+    const btn_kembali = $('#btn_kembali');
+    const btn_simpan = $('#btn_simpan');
+    const btn_tambah = $('#btn_tambah');
+    const btn_hapus = $('#btn_hapus');
+    const detail_kategori = $('#kategori');
+    const detail_mapel = $('#mapel');
+    const detail_harga = $('#harga');
+    const detail_desk = $('#deskripsi');
+    const rest_method = $("#rest_method")
+    const form_submit = $('#form_submit');
 
 
-detail.hide()
-
-
-btn_kembali.click(() => {
-    halaman.show()
     detail.hide()
-})
 
-//untuk button info
-function tambah(baris) {
-    halaman.hide()
-    btn_simpan.show()
-    btn_hapus.hide()
-    detail.show()
-    rest_method.val('POST')
 
-    toggle_form(false)
-    reset_form()
-}
+    btn_kembali.click(() => {
+        detail.fadeOut(300, () => {
+            halaman.fadeIn(300)
+        })
+    })
 
-//untuk button info
-function info(baris) {
-    halaman.hide()
-    detail.show()
-    btn_simpan.hide()
-    btn_hapus.show()
-    rest_method.val('DELETE')
+    //untuk button info
+    function tambah(baris) {
+        btn_simpan.show()
+        btn_hapus.hide()
+        halaman.fadeToggle(300, () => {
+            detail.fadeToggle(300)
+        })
+        rest_method.val('POST')
 
-    fill_form(baris.children)
-    form_submit.prop('action', `/data/les/${baris.children[5].textContent}`)
-    toggle_form(true)
-}
+        toggle_form(false)
+        reset_form()
+    }
 
-//untuk button info
-function edit(baris) {
-    halaman.hide()
-    detail.show()
-    btn_simpan.show()
-    btn_hapus.hide()
-    rest_method.val('PUT')
+    //untuk button info
+    function info(baris) {
+        btn_simpan.hide()
+        btn_hapus.show()
+        halaman.fadeToggle(300, () => {
+            detail.fadeToggle(300)
+        })
+        rest_method.val('DELETE')
 
-    fill_form(baris.children)
-    form_submit.prop('action', `/data/les/${baris.children[5].textContent}`)
-    toggle_form(false)
-}
+        fill_form(baris.children)
+        form_submit.prop('action', `/data/les/${baris.children[5].textContent}`)
+        toggle_form(true)
+    }
 
-function toggle_form(isHide) {
-    detail_kategori.prop('disabled', isHide);
-    detail_mapel.prop('disabled', isHide);
-    detail_harga.prop('disabled', isHide);
-    detail_desk.prop('disabled', isHide);
-}
+    //untuk button info
+    function edit(baris) {
+        btn_simpan.show()
+        btn_hapus.hide()
+        halaman.fadeToggle(300, () => {
+            detail.fadeToggle(300)
+        })
+        rest_method.val('PUT')
 
-function fill_form(data) {
-    detail_kategori.val(data[1].textContent.toLowerCase());
-    detail_mapel.val(data[2].textContent);
-    detail_harga.val(data[3].textContent);
-    detail_desk.val(data[4].textContent);
-}
+        fill_form(baris.children)
+        form_submit.prop('action', `/data/les/${baris.children[5].textContent}`)
+        toggle_form(false)
+    }
 
-function reset_form() {
-    detail_kategori.val('praktek');
-    detail_mapel.val('');
-    detail_harga.val('');
-    detail_desk.val('');
-}
+    function toggle_form(isHide) {
+        detail_kategori.prop('disabled', isHide);
+        detail_mapel.prop('disabled', isHide);
+        detail_harga.prop('disabled', isHide);
+        detail_desk.prop('disabled', isHide);
+    }
+
+    function fill_form(data) {
+        detail_kategori.val(data[1].textContent.toLowerCase());
+        detail_mapel.val(data[2].textContent);
+        detail_harga.val(data[3].textContent);
+        detail_desk.val(data[4].textContent);
+    }
+
+    function reset_form() {
+        detail_kategori.val('praktek');
+        detail_mapel.val('');
+        detail_harga.val('');
+        detail_desk.val('');
+    }
 </script>
