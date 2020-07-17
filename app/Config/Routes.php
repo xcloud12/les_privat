@@ -48,11 +48,15 @@ $routes->get('/dashboard', 'User::index');
 
 // admin
 $routes->get('/data/tentor', 'Admin::index/tentor');
-$routes->put('/data/tentor', 'Admin::update'); // update data tentor
+$routes->put('/data/tentor/(.*)', 'Admin::update/$1');
+$routes->delete('/data/tentor/(.*)', 'Admin::delete/$1');
 $routes->get('/data/pengajuan', 'Admin::index');
 $routes->get('/data/peserta', 'Admin::index/peserta');
 $routes->get('/data/pemesanan', 'Admin::index');
-$routes->resource('/data/les', ['controller' => 'Les']);
+$routes->get('/data/les', 'Les::index');
+$routes->post('/data/les', 'Les::create');
+$routes->put('/data/les/(.*)', 'Les::update/$1');
+$routes->delete('/data/les/(.*)', 'Les::delete/$1');
 $routes->get('/data/rating', 'Admin::index');
 
 //tentor

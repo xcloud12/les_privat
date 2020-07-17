@@ -27,15 +27,42 @@ class Admin extends BaseController
 	{
 		if (!$session->has('username')) {
 			$session->destroy();
-			header('Location: http://localhost:8080/');
+			redirect()->to('/');
 			exit;
 		}
 		switch ($session->get('level')) {
 			case 'admin':
 				break;
 			default:
-				header('Location: http://localhost:8080/dashboard');
+				redirect()->to('/dashboard');
 				exit;
 		}
+	}
+
+	public function update($id)
+	{
+		$model = new M_user();
+
+		$data = [
+			'nama' => $this->request->getVar('nama'),
+			'username' => $this->request->getVar('username'),
+			'email' => $this->request->getVar('email'),
+			'tempat_lahir' => $this->request->getVar('tempat_lahir'),
+			'tgl_lahir' => $this->request->getVar('tanggal_lahir'),
+			'jk' => $this->request->getVar('jenis_kelamin'),
+			'alamat' => $this->request->getVar('alamat'),
+			'telp' => $this->request->getVar('no_telp'),
+		];
+
+		$model->update($id, $data);
+
+		return redirect()->to('/data/tentor');
+	}
+
+	public function delete($id)
+	{
+		$model = new M_user();
+		$model->delete($id);
+		return redirect()->to('/data/tentor');
 	}
 }
