@@ -60,7 +60,12 @@ $routes->post('/data/les', 'Les::create');
 $routes->put('/data/les/(.*)', 'Les::update/$1');
 $routes->delete('/data/les/(.*)', 'Les::delete/$1');
 
-$routes->get('/data/pengajuan', 'Admin::index');
+// master data pengajuan
+$routes->get('/data/pengajuan', 'Pengajuan::index');    // list all
+$routes->post('/data/pengajuan', 'Pengajuan::create');    // tambah
+$routes->put('/data/pengajuan/(\d+)', 'Pengajuan::update/$1');    // update
+$routes->delete('/data/pengajuan/(\d+)', 'Pengajuan::delete/$1');    // delete
+
 $routes->get('/data/pemesanan', 'Admin::index');
 $routes->get('/data/rating', 'Admin::index');
 
