@@ -60,7 +60,6 @@ $routes->delete('/data/les/(.*)', 'Les::delete/$1');
 
 // master data pengajuan
 $routes->get('/data/pengajuan', 'Pengajuan::index');    // list all
-$routes->post('/data/pengajuan', 'Pengajuan::create');    // tambah
 $routes->put('/data/pengajuan/(\d+)', 'Pengajuan::update/$1');    // update
 
 // jadwal
