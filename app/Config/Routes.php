@@ -38,8 +38,6 @@ $routes->get('/daftar', 'Pages::index');
 $routes->get('/ls', 'Pages::ls');
 $routes->get('/pengajuan', 'Pages::pengajuan');
 
-
-
 // user login, register
 $routes->post('/', 'User::login');
 $routes->get('/logout', 'User::logout');
@@ -64,13 +62,29 @@ $routes->delete('/data/les/(.*)', 'Les::delete/$1');
 $routes->get('/data/pengajuan', 'Pengajuan::index');    // list all
 $routes->post('/data/pengajuan', 'Pengajuan::create');    // tambah
 $routes->put('/data/pengajuan/(\d+)', 'Pengajuan::update/$1');    // update
-$routes->delete('/data/pengajuan/(\d+)', 'Pengajuan::delete/$1');    // delete
+
+// jadwal
+$routes->get('/data/jadwal', 'Jadwal::index');
+$routes->post('/data/jadwal', 'Jadwal::create'); // dilakukan otomatis ketika tentor menyetujui pemesanan les
+$routes->delete('/data/jadwal/(\d+)', 'Jadwal::delete'); // menandai bahwa les sudah selesai
 
 $routes->get('/data/pemesanan', 'Admin::index');
-$routes->get('/data/rating', 'Admin::index');
 
-//tentor
+// tentor
+$routes->get('/les', 'Tentor::les');
+$routes->post('/les', 'Tentor::pengajuan');
+$routes->put('/les/(\d+)', 'Tentor::edit_pengajuan/$1');
+$routes->get('/kinerja', 'Tentor::kinerja');
 
+// peserta
+$routes->get('/kelas', 'Peserta::kelas');
+$routes->post('/kelas', 'Peserta::ikut_kelas');
+$routes->put('/kelas/(\d+)', 'Peserta::ikut_kelas/$1');
+$routes->get('/jadwal', 'Peserta::jadwal');
+
+// khusus profil
+$routes->get('/profil', 'User::profil/tentor');
+$routes->put('/profil/(\d+)', 'User::update/$1');
 
 /**
  * --------------------------------------------------------------------
