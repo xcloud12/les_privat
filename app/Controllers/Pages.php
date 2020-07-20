@@ -27,6 +27,16 @@ class Pages extends Controller
 
     public function view($page = 'home')
     {
+        switch ($page) {
+            case 'home':
+            case 'login':
+                $session = session();
+                if ($session->has('username')){
+                    return redirect()->to('/dashboard');
+                }
+                break;
+        }
+        
         if (!is_file(APPPATH . '/Views/pages/' . $page . '.php')) {
             // Whoops, we don't have a page for that!
             throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
