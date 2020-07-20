@@ -75,8 +75,7 @@ class User extends Controller
                     $session->set($user);
 
                     // jump to '/dashboard'
-                    header('Location: http://localhost:8080/dashboard');
-                    exit;
+                    return redirect()->to("/dashboard");
                 }
             }
         }
@@ -93,16 +92,62 @@ class User extends Controller
     {
         $session = session();
         $session->destroy();
-        header('Location: http://localhost:8080/');
-        exit;
+        return redirect()->to("/");
     }
 
     protected function cek_login($session)
     {
         if (!$session->has('username')) {
             $session->destroy();
-            header('Location: http://localhost:8080/');
+            redirect()->to("/");
             exit;
         }
+    }
+
+    public function profil($akun)
+    {
+        // ambil data dari session
+        $sesi = session();
+        
+        $data = [
+            'title' => 'Profil',
+            'username' => $sesi->username,
+            'nama' => $sesi->nama,
+            'email' => $sesi->email,
+            'jk' => $sesi->jk,
+            'alamat' => $sesi->alamat,
+            'telp' => $sesi->telp,
+            'tempat_lahir' => $sesi->tempat_lahir,
+            'tgl_lahir' => $sesi->tgl_lahir,
+            'form_aksi' => '/profil/' . $sesi->id_user
+        ];
+
+        // tampilkan di halaman profil
+        echo view('templates/header', $data);
+        echo view("user/sidebar/$sesi->level", $data);
+        echo view("user/templates/profil", $data);
+        echo view('templates/footer', $data);
+    }
+
+    public function update($id)
+    {
+        $model = new M_user();
+
+        $data = [
+            'nama' => $this->request->getVar('nama'),
+            'username' => $this->request->getVar('username'),
+            'email' => $this->request->getVar('email'),
+            'tempat_lahir' => $this->request->getVar('tempat_lahir'),
+            'tgl_lahir' => $this->request->getVar('tanggal_lahir'),
+            'jk' => $this->request->getVar('jenis_kelamin'),
+            'alamat' => $this->request->getVar('alamat'),
+            'telp' => $this->request->getVar('no_telp'),
+        ];
+
+        $model->update($id, $data);
+        $sesi = session();
+        $sesi->set($data);
+
+        return redirect()->to("/dashboard");
     }
 }
