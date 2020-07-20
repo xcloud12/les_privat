@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion nt" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-book-reader"></i> <!-- Ubah Dulu Ikonnya-->
         </div>
@@ -12,37 +12,32 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider">
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+    <li class="nav-item  ">
+        <a class="nav-link" href="/profil">
             <i class="fas fa-address-card"></i>
-            <span>Profil Saya</span></a>
+            <span>Profil</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/les">
             <i class="fas fa-book"></i>
-            <span>Mata Pelajaran</span></a>
+            <span>LES</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/kinerja">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Kinerja Saya</span></a>
+            <span>Kinerja</span></a>
     </li>
 
-    <!-- <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-key"></i>
-            <span>Ubah Password</span></a>
-    </li> -->
-
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="far fa-comment-alt"></i>
-            <span>Ulasan</span></a>
-    </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
+
+    <li class="nav-item ">
+        <a class="nav-link" href="/logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span></a>
+    </li>
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

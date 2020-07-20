@@ -10,16 +10,6 @@
     </a>
 
     <!-- Divider -->
-    <hr class="sidebar-divider my-0">
-
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link" href="/dashboard">
-            <i class="fas fa-home"></i>
-            <span>Halaman Utama</span></a>
-    </li>
-
-    <!-- Divider -->
     <hr class="sidebar-divider">
 
     <!-- Heading -->
@@ -63,11 +53,11 @@
         </a>
     </li>
 
-    <!-- Menu Rating -->
+    <!-- Menu Jadwal -->
     <li class="nav-item">
-        <a class="nav-link" href="/data/rating">
-            <i class="fas fa-star"></i>
-            <span>Rating</span>
+        <a class="nav-link" href="/data/jadwal">
+            <i class="fa fa-list-alt"></i>
+            <span>Jadwal</span>
         </a>
     </li>
     <hr class="sidebar-divider">
