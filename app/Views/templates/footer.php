@@ -21,6 +21,18 @@
                 <link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
         <?php endif; ?>
 
+        <script>
+                // make .nav-item active
+                const nav = $('.nav-link');
+                const path = location.href;
+
+                nav.map((ind, elm) => {
+                        if (elm.href == path) {
+                                $(elm).parent().addClass('active')
+                        }
+                })
+        </script>
+
         </body>
 
         </html>
