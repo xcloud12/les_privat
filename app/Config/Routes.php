@@ -35,8 +35,10 @@ $routes->setAutoRoute(false);
 $routes->get('/', 'Pages::view/home');
 $routes->get('/login', 'Pages::view/login');
 $routes->get('/daftar', 'Pages::index');
+//test tampilan
 $routes->get('/ls', 'Pages::ls');
 $routes->get('/pengajuan', 'Pages::pengajuan');
+$routes->get('/profil', 'Pages::profil');
 
 // user login, register
 $routes->post('/', 'User::login');
