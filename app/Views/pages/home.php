@@ -26,6 +26,11 @@
             background: linear-gradient(to right, #0062E6, #33AEFF);
         }
 
+        .jumbo {
+            background-image: url("/img/jumbo.png");
+            background-repeat: repeat;
+        }
+
         /* .btn-primary,
         .btn-primary:active,
         .btn-primary:visited {
@@ -39,7 +44,7 @@
 </head>
 
 <body class="">
-    <div class="jumbotron jumbotron-fluid pt-5 shadow-lg" style="background-image: url(img/jumbo.jpg);">
+    <div class="jumbotron jumbotron-fluid pt-5 shadow-lg jumbo">
         <div class="container text-white">
             <div class="row">
                 <div class="col-sm-8 pt-3">
