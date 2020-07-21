@@ -85,6 +85,13 @@ $routes->get('/jadwal', 'Peserta::jadwal');
 $routes->get('/profil', 'User::profil/tentor');
 $routes->put('/profil/(\d+)', 'User::update/$1');
 
+// api for android
+$routes->post('/api/login',
+    'Api::login'
+);
+
+
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing
