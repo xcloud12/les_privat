@@ -4,21 +4,7 @@ namespace App\Controllers;
 
 use App\Models\M_Les;
 
-class Peserta extends BaseController
+class Peserta extends User
 {
-    public function index()
-    {
-        $les   = new M_Les();
-
-        $data = [
-            'title' => "Data Mata Pelajaran",
-            'les'  => $les->findAll(),
-            'table' => true
-        ];
-
-        echo view('templates/header', $data);
-        echo view('user/sidebar/admin', $data);
-        echo view("user/data/les", $data);
-        echo view('templates/footer');
-    }
+    
 }
