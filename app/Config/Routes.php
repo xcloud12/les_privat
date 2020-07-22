@@ -39,6 +39,7 @@ $routes->get('/daftar', 'Pages::index');
 $routes->get('/ls', 'Pages::ls');
 $routes->get('/pengajuan', 'Pages::pengajuan');
 $routes->get('/profil', 'Pages::profil');
+$routes->get('/ulasan', 'Pages::ulasan');
 
 // user login, register
 $routes->post('/', 'User::login');
@@ -88,7 +89,8 @@ $routes->get('/profil', 'User::profil/tentor');
 $routes->put('/profil/(\d+)', 'User::update/$1');
 
 // api for android
-$routes->post('/api/login',
+$routes->post(
+    '/api/login',
     'Api::login'
 );
 
