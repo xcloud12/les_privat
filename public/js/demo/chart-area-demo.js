@@ -11,7 +11,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
     sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
     dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
     s = '',
-    toFixedFix = function(n, prec) {
+    toFixedFix = function (n, prec) {
       var k = Math.pow(10, prec);
       return '' + Math.round(n * k) / k;
     };
@@ -32,11 +32,11 @@ var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
     datasets: [{
-      label: "Earnings",
+      label: "Rating ",
       lineTension: 0.3,
-      backgroundColor: "rgba(78, 115, 223, 0.05)",
+      backgroundColor: "rgba(78, 115, 223, 0.01)",
       borderColor: "rgba(78, 115, 223, 1)",
       pointRadius: 3,
       pointBackgroundColor: "rgba(78, 115, 223, 1)",
@@ -44,9 +44,9 @@ var myLineChart = new Chart(ctx, {
       pointHoverRadius: 3,
       pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
-      pointHitRadius: 10,
+      pointHitRadius: 1,
       pointBorderWidth: 2,
-      data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
+      data: [0, 5, 4, 3, 4, 4, 5, 2, 3, 4, 3, 5],
     }],
   },
   options: {
@@ -69,16 +69,16 @@ var myLineChart = new Chart(ctx, {
           drawBorder: false
         },
         ticks: {
-          maxTicksLimit: 7
+          maxTicksLimit: 12
         }
       }],
       yAxes: [{
         ticks: {
-          maxTicksLimit: 5,
-          padding: 10,
+          maxTicksLimit: 10,
+          padding: 5,
           // Include a dollar sign in the ticks
-          callback: function(value, index, values) {
-            return '$' + number_format(value);
+          callback: function (value, index, values) {
+            return number_format(value);
           }
         },
         gridLines: {
@@ -98,7 +98,7 @@ var myLineChart = new Chart(ctx, {
       bodyFontColor: "#858796",
       titleMarginBottom: 10,
       titleFontColor: '#6e707e',
-      titleFontSize: 14,
+      titleFontSize: 15,
       borderColor: '#dddfeb',
       borderWidth: 1,
       xPadding: 15,
@@ -108,9 +108,9 @@ var myLineChart = new Chart(ctx, {
       mode: 'index',
       caretPadding: 10,
       callbacks: {
-        label: function(tooltipItem, chart) {
+        label: function (tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return datasetLabel + ': Bintang ' + number_format(tooltipItem.yLabel);
         }
       }
     }
