@@ -75,6 +75,7 @@
                         <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
                         <div class="col-sm-10">
                             <select class="form-control" id="kategori" name="kategori" required disabled>
+                                <option selected disabled>-- Pilih Salah Satu --</option>
                                 <option value="praktek">Praktek</option>
                                 <option value="teori">Teori</option>
                             </select>
@@ -186,7 +187,7 @@
     }
 
     function reset_form() {
-        detail_kategori.val('praktek');
+        // detail_kategori.val('');
         detail_mapel.val('');
         detail_harga.val('');
         detail_desk.val('');
