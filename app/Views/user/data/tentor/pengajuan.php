@@ -18,9 +18,9 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="font-weight-bold text-secondary text-uppercase mb-2">Matematika (Teori)</div>
+                                        <div class="font-weight-bold text-dark text-uppercase mb-2">Matematika (Teori)</div>
                                         <div class=" mb-0 font-weight-normal text-gray-800"><span class="badge badge-pill badge-primary pt-1 pb-1">Day</span></div>
-                                        <div class="font-weight-light text-secondary mt-2">Rp. 200.000,-</div>
+                                        <div class="font-weight-light text-secondary mt-4">Rp. 200.000,-</div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-check-circle fa-2x text-primary"></i>
@@ -50,6 +50,7 @@
                         <label for="nama" class="col-sm-4 col-form-label font-weight-normal">Kategori Mata Pelajaran </label>
                         <div class="col-sm-8">
                             <select class="form-control" id="kategori" name="kategori">
+                                <option selected disabled>-- Pilih Salah Satu --</option>
                                 <option value="Praktek">Praktek</option>
                                 <option value="Teori">Teori</option>
                             </select>
