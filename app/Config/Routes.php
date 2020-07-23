@@ -39,6 +39,7 @@ $routes->get('/daftar', 'Pages::index');
 $routes->get('/ls', 'Pages::ls');
 $routes->get('/pengajuan', 'Pages::pengajuan');
 $routes->get('/profil', 'Pages::profil');
+$routes->get('/profil_peserta', 'Pages::profil_peserta');
 $routes->get('/ulasan', 'Pages::ulasan');
 
 // user login, register

@@ -44,6 +44,16 @@ class Pages extends Controller
         echo view('user/data/tentor/ulasan', $data);
         echo view('templates/footer', $data);
     }
+    public function profil_peserta()
+    {
+        $data = [
+            'title' => "Ulasan Saya"
+        ];
+        echo view('templates/header', $data);
+        echo view('user/sidebar/peserta', $data);
+        echo view('user/data/peserta/profil', $data);
+        echo view('templates/footer', $data);
+    }
 
     public function view($page = 'home')
     {
