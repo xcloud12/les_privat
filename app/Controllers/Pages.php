@@ -47,11 +47,21 @@ class Pages extends Controller
     public function profil_peserta()
     {
         $data = [
-            'title' => "Ulasan Saya"
+            'title' => "Profil Saya"
         ];
         echo view('templates/header', $data);
         echo view('user/sidebar/peserta', $data);
         echo view('user/data/peserta/profil', $data);
+        echo view('templates/footer', $data);
+    }
+    public function jadwal_peserta()
+    {
+        $data = [
+            'title' => "Jadwal Saya"
+        ];
+        echo view('templates/header', $data);
+        echo view('user/sidebar/peserta', $data);
+        echo view('user/data/peserta/jadwal', $data);
         echo view('templates/footer', $data);
     }
 

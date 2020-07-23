@@ -37,10 +37,11 @@ $routes->get('/login', 'Pages::view/login');
 $routes->get('/daftar', 'Pages::index');
 //test tampilan
 $routes->get('/ls', 'Pages::ls');
-$routes->get('/pengajuan', 'Pages::pengajuan');
-$routes->get('/profil', 'Pages::profil');
-$routes->get('/profil_peserta', 'Pages::profil_peserta');
-$routes->get('/ulasan', 'Pages::ulasan');
+$routes->get('/tentor/pengajuan', 'Pages::pengajuan');
+$routes->get('/tentor/profil', 'Pages::profil');
+$routes->get('/tentor/ulasan', 'Pages::ulasan');
+$routes->get('/peserta/profil', 'Pages::profil_peserta');
+$routes->get('/peserta/jadwal', 'Pages::jadwal_peserta');
 
 // user login, register
 $routes->post('/', 'User::login');
