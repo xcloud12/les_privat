@@ -37,7 +37,7 @@
                                     <td><?= $u['nama'] ?></td>
                                     <td><?= $u['username'] ?></td>
                                     <td><?= $u['email'] ?></td>
-                                    <td><?= $u['jk'] ?></td>
+                                    <td><?= $u['jk'] ?> </td>
                                     <td hidden><?= $u['tempat_lahir'] ?></td>
                                     <td hidden><?= $u['tgl_lahir'] ?></td>
                                     <td hidden><?= $u['alamat'] ?></td>
@@ -120,7 +120,8 @@
                             <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-10">
                                 <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required disabled>
-                                    <option selected value="L">Laki Laki</option>
+                                    <option disabled selected>-- Pilih Salah Satu --</option>
+                                    <option value="L">Laki Laki</option>
                                     <option value="P">Perempuan</option>
                                 </select>
                             </div>
