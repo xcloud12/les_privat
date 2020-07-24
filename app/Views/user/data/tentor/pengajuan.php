@@ -7,7 +7,7 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Daftar Mata Pelajaran</h1>
-                <button class="btn bg-gradient-primary btn-sm text-white" id="btn_tambah_jadwal"><i class="fas fa-plus fa-sm text-white"></i> Tambah Jadwal Baru</button>
+                <button class="btn bg-primary btn-sm text-white" id="btn_tambah_jadwal"><i class="fas fa-plus fa-sm text-white"></i> Tambah Jadwal Baru</button>
             </div>
 
             <!-- Content Row -->

@@ -19,8 +19,6 @@
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         /* body {
             background: #007bff;
@@ -53,57 +51,41 @@
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block ">
-                        <img src="img/murid1.png" id="murid" data-aos="fade-up" data-aos-duration="2000">
-                        <img src="img/tentor.png" id="tentor" data-aos="fade-up" data-aos-duration="2000" style="height: 100%; max-height: 550px; max-width: 320px;" align="right">
+                        <img src="img/murid1.png" id="murid">
+                        <img src="img/tentor.png" id="tentor" style="height: 100%; max-height: 550px; max-width: 320px;" align="right">
                     </div>
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Buat Akun Baru !</h1>
+                                <h1 class="h4 text-gray-900 mb-4 tentor">Buat Akun Tentor !</h1>
+                                <h1 class="h4 text-gray-900 mb-4 peserta">Buat Akun Peserta !</h1>
                             </div>
                             <!-- Dibawah ini form untuk tentor -->
                             <form class="user" id="form_tentor">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="tentor_nama" placeholder="Masukkan Nama Anda">
+                                    <input type="text" class="form-control form-control-user" id="nama_tentor" placeholder="Masukkan Nama Anda">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="tentor_email" placeholder="Masukkan Email Anda">
+                                    <input type="email" class="form-control form-control-user" id="email_tentor" placeholder="Masukkan Email Anda">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user" id="pas_tentor" placeholder="Masukkan Password">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" id="repas_tentor" placeholder="Masukkan Ulang Password">
-                                    </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user" id="pas_tentor" placeholder="Masukkan Password">
                                 </div>
                                 <button class="btn btn-primary btn-user btn-block" id="tentor_buton">Buat Akun Baru</button>
                                 <hr>
                             </form>
                             <!-- Dibawah Ini Untuk Murid -->
                             <form class="user" id="form_murid">
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Nama Awal">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Nama Belakang">
-                                    </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="nama_murid" placeholder="Masukkan Nama Anda">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+                                    <input type="email" class="form-control form-control-user" id="email_tentor" placeholder="Masukkan Email Anda">
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Ulangi Password">
-                                    </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-user" id="pas_tentor" placeholder="Masukkan Password">
                                 </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                    Buat Akun Baru
-                                </a>
+                                <button class="btn btn-primary btn-user btn-block" id="tentor_buton">Buat Akun Baru</button>
                                 <hr>
                             </form>
                             <div class="text-center d-flex justify-content-center">
@@ -132,43 +114,51 @@
     <script src="js/sb-admin-2.min.js"></script>
     <script>
         // untuk murid
-        const foto_murid = document.getElementById('murid');
-        const form_murid = document.getElementById('form_murid');
-        const link_murid = document.getElementById('btn_murid');
+        const foto_murid = $('#murid');
+        const form_murid = $('#form_murid');
+        const link_murid = $('#btn_murid');
+        const judul_murid = $('.peserta');
 
         // untuk tentor
-        const foto_tentor = document.getElementById('tentor');
-        const form_tentor = document.getElementById('form_tentor');
-        const link_tentor = document.getElementById('btn_tentor');
+        const foto_tentor = $('#tentor');
+        const form_tentor = $('#form_tentor');
+        const link_tentor = $('#btn_tentor');
+        const judul_tentor = $('.tentor');
 
-        foto_tentor.style.display = 'none'
-        form_tentor.style.display = 'none'
-        link_murid.style.display = 'none'
+        foto_tentor.hide()
+        form_tentor.hide()
+        link_murid.hide()
+        judul_tentor.hide()
 
-        link_tentor.addEventListener('click', () => {
-            foto_tentor.style.display = 'block'
-            form_tentor.style.display = 'block'
-            foto_murid.style.display = 'none'
-            form_murid.style.display = 'none'
-            link_tentor.style.display = 'none'
-            link_murid.style.display = 'block'
+        link_tentor.click(() => {
+            // foto_tentor.show()
+            link_tentor.hide()
+            foto_murid.fadeOut(200, () => {
+                foto_tentor.fadeIn(200)
+            })
+            link_murid.fadeIn(200)
+            form_tentor.show()
+            form_murid.hide()
+            judul_tentor.fadeIn(300)
+            judul_murid.hide()
         })
 
-        link_murid.addEventListener('click', () => {
-            foto_tentor.style.display = 'none'
-            form_tentor.style.display = 'none'
-            foto_murid.style.display = 'block'
-            form_murid.style.display = 'block'
-            link_tentor.style.display = 'block'
-            link_murid.style.display = 'none'
+        link_murid.click(() => {
+            form_tentor.hide()
+            form_murid.show()
+            foto_tentor.fadeOut(200, () => {
+                foto_murid.fadeIn(200)
+            })
+            link_tentor.fadeIn(200)
+            link_murid.hide()
+            judul_murid.fadeIn(300)
+            judul_tentor.hide()
+
         })
     </script>
 
     <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
 </body>
 
 </html>
