@@ -74,6 +74,16 @@ class Pages extends Controller
         echo view('user/data/peserta/jadwal', $data);
         echo view('templates/footer', $data);
     }
+    public function jadwal_admin()
+    {
+        $data = [
+            'title' => "Data Jadwal dan Ulasan"
+        ];
+        echo view('templates/header', $data);
+        echo view('user/sidebar/admin', $data);
+        echo view('user/data/jadwal', $data);
+        echo view('templates/footer', $data);
+    }
 
     public function view($page = 'home')
     {
