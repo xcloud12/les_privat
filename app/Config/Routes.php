@@ -41,6 +41,7 @@ $routes->get('/tentor/pengajuan', 'Pages::pengajuan');
 $routes->get('/tentor/profil', 'Pages::profil');
 $routes->get('/tentor/ulasan', 'Pages::ulasan');
 $routes->get('/peserta/profil', 'Pages::profil_peserta');
+$routes->get('/peserta/data_les', 'Pages::data_les_peserta');
 $routes->get('/peserta/jadwal', 'Pages::jadwal_peserta');
 
 // user login, register
