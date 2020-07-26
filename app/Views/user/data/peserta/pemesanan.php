@@ -7,7 +7,7 @@
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-2 text-gray-800">Data Les Saya</h1>
-                <button class="btn bg-primary btn-sm text-white pr-2 pl-2" id="btn_tambah_les"><i class="fas fa-plus fa-sm text-white"></i> Ikut Les Baru</button>
+                <button class="btn bg-primary text-white pr-2 pl-2" id="btn_tambah_les"><i class="fas fa-plus fa-sm text-white"></i> Ikut Les Baru</button>
             </div>
 
             <!-- Content Row -->
@@ -86,7 +86,7 @@
                 <div class="justify-content-start">
                     <button class="btn btn-secondary mb-2" id="btn_kembali_pemesanan"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</button>
                     <button class="btn btn-secondary mb-2" id="btn_kembali_edit_mapel"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</button>
-                    <h1 class="h3 mb-2 text-gray-800 mt-3" id="judul_pengajuan">Form Pemesanan</h1>
+                    <h1 class="h3 mb-2 text-gray-800 mt-3" id="judul_pengajuan">Mendaftar Les Baru</h1>
                     <h1 class="h3 mb-2 text-gray-800 mt-3" id="judul_mapel">Data Les Saya</h1>
                     <h1 class="h3 mb-2 text-gray-800 mt-3" id="judul_edit_mapel">Ubah Data Les</h1>
                 </div>
@@ -121,7 +121,7 @@
                     <div class="form-group row">
                         <label for="nama" class="col-sm-3 col-form-label">Tanggal Pemesanan</label>
                         <div class="col-sm-9">
-                            <input type="text" name="nama" id='tanggal_pemesanan' placeholder="Masukkan Tanggal Pemesanan" onfocus="(this.type='date')" class=" form-control" required disabled>
+                            <input type="date" name="nama" id='tanggal_pemesanan' placeholder="Masukkan Tanggal Pemesanan" onfocus="(this.type='date')" min="2000-01-01" class=" form-control" required disabled>
                         </div>
                     </div>
                     <div class="form-group row">

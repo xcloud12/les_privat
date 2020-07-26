@@ -42,9 +42,6 @@
                                         <button type="button" class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
                                             <i class="fas fa-info-circle"></i>
                                         </button>
-                                        <button class="btn btn-secondary btn-sm btn_edit" onclick="edit(parentElement.parentElement.parentElement)">
-                                            <i class="far fa-edit"></i>
-                                        </button>
                                     </center>
                                 </td>
                             </tr>

@@ -13,41 +13,48 @@
                 </div>
             </div>
             <!-- Content Row -->
-
             <div class="row justify-content-center">
-                <div class="col-3">
-                    <center>
-                        <img id="foto" class="rounded" style="max-width: 200px; max-height: 250px; " src="/img/images.png" alt="Profile Picture">
-                    </center>
-                </div>
-                <div class="col-6">
-                    <div class="form-group row">
-                        <label for="nama" class="col-sm-4 col-form-label">Nama</label>
-                        <label for="nama" class="col-sm-8 col-form-label">Isian nama tentor</label>
-                    </div>
-                    <div class="form-group row">
-                        <label for="email" class="col-sm-4 col-form-label">Email</label>
-                        <label for="email" class="col-sm-8 col-form-label">isian email</label>
-                    </div>
-                    <div class="form-group row">
-                        <label for="tempat_lahir" class="col-sm-4 col-form-label">Tempat lahir</label>
-                        <label for="tempat_lahir" class="col-sm-8 col-form-label">isian Tempat lahir</label>
-                    </div>
-                    <div class="form-group row">
-                        <label for="tanggal_lahir" class="col-sm-4 col-form-label">Tanggal lahir</label>
-                        <label for="tanggal_lahir" class="col-sm-8 col-form-label">isian Tanggal lahir</label>
-                    </div>
-                    <div class="form-group row">
-                        <label for="jenis_kelamin" class="col-sm-4 col-form-label">Jenis Kelamin</label>
-                        <label for="jenis_kelamin" class="col-sm-8 col-form-label">isian Jenis Kelamin</label>
-                    </div>
-                    <div class="form-group row">
-                        <label for="alamat" class="col-sm-4 col-form-label">Alamat</label>
-                        <label for="alamat" class="col-sm-8 col-form-label">isian Alamat</label>
-                    </div>
-                    <div class="form-group row">
-                        <label for="no_telp" class="col-sm-4 col-form-label">No Telp</label>
-                        <label for="no_telp" class="col-sm-8 col-form-label">isian No Telp</label>
+                <div class="col-xl-8 col-md-6 mb-4">
+                    <div class="card shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutter justify-content-between">
+                                <div class="col-4">
+                                    <center>
+                                        <img id="foto" class="rounded" style="max-width: 200px; max-height: 250px; " src="/img/images.png" alt="Profile Picture">
+                                    </center>
+                                </div>
+                                <div class="col-8">
+                                    <div class="form-group row">
+                                        <label for="nama" class="col-sm-4 col-form-label font-weight-bolder">Nama</label>
+                                        <label for="nama" class="col-sm-8 col-form-label">: Isian nama peserta</label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="email" class="col-sm-4 col-form-label font-weight-bolder">Email</label>
+                                        <label for="email" class="col-sm-8 col-form-label">: isian email</label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="tempat_lahir" class="col-sm-4 col-form-label font-weight-bolder">Tempat lahir</label>
+                                        <label for="tempat_lahir" class="col-sm-8 col-form-label">: isian Tempat lahir</label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="tanggal_lahir" class="col-sm-4 col-form-label font-weight-bolder">Tanggal lahir</label>
+                                        <label for="tanggal_lahir" class="col-sm-8 col-form-label">: isian Tanggal lahir</label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="jenis_kelamin" class="col-sm-4 col-form-label font-weight-bolder">Jenis Kelamin</label>
+                                        <label for="jenis_kelamin" class="col-sm-8 col-form-label">: isian Jenis Kelamin</label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="alamat" class="col-sm-4 col-form-label font-weight-bolder">Alamat</label>
+                                        <label for="alamat" class="col-sm-8 col-form-label">: isian Alamat</label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="no_telp" class="col-sm-4 col-form-label font-weight-bolder">No Telp</label>
+                                        <label for="no_telp" class="col-sm-8 col-form-label">: isian No Telp</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -107,7 +114,7 @@
                         <div class="form-group row">
                             <label for="tanggal_lahir" class="col-sm-2 col-form-label">Tanggal lahir</label>
                             <div class="col-sm-10">
-                                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="" min="1970-01-01" required disabled>
+                                <input type="text" class="form-control" id="tanggal_lahir" name="tanggal_lahir" placeholder="Masukkan Tanggal Lahir" onfocus="(this.type='date')" min="1930-01-01" required disabled>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -179,12 +186,11 @@
     halaman_edit.hide()
 
     btn_ubah_profil.click(() => {
-        form_control.prop('disabled', false);
+        form_control.prop('disabled', false)
         judul_ubah_data_diri.show()
         judul_ubah_pass.hide()
         halaman_awal.fadeOut(300, () => {
             form_group.prop('hidden', false)
-            form_nama.prop('disabled', true)
             form_email.prop('disabled', true)
             form_pass_lama.prop('hidden', true)
             form_pass_baru.prop('hidden', true)
@@ -213,6 +219,9 @@
         })
     })
 
+    function disable(isdisable) {
+        form_alamat.prop('disabled', isdisable);
+    }
 
     // function fill_form(data) {
     //     detail_nama.val(data[1].textContent);

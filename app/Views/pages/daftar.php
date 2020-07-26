@@ -51,45 +51,35 @@
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block ">
-                        <img src="img/murid1.png" id="murid">
+                        <img src="img/murid1.png" id="peserta">
                         <img src="img/tentor.png" id="tentor" style="height: 100%; max-height: 550px; max-width: 320px;" align="right">
                     </div>
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4 tentor">Buat Akun Tentor !</h1>
-                                <h1 class="h4 text-gray-900 mb-4 peserta">Buat Akun Peserta !</h1>
+                                <h1 class="h4 text-gray-900 mb-4 tentor">Buat Akun Tentor </h1>
+                                <h1 class="h4 text-gray-900 mb-4 peserta">Buat Akun Peserta </h1>
                             </div>
-                            <!-- Dibawah ini form untuk tentor -->
-                            <form class="user" id="form_tentor">
+                            <!-- Dibawah ini form mendaftar -->
+                            <form class="user">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="nama_tentor" placeholder="Masukkan Nama Anda">
+                                    <input type="text" class="form-control form-control-user" id="nama" placeholder="Masukkan Nama Anda">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="email_tentor" placeholder="Masukkan Email Anda">
+                                    <input type="email" class="form-control form-control-user" id="email" placeholder="Masukkan Email Anda">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-user" id="pas_tentor" placeholder="Masukkan Password">
-                                </div>
-                                <button class="btn btn-primary btn-user btn-block" id="tentor_buton">Buat Akun Baru</button>
-                                <hr>
-                            </form>
-                            <!-- Dibawah Ini Untuk Murid -->
-                            <form class="user" id="form_murid">
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="nama_murid" placeholder="Masukkan Nama Anda">
+                                    <input type="text" class="form-control form-control-user" id="username" placeholder="Masukkan Username Anda">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="email_tentor" placeholder="Masukkan Email Anda">
+                                    <input type="password" class="form-control form-control-user" id="pas" placeholder="Masukkan Password">
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control form-control-user" id="pas_tentor" placeholder="Masukkan Password">
-                                </div>
-                                <button class="btn btn-primary btn-user btn-block" id="tentor_buton">Buat Akun Baru</button>
+                                <button class="btn btn-primary btn-user btn-block" id="daftar_tentor">Buat Akun Tentor </button>
+                                <button class="btn btn-primary btn-user btn-block" id="daftar_peserta">Buat Akun Peserta </button>
                                 <hr>
                             </form>
                             <div class="text-center d-flex justify-content-center">
-                                <button class="btn text-primary shadow-none" id="btn_murid"> <small>Daftar Sebagai Murid ?</small> </button>
+                                <button class="btn text-primary shadow-none" id="btn_peserta"> <small>Daftar Sebagai Murid ?</small> </button>
                                 <button class="btn text-primary shadow-none" id="btn_tentor"> <small>Daftar Sebagai Tentor ?</small></button>
                             </div>
                             <div class="text-center mt-n2">
@@ -114,51 +104,53 @@
     <script src="js/sb-admin-2.min.js"></script>
     <script>
         // untuk murid
-        const foto_murid = $('#murid');
-        const form_murid = $('#form_murid');
-        const link_murid = $('#btn_murid');
-        const judul_murid = $('.peserta');
+        const foto_peserta = $('#peserta');
+        const link_peserta = $('#btn_peserta');
+        const daftar_peserta = $('#daftar_peserta');
+        const judul_peserta = $('.peserta');
 
         // untuk tentor
         const foto_tentor = $('#tentor');
-        const form_tentor = $('#form_tentor');
         const link_tentor = $('#btn_tentor');
+        const daftar_tentor = $('#daftar_tentor');
         const judul_tentor = $('.tentor');
 
         foto_tentor.hide()
-        form_tentor.hide()
-        link_murid.hide()
+        link_peserta.hide()
         judul_tentor.hide()
+        daftar_tentor.hide()
 
         link_tentor.click(() => {
             // foto_tentor.show()
-            link_tentor.hide()
-            foto_murid.fadeOut(200, () => {
+            link_tentor.fadeOut(200, () => {
+                link_peserta.fadeIn(200)
+            })
+            judul_peserta.fadeOut(200, () => {
+                judul_tentor.fadeIn(200)
+            })
+            daftar_peserta.fadeOut(200, () => {
+                daftar_tentor.fadeIn(200)
+            })
+            foto_peserta.fadeOut(200, () => {
                 foto_tentor.fadeIn(200)
             })
-            link_murid.fadeIn(200)
-            form_tentor.show()
-            form_murid.hide()
-            judul_tentor.fadeIn(300)
-            judul_murid.hide()
         })
 
-        link_murid.click(() => {
-            form_tentor.hide()
-            form_murid.show()
-            foto_tentor.fadeOut(200, () => {
-                foto_murid.fadeIn(200)
+        link_peserta.click(() => {
+            link_peserta.fadeOut(200, () => {
+                link_tentor.fadeIn(200)
             })
-            link_tentor.fadeIn(200)
-            link_murid.hide()
-            judul_murid.fadeIn(300)
-            judul_tentor.hide()
-
+            judul_tentor.fadeOut(200, () => {
+                judul_peserta.fadeIn(200)
+            })
+            daftar_tentor.fadeOut(200, () => {
+                daftar_peserta.fadeIn(200)
+            })
+            foto_tentor.fadeOut(200, () => {
+                foto_peserta.fadeIn(200)
+            })
         })
     </script>
-
-    <!-- AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 
 </html>
