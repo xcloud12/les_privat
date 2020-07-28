@@ -66,6 +66,15 @@
                                 <div class="card-body">
                                     <p class="font-weight-bold mb-1">Seto Mulyadi :</p>
                                     <p class="font-weight-light font-italic pb-3">"Pendidikan kita belum memenuhi tuntutan pendidikan karakter. Masih ada kekerasan di sekolah dan rumah, kurikulum semakin padat, dan cara mengajar yang belum ramah anak."</p>
+
+                                    <p class="font-weight-normal">Langkah langkah mengajukan diri untuk mengajar :</p>
+                                    <ol class="decimal mt-0">
+                                        <li style="margin-top: -12px">Pilih menu les</li>
+                                        <li>Tekan tombol tambah jadwal</li>
+                                        <li>Cari mata pelajaran yang ingin di ajarkan</li>
+                                        <li>Isi data yang dibutuhkan</li>
+                                        <li style="margin-bottom: 10px;">Pilih tombol ajukan</li>
+                                    </ol>
                                 </div>
                             </div>
                         </div>
