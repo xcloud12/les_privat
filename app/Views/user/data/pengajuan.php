@@ -14,23 +14,23 @@
                 <div class="table-responsive">
                     <table class="table table-bordered bgr table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
                         <thead class="thead-light">
-                            <tr>
-                                <th>#</th>
+                            <tr class="text-center">
+                                <th style="width: 1%;">#</th>
                                 <th>Kode</th>
                                 <th>Les</th>
                                 <th>Tentor</th>
                                 <th>Hari</th>
                                 <th>Jam</th>
                                 <th hidden>Deskripsi</th>
-                                <th hidden>Aktif</th>
-                                <th>Aksi</th>
+                                <th style="width: 2%;">Status</th>
+                                <th style="width: 2%;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $i = 1;
                             foreach ($pengajuan as $p) : ?>
-                                <tr>
+                                <tr class="text-center">
                                     <td><?= $i ?></td>
                                     <td><?= $p->kode ?></td>
                                     <td><?= $p->les ?></td>
@@ -45,14 +45,24 @@
                                     </td>
                                     <td><?= $p->jam_kerja ?></td>
                                     <td hidden><?= $p->deskripsi ?></td>
-                                    <td hidden><?= $p->aktif ?></td>
+                                    <td>
+                                        <!-- <?= $p->aktif ?> -->
+                                        <center>
+                                            <div class="rounded-circle text-center text-white bg-success btn btn-sm">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="rounded-circle text-center text-white bg-warning btn btn-sm" hidden>
+                                                <i class="fas fa-spinner"></i>
+                                            </div>
+                                            <div class="rounded-circle text-center text-white bg-danger btn btn-sm" hidden>
+                                                <i class="fas fa-times"></i>
+                                            </div>
+                                        </center>
+                                    </td>
                                     <td>
                                         <center>
                                             <button class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
                                                 <i class="fas fa-info-circle"></i>
-                                            </button>
-                                            <button class="btn btn-success btn-sm btn_edit" onclick="edit(parentElement.parentElement.parentElement)">
-                                                <i class="fas fa-check"></i>
                                             </button>
                                         </center>
                                     </td>
