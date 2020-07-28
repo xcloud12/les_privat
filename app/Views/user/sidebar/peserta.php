@@ -40,7 +40,7 @@
     <li class="nav-item">
         <a class="nav-link" href="/logout">
             <i class="fa fa-sign-out-alt"></i>
-            <span>Logout</span></a>
+            <span>Keluar</span></a>
     </li>
 
     <!-- Sidebar Toggler (Sidebar) -->
