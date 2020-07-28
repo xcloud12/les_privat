@@ -32,11 +32,17 @@ class Api extends BaseController
                         'username' => $user['username'],
                         'email' => $user['email'],
                         'nama' => $user['nama'],
+                        'jk' => $user['jk'],
+                        'alamat' => $user['alamat'],
+                        'telp' => $user['telp'],
+                        'tempat_lahir' => $user['tempat_lahir'],
+                        'tgl_lahir' => $user['tgl_lahir'],
+                        'foto' => $user['foto'],
                     ];
                     echo json_encode($respon);
                     return;
                 }
-            }
+            }   
         }
 
         // if error login
