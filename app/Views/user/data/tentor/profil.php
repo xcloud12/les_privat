@@ -26,31 +26,31 @@
                                 <div class="col-8">
                                     <div class="form-group row">
                                         <label for="nama" class="col-sm-4 col-form-label font-weight-bolder">Nama</label>
-                                        <label for="nama" class="col-sm-8 col-form-label">: Isian nama peserta</label>
+                                        <label for="nama" class="col-sm-8 col-form-label">: Budi Cahyono</label>
                                     </div>
                                     <div class="form-group row">
                                         <label for="email" class="col-sm-4 col-form-label font-weight-bolder">Email</label>
-                                        <label for="email" class="col-sm-8 col-form-label">: isian email</label>
+                                        <label for="email" class="col-sm-8 col-form-label">: budiasoy@gmail.com</label>
                                     </div>
                                     <div class="form-group row">
                                         <label for="tempat_lahir" class="col-sm-4 col-form-label font-weight-bolder">Tempat lahir</label>
-                                        <label for="tempat_lahir" class="col-sm-8 col-form-label">: isian Tempat lahir</label>
+                                        <label for="tempat_lahir" class="col-sm-8 col-form-label">: Bondowoso</label>
                                     </div>
                                     <div class="form-group row">
                                         <label for="tanggal_lahir" class="col-sm-4 col-form-label font-weight-bolder">Tanggal lahir</label>
-                                        <label for="tanggal_lahir" class="col-sm-8 col-form-label">: isian Tanggal lahir</label>
+                                        <label for="tanggal_lahir" class="col-sm-8 col-form-label">: 16/06/1985</label>
                                     </div>
                                     <div class="form-group row">
                                         <label for="jenis_kelamin" class="col-sm-4 col-form-label font-weight-bolder">Jenis Kelamin</label>
-                                        <label for="jenis_kelamin" class="col-sm-8 col-form-label">: isian Jenis Kelamin</label>
+                                        <label for="jenis_kelamin" class="col-sm-8 col-form-label">: Laki laki</label>
                                     </div>
                                     <div class="form-group row">
                                         <label for="alamat" class="col-sm-4 col-form-label font-weight-bolder">Alamat</label>
-                                        <label for="alamat" class="col-sm-8 col-form-label">: isian Alamat</label>
+                                        <label for="alamat" class="col-sm-8 col-form-label">: Jl pantura Bondowoso</label>
                                     </div>
                                     <div class="form-group row">
                                         <label for="no_telp" class="col-sm-4 col-form-label font-weight-bolder">No Telp</label>
-                                        <label for="no_telp" class="col-sm-8 col-form-label">: isian No Telp</label>
+                                        <label for="no_telp" class="col-sm-8 col-form-label">: 085234123612</label>
                                     </div>
                                 </div>
                             </div>
@@ -191,7 +191,6 @@
         judul_ubah_pass.hide()
         halaman_awal.fadeOut(300, () => {
             form_group.prop('hidden', false)
-            form_email.prop('disabled', true)
             form_pass_lama.prop('hidden', true)
             form_pass_baru.prop('hidden', true)
             halaman_edit.fadeIn(300)
