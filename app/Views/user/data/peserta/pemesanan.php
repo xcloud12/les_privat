@@ -18,10 +18,10 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="font-weight-bold text-secondary mb-2">Nama Mata Pelajaran (Teori)</div>
-                                        <div class="font-weight-normal text-secondary mb-0 mt-2 ">Nama tentor</div>
-                                        <div class="font-weight-light text-secondary mt-0"> Deskripsi</div>
-                                        <div class="font-weight-bold text-secondary mt-1"> status</div>
+                                        <div class="font-weight-bold text-secondary mb-2">Fisika (Teori)</div>
+                                        <div class="font-weight-normal text-secondary mb-0 mt-2 ">Yota Shinobu</div>
+                                        <div class="font-weight-light text-secondary mt-0"> Fisika Dasar</div>
+                                        <div class="font-weight-bold text-secondary mt-1"> diterima</div>
                                     </div>
                                 </div>
                             </div>
@@ -88,11 +88,8 @@
                     <button class="btn btn-secondary mb-2" id="btn_kembali_edit_mapel"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</button>
                     <h1 class="h3 mb-2 text-gray-800 mt-3" id="judul_pengajuan">Mendaftar Les Baru</h1>
                     <h1 class="h3 mb-2 text-gray-800 mt-3" id="judul_mapel">Data Les Saya</h1>
-                    <h1 class="h3 mb-2 text-gray-800 mt-3" id="judul_edit_mapel">Ubah Data Les</h1>
                 </div>
                 <div class=" justify-content-end">
-                    <button class="btn btn-secondary" id="btn_ubah"><i class="far fa-edit fa-sm text-white"></i> Ubah Data </button>
-                    <button class="btn btn-secondary" id="btn_simpan_perubahan"><i class="fas fa-plus fa-sm text-white"></i> Simpan Perubahan </button>
                     <button class="btn btn-secondary" id="btn_pesan"><i class="fas fa-plus fa-sm text-white"></i> Pesan Les </button>
                     <button class="btn btn-secondary" id="btn_batal"><i class="fas fa-times fa-sm text-white"></i> Batal</button>
                 </div>
@@ -115,7 +112,11 @@
                     <div class="form-group row">
                         <label for="nama" class="col-sm-3 col-form-label">Hari Mengajar</label>
                         <div class="col-sm-9">
-                            <input type="text" name="nama" id='hari_mengajar' placeholder="Hari Mengajar Tentor" class="form-control" required disabled>
+                            <select class="form-control" id="hari_mengajar" name="hari_mengajar" required disabled>
+                                <option selected disabled>-- Pilih Salah Satu --</option>
+                                <option value="">asasasa</option>
+                                <option value="">Teori</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -165,7 +166,6 @@
 
     //judul form
     const judul_form_pemesanan = $('#judul_pengajuan');
-    const judul_form_edit_mapel = $('#judul_edit_mapel');
     const judul_form_mapel = $('#judul_mapel');
 
     //atribut form
@@ -198,7 +198,6 @@
             form_pemesanan.fadeIn(300)
         })
         toggle_form(true)
-        judul_form_edit_mapel.hide()
         judul_form_pemesanan.hide()
         judul_form_mapel.show()
     })
@@ -211,7 +210,6 @@
         halaman_data_les.hide()
         toggle_form(true)
 
-        judul_form_edit_mapel.hide()
         judul_form_pemesanan.hide()
         judul_form_mapel.show()
     })
@@ -227,7 +225,6 @@
         btn_pesan.hide()
         btn_simpan_perubahan.show()
         btn_kembali_pemesanan.show()
-        btn_kembali_edit_mapel.hide()
         btn_ubah.hide()
         btn_batal.hide()
         form_pemilihah.hide()
@@ -261,10 +258,10 @@
         })
         toggle_form(true)
         form_tanggal_pemesanan.prop('disabled', false);
+        form_hari_mengajar.prop('disabled', false);
         form_banyak_pertemuan.prop('disabled', false);
         form_keterangan.prop('disabled', false);
 
-        judul_form_edit_mapel.hide()
         judul_form_pemesanan.show()
         judul_form_mapel.hide()
     })

@@ -17,9 +17,9 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="font-weight-bolder text-dark text-uppercase mb-3">Nama Mata Pelajaran</div>
-                                        <div class="font-weight-normal text-secondary mt-2">Nama Tentor</div>
-                                        <div class="font-weight-light text-secondary mt-0">Deskripsi</div>
+                                        <div class="font-weight-bolder text-dark text-uppercase mb-3">Fisika</div>
+                                        <div class="font-weight-normal text-secondary mt-2">Yota Shinobu</div>
+                                        <div class="font-weight-light text-secondary mt-0">Fisika Dasar </div>
                                     </div>
                                 </div>
                             </div>
