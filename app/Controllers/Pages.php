@@ -84,6 +84,16 @@ class Pages extends Controller
         echo view('user/data/jadwal', $data);
         echo view('templates/footer', $data);
     }
+    public function pemesanan_admin()
+    {
+        $data = [
+            'title' => "Data Pemesanan"
+        ];
+        echo view('templates/header', $data);
+        echo view('user/sidebar/admin', $data);
+        echo view('user/data/pemesanan', $data);
+        echo view('templates/footer', $data);
+    }
 
     public function view($page = 'home')
     {
