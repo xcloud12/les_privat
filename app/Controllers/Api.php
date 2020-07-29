@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\M_Jadwal;
 use App\Models\M_Les;
 use App\Models\M_user;
 
@@ -10,7 +11,6 @@ class Api extends BaseController
     public function login()
     {
         $model = new M_user();
-        $session = session();
 
         // form is filled
         if ($this->validate([
@@ -26,7 +26,7 @@ class Api extends BaseController
             if (!is_null($user)) {
                 // check password
                 if ($user['password'] == $password) {
-                    $respon =[
+                    $respon = [
                         'status' => 'success',
                         'level' => $user['level'],
                         'username' => $user['username'],
@@ -42,14 +42,30 @@ class Api extends BaseController
                     echo json_encode($respon);
                     return;
                 }
-            }   
+            }
         }
 
         // if error login
         $data = [
-            'status' => 'failed'    
+            'status' => 'failed'
         ];
         echo json_encode($data);
+        return;
+    }
+
+    public function myJadwal($username)
+    {
+        $db      = \Config\Database::connect();
+        $user    = $db->table('user');
+        $jadwal  = new M_Jadwal();
+        $session = session();
+
+        // get user level
+        $level = $user->select('level')->where('username', "$username")->get()->getResultArray();
+        $level = $level[0]['level'];
+        
+        $myJadwal = $level=='tentor' ? $jadwal->tentorJadwal($username) : $jadwal->pesertaJadwal($username);
+        echo json_encode($myJadwal);
         return;
     }
 }

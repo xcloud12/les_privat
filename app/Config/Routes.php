@@ -98,6 +98,14 @@ $routes->post(
     '/api/login',
     'Api::login'
 );
+$routes->get(
+    '/api/jadwal/(\d+)',
+    'Api::detailJadwal/$1'
+);
+$routes->get(
+    '/api/jadwal/(.+)',
+    'Api::myJadwal/$1'
+);
 
 
 
