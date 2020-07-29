@@ -83,38 +83,54 @@
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <a class="btn btn-secondary" id="btn_kembali" href="#"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</a>
                     <div class="d-sm-flex justify-content-end">
-                        <button class="btn btn-danger" id="btn_hapus"><i class="fas fa-trash-alt"></i> Hapus Data</button>
-                        <button class="btn btn-primary" id="btn_simpan" type="submit" name="simpan"><i class="fas fa-save"></i> Simpan Data</button>
+                        <button class="btn btn-primary" id="btn_terima"><i class="fas fas fa-check"></i> Terima</button>
+                        <button class="btn btn-danger ml-2" id="btn_tolak"><i class="fas fa-times"></i> Tolak</button>
                     </div>
                 </div>
 
                 <!-- Content Row -->
-                <div class="col-9">
-                    <div class="form-group row">
-                        <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
-                        <div class="col-sm-10">
-                            <select class="form-control" id="kategori" name="kategori" required disabled>
-                                <option value="praktek">Praktek</option>
-                                <option value="teori">Teori</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="mapel" class="col-sm-2 col-form-label">Nama Mata Pelajaran</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="nama" id="mapel" placeholder="Masukkan Mata Pelajaran" class="form-control" required disabled>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="harga" class="col-sm-2 col-form-label">Harga</label>
-                        <div class="col-sm-10">
-                            <input type="number" name="harga" id='harga' placeholder="Masukkan Harga" class="form-control" required disabled>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="deskripsi" id='deskripsi' placeholder="Masukkan deskripsi" class="form-control" disabled>
+                <div class="row justify-content-center align-content-start">
+                    <div class="col-xl-10 col-sm-8 mb-4">
+                        <div class="card shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutter">
+                                    <div class="col-sm-4">
+                                        <center>
+                                            <img id="foto" class="rounded" style="max-width: 200px; max-height: 250px; " src="/img/images.png" alt="Profile Picture">
+                                        </center>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="form-group row">
+                                            <label for="nama" class="col-sm-4 col-form-label font-weight-bolder">Nama Tentor</label>
+                                            <label for="nama" class="col-sm-7 col-form-label">Budi Cahyono</label>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email" class="col-sm-4 col-form-label font-weight-bolder">Mata Pelajaran</label>
+                                            <label for="email" class="col-sm-7 col-form-label"> Fisika</label>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="tempat_lahir" class="col-sm-4 col-form-label font-weight-bolder">Hari Mengajar</label>
+                                            <label for="tempat_lahir" class="col-sm-7 col-form-label float-left"> Senin, Selasa, Rabu</label>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="tanggal_lahir" class="col-sm-4 col-form-label font-weight-bolder">Jam Mengajar</label>
+                                            <label for="tanggal_lahir" class="col-sm-7 col-form-label">14.00 - 16.00</label>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="jenis_kelamin" class="col-sm-4 col-form-label font-weight-bolder">Deskripsi</label>
+                                            <label for="jenis_kelamin" class="col-sm-7 col-form-label">Fisika Kelas 1 untuk SMA</label>
+                                        </div>
+                                        <div class="form-group row mt-5">
+                                            <label for="alamat" class="col-sm-4 col-form-label font-weight-bolder">Kode</label>
+                                            <label for="alamat" class="col-sm-7 col-form-label text-uppercase">xg12g1hgvvj2</label>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="no_telp" class="col-sm-4 col-form-label font-weight-bolder">Status</label>
+                                            <label for="no_telp" class="col-sm-7 col-form-label">Pending</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

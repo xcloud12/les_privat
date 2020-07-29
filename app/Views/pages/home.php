@@ -172,7 +172,8 @@
             <a href="https://www.google.com/maps/place/Universitas+Nurul+Jadid/@-7.709959,113.498029,15z/data=!4m5!3m4!1s0x0:0xf34d3ceb3f9ddf2c!8m2!3d-7.709959!4d113.498029" target="blank" class="text-decoration-none">
                 <span style="font-size: 40px; color: aliceblue;"><i class="fas fa-map-marker-alt"></i></span>
                 <p class="text-white ">
-                    Jl. Pondok Pesantren Nurul Jadid, Karanganyar <br> Paiton, Probolinggo, Jawa Timur
+                    Jl. Pondok Pesantren Nurul Jadid, Karanganyar <br> Paiton, Probolinggo, Jawa Timur <br> (0335) 771732
+
                 </p>
             </a>
         </div>
@@ -181,7 +182,7 @@
                 <img src="/img/logo.png" style="width: 100px; height: 100px; opacity: 0.8;">
             </center>
             <div class="text-white h6 font-weight-normal pt-2">
-                LPPK adalah suatu lembaga untuk menyalurkan kreatifitas untuk memompang minat dan bakat dari mahasiswa, dan diharapkan dapat bermanfaat bagi Universitas Nurul Jadid dan sekitarnya.
+                LPPK adalah suatu lembaga dibawah naungan Universitas Nurul Jadidi dan digunakan untuk menyalurkan kreatifitas untuk memompang minat dan bakat dari mahasiswa, dan diharapkan dapat bermanfaat bagi Universitas Nurul Jadid dan sekitarnya.
             </div>
             <div class="text-white justify-content-around pt-1 pb-5">
                 <a href="https://web.facebook.com/universitasnuruljadid" target="blank" class="text-decoration-none text-white pl-1"><i class="fab fa-facebook-square" style="font-size: 17px;"></i></a>
