@@ -37,11 +37,11 @@ $routes->get('/login', 'Pages::view/login');
 $routes->get('/daftar', 'Pages::index');
 //test tampilan
 $routes->get('/ls', 'Pages::ls');
-$routes->get('/tentor/pengajuan', 'Pages::pengajuan');
+$routes->get('/tentor/les', 'Pages::pengajuan');
 $routes->get('/tentor/profil', 'Pages::profil');
-$routes->get('/tentor/ulasan', 'Pages::ulasan');
+$routes->get('/tentor/kinerja', 'Pages::ulasan');
 $routes->get('/peserta/profil', 'Pages::profil_peserta');
-$routes->get('/peserta/data_les', 'Pages::data_les_peserta');
+$routes->get('/peserta/kelas', 'Pages::data_les_peserta');
 $routes->get('/peserta/jadwal', 'Pages::jadwal_peserta');
 $routes->get('/data/jadwal', 'Pages::jadwal_admin');
 $routes->get('/data/pemesanan  ', 'Pages::pemesanan_admin');

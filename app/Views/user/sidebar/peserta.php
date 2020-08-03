@@ -14,21 +14,21 @@
 
     <!-- Menu Utama -->
     <li class="nav-item">
-        <a class="nav-link" href="/profil">
+        <a class="nav-link" href="/peserta/profil">
             <i class="fas fa-address-card"></i>
             <span>Profil</span></a>
     </li>
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="/kelas">
+        <a class="nav-link" href="/peserta/kelas">
             <i class="fas fa-list"></i>
             <span>Kelas</span></a>
     </li>
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="/jadwal">
+        <a class="nav-link" href="/peserta/jadwal">
             <i class="far fa-calendar-plus"></i>
             <span>Jadwal</span></a>
     </li>
