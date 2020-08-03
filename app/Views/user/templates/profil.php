@@ -5,7 +5,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid" id="detail">
             <!-- Page Heading -->
-            <form action="<?= $form_aksi ?>" method="post" id="form_submit">
+            <form action="<?= $form_aksi ?>" method="post" id="form_submit" enctype="multipart/form-data">
                 <input type="hidden" name="_method" id='rest_method' value="PUT" />
                 <div class="d-sm-flex flex-row justify-content-end align-items-center mb-4">
                     <button class="btn btn-danger mr-2" id="btn_reset_password"><i class="fas fa-key"></i> Reset Password</button>
@@ -16,7 +16,8 @@
                 <div class="row">
                     <div class="col-3">
                         <center>
-                            <img id="foto" class="rounded" style="max-width: 200px; max-height: 250px; " src="/img/images.png" alt="Profile Picture">
+                            <img id="foto" class="rounded" style="max-width: 200px; max-height: 250px; " src="<?= $foto ?>" alt="Profile Picture">
+                            <input hidden type="file" id="foto_dialog" name="foto">
                         </center>
                     </div>
                     <div class="col-9">
@@ -24,18 +25,6 @@
                             <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                             <div class="col-sm-10">
                                 <input type="text" name="nama" id='nama' placeholder="Masukkan Nama" class="form-control" required value="<?= $nama ?>">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="username" class="col-sm-2 col-form-label">Username</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="username" id='username' placeholder="Masukkan Username" class="form-control" required value="<?= $username ?>">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="email" name="email" id='email' placeholder="email@email.com" class="form-control" required value="<?= $email ?>">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -53,9 +42,13 @@
                         <div class="form-group row">
                             <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-10">
-                                <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required >
-                                    <option <?php if ($jk=='L'){echo 'selected';} ?> value="L">Laki Laki</option>
-                                    <option <?php if ($jk=='P'){echo 'selected';} ?> value="P">Perempuan</option>
+                                <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
+                                    <option <?php if ($jk == 'L') {
+                                                echo 'selected';
+                                            } ?> value="L">Laki Laki</option>
+                                    <option <?php if ($jk == 'P') {
+                                                echo 'selected';
+                                            } ?> value="P">Perempuan</option>
                                 </select>
                             </div>
                         </div>
@@ -77,3 +70,10 @@
         </div>
     </div>
 </div>
+<script>
+    const foto_img = $("#foto");
+    const foto_dialog = $("#foto_dialog")
+    foto_img.click(()=>{
+        foto_dialog.click();
+    })
+</script>

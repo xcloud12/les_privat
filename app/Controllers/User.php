@@ -108,18 +108,19 @@ class User extends Controller
     {
         // ambil data dari session
         $sesi = session();
-        
+
         $data = [
-            'title' => 'Profil',
-            'username' => $sesi->username,
-            'nama' => $sesi->nama,
-            'email' => $sesi->email,
-            'jk' => $sesi->jk,
-            'alamat' => $sesi->alamat,
-            'telp' => $sesi->telp,
+            'title'        => 'Profil',
+            'username'     => $sesi->username,
+            'nama'         => $sesi->nama,
+            'email'        => $sesi->email,
+            'jk'           => $sesi->jk,
+            'alamat'       => $sesi->alamat,
+            'telp'         => $sesi->telp,
             'tempat_lahir' => $sesi->tempat_lahir,
-            'tgl_lahir' => $sesi->tgl_lahir,
-            'form_aksi' => '/profil/' . $sesi->id_user
+            'tgl_lahir'    => $sesi->tgl_lahir,
+            'foto'         => "/img/img_profil/" . $sesi->foto,
+            'form_aksi'    => '/profil/' . $sesi->id_user
         ];
 
         // tampilkan di halaman profil
@@ -132,16 +133,20 @@ class User extends Controller
     public function update($id)
     {
         $model = new M_user();
+        $sesi = session();
+
+        $foto = $this->request->getFile('foto');
+        $foto_new_name = $sesi->username . ".jpg";
+        $foto->move(FCPATH . "img/img_profil", $foto_new_name, true);
 
         $data = [
             'nama' => $this->request->getVar('nama'),
-            'username' => $this->request->getVar('username'),
-            'email' => $this->request->getVar('email'),
             'tempat_lahir' => $this->request->getVar('tempat_lahir'),
             'tgl_lahir' => $this->request->getVar('tanggal_lahir'),
             'jk' => $this->request->getVar('jenis_kelamin'),
             'alamat' => $this->request->getVar('alamat'),
             'telp' => $this->request->getVar('no_telp'),
+            'foto' => $foto_new_name
         ];
 
         $model->update($id, $data);
