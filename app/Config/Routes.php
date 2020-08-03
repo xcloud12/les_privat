@@ -90,7 +90,7 @@ $routes->put('/kelas/(\d+)', 'Peserta::ikut_kelas/$1');
 $routes->get('/jadwal', 'Peserta::jadwal');
 
 // khusus profil
-$routes->get('/profil', 'User::profil/tentor');
+$routes->get('/profil', 'User::profil');
 $routes->put('/profil/(\d+)', 'User::update/$1');
 
 // api for android

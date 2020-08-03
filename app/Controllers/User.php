@@ -104,7 +104,7 @@ class User extends Controller
         }
     }
 
-    public function profil($akun)
+    public function profil()
     {
         // ambil data dari session
         $sesi = session();
