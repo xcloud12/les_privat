@@ -17,7 +17,7 @@
                     <div class="col-3">
                         <center>
                             <img id="foto" class="rounded" style="max-width: 200px; max-height: 250px; " src="<?= $foto ?>" alt="Profile Picture">
-                            <input hidden type="file" id="foto_dialog" name="foto">
+                            <input hidden type="file" id="foto_dialog" name="foto" accept="image/jpeg">
                         </center>
                     </div>
                     <div class="col-9">
