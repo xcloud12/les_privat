@@ -13,6 +13,7 @@ class M_Pemesanan extends Model
         'id_pengajuan',
         'id_peserta',
         'tgl_pesan',
+        'hari',
         'diterima',
         'banyak_pertemuan',
         'deskripsi'

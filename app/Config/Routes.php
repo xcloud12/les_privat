@@ -85,8 +85,8 @@ $routes->get('/kinerja', 'Tentor::kinerja');
 
 // peserta
 $routes->get('/kelas', 'Peserta::kelas');
-$routes->post('/kelas', 'Peserta::ikut_kelas');
-$routes->put('/kelas/(\d+)', 'Peserta::ikut_kelas/$1');
+$routes->post('/kelas/(\d+)', 'Peserta::ikut_kelas/$1');
+$routes->put('/kelas/(\d+)', 'Peserta::update_kelas/$1');
 $routes->get('/jadwal', 'Peserta::jadwal');
 
 // khusus profil
@@ -110,7 +110,14 @@ $routes->get(
     '/api/get_les_by_kategori/(.*)',
     'Api::getLesByKategori/$1'
 );
-
+$routes->get(
+    '/api/get_les_by_name/(.*)',
+    'Api::getLesByName/$1'
+);
+$routes->get(
+    '/api/pesan_les/(.*)',
+    'Api::pesanLes/$1'
+);
 
 
 /**
