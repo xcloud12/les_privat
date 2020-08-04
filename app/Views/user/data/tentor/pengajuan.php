@@ -275,6 +275,8 @@
         btn_batal.hide()
         form_pemilihah.hide()
         $("#form_submit").attr('action', `/les/${idPengajuan}`)
+        $("#rest_method").val('PUT')
+
         toggle_form(false)
         form_nama_mapel.prop('disabled', true);
 
