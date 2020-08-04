@@ -38,7 +38,6 @@
                     </div>
                 <?php endforeach; ?>
             </div>
-            <?php d($pemesanan); ?>
 
         </div>
         <div class="container-fluid" id="form_pemilihan">
