@@ -79,7 +79,7 @@ $routes->get('/data/pemesanan', 'Admin::index');
 
 // tentor
 $routes->get('/les', 'Tentor::les');
-$routes->post('/les', 'Tentor::pengajuan');
+$routes->post('/les/(\d+)', 'Tentor::pengajuan/$1');
 $routes->put('/les/(\d+)', 'Tentor::edit_pengajuan/$1');
 $routes->get('/kinerja', 'Tentor::kinerja');
 
@@ -105,6 +105,10 @@ $routes->get(
 $routes->get(
     '/api/jadwal/(.+)',
     'Api::myJadwal/$1'
+);
+$routes->get(
+    '/api/get_les/(.*)',
+    'Api::getLes/$1'
 );
 
 

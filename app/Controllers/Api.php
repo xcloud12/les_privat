@@ -68,4 +68,13 @@ class Api extends BaseController
         echo json_encode($myJadwal);
         return;
     }
+
+    public function getLes($kategori)
+    {
+        $les = new M_Les();
+        $les = $les->where('kategori', $kategori)->findAll();
+
+        echo json_encode($les);
+    }
+
 }
