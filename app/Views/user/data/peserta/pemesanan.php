@@ -1,5 +1,6 @@
 <!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column pt-4">
+    <link rel="stylesheet" href="/css/pemesanan.css">
     <!-- Main Content -->
     <div id="content">
         <!-- Begin Page Content -->
@@ -12,27 +13,32 @@
 
             <!-- Content Row -->
             <div class="row">
-                <?php //foreach ($pemesanan as $p) : 
-                ?>
-                <div class="col-xl-4 col-md-6 mb-4">
-                    <a href="#" id="btn_detail_les" class="text-decoration-none">
-                        <div class="card shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div class="font-weight-bold text-secondary mb-2">Fisika (Teori)</div>
-                                        <div class="font-weight-normal text-secondary mb-0 mt-2 ">Yota Shinobu</div>
-                                        <div class="font-weight-light text-secondary mt-0"> Fisika Dasar</div>
-                                        <div class="font-weight-bold text-secondary mt-1"> diterima</div>
+                <?php foreach ($pemesanan as $p) : ?>
+                    <div class="col-xl-4 col-md-6 mb-4">
+                        <a href="#" class="text-decoration-none btn_detail_les" data-pesan="<?= htmlspecialchars(json_encode($p)) ?>" onclick="showDetail(this.dataset.pesan)">
+                            <div class="my-card shadow d-flex">
+                                <img src="<?= "/img/img_profil/" . $p->tentor_foto ?>" alt="tentor" class="img-fluid rounded float-left pesan-img">
+                                <div class="card-body">
+                                    <div class="row align-items-center pesan-text-main">
+                                        <div class="col">
+                                            <div class="font-weight-bold text-uppercase text-secondary mb-2"><?= $p->les ?></div>
+                                            <div class="font-weight-normal text-secondary mb-0 mt-2 "><?= ucfirst($p->hari) . " ($p->jam_kerja)" ?></div>
+                                            <div class="font-weight-light text-secondary mt-0">Keterangan : <?= $p->deskripsi_pesan ?></div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center pesan-text-info">
+                                        <div class="col">
+                                            <div class="font-weight-bold text-uppercase text-secondary mb-2"><?= $p->tentor ?></div>
+                                            <div class="font-weight-normal text-secondary mb-0 mt-2 "><?= $p->deskripsi_tentor ?></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <?php //endforeach; 
-                ?>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
             </div>
+            <?php d($pemesanan); ?>
 
         </div>
         <div class="container-fluid" id="form_pemilihan">
@@ -56,17 +62,16 @@
                         </div>
                     </div>
                 </div>
-                <link rel="stylesheet" href="/css/pemesanan.css">
                 <div class="form-group">
                     <!-- Content Row -->
                     <div class="row " id="listLes">
-                        <?php foreach ($pemesanan as $p) : ?>
-                            <div class="col-xl-5 col-md-6 mb-4 mt-3 card-pesan" data-pesan="<?= htmlspecialchars(json_encode($p)) ?>" onclick="showPengajuan(this.dataset.pesan)">
+                        <?php foreach ($daftar_les as $p) : ?>
+                            <div class="col-xl-5 col-md-6 mb-4" data-pesan="<?= htmlspecialchars(json_encode($p)) ?>" onclick="showPengajuan(this.dataset.pesan)">
                                 <a href="#" class="text-decoration-none text-gray-800 ">
-                                    <div class="shadow h-100 d-flex ">
+                                    <div class="my-card shadow d-flex ">
                                         <img src="<?= "/img/img_profil/" . $p->tentor_foto ?>" alt="tentor" class="img-fluid rounded float-left pesan-img">
                                         <div class="card-body">
-                                            <div class="row no-gutters align-items-center pesan-text-main">
+                                            <div class="row align-items-center pesan-text-main">
                                                 <div class="col mr-4">
                                                     <div class="font-weight-bold text-uppercase text-dark"><?= "$p->les" ?></div>
                                                     <div class="mt-1 text-gray-800 font-weight-lighter"><?= "$p->tentor" ?></div>
@@ -167,7 +172,7 @@
     const btn_ubah = $('#btn_ubah');
     const btn_simpan_perubahan = $('#btn_simpan_perubahan');
     const btn_pesan = $('#btn_pesan');
-    const btn_detail_les = $('#btn_detail_les');
+    const btn_detail_les = $('.btn_detail_les');
     const list = $("#listLes")
     const pencarian = $("#pencarian")
 
@@ -267,6 +272,19 @@
         })
         $("#form_submit").attr('action', `/kelas/${data.id_pengajuan}`)
         $("#rest_method").val('POST')
+        const hari = $("#hari_mengajar option").toArray()
+        hari.forEach((h) => {
+            $(h).attr('hidden', true)
+        })
+        data.hari.split(',').forEach((p) => {
+            hari.forEach((h) => {
+                if (h.value == p) {
+                    console.log(h.value);
+                    $(h).removeAttr('hidden')
+                }
+            })
+        })
+
         toggle_form(true)
         form_hari_mengajar.prop('disabled', false);
         form_banyak_pertemuan.prop('disabled', false);
@@ -275,6 +293,17 @@
         judul_form_pemesanan.show()
         judul_form_mapel.hide()
     }
+
+    function showDetail(pesan) {
+        const data = JSON.parse(pesan)
+        toggle_form(true)
+        form_nama_mapel.val(data.les)
+        form_nama_tentor.val(data.tentor)
+        form_hari_mengajar.val(data.hari)
+        form_banyak_pertemuan.val(data.banyak_pertemuan)
+        form_keterangan.val(data.deskripsi_pesan)
+    }
+
     btn_batal.click(() => {
         halaman_data_les.hide()
         form_pemesanan.fadeOut(300, () => {

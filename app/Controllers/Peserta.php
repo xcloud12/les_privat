@@ -13,10 +13,12 @@ class Peserta extends User
         helper('number');
         $sesi = session();
         $pengajuan = new M_Pengajuan();
+        $pemesanan = new M_Pemesanan();
 
         $data = [
             'title' => 'Kelas',
-            'pemesanan' => $pengajuan->pengajuanAktif(),
+            'pemesanan' => $pemesanan->pemesananku($sesi->id_user),
+            'daftar_les' => $pengajuan->pengajuanAktif(),
         ];
 
         echo view('templates/header', $data);
@@ -28,13 +30,14 @@ class Peserta extends User
     public function ikut_kelas($id_pengajuan)
     {
         $sesi = session();
-        $model =new  M_Pemesanan();
+        $model = new  M_Pemesanan();
         $tgl = new Time('now');
 
-        $data=[
+        $data = [
             'id_pengajuan' => $id_pengajuan,
             'id_peserta' => $sesi->id_user,
             'tgl_pesan' => $tgl->toDateString(),
+            'banyak_pertemuan' => $this->request->getVar('banyak_pertemuan'),
             'hari' => $this->request->getVar('hari_mengajar'),
             'deskripsi' => $this->request->getVar('deskripsi'),
         ];
