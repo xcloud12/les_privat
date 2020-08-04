@@ -107,8 +107,8 @@ $routes->get(
     'Api::myJadwal/$1'
 );
 $routes->get(
-    '/api/get_les/(.*)',
-    'Api::getLes/$1'
+    '/api/get_les_by_kategori/(.*)',
+    'Api::getLesByKategori/$1'
 );
 
 

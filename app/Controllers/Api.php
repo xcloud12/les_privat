@@ -69,7 +69,7 @@ class Api extends BaseController
         return;
     }
 
-    public function getLes($kategori)
+    public function getLesByKategori($kategori)
     {
         $les = new M_Les();
         $les = $les->where('kategori', $kategori)->findAll();

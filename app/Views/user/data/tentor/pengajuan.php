@@ -333,7 +333,7 @@
     })
 
     function getLes() {
-        $.get('/api/get_les/' + kategori.val(), (data, status) => {
+        $.get('/api/get_les_by_kategori/' + kategori.val(), (data, status) => {
             if (status == 'success') {
                 const les = JSON.parse(data);
                 list.html("")
