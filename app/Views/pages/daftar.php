@@ -61,18 +61,19 @@
                                 <h1 class="h4 text-gray-900 mb-4 peserta">Buat Akun Peserta </h1>
                             </div>
                             <!-- Dibawah ini form mendaftar -->
-                            <form class="user">
+                            <form class="user" action="/daftar" method="post">
+                                <input type="hidden" value="peserta" name="level">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="nama" placeholder="Masukkan Nama Anda">
+                                    <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Masukkan Nama Anda">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="email" placeholder="Masukkan Email Anda">
+                                    <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Masukkan Email Anda">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="username" placeholder="Masukkan Username Anda">
+                                    <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Masukkan Username Anda">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-user" id="pas" placeholder="Masukkan Password">
+                                    <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Masukkan Password">
                                 </div>
                                 <button class="btn btn-primary btn-user btn-block" id="daftar_tentor">Buat Akun Tentor </button>
                                 <button class="btn btn-primary btn-user btn-block" id="daftar_peserta">Buat Akun Peserta </button>
@@ -103,6 +104,7 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
     <script>
+        const level = $("input[name='level']")
         // untuk murid
         const foto_peserta = $('#peserta');
         const link_peserta = $('#btn_peserta');
@@ -121,7 +123,7 @@
         daftar_tentor.hide()
 
         link_tentor.click(() => {
-            // foto_tentor.show()
+            level.val('tentor')
             link_tentor.fadeOut(200, () => {
                 link_peserta.fadeIn(200)
             })
@@ -137,6 +139,7 @@
         })
 
         link_peserta.click(() => {
+            level.val('tentor')
             link_peserta.fadeOut(200, () => {
                 link_tentor.fadeIn(200)
             })

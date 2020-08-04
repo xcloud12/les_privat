@@ -7,6 +7,21 @@ use CodeIgniter\Controller;
 
 class User extends Controller
 {
+    public function getsidebar()
+    {
+        $sesi = session();
+        switch ($sesi->get('level')) {
+            case 'peserta':
+                return 'user/sidebar/peserta';
+                break;
+            case 'tentor':
+                return 'user/sidebar/tentor';
+                break;
+            case 'admin':
+                return 'user/sidebar/admin';
+                break;
+        }
+    }
     public function index()
     {
         $session = session();
@@ -21,17 +36,7 @@ class User extends Controller
         ];
 
         echo view('templates/header', $data);
-        switch ($session->get('level')) {
-            case 'peserta':
-                echo view('user/sidebar/peserta', $data);
-                break;
-            case 'tentor':
-                echo view('user/sidebar/tentor', $data);
-                break;
-            case 'admin':
-                echo view('user/sidebar/admin', $data);
-                break;
-        }
+        echo view($this->getsidebar(), $data);
         echo view('user/dashboard', $data);
         echo view('templates/footer');
     }
@@ -45,11 +50,10 @@ class User extends Controller
             "username" => $this->request->getVar('username'),
             "password" => $this->request->getVar('password'),
             "nama" => $this->request->getVar('nama'),
-            "tempat_lahir" => $this->refquest->getVar('tempat_lahir'),
-            // "tanggal_lahir" => $this->request->getVar('tanggal_lahir'),
-            "jenis_kelamin" => $this->request->getVar('jenis_kelamin'),
             "level" => $this->request->getVar('level'),
         ]);
+        
+        return redirect()->to('/');
     }
 
     public function login()

@@ -49,7 +49,7 @@ $routes->get('/admin/pemesanan', 'Pages::pemesanan_admin');
 // user login, register
 $routes->post('/', 'User::login');
 $routes->get('/logout', 'User::logout');
-$routes->post('/submit', 'User::daftar');
+$routes->post('/daftar', 'User::daftar');
 $routes->get('/dashboard', 'User::index');
 
 // update, delete data pengguna (tentor, peserta)
