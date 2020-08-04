@@ -17,7 +17,7 @@
                     <div class="col-3">
                         <center>
                             <img id="foto" class="rounded" style="max-width: 200px; max-height: 250px; " src="<?= $foto ?>" alt="Profile Picture">
-                            <input hidden type="file" id="foto_dialog" name="foto" accept="image/jpeg">
+                            <input hidden type="file" id="foto_dialog" name="foto" accept="image/jpeg" onchange="set_img(this)">
                         </center>
                     </div>
                     <div class="col-9">
@@ -73,7 +73,18 @@
 <script>
     const foto_img = $("#foto");
     const foto_dialog = $("#foto_dialog")
+
     foto_img.click(()=>{
         foto_dialog.click();
     })
+    
+    function set_img(input){
+        if (input.files && input.files[0]) {
+            let reader = new FileReader()
+            reader.onload = (x) =>{
+                foto_img.attr('src', x.target.result)
+            }
+            reader.readAsDataURL(input.files[0])
+        }
+    }
 </script>
