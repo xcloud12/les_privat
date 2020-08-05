@@ -26,7 +26,7 @@ class M_Pemesanan extends Model
 
     public function pemesananku($user_id)
     {
-        $db = \Config\Database::connect();
+        $db        = \Config\Database::connect();
         $pemesanan = $db->table('pemesanan_les');
 
         $result = $pemesanan->select('id_pemesanan, id_peserta, user.nama AS tentor, pemesanan_les.hari as hari, tgl_pesan, diterima, banyak_pertemuan, jam_kerja, les.nama as les, les.kategori as kategori, pengajuan_mengajar.deskripsi as deskripsi_tentor, pemesanan_les.deskripsi as deskripsi_pesan, foto as tentor_foto')

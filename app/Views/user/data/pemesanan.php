@@ -111,11 +111,11 @@
 
 <script>
     //halaman
-    const halaman_pemesanan = $('#halaman_pemesanan');
+    const halaman_pemesanan        = $('#halaman_pemesanan');
     const halaman_detail_pemesanan = $('#halaman_detail_pemesanan');
     //tombol
     const btn_detail_pemesanan = $('.btn-info');
-    const btn_kembali = $('#btn_kembali');
+    const btn_kembali          = $('#btn_kembali');
     halaman_detail_pemesanan.hide()
 
     btn_detail_pemesanan.click(() => {

@@ -11,13 +11,13 @@ class User extends Controller
     {
         $sesi = session();
         switch ($sesi->get('level')) {
-            case 'peserta':
+            case 'peserta': 
                 return 'user/sidebar/peserta';
                 break;
-            case 'tentor':
+            case 'tentor': 
                 return 'user/sidebar/tentor';
                 break;
-            case 'admin':
+            case 'admin': 
                 return 'user/sidebar/admin';
                 break;
         }
@@ -28,11 +28,11 @@ class User extends Controller
 
         $this->cek_login($session);
         $data = [
-            'title' => 'Dashboard',
+            'title'    => 'Dashboard',
             'username' => $session->username,
-            'nama' => $session->nama,
-            'level' => $session->level,
-            'email' => $session->email
+            'nama'     => $session->nama,
+            'level'    => $session->level,
+            'email'    => $session->email
         ];
 
         echo view('templates/header', $data);
@@ -46,11 +46,11 @@ class User extends Controller
         $model = new M_User();
 
         $model->save([
-            "email" => $this->request->getVar('email'),
+            "email"    => $this->request->getVar('email'),
             "username" => $this->request->getVar('username'),
             "password" => $this->request->getVar('password'),
-            "nama" => $this->request->getVar('nama'),
-            "level" => $this->request->getVar('level'),
+            "nama"     => $this->request->getVar('nama'),
+            "level"    => $this->request->getVar('level'),
         ]);
         
         return redirect()->to('/');
@@ -58,7 +58,7 @@ class User extends Controller
 
     public function login()
     {
-        $model = new M_User();
+        $model   = new M_User();
         $session = session();
 
         // form is filled
@@ -69,7 +69,7 @@ class User extends Controller
 
             $username = $this->request->getVar('username');
             $password = $this->request->getVar('password');
-            $user = $model->where('username', $username)->first();
+            $user     = $model->where('username', $username)->first();
 
             // make sure user exist on database
             if (!is_null($user)) {
@@ -87,7 +87,7 @@ class User extends Controller
         // if error login
         $data = [
             'failed' => true,
-            'title' => "Home"
+            'title'  => "Home"
         ];
         echo view("pages/home", $data);
     }
@@ -137,20 +137,20 @@ class User extends Controller
     public function update($id)
     {
         $model = new M_user();
-        $sesi = session();
+        $sesi  = session();
 
-        $foto = $this->request->getFile('foto');
+        $foto          = $this->request->getFile('foto');
         $foto_new_name = $sesi->username . ".jpg";
         $foto->move(FCPATH . "img/img_profil", $foto_new_name, true);
 
         $data = [
-            'nama' => $this->request->getVar('nama'),
+            'nama'         => $this->request->getVar('nama'),
             'tempat_lahir' => $this->request->getVar('tempat_lahir'),
-            'tgl_lahir' => $this->request->getVar('tanggal_lahir'),
-            'jk' => $this->request->getVar('jenis_kelamin'),
-            'alamat' => $this->request->getVar('alamat'),
-            'telp' => $this->request->getVar('no_telp'),
-            'foto' => $foto_new_name
+            'tgl_lahir'    => $this->request->getVar('tanggal_lahir'),
+            'jk'           => $this->request->getVar('jenis_kelamin'),
+            'alamat'       => $this->request->getVar('alamat'),
+            'telp'         => $this->request->getVar('no_telp'),
+            'foto'         => $foto_new_name
         ];
 
         $model->update($id, $data);

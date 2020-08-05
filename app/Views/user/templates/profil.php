@@ -71,7 +71,7 @@
     </div>
 </div>
 <script>
-    const foto_img = $("#foto");
+    const foto_img    = $("#foto");
     const foto_dialog = $("#foto_dialog")
 
     foto_img.click(()=>{
@@ -81,9 +81,11 @@
     function set_img(input){
         if (input.files && input.files[0]) {
             let reader = new FileReader()
+
             reader.onload = (x) =>{
                 foto_img.attr('src', x.target.result)
             }
+            
             reader.readAsDataURL(input.files[0])
         }
     }

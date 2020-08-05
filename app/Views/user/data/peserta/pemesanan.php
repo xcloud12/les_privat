@@ -160,31 +160,31 @@
 </div>
 
 <script>
-    const halaman_data_les = $('#halaman_data_les');
-    const form_pemilihah = $('#form_pemilihan');
-    const form_pemesanan = $('#form_pemesanan');
-    const btn_tambah_les = $('#btn_tambah_les');
-    const btn_kembali = $('#btn_kembali');
-    const btn_kembali_pemesanan = $('#btn_kembali_pemesanan');
+    const halaman_data_les       = $('#halaman_data_les');
+    const form_pemilihah         = $('#form_pemilihan');
+    const form_pemesanan         = $('#form_pemesanan');
+    const btn_tambah_les         = $('#btn_tambah_les');
+    const btn_kembali            = $('#btn_kembali');
+    const btn_kembali_pemesanan  = $('#btn_kembali_pemesanan');
     const btn_kembali_edit_mapel = $('#btn_kembali_edit_mapel');
-    const btn_batal = $('#btn_batal');
-    const btn_ubah = $('#btn_ubah');
-    const btn_simpan_perubahan = $('#btn_simpan_perubahan');
-    const btn_pesan = $('#btn_pesan');
-    const btn_detail_les = $('.btn_detail_les');
-    const list = $("#listLes")
-    const pencarian = $("#pencarian")
+    const btn_batal              = $('#btn_batal');
+    const btn_ubah               = $('#btn_ubah');
+    const btn_simpan_perubahan   = $('#btn_simpan_perubahan');
+    const btn_pesan              = $('#btn_pesan');
+    const btn_detail_les         = $('.btn_detail_les');
+    const list                   = $("#listLes")
+    const pencarian              = $("#pencarian")
 
     //judul form
     const judul_form_pemesanan = $('#judul_pengajuan');
-    const judul_form_mapel = $('#judul_mapel');
+    const judul_form_mapel     = $('#judul_mapel');
 
     //atribut form
-    const form_nama_tentor = $('#nama_tentor');
-    const form_nama_mapel = $('#nama_mapel');
-    const form_hari_mengajar = $('#hari_mengajar');
+    const form_nama_tentor      = $('#nama_tentor');
+    const form_nama_mapel       = $('#nama_mapel');
+    const form_hari_mengajar    = $('#hari_mengajar');
     const form_banyak_pertemuan = $('#banyak_pertemuan');
-    const form_keterangan = $('#deskripsi_peserta');
+    const form_keterangan       = $('#deskripsi_peserta');
 
     form_pemilihah.hide()
     form_pemesanan.hide()

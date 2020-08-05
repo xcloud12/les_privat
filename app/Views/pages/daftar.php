@@ -106,16 +106,16 @@
     <script>
         const level = $("input[name='level']")
         // untuk murid
-        const foto_peserta = $('#peserta');
-        const link_peserta = $('#btn_peserta');
+        const foto_peserta   = $('#peserta');
+        const link_peserta   = $('#btn_peserta');
         const daftar_peserta = $('#daftar_peserta');
-        const judul_peserta = $('.peserta');
+        const judul_peserta  = $('.peserta');
 
         // untuk tentor
-        const foto_tentor = $('#tentor');
-        const link_tentor = $('#btn_tentor');
+        const foto_tentor   = $('#tentor');
+        const link_tentor   = $('#btn_tentor');
         const daftar_tentor = $('#daftar_tentor');
-        const judul_tentor = $('.tentor');
+        const judul_tentor  = $('.tentor');
 
         foto_tentor.hide()
         link_peserta.hide()
