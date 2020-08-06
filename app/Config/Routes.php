@@ -75,7 +75,7 @@ $routes->get('/data/jadwal', 'Jadwal::index');
 $routes->post('/data/jadwal', 'Jadwal::create'); // dilakukan otomatis ketika tentor menyetujui pemesanan les
 $routes->delete('/data/jadwal/(\d+)', 'Jadwal::delete'); // menandai bahwa les sudah selesai
 
-$routes->get('/data/pemesanan', 'Admin::index');
+$routes->get('/data/pemesanan', 'Admin::index/pemesanan');
 
 // tentor
 $routes->get('/les', 'Tentor::les');
@@ -100,6 +100,8 @@ $routes->get('/api/jadwal/(.+)', 'Api::myJadwal/$1');
 $routes->get('/api/get_les_by_kategori/(.*)', 'Api::getLesByKategori/$1');
 $routes->get('/api/get_les_by_name/(.*)', 'Api::getLesByName/$1');
 $routes->get('/api/pesan_les/(.*)', 'Api::pesanLes/$1');
+//tentor menerima pesanan & auto buat jadwal sejumlah banyak pertemuan yg diinput siswa
+$routes->get('/api/terima_pesanan/(\d+)', 'Api::terimaPesanan/$1');
 
 
 /**

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\M_Jadwal;
 use App\Models\M_Les;
+use App\Models\M_Pemesanan;
 use App\Models\M_user;
 
 class Api extends BaseController
@@ -63,8 +64,8 @@ class Api extends BaseController
         // get user level
         $level = $user->select('level')->where('username', "$username")->get()->getResultArray();
         $level = $level[0]['level'];
-        
-        $myJadwal = $level=='tentor' ? $jadwal->tentorJadwal($username) : $jadwal->pesertaJadwal($username);
+
+        $myJadwal = $level == 'tentor' ? $jadwal->tentorJadwal($username) : $jadwal->pesertaJadwal($username);
         echo json_encode($myJadwal);
         return;
     }
@@ -77,4 +78,20 @@ class Api extends BaseController
         echo json_encode($les);
     }
 
+    public function terimaPesanan($id_pesanan)
+    {
+        $pesanan = new M_Pemesanan();
+        $pesan = $pesanan->is_aktif($id_pesanan);
+
+        $detail = $pesanan->getDetail($id_pesanan);
+        
+
+        if (count($pesan) > 0 && $pesan[0]->diterima == '0') {
+            $data = ['diterima' => '1'];
+            $pesanan->update($id_pesanan, $data);
+            
+            $jadwal = new Jadwal();
+            $jadwal->buatJadwal($detail) ;
+        }
+    }
 }

@@ -8,7 +8,7 @@ class M_Pemesanan extends Model
 {
     protected $table         = 'pemesanan_les';
     protected $primaryKey    = 'id_pemesanan';
-    protected $returnType    = 'array';
+    protected $returnType    = 'object';
     protected $allowedFields = [
         'id_pengajuan',
         'id_peserta',
@@ -37,5 +37,26 @@ class M_Pemesanan extends Model
             ->get();
 
         return $result->getResultObject();
+    }
+
+    public function is_aktif($id_pesanan)
+    {
+        $db        = \Config\Database::connect();
+        $pemesanan = $db->table('pemesanan_les');
+
+        return $pemesanan->select('id_pemesanan, diterima')->where('id_pemesanan', esc($id_pesanan))->get()->getResultObject();
+    }
+
+    public function getDetail($id_pemesanan)
+    {
+        $db        = \Config\Database::connect();
+        $pemesanan = $db->table('pemesanan_les');
+
+        $result = $pemesanan->select('id_tentor, id_les, id_peserta, id_pemesanan, tgl_pesan, pemesanan_les.hari as hari, banyak_pertemuan')
+            ->join('pengajuan_mengajar', 'pengajuan_mengajar.id_pengajuan = pemesanan_les.id_pengajuan')
+            ->where('id_pemesanan', $id_pemesanan)
+            ->get();
+
+        return $result->getResultObject()[0];
     }
 }

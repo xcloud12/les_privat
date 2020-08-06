@@ -8,7 +8,9 @@ class Admin extends BaseController
 {
 	public function index($master)
 	{
-		$this->cek_login(session());
+		$sesi = session();
+		$this->cek_login($sesi);
+		
 		$user   = new M_user();
 
 		$data = [

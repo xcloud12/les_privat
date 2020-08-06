@@ -43,12 +43,8 @@
                             <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-10">
                                 <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
-                                    <option <?php if ($jk == 'L') {
-                                                echo 'selected';
-                                            } ?> value="L">Laki Laki</option>
-                                    <option <?php if ($jk == 'P') {
-                                                echo 'selected';
-                                            } ?> value="P">Perempuan</option>
+                                    <option <?php if ($jk == 'L') { echo 'selected'; } ?> value="L">Laki Laki</option>
+                                    <option <?php if ($jk == 'P') { echo 'selected'; } ?> value="P">Perempuan</option>
                                 </select>
                             </div>
                         </div>

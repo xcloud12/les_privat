@@ -37,7 +37,15 @@
                                     <td><?= $u['nama'] ?></td>
                                     <td><?= $u['username'] ?></td>
                                     <td><?= $u['email'] ?></td>
-                                    <td><?= $u['jk'] ?> </td>
+                                    <td>
+                                        <?php
+                                        if ($u['jk'] == 'L') {
+                                            echo 'Laki-Laki';
+                                        } else {
+                                            echo 'Perempuan';
+                                        }
+                                        ?>
+                                    </td>
                                     <td hidden><?= $u['tempat_lahir'] ?></td>
                                     <td hidden><?= $u['tgl_lahir'] ?></td>
                                     <td hidden><?= $u['alamat'] ?></td>
