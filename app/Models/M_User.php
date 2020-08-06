@@ -28,4 +28,11 @@ class M_user extends Model
     {
         # code...
     }
+
+    public function getIdFromUsername($username)
+    {
+        $db        = \Config\Database::connect();
+        $user = $db->table('user');
+        return $user->select('id_user')->where('username', $username)->get()->getResultObject()[0]->id_user;
+    }
 }

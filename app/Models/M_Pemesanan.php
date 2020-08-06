@@ -59,4 +59,24 @@ class M_Pemesanan extends Model
 
         return $result->getResultObject()[0];
     }
+
+    public function daftarPesanan($id_tentor)
+    {
+        $db        = \Config\Database::connect();
+        $pemesanan = $db->table('pemesanan_les');
+
+        $result = $pemesanan->select('id_pemesanan, pemesanan_les.hari as hari, tgl_pesan, diterima, banyak_pertemuan, les.nama as les, pemesanan_les.deskripsi as deskripsi_pesan,
+        (SELECT nama from user where user.id_user=pemesanan_les.id_peserta) as peserta,
+        (SELECT alamat from user where user.id_user=pemesanan_les.id_peserta) as alamat,
+        (SELECT foto from user where user.id_user=pemesanan_les.id_peserta) as foto_peserta'
+        )
+            ->join('pengajuan_mengajar', 'pemesanan_les.id_pengajuan = pengajuan_mengajar.id_pengajuan')
+            ->join('user', 'user.id_user = pengajuan_mengajar.id_tentor')
+            ->join('les', 'les.id_les = pengajuan_mengajar.id_les')
+            ->where('id_tentor', $id_tentor)
+            ->where('diterima', null)
+            ->get();
+
+        return $result->getResultObject();
+    }
 }

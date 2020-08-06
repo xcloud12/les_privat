@@ -97,6 +97,7 @@ $routes->put('/profil/(\d+)', 'User::update/$1');
 $routes->post('/api/login', 'Api::login');
 $routes->get('/api/jadwal/(\d+)', 'Api::detailJadwal/$1');
 $routes->get('/api/jadwal/(.+)', 'Api::myJadwal/$1');
+$routes->get('/api/pesanan/(.+)', 'Api::daftarPesanan/$1');
 $routes->get('/api/get_les_by_kategori/(.*)', 'Api::getLesByKategori/$1');
 $routes->get('/api/get_les_by_name/(.*)', 'Api::getLesByName/$1');
 $routes->get('/api/pesan_les/(.*)', 'Api::pesanLes/$1');

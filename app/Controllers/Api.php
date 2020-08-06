@@ -78,20 +78,29 @@ class Api extends BaseController
         echo json_encode($les);
     }
 
+    public function daftarPesanan($username)
+    {
+        $pesanan = new M_Pemesanan();
+        $user = new M_user();
+        $id_tentor = $user->getIdFromUsername($username);
+        $result = $pesanan->daftarPesanan($id_tentor);
+        echo json_encode($result);
+    }
+
     public function terimaPesanan($id_pesanan)
     {
         $pesanan = new M_Pemesanan();
         $pesan = $pesanan->is_aktif($id_pesanan);
 
         $detail = $pesanan->getDetail($id_pesanan);
-        
+
 
         if (count($pesan) > 0 && $pesan[0]->diterima == '0') {
             $data = ['diterima' => '1'];
             $pesanan->update($id_pesanan, $data);
-            
+
             $jadwal = new Jadwal();
-            $jadwal->buatJadwal($detail) ;
+            $jadwal->buatJadwal($detail);
         }
     }
 }
