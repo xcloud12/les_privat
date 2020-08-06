@@ -31,8 +31,10 @@ class M_Jadwal extends Model
 
         $jadwal = $db->table('jadwal');
         $result = $jadwal->select('id_jadwal, LES.nama AS les, ' .
-            '(SELECT nama FROM USER WHERE USER.id_user = JADWAL.id_peserta) AS peserta,'
-            . ' tgl, absen')
+            '(SELECT nama FROM USER WHERE USER.id_user = JADWAL.id_peserta) AS peserta,' .
+            '(SELECT alamat FROM USER WHERE USER.id_user = JADWAL.id_peserta) AS alamat,' .
+            '(SELECT foto FROM USER WHERE USER.id_user = JADWAL.id_peserta) AS foto_peserta,' .
+            ' tgl, absen')
             ->join('LES', 'LES.id_les = JADWAL.id_les')
             ->join('USER', 'USER.id_user = JADWAL.id_tentor')
             ->where('USER.username', $username)
