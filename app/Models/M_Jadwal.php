@@ -38,7 +38,8 @@ class M_Jadwal extends Model
             ->join('LES', 'LES.id_les = JADWAL.id_les')
             ->join('USER', 'USER.id_user = JADWAL.id_tentor')
             ->where('USER.username', $username)
-            // ->where('JADWAL.tgl >= CURRENT_DATE')
+            ->orderBy('jadwal.tgl')
+            ->where('JADWAL.tgl >= CURRENT_DATE')
             ->get();
 
         return $result->getResultArray();

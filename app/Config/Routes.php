@@ -104,6 +104,8 @@ $routes->get('/api/pesan_les/(.*)', 'Api::pesanLes/$1');
 //tentor menerima pesanan & auto buat jadwal sejumlah banyak pertemuan yg diinput siswa
 $routes->get('/api/terima_pesanan/(\d+)', 'Api::terimaPesanan/$1');
 $routes->get('/api/tolak_pesanan/(\d+)', 'Api::tolakPesanan/$1');
+//struktur rute absensi -> /api/absensi/id_jadwal/boolean-value
+$routes->get('/api/absensi/(\d+)/(true|false)', 'Jadwal::absensi/$1/$2');
 
 
 /**

@@ -3,8 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\M_Jadwal;
-use App\Models\M_Les;
-use App\Models\M_Pengajuan;
 
 class Jadwal extends BaseController
 {
@@ -12,7 +10,7 @@ class Jadwal extends BaseController
     {
         helper('date');
         $date = date_parse($data_pesanan->tgl_pesan);
-        
+
         switch ($data_pesanan->hari) {
             case 'minggu':
                 $now = date_create('sunday');
@@ -37,11 +35,11 @@ class Jadwal extends BaseController
                 break;
         }
 
-        
 
-        for ($i=0; $i < $data_pesanan->banyak_pertemuan ; $i++) { 
+
+        for ($i = 0; $i < $data_pesanan->banyak_pertemuan; $i++) {
             // echo $i+1 . " -> ". $now->format('Y-m-d');
-            $data =[
+            $data = [
                 'id_tentor' => $data_pesanan->id_tentor,
                 'id_les' => $data_pesanan->id_les,
                 'id_peserta' => $data_pesanan->id_peserta,
@@ -52,5 +50,15 @@ class Jadwal extends BaseController
 
             $now = date_add($now, date_interval_create_from_date_string('1 week'));
         }
+    }
+
+    public function absensi($id_jadwal, $is_absen)
+    {
+        $jadwal = new M_Jadwal();
+        $absen = [
+            'absen' => $is_absen === "true" ? "1" : "0"
+        ];
+
+        $jadwal->update($id_jadwal, $absen);
     }
 }
