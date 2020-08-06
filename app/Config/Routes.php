@@ -43,8 +43,8 @@ $routes->get('/tentor/ulasan', 'Pages::ulasan');
 $routes->get('/peserta/profil', 'Pages::profil_peserta');
 $routes->get('/peserta/data_les', 'Pages::data_les_peserta');
 $routes->get('/peserta/jadwal', 'Pages::jadwal_peserta');
-$routes->get('/admin/jadwal', 'Pages::jadwal_admin');
-$routes->get('/admin/pemesanan', 'Pages::pemesanan_admin');
+$routes->get('/data/jadwal', 'Pages::jadwal_admin');
+$routes->get('/data/pemesanan  ', 'Pages::pemesanan_admin');
 
 // user login, register
 $routes->post('/', 'User::login');
