@@ -40,7 +40,7 @@ class Jadwal extends BaseController
         
 
         for ($i=0; $i < $data_pesanan->banyak_pertemuan ; $i++) { 
-            echo $i+1 . " -> ". $now->format('Y-m-d');
+            // echo $i+1 . " -> ". $now->format('Y-m-d');
             $data =[
                 'id_tentor' => $data_pesanan->id_tentor,
                 'id_les' => $data_pesanan->id_les,

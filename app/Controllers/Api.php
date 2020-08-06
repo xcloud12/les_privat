@@ -95,12 +95,25 @@ class Api extends BaseController
         $detail = $pesanan->getDetail($id_pesanan);
 
 
-        if (count($pesan) > 0 && $pesan[0]->diterima == '0') {
+        if (count($pesan) > 0 && $pesan[0]->diterima == null) {
             $data = ['diterima' => '1'];
             $pesanan->update($id_pesanan, $data);
 
             $jadwal = new Jadwal();
             $jadwal->buatJadwal($detail);
+        }
+    }
+
+    public function tolakPesanan($id_pesanan)
+    {
+        $pesanan = new M_Pemesanan();
+        $pesan = $pesanan->is_aktif($id_pesanan);
+
+        if (count($pesan) > 0 && $pesan[0]->diterima == null) {
+            $data = ['diterima' => '0'];
+            $pesanan->update($id_pesanan, $data);
+
+            //todo: send email
         }
     }
 }
