@@ -14,37 +14,70 @@
                     <table class="table table-bordered bgr table-hover" id="dataTable" width="100%" cellspacing="0">
                         <thead class="thead-light">
                             <tr>
-                                <th>#</th>
-                                <th>Nama Tentor</th>
+                                <th style="width: 1%;">#</th>
                                 <th>Nama Mata Pelajaran</th>
+                                <th>Nama Tentor</th>
                                 <th>Nama Peserta</th>
                                 <th>Tanggal Pertemuan</th>
-                                <th>Kehadiran</th>
+                                <th style="width: 1%;">Kehadiran</th>
                                 <th hidden>Rating</th>
                                 <th hidden>Ulasan</th>
                                 <th hidden>Id Jadwal</th>
-                                <th>Aksi</th>
+                                <th style="width: 1%;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>xxxxxx</td>
-                                <td>xxxxxxx</td>
-                                <td>xxxxxx</td>
-                                <td>xx - xx - xxxx</td>
-                                <td>xx</td>
-                                <td hidden>Rating</td>
-                                <td hidden>Ulasasn</td>
-                                <td hidden>id_jadwal</td>
-                                <td>
-                                    <center>
-                                        <button type="button" class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
-                                            <i class="fas fa-info-circle"></i>
-                                        </button>
-                                    </center>
-                                </td>
-                            </tr>
+                            <?php
+                            $i = 1;
+                            foreach ($jadwal as $u) : ?>
+                                <tr>
+                                    <td>
+                                        <center>
+                                            <?= $i ?>
+                                        </center>
+                                    </td>
+                                    <td><?= $u->les ?></td>
+                                    <td><?= $u->tentor ?></td>
+                                    <td><?= $u->peserta ?></td>
+                                    <td><?= strftime('%d %B %Y', strtotime($u->tgl)) ?></td>
+                                    <td>
+                                        <?php
+                                        if ($u->absen === '1') : ?>
+                                            <center>
+                                                <div class="rounded-circle text-center text-white bg-success btn btn-sm">
+                                                    <i class="fas fa-check-circle"></i>
+                                                </div>
+                                            </center>
+                                        <?php elseif ($u->absen === '0') : ?>
+                                            <center>
+                                                <div class="rounded-circle text-center text-white bg-danger btn btn-sm">
+                                                    <i class="fas fa-times-circle"></i>
+                                                </div>
+                                            </center>
+                                        <?php else : ?>
+                                            <center>
+                                                <div class="rounded-circle text-center text-white bg-warning btn btn-sm">
+                                                    <i class="fas fa-spinner"></i>
+                                                </div>
+                                            </center>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td hidden><?= $u->rating ?></td>
+                                    <td hidden><?= $u->ulasan ?></td>
+                                    <td hidden><?= $u->id_jadwal ?></td>
+                                    <td>
+                                        <center>
+                                            <button type="button" class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
+                                                <i class="fas fa-info-circle"></i>
+                                            </button>
+                                        </center>
+                                    </td>
+                                </tr>
+                            <?php
+                                $i++;
+                            endforeach;
+                            // d($jadwal);
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -101,14 +134,6 @@
         </div>
     </div>
 </div>
-
-
-<script src="/vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-<!-- Page level custom scripts -->
-<script src="/js/demo/datatables-demo.js"></script>
-<link href="/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
 <script>
     //halaman
     const halaman_jadwal = $('#halaman_jadwal');

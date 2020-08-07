@@ -6,6 +6,39 @@ use App\Models\M_Jadwal;
 
 class Jadwal extends BaseController
 {
+    public function index()
+    {
+        $this->cek_login(session());
+        $jadwal   = new M_Jadwal();
+        setlocale(LC_ALL, 'ID');
+
+        $data = [
+            'title' => "Data Jadwal",
+            'jadwal'  => $jadwal->listJadwal(),
+            'table' => true
+        ];
+
+        echo view('templates/header', $data);
+        echo view('user/sidebar/admin', $data);
+        // dd($data);
+        echo view("user/data/jadwal", $data);
+        echo view('templates/footer');
+    }
+    protected function cek_login($session)
+    {
+        if (!$session->has('username')) {
+            $session->destroy();
+            redirect()->to('/');
+            exit;
+        }
+        switch ($session->get('level')) {
+            case 'admin':
+                break;
+            default:
+                redirect()->to('/dashboard');
+                exit;
+        }
+    }
     public function buatJadwal($data_pesanan)
     {
         helper('date');

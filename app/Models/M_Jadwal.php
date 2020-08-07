@@ -58,4 +58,16 @@ class M_Jadwal extends Model
 
         return $result->getResultArray();
     }
+
+    public function listJadwal()
+    {
+        $db = \Config\Database::connect();
+
+        $jadwal = $db->table('jadwal');
+        $res = $jadwal->select('tgl, absen, rating, ulasan, les.nama as les, id_jadwal, (SELECT nama FROM user where jadwal.id_tentor=user.id_user) as tentor, (SELECT nama FROM user where jadwal.id_peserta=user.id_user) as peserta')
+            ->join('les', 'les.id_les = jadwal.id_les')
+            ->get();
+
+        return $res->getResult();
+    }
 }

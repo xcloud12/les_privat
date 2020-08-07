@@ -43,7 +43,7 @@ $routes->get('/tentor/kinerja', 'Pages::ulasan');
 $routes->get('/peserta/profil', 'Pages::profil_peserta');
 $routes->get('/peserta/kelas', 'Pages::data_les_peserta');
 $routes->get('/peserta/jadwal', 'Pages::jadwal_peserta');
-$routes->get('/data/jadwal', 'Pages::jadwal_admin');
+// $routes->get('/data/jadwal', 'Pages::jadwal_admin');
 $routes->get('/data/pemesanan  ', 'Pages::pemesanan_admin');
 
 // user login, register
