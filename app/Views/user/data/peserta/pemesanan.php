@@ -50,8 +50,8 @@
             </div>
 
             <!-- Content Row -->
-            <div class="col-9 mt-4">
-                <div class="form-group row justify-content-end">
+            <div class="col-sm mt-4">
+                <div class="form-group row justify-content-center">
                     <div class="col-sm-8 input-group">
                         <input type="text" class="form-control bg-white small" id="pencarian" placeholder="Cari Mata Pelajaran">
                         <div class="input-group-append">
@@ -63,7 +63,7 @@
                 </div>
                 <div class="form-group">
                     <!-- Content Row -->
-                    <div class="row " id="listLes">
+                    <div class="row justify-content-center" id="listLes">
                         <?php foreach ($daftar_les as $p) : ?>
                             <div class="col-xl-5 col-md-6 mb-4" data-pesan="<?= htmlspecialchars(json_encode($p)) ?>" onclick="showPengajuan(this.dataset.pesan)">
                                 <a href="#" class="text-decoration-none text-gray-800 ">
@@ -74,7 +74,7 @@
                                                 <div class="col mr-4">
                                                     <div class="font-weight-bold text-uppercase text-dark"><?= "$p->les" ?></div>
                                                     <div class="mt-1 text-gray-800 font-weight-lighter"><?= "$p->tentor" ?></div>
-                                                    <div class="mt-1 text-gray-800 font-weight-lighter"><?= number_to_currency($p->harga, 'IDR', 'id') ?></div>
+                                                    <div class="mt-1 text-gray-800 font-weight-lighter"><?= "RP. " . number_format($p->harga, 2, ',', '.') ?></div>
                                                 </div>
                                             </div>
                                             <div class="row align-items-center pesan-text-info">
@@ -160,31 +160,31 @@
 </div>
 
 <script>
-    const halaman_data_les       = $('#halaman_data_les');
-    const form_pemilihah         = $('#form_pemilihan');
-    const form_pemesanan         = $('#form_pemesanan');
-    const btn_tambah_les         = $('#btn_tambah_les');
-    const btn_kembali            = $('#btn_kembali');
-    const btn_kembali_pemesanan  = $('#btn_kembali_pemesanan');
+    const halaman_data_les = $('#halaman_data_les');
+    const form_pemilihah = $('#form_pemilihan');
+    const form_pemesanan = $('#form_pemesanan');
+    const btn_tambah_les = $('#btn_tambah_les');
+    const btn_kembali = $('#btn_kembali');
+    const btn_kembali_pemesanan = $('#btn_kembali_pemesanan');
     const btn_kembali_edit_mapel = $('#btn_kembali_edit_mapel');
-    const btn_batal              = $('#btn_batal');
-    const btn_ubah               = $('#btn_ubah');
-    const btn_simpan_perubahan   = $('#btn_simpan_perubahan');
-    const btn_pesan              = $('#btn_pesan');
-    const btn_detail_les         = $('.btn_detail_les');
-    const list                   = $("#listLes")
-    const pencarian              = $("#pencarian")
+    const btn_batal = $('#btn_batal');
+    const btn_ubah = $('#btn_ubah');
+    const btn_simpan_perubahan = $('#btn_simpan_perubahan');
+    const btn_pesan = $('#btn_pesan');
+    const btn_detail_les = $('.btn_detail_les');
+    const list = $("#listLes")
+    const pencarian = $("#pencarian")
 
     //judul form
     const judul_form_pemesanan = $('#judul_pengajuan');
-    const judul_form_mapel     = $('#judul_mapel');
+    const judul_form_mapel = $('#judul_mapel');
 
     //atribut form
-    const form_nama_tentor      = $('#nama_tentor');
-    const form_nama_mapel       = $('#nama_mapel');
-    const form_hari_mengajar    = $('#hari_mengajar');
+    const form_nama_tentor = $('#nama_tentor');
+    const form_nama_mapel = $('#nama_mapel');
+    const form_hari_mengajar = $('#hari_mengajar');
     const form_banyak_pertemuan = $('#banyak_pertemuan');
-    const form_keterangan       = $('#deskripsi_peserta');
+    const form_keterangan = $('#deskripsi_peserta');
 
     form_pemilihah.hide()
     form_pemesanan.hide()
