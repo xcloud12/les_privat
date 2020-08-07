@@ -22,19 +22,19 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
     <li class="nav-item  ">
-        <a class="nav-link" href="/tentor/profil">
+        <a class="nav-link" href="/profil">
             <i class="fas fa-address-card"></i>
             <span>Profil</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/tentor/les">
+        <a class="nav-link" href="/les">
             <i class="fas fa-book"></i>
             <span>LES</span></a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="/tentor/kinerja">
+        <a class="nav-link" href="/kinerja">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Kinerja</span></a>
     </li>
