@@ -45,19 +45,21 @@
                                     </td>
                                     <td><?= $p->jam_kerja ?></td>
                                     <td hidden><?= $p->deskripsi ?></td>
-                                    <td>
-                                        <!-- <?= $p->aktif ?> -->
-                                        <center>
+                                    <td class="text-center">
+                                        <?php
+                                        if ($p->aktif === '1') : ?>
                                             <div class="rounded-circle text-center text-white bg-success btn btn-sm">
-                                                <i class="fas fa-check"></i>
+                                                <i class="fas fa-check-circle"></i>
                                             </div>
-                                            <div class="rounded-circle text-center text-white bg-warning btn btn-sm" hidden>
+                                        <?php elseif ($p->aktif === '0') : ?>
+                                            <div class="rounded-circle text-center text-white bg-danger btn btn-sm">
+                                                <i class="fas fa-times-circle"></i>
+                                            </div>
+                                        <?php else : ?>
+                                            <div class="rounded-circle text-center text-white bg-warning btn btn-sm">
                                                 <i class="fas fa-spinner"></i>
                                             </div>
-                                            <div class="rounded-circle text-center text-white bg-danger btn btn-sm" hidden>
-                                                <i class="fas fa-times"></i>
-                                            </div>
-                                        </center>
+                                        <?php endif; ?>
                                     </td>
                                     <td>
                                         <center>

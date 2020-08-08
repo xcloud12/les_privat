@@ -12,6 +12,7 @@ class Pemesanan extends BaseController
     {
         helper('number');
         $pemesanan   = new M_Pemesanan();
+        setlocale(LC_ALL, 'ID');
 
         $data = [
             'title' => "Data Pemesanan Les Privat",
@@ -24,5 +25,21 @@ class Pemesanan extends BaseController
         echo view('user/sidebar/admin', $data);
         echo view("user/data/pemesanan", $data);
         echo view('templates/footer', $data);
+    }
+
+    protected function cek_login($session)
+    {
+        if (!$session->has('username')) {
+            $session->destroy();
+            redirect()->to('/');
+            exit;
+        }
+        switch ($session->get('level')) {
+            case 'admin':
+                break;
+            default:
+                redirect()->to('/dashboard');
+                exit;
+        }
     }
 }

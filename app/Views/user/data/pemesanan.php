@@ -14,12 +14,12 @@
                     <table class="table table-bordered bgr table-hover" id="dataTable" width="100%" cellspacing="0">
                         <thead class="thead-light">
                             <tr>
-                                <th>#</th>
+                                <th style="width: 1%; align-items: center;">#</th>
                                 <th>Nama Mata Pelajaran</th>
                                 <th>Nama Tentor</th>
                                 <th>Nama Peserta</th>
                                 <th>Tanggal Pemesanan</th>
-                                <th>Status</th>
+                                <th class="text-center" style="width: 1%;">Status</th>
                                 <th hidden>banyak pertemuan</th>
                                 <th hidden>deskripsi</th>
                                 <th hidden>harga</th>
@@ -31,12 +31,27 @@
                             $i = 1;
                             foreach ($pemesanan as $p) : ?>
                                 <tr>
-                                    <td><?= $i ?></td>
+                                    <td class="text-center"><?= $i ?></td>
                                     <td><?= $p->les ?></td>
                                     <td><?= $p->tentor ?></td>
                                     <td><?= $p->peserta ?></td>
-                                    <td><?= $p->tgl_pesan ?></td>
-                                    <td><?= $p->diterima ?></td>
+                                    <td><?= strftime('%d %B %Y', strtotime($p->tgl_pesan)) ?></td>
+                                    <td class="text-center">
+                                        <?php
+                                        if ($p->diterima === '1') : ?>
+                                            <div class="rounded-circle text-center text-white bg-success btn btn-sm">
+                                                <i class="fas fa-check-circle"></i>
+                                            </div>
+                                        <?php elseif ($p->diterima === '0') : ?>
+                                            <div class="rounded-circle text-center text-white bg-danger btn btn-sm">
+                                                <i class="fas fa-times-circle"></i>
+                                            </div>
+                                        <?php else : ?>
+                                            <div class="rounded-circle text-center text-white bg-warning btn btn-sm">
+                                                <i class="fas fa-spinner"></i>
+                                            </div>
+                                        <?php endif; ?>
+                                    </td>
                                     <td hidden><?= $p->banyak_pertemuan ?></td>
                                     <td hidden><?= $p->deskripsi_pemesanan ?></td>
                                     <td hidden><?= number_to_currency($p->harga, "IDR", "id") ?></td>
