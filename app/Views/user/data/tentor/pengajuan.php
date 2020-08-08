@@ -25,7 +25,7 @@
                                                     <span class="badge badge-pill badge-primary pt-1 pb-1"><?= ucfirst($hari) ?></span>
                                                 <?php endforeach; ?>
                                             </div>
-                                            <div class="font-weight-light text-secondary mt-4"><?= "RP. " . number_format($p->harga, 2, ',', '.') ?></div>
+                                            <div class="font-weight-light text-secondary mt-4"><?= number_to_currency($p->harga, "IDR", "ID") ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <?php if ($p->aktif == 1) : ?>

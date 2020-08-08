@@ -15,36 +15,43 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>#</th>
-                                <th hidden>id_pemesanan</th>
-                                <th>Nama Tentor</th>
                                 <th>Nama Mata Pelajaran</th>
+                                <th>Nama Tentor</th>
                                 <th>Nama Peserta</th>
                                 <th>Tanggal Pemesanan</th>
-                                <th hidden>status</th>
+                                <th>Status</th>
                                 <th hidden>banyak pertemuan</th>
                                 <th hidden>deskripsi</th>
+                                <th hidden>harga</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td hidden>1123231</td>
-                                <td>xxxxxx</td>
-                                <td>xxxxxxxxxxxx</td>
-                                <td>xxxxxx</td>
-                                <td>xx - xx - xxxx</td>
-                                <td hidden>xxxxxx</td>
-                                <td hidden>xx</td>
-                                <td hidden>deskripsi</td>
-                                <td style="width: 2%;">
-                                    <center>
-                                        <button type="button" class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
-                                            <i class="fas fa-info-circle"></i>
-                                        </button>
-                                    </center>
-                                </td>
-                            </tr>
+                            <?php
+                            $i = 1;
+                            foreach ($pemesanan as $p) : ?>
+                                <tr>
+                                    <td><?= $i ?></td>
+                                    <td><?= $p->les ?></td>
+                                    <td><?= $p->tentor ?></td>
+                                    <td><?= $p->peserta ?></td>
+                                    <td><?= $p->tgl_pesan ?></td>
+                                    <td><?= $p->diterima ?></td>
+                                    <td hidden><?= $p->banyak_pertemuan ?></td>
+                                    <td hidden><?= $p->deskripsi_pemesanan ?></td>
+                                    <td hidden><?= number_to_currency($p->harga, "IDR", "id") ?></td>
+                                    <td style="width: 2%;">
+                                        <center>
+                                            <button type="button" class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
+                                                <i class="fas fa-info-circle"></i>
+                                            </button>
+                                        </center>
+                                    </td>
+                                </tr>
+                            <?php
+                                $i++;
+                            endforeach;
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -106,11 +113,11 @@
 
 <script>
     //halaman
-    const halaman_pemesanan        = $('#halaman_pemesanan');
+    const halaman_pemesanan = $('#halaman_pemesanan');
     const halaman_detail_pemesanan = $('#halaman_detail_pemesanan');
     //tombol
     const btn_detail_pemesanan = $('.btn-info');
-    const btn_kembali          = $('#btn_kembali');
+    const btn_kembali = $('#btn_kembali');
     halaman_detail_pemesanan.hide()
 
     btn_detail_pemesanan.click(() => {

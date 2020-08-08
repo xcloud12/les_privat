@@ -74,7 +74,7 @@
                                                 <div class="col mr-4">
                                                     <div class="font-weight-bold text-uppercase text-dark"><?= "$p->les" ?></div>
                                                     <div class="mt-1 text-gray-800 font-weight-lighter"><?= "$p->tentor" ?></div>
-                                                    <div class="mt-1 text-gray-800 font-weight-lighter"><?= "RP. " . number_format($p->harga, 2, ',', '.') ?></div>
+                                                    <div class="mt-1 text-gray-800 font-weight-lighter"><?= number_to_currency($p->harga, "IDR", "ID") ?></div>
                                                 </div>
                                             </div>
                                             <div class="row align-items-center pesan-text-info">

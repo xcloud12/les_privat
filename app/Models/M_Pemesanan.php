@@ -68,13 +68,27 @@ class M_Pemesanan extends Model
         $result = $pemesanan->select('id_pemesanan, pemesanan_les.hari as hari, tgl_pesan, diterima, banyak_pertemuan, les.nama as les, pemesanan_les.deskripsi as deskripsi_pesan,
         (SELECT nama from user where user.id_user=pemesanan_les.id_peserta) as peserta,
         (SELECT alamat from user where user.id_user=pemesanan_les.id_peserta) as alamat,
-        (SELECT foto from user where user.id_user=pemesanan_les.id_peserta) as foto_peserta'
-        )
+        (SELECT foto from user where user.id_user=pemesanan_les.id_peserta) as foto_peserta')
             ->join('pengajuan_mengajar', 'pemesanan_les.id_pengajuan = pengajuan_mengajar.id_pengajuan')
             ->join('user', 'user.id_user = pengajuan_mengajar.id_tentor')
             ->join('les', 'les.id_les = pengajuan_mengajar.id_les')
             ->where('id_tentor', $id_tentor)
             ->where('diterima', null)
+            ->get();
+
+        return $result->getResultObject();
+    }
+
+    public function allpemesanan()
+    {
+        $db        = \Config\Database::connect();
+        $pemesanan = $db->table('pemesanan_les');
+
+        $result = $pemesanan->select('tgl_pesan, pemesanan_les.diterima, les.nama as les, user.nama as tentor, p.nama as peserta, banyak_pertemuan, pemesanan_les.deskripsi as deskripsi_pemesanan, les.harga')
+            ->join('pengajuan_mengajar', ' pengajuan_mengajar.id_pengajuan=pemesanan_les.id_pengajuan')
+            ->join('les', 'les.id_les = pengajuan_mengajar.id_les')
+            ->join('user', 'user.id_user = pengajuan_mengajar.id_tentor')
+            ->join('user as p', 'p.id_user = pemesanan_les.id_peserta')
             ->get();
 
         return $result->getResultObject();

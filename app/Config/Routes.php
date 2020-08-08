@@ -75,7 +75,9 @@ $routes->get('/data/jadwal', 'Jadwal::index');
 $routes->post('/data/jadwal', 'Jadwal::create'); // dilakukan otomatis ketika tentor menyetujui pemesanan les
 $routes->delete('/data/jadwal/(\d+)', 'Jadwal::delete'); // menandai bahwa les sudah selesai
 
-$routes->get('/data/pemesanan', 'Admin::index/pemesanan');
+//master data pemesanan
+$routes->get('/data/pemesanan', 'Pemesanan::index');    // list all
+// $routes->get('/data/pemesanan', 'Admin::index/pemesanan');
 
 // tentor
 $routes->get('/les', 'Tentor::les');

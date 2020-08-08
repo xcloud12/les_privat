@@ -19,8 +19,10 @@
                                 <div class="col mr-2">
                                     <div class="font-weight-bold text-secondary text-uppercase mb-2">Nama Peserta</div>
                                     <div class="font-weight-normal text-secondary">Nama Mata Pelajaran </div>
-                                    <div class="font-weight-normal text-secondary mb-2 d-inline">Rating</div>
-                                    <div class="font-font-weight-light small font-italic text-gray-400 d-inline">Tanggal</div>
+                                    <div class="font-weight-normal text-secondary mb-2 d-inline small">
+                                        <i class="fas fa-star" style="color: deepskyblue;"></i><i class="fas fa-star" style="color: deepskyblue;"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="font-font-weight-light text-xs font-italic text-gray-500 d-inline"> 20 September 2020</div>
                                     <div class="font-weight-light text-secondary mt-2">Ulasan</div>
                                 </div>
                             </div>
