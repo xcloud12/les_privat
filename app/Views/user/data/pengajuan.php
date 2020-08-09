@@ -22,6 +22,7 @@
                                 <th>Hari</th>
                                 <th>Jam</th>
                                 <th hidden>Deskripsi</th>
+                                <th hidden>foto</th>
                                 <th style="width: 2%;">Status</th>
                                 <th style="width: 2%;">Aksi</th>
                             </tr>
@@ -68,6 +69,7 @@
                                             </div>
                                         <?php endif; ?>
                                     </td>
+                                    <td hidden><?= $p->tentor_foto ?></td>
                                     <td>
                                         <center>
                                             <button class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
@@ -194,6 +196,7 @@
     const detail_keterangan = $('.keterangan');
     const detail_kode = $('.kode_pengajuan');
     const detail_status = $('.status_pengajuan');
+    const detail_foto = $('#foto');
 
 
     detail.hide()
@@ -225,6 +228,7 @@
         detail_keterangan.html(data[6].textContent);
         detail_kode.html(data[1].textContent);
         detail_status.html(data[7].textContent);
+        detail_foto.attr("src", "/img/img_profil/" + data[8].textContent)
     }
 
     function reset_form() {

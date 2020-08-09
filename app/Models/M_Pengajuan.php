@@ -29,7 +29,7 @@ class M_Pengajuan extends Model
         $db = \Config\Database::connect();
 
         $les    = $db->table('pengajuan_mengajar');
-        $result = $les->select('id_pengajuan, kode, les.nama as les, user.nama as tentor, aktif, hari, jam_kerja, pengajuan_mengajar.deskripsi as deskripsi')
+        $result = $les->select('id_pengajuan, kode, les.nama as les, user.nama as tentor, user.foto as tentor_foto, aktif, hari, jam_kerja, pengajuan_mengajar.deskripsi as deskripsi')
             ->join('les', 'les.id_les = pengajuan_mengajar.id_les')
             ->join('user', 'user.id_user = pengajuan_mengajar.id_tentor')
             ->get();
@@ -43,12 +43,12 @@ class M_Pengajuan extends Model
 
         $les    = $db->table('pengajuan_mengajar');
         $result = $les->select('id_pengajuan, harga, les.nama as les, user.foto as tentor_foto, user.nama as tentor, aktif, hari, jam_kerja, pengajuan_mengajar.deskripsi as deskripsi')
-        ->join('les', 'les.id_les = pengajuan_mengajar.id_les')
-        ->join('user', 'user.id_user = pengajuan_mengajar.id_tentor')
-        ->where('aktif', '1')
-        ->orderBy('les', 'asc')
-        ->orderBy('tentor', 'asc')
-        ->get();
+            ->join('les', 'les.id_les = pengajuan_mengajar.id_les')
+            ->join('user', 'user.id_user = pengajuan_mengajar.id_tentor')
+            ->where('aktif', '1')
+            ->orderBy('les', 'asc')
+            ->orderBy('tentor', 'asc')
+            ->get();
 
         return $result->getResult();
     }

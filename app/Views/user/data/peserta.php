@@ -234,6 +234,6 @@
         detail_tanggal_lahir.val(data[7].textContent);
         detail_alamat.val(data[8].textContent);
         detail_no_telp.val(data[9].textContent);
-        detail_foto.val(data[10].textContent);
+        detail_foto.attr("src", "/img/img_profil/" + data[10].textContent)
     }
 </script>
