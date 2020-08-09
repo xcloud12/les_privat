@@ -18,11 +18,10 @@
                                 <th>Nama Mata Pelajaran</th>
                                 <th>Nama Tentor</th>
                                 <th>Nama Peserta</th>
+                                <th style="width: 11%;" hidden>Rating</th>
                                 <th>Tanggal Pertemuan</th>
                                 <th style="width: 1%;">Kehadiran</th>
-                                <th hidden>Rating</th>
                                 <th hidden>Ulasan</th>
-                                <th hidden>Id Jadwal</th>
                                 <th style="width: 1%;">Aksi</th>
                             </tr>
                         </thead>
@@ -31,40 +30,88 @@
                             $i = 1;
                             foreach ($jadwal as $u) : ?>
                                 <tr>
-                                    <td>
-                                        <center>
-                                            <?= $i ?>
-                                        </center>
-                                    </td>
+                                    <td><?= $i ?></td>
                                     <td><?= $u->les ?></td>
                                     <td><?= $u->tentor ?></td>
                                     <td><?= $u->peserta ?></td>
+                                    <td class="text-center" hidden>
+                                        <?php
+                                        if ($u->rating === '1') : ?>
+                                            <div class="text-secondary">
+                                                <i class="fas fa-star" style="color: deepskyblue;"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        <?php elseif ($u->rating === '2') : ?>
+                                            <div class="text-secondary">
+                                                <i class="fas fa-star" style="color: deepskyblue;"></i>
+                                                <i class="fas fa-star" style="color: deepskyblue;"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        <?php elseif ($u->rating === '3') : ?>
+                                            <div class="text-secondary">
+                                                <i class="fas fa-star" style="color: deepskyblue;"></i>
+                                                <i class="fas fa-star" style="color: deepskyblue;"></i>
+                                                <i class="fas fa-star" style="color: deepskyblue;"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        <?php elseif ($u->rating === '4') : ?>
+                                            <div class="text-secondary">
+                                                <i class="fas fa-star" style="color: deepskyblue;"></i>
+                                                <i class="fas fa-star" style="color: deepskyblue;"></i>
+                                                <i class="fas fa-star" style="color: deepskyblue;"></i>
+                                                <i class="fas fa-star" style="color: deepskyblue;"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        <?php elseif ($u->rating === '5') : ?>
+                                            <div class="text-secondary">
+                                                <i class="fas fa-star" style="color: deepskyblue;"></i>
+                                                <i class="fas fa-star" style="color: deepskyblue;"></i>
+                                                <i class="fas fa-star" style="color: deepskyblue;"></i>
+                                                <i class="fas fa-star" style="color: deepskyblue;"></i>
+                                                <i class="fas fa-star" style="color: deepskyblue;"></i>
+                                            </div>
+                                        <?php else : ?>
+                                            <center>
+                                                No Rating
+                                            </center>
+                                        <?php endif; ?>
+                                    </td>
                                     <td><?= strftime('%d %B %Y', strtotime($u->tgl)) ?></td>
+                                    <td hidden><?= $u->ulasan ?></td>
                                     <td>
                                         <?php
                                         if ($u->absen === '1') : ?>
                                             <center>
                                                 <div class="rounded-circle text-center text-white bg-success btn btn-sm">
-                                                    <i class="fas fa-check-circle"></i>
+                                                    <i class="fas fa-check-circle">
+                                                        <label name="status" hidden>Hadir</label>
+                                                    </i>
                                                 </div>
                                             </center>
                                         <?php elseif ($u->absen === '0') : ?>
                                             <center>
                                                 <div class="rounded-circle text-center text-white bg-danger btn btn-sm">
-                                                    <i class="fas fa-times-circle"></i>
+                                                    <i class="fas fa-times-circle">
+                                                        <label name="status" hidden>Tidak Hadir</label>
+                                                    </i>
                                                 </div>
                                             </center>
                                         <?php else : ?>
                                             <center>
                                                 <div class="rounded-circle text-center text-white bg-warning btn btn-sm">
-                                                    <i class="fas fa-spinner"></i>
+                                                    <i class="fas fa-spinner">
+                                                        <label name="status" hidden>Belum Absen</label>
+                                                    </i>
                                                 </div>
                                             </center>
                                         <?php endif; ?>
                                     </td>
-                                    <td hidden><?= $u->rating ?></td>
-                                    <td hidden><?= $u->ulasan ?></td>
-                                    <td hidden><?= $u->id_jadwal ?></td>
                                     <td>
                                         <center>
                                             <button type="button" class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
@@ -95,36 +142,56 @@
                     <div class="card shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
-                                <div class="col-6">
-                                    <div class="form-group row">
-                                        <label for="nama" class="col-sm-6 col-form-label font-weight-bold">Nama tentor</label>
-                                        <label for="nama" class="col-sm-6 col-form-label">: Isian nama tentor</label>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="email" class="col-sm-6 col-form-label font-weight-bold">Nama mata pelajaran</label>
-                                        <label for="email" class="col-sm-6 col-form-label">: isian mapel</label>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="tempat_lahir" class="col-sm-6 col-form-label font-weight-bold">Nama peserta</label>
-                                        <label for="tempat_lahir" class="col-sm-6 col-form-label">: isian nama peserta</label>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="tanggal_lahir" class="col-sm-6 col-form-label font-weight-bold">Tanggal Pertemuan</label>
-                                        <label for="tanggal_lahir" class="col-sm-6 col-form-label">: isian tanggal pertemuan</label>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="jenis_kelamin" class="col-sm-6 col-form-label font-weight-bold">Kehadiran</label>
-                                        <label for="jenis_kelamin" class="col-sm-6 col-form-label">: isian kehadiran/label>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="alamat" class="col-sm-6 col-form-label font-weight-bold">Rating</label>
-                                        <label for="alamat" class="col-sm-6 col-form-label">: isian rating</label>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="no_telp" class="col-sm-6 col-form-label font-weight-bold">Ulasan</label>
-                                        <label for="no_telp" class="col-sm-6 col-form-label">: isian ulasanp</label>
-                                    </div>
-                                </div>
+                                <table class="table table-borderless w-100 table-responsive-sm">
+                                    <tbody>
+                                        <tr class="pb-2">
+                                            <th style="width: 20%; text-align: left;" class="align-top">Nama Tentor</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="nama_tentor"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 20%; text-align: left;" class="align-top">Mata Pelajaran</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="mapel_pengajuan"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 20%; text-align: left;" class="align-top">Nama Peserta</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="nama_peserta"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 20%; text-align: left;" class="align-top">Tanggal Pertemuan</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="tanggal_pertemuan"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 20%; text-align: left;" class="align-top">Kehadiran</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="kehadiran"></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table table-borderless w-100 table-responsive-sm mt-3">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width: 20%; text-align: left;" class="align-top">Rating</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="rating"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 20%; text-align: left;" class="align-top">Ulasan</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="ulasan"></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -142,15 +209,37 @@
     const btn_detail_jadwal = $('.btn-info');
     const btn_kembali = $('#btn_kembali');
     halaman_detail_jadwal.hide()
+    //detail
+    const detail_nama_tentor = $('.nama_tentor');
+    const detail_mapel = $('.mapel_pengajuan');
+    const detail_nama_peserta = $('.nama_peserta');
+    const detail_tgl_pertemuan = $('.tanggal_pertemuan');
+    const detail_kehadiran = $('.kehadiran');
+    const detail_rating = $('.rating');
+    const detail_ulasan = $('.ulasan');
 
-    btn_detail_jadwal.click(() => {
-        halaman_jadwal.fadeOut(300, () => {
-            halaman_detail_jadwal.fadeIn(300)
-        })
-    })
     btn_kembali.click(() => {
         halaman_detail_jadwal.fadeOut(300, () => {
             halaman_jadwal.fadeIn(300)
         })
     })
+
+    //untuk button info
+    function info(baris) {
+        halaman_jadwal.fadeOut(300, () => {
+            halaman_detail_jadwal.fadeIn(300)
+        })
+
+        fill_form(baris.children)
+    }
+
+    function fill_form(data) {
+        detail_nama_tentor.text(data[2].textContent);
+        detail_mapel.text(data[1].textContent);
+        detail_nama_peserta.text(data[3].textContent);
+        detail_tgl_pertemuan.text(data[5].textContent);
+        detail_kehadiran.text(data[7].textContent);
+        detail_rating.html(data[4].innerHTML);
+        detail_ulasan.text(data[6].textContent);
+    }
 </script>
