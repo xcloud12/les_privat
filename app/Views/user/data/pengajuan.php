@@ -17,7 +17,7 @@
                             <tr class="text-center">
                                 <th style="width: 1%;">#</th>
                                 <th>Kode</th>
-                                <th>Les</th>
+                                <th>Nama Mata Pelajaran</th>
                                 <th>Tentor</th>
                                 <th>Hari</th>
                                 <th>Jam</th>
@@ -49,15 +49,22 @@
                                         <?php
                                         if ($p->aktif === '1') : ?>
                                             <div class="rounded-circle text-center text-white bg-success btn btn-sm">
-                                                <i class="fas fa-check-circle"></i>
+                                                <i class="fas fa-check-circle">
+                                                    <label name="status" hidden>Pengajuan Mengajar Diterima</label>
+                                                </i>
                                             </div>
                                         <?php elseif ($p->aktif === '0') : ?>
                                             <div class="rounded-circle text-center text-white bg-danger btn btn-sm">
-                                                <i class="fas fa-times-circle"></i>
+                                                <i class="fas fa-times-circle">
+                                                    <label name="status" hidden>Pengajuan Mengajar Ditangguhkan</label>
+                                                </i>
                                             </div>
                                         <?php else : ?>
+                                            <input type="hidden" name="status" value="Anjay"></input>
                                             <div class="rounded-circle text-center text-white bg-warning btn btn-sm">
-                                                <i class="fas fa-spinner"></i>
+                                                <i class="fas fa-spinner">
+                                                    <label name="status" hidden>Pengajuan Mengajar Menunggu Persetujuan</label>
+                                                </i>
                                             </div>
                                         <?php endif; ?>
                                     </td>
@@ -96,40 +103,67 @@
                         <div class="card shadow h-100 py-2">
                             <div class="card-body">
                                 <div class="row no-gutter">
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-3">
                                         <center>
                                             <img id="foto" class="rounded" style="max-width: 200px; max-height: 250px; " src="/img/images.png" alt="Profile Picture">
                                         </center>
                                     </div>
-                                    <div class="col-sm-8">
-                                        <div class="form-group row">
-                                            <label for="nama" class="col-sm-4 col-form-label font-weight-bolder">Nama Tentor</label>
-                                            <label for="nama" class="col-sm-7 col-form-label">Budi Cahyono</label>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="email" class="col-sm-4 col-form-label font-weight-bolder">Mata Pelajaran</label>
-                                            <label for="email" class="col-sm-7 col-form-label"> Fisika</label>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="tempat_lahir" class="col-sm-4 col-form-label font-weight-bolder">Hari Mengajar</label>
-                                            <label for="tempat_lahir" class="col-sm-7 col-form-label float-left"> Senin, Selasa, Rabu</label>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="tanggal_lahir" class="col-sm-4 col-form-label font-weight-bolder">Jam Mengajar</label>
-                                            <label for="tanggal_lahir" class="col-sm-7 col-form-label">14.00 - 16.00</label>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="jenis_kelamin" class="col-sm-4 col-form-label font-weight-bolder">Deskripsi</label>
-                                            <label for="jenis_kelamin" class="col-sm-7 col-form-label">Fisika Kelas 1 untuk SMA</label>
-                                        </div>
-                                        <div class="form-group row mt-5">
-                                            <label for="alamat" class="col-sm-4 col-form-label font-weight-bolder">Kode</label>
-                                            <label for="alamat" class="col-sm-7 col-form-label text-uppercase">xg12g1hgvvj2</label>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label for="no_telp" class="col-sm-4 col-form-label font-weight-bolder">Status</label>
-                                            <label for="no_telp" class="col-sm-7 col-form-label">Pending</label>
-                                        </div>
+                                    <div class="col-sm-9">
+                                        <table class="table table-borderless w-100 table-responsive-sm">
+                                            <tbody>
+                                                <tr class="pb-2">
+                                                    <th style="width: 20%; text-align: left;" class="align-top">Nama Tentor</th>
+                                                    <td class=" align-top" style="width: 60%; text-align: left;">
+                                                        <div class="nama_tentor">
+
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="width: 20%; text-align: left;" class="align-top">Mata Pelajaran</th>
+                                                    <td class=" align-top" style="width: 60%; text-align: left;">
+                                                        <div class="mapel_pengajuan"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="width: 20%; text-align: left;" class="align-top">Hari Mengajar</th>
+                                                    <td class=" align-top" style="width: 60%; text-align: left;">
+                                                        <div class="hari_mengajar"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="width: 20%; text-align: left;" class="align-top">Jam Mengajar</th>
+                                                    <td class=" align-top" style="width: 60%; text-align: left;">
+                                                        <div class="jam_mengajar"></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="width: 20%; text-align: left;" class="align-top">Keterangan</th>
+                                                    <td class=" align-top" style="width: 60%; text-align: left;">
+                                                        <div class="keterangan"></div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="table table-borderless w-100 table-responsive-sm mt-5">
+                                            <tbody>
+                                                <tr>
+                                                    <th style="width: 20%; text-align: left;" class="align-top">Kode</th>
+                                                    <td class=" align-top font-weight-bold" style="width: 60%; text-align: left;">
+                                                        <div class="kode_pengajuan">
+                                                            ASDSA5412453
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="width: 20%; text-align: left;" class="align-top">Status</th>
+                                                    <td class=" align-top" style="width: 60%; text-align: left;">
+                                                        <div class="status_pengajuan">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -151,6 +185,16 @@
     const btn_hapus = $('#btn_hapus');
     const rest_method = $("#rest_method")
     const form_submit = $('#form_submit');
+
+    //data info
+    const detail_nama_tentor = $('.nama_tentor');
+    const detail_mapel = $('.mapel_pengajuan');
+    const detail_hari = $('.hari_mengajar');
+    const detail_jam = $('.jam_mengajar');
+    const detail_keterangan = $('.keterangan');
+    const detail_kode = $('.kode_pengajuan');
+    const detail_status = $('.status_pengajuan');
+
 
     detail.hide()
 
@@ -196,10 +240,13 @@
     }
 
     function fill_form(data) {
-        // detail_kategori.val(data[1].textContent.toLowerCase());
-        // detail_mapel.val(data[2].textContent);
-        // detail_harga.val(data[3].textContent);
-        // detail_desk.val(data[4].textContent);
+        detail_nama_tentor.html(data[3].textContent);
+        detail_mapel.html(data[2].textContent);
+        detail_hari.html(data[4].textContent);
+        detail_jam.html(data[5].textContent);
+        detail_keterangan.html(data[6].textContent);
+        detail_kode.html(data[1].textContent);
+        detail_status.html(data[7].textContent);
     }
 
     function reset_form() {

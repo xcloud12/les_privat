@@ -93,4 +93,16 @@ class M_Pemesanan extends Model
 
         return $result->getResultObject();
     }
+    public function banyak_peminat()
+    {
+        $db        = \Config\Database::connect();
+        $banyak_peminat = $db->table('pemesanan_les');
+
+        $result = $banyak_peminat->select('les.kategori as kategori, nama.les as nama_mapel, count(*) as banyak_peminat')
+            ->join('pengajuan_mengajar', ' les.id_les=pengajuan_mengajar.id_les')
+            ->join('les', 'les.id_les = pengajuan_mengajar.id_les')
+            ->get();
+
+        return $result->getResultObject();
+    }
 }
