@@ -19,6 +19,7 @@
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Jenis Kelamin</th>
+                                <th hidden>Jenis Kelamin ori</th>
                                 <th hidden></th>
                                 <th hidden></th>
                                 <th hidden></th>
@@ -37,7 +38,14 @@
                                     <td><?= $u['nama'] ?></td>
                                     <td><?= $u['username'] ?></td>
                                     <td><?= $u['email'] ?></td>
-                                    <td><?= $u['jk'] ?></td>
+                                    <td><?php
+                                        if ($u['jk'] == 'L') {
+                                            echo 'Laki-Laki';
+                                        } else {
+                                            echo 'Perempuan';
+                                        }
+                                        ?></td>
+                                    <td hidden><?= $u['jk'] ?></td>
                                     <td hidden><?= $u['tempat_lahir'] ?></td>
                                     <td hidden><?= $u['tgl_lahir'] ?></td>
                                     <td hidden><?= $u['alamat'] ?></td>
@@ -221,11 +229,11 @@
         detail_nama.val(data[1].textContent);
         detail_username.val(data[2].textContent);
         detail_email.val(data[3].textContent);
-        detail_jenis_kelamin.val(data[4].textContent);
-        detail_tempat_lahir.val(data[5].textContent);
-        detail_tanggal_lahir.val(data[6].textContent);
-        detail_alamat.val(data[7].textContent);
-        detail_no_telp.val(data[8].textContent);
-        detail_foto.val(data[9].textContent);
+        detail_jenis_kelamin.val(data[5].textContent);
+        detail_tempat_lahir.val(data[6].textContent);
+        detail_tanggal_lahir.val(data[7].textContent);
+        detail_alamat.val(data[8].textContent);
+        detail_no_telp.val(data[9].textContent);
+        detail_foto.val(data[10].textContent);
     }
 </script>

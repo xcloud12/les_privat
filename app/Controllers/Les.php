@@ -8,6 +8,7 @@ class Les extends BaseController
 {
     public function index()
     {
+        helper('number');
         $this->cek_login(session());
         $les   = new M_Les();
 

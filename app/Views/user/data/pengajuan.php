@@ -206,37 +206,15 @@
 
     //untuk button info
     function info(baris) {
-        btn_simpan.hide()
-        btn_hapus.show()
+        // btn_simpan.hide()
+        // btn_hapus.show()
         halaman.fadeToggle(300, () => {
             detail.fadeToggle(300)
         })
-        rest_method.val('DELETE')
+        // rest_method.val('DELETE')
 
         fill_form(baris.children)
-        form_submit.prop('action', `/data/pengajuan/${baris.children[5].textContent}`)
-        toggle_form(true)
-    }
-
-    //untuk button info
-    function edit(baris) {
-        btn_simpan.show()
-        btn_hapus.hide()
-        halaman.fadeToggle(300, () => {
-            detail.fadeToggle(300)
-        })
-        rest_method.val('PUT')
-
-        fill_form(baris.children)
-        form_submit.prop('action', `/data/pengajuan/${baris.children[5].textContent}`)
-        toggle_form(false)
-    }
-
-    function toggle_form(isHide) {
-        // detail_kategori.prop('disabled', isHide);
-        // detail_mapel.prop('disabled', isHide);
-        // detail_harga.prop('disabled', isHide);
-        // detail_desk.prop('disabled', isHide);
+        // form_submit.prop('action', `/data/pengajuan/${baris.children[5].textContent}`)
     }
 
     function fill_form(data) {

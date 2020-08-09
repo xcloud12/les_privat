@@ -16,13 +16,14 @@
                     <table class="table table-bordered bgr table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
                         <thead class="thead-light">
                             <tr>
-                                <th>#</th>
+                                <th style="width: 1%;">#</th>
                                 <th>Kategori</th>
                                 <th>Nama Mata Pelajaran</th>
                                 <th>Harga</th>
-                                <th hidden></th>
-                                <th hidden></th>
-                                <th>Aksi</th>
+                                <th hidden>deskripsi</th>
+                                <th hidden>id_les</th>
+                                <th hidden>harga_non_format</th>
+                                <th style="width: 8%;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,9 +34,10 @@
                                     <td><?= $i ?></td>
                                     <td><?= ucfirst($u['kategori']) ?></td>
                                     <td><?= $u['nama'] ?></td>
-                                    <td><?= $u['harga'] ?></td>
+                                    <td><?= number_to_currency($u['harga'], "IDR", "ID") ?></td>
                                     <td hidden><?= $u['deskripsi'] ?></td>
                                     <td hidden><?= $u['id_les'] ?></td>
+                                    <td hidden><?= $u['harga'] ?></td>
                                     <td>
                                         <center>
                                             <button class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
@@ -182,12 +184,12 @@
     function fill_form(data) {
         detail_kategori.val(data[1].textContent.toLowerCase());
         detail_mapel.val(data[2].textContent);
-        detail_harga.val(data[3].textContent);
+        detail_harga.val(data[6].textContent);
         detail_desk.val(data[4].textContent);
     }
 
     function reset_form() {
-        // detail_kategori.val('');
+        detail_kategori.val('');
         detail_mapel.val('');
         detail_harga.val('');
         detail_desk.val('');

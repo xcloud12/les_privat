@@ -40,19 +40,25 @@
                                         <?php
                                         if ($p->diterima === '1') : ?>
                                             <div class="rounded-circle text-center text-white bg-success btn btn-sm">
-                                                <i class="fas fa-check-circle"></i>
+                                                <i class="fas fa-check-circle">
+                                                    <label name="status" hidden>Diterima Untuk Diajar</label>
+                                                </i>
                                             </div>
                                         <?php elseif ($p->diterima === '0') : ?>
                                             <div class="rounded-circle text-center text-white bg-danger btn btn-sm">
-                                                <i class="fas fa-times-circle"></i>
+                                                <i class="fas fa-times-circle">
+                                                    <label name="status" hidden>Ditolak Oleh Tentor</label>
+                                                </i>
                                             </div>
                                         <?php else : ?>
                                             <div class="rounded-circle text-center text-white bg-warning btn btn-sm">
-                                                <i class="fas fa-spinner"></i>
+                                                <i class="fas fa-spinner">
+                                                    <label name="status" hidden>Pemesanan Masih Ditangguhkan</label>
+                                                </i>
                                             </div>
                                         <?php endif; ?>
                                     </td>
-                                    <td hidden><?= $p->banyak_pertemuan ?></td>
+                                    <td hidden><?= $p->banyak_pertemuan ?> Pertemuan</td>
                                     <td hidden><?= $p->deskripsi_pemesanan ?></td>
                                     <td hidden><?= number_to_currency($p->harga, "IDR", "id") ?></td>
                                     <td style="width: 2%;">
@@ -85,36 +91,62 @@
                     <div class="card shadow h-100 py-2">
                         <div class="card-body">
                             <div class="row no-gutters align-items-center">
-                                <div class="col-6">
-                                    <div class="form-group row">
-                                        <label for="nama" class="col-sm-6 col-form-label font-weight-bold">Nama tentor</label>
-                                        <label for="nama" class="col-sm-6 col-form-label">: Isian nama tentor</label>
-                                    </div>
-                                    <div class="form-group row ">
-                                        <label for="email" class="col-sm-6 col-form-label font-weight-bold">Nama mata pelajaran</label>
-                                        <label for="email" class="col-sm-6 col-form-label">: isian mapel</label>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="tempat_lahir" class="col-sm-6 col-form-label font-weight-bold">Nama peserta</label>
-                                        <label for="tempat_lahir" class="col-sm-6 col-form-label">: isian nama peserta</label>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="tanggal_lahir" class="col-sm-6 col-form-label font-weight-bold">Tanggal pemesanan</label>
-                                        <label for="tanggal_lahir" class="col-sm-6 col-form-label">: isian tanggal pemesanan</label>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="jenis_kelamin" class="col-sm-6 col-form-label font-weight-bold">Banyak Pertemuan</label>
-                                        <label for="jenis_kelamin" class="col-sm-6 col-form-label">: isian banyak pertemuan</label>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="alamat" class="col-sm-6 col-form-label font-weight-bold">deskripsi</label>
-                                        <label for="alamat" class="col-sm-6 col-form-label">: isian deskripsi</label>
-                                    </div>
-                                    <div class="form-group row mt-5">
-                                        <label for="no_telp" class="col-sm-6 col-form-label font-weight-bold">Harga</label>
-                                        <label for="no_telp" class="col-sm-6 col-form-label">: isian harga mapel</label>
-                                    </div>
-                                </div>
+                                <table class="table table-borderless w-100 table-responsive-sm">
+                                    <tbody>
+                                        <tr class="pb-2">
+                                            <th style="width: 20%; text-align: left;" class="align-top">Nama Tentor</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="nama_tentor"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 20%; text-align: left;" class="align-top">Mata Pelajaran</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="mapel_pengajuan"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 20%; text-align: left;" class="align-top">Nama Peserta</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="nama_peserta"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 20%; text-align: left;" class="align-top">Tanggal Pemesanan</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="tanggal_pemesanan"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 20%; text-align: left;" class="align-top">Banyak Pertemuan</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="banyak_pertemuan"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 20%; text-align: left;" class="align-top">Deskripsi</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="keterangan"></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table table-borderless w-100 table-responsive-sm mt-5">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width: 20%; text-align: left;" class="align-top">Status</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="status"></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 20%; text-align: left;" class="align-top">Harga</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="harga"></div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -122,6 +154,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 
@@ -133,16 +166,41 @@
     //tombol
     const btn_detail_pemesanan = $('.btn-info');
     const btn_kembali = $('#btn_kembali');
+    //detail
+    const detail_nama_tentor = $('.nama_tentor');
+    const detail_mapel = $('.mapel_pengajuan');
+    const detail_nama_peserta = $('.nama_peserta');
+    const detail_tgl_pemesanan = $('.tanggal_pemesanan');
+    const detail_pertemuan = $('.banyak_pertemuan');
+    const detail_keterangan = $('.keterangan');
+    const detail_status = $('.status');
+    const detail_harga = $('.harga');
+
     halaman_detail_pemesanan.hide()
 
-    btn_detail_pemesanan.click(() => {
-        halaman_pemesanan.fadeOut(300, () => {
-            halaman_detail_pemesanan.fadeIn(300)
-        })
-    })
     btn_kembali.click(() => {
         halaman_detail_pemesanan.fadeOut(300, () => {
             halaman_pemesanan.fadeIn(300)
         })
     })
+
+    //untuk button info
+    function info(baris) {
+        halaman_pemesanan.fadeOut(300, () => {
+            halaman_detail_pemesanan.fadeIn(300)
+        })
+
+        fill_form(baris.children)
+    }
+
+    function fill_form(data) {
+        detail_nama_tentor.html(data[2].textContent);
+        detail_mapel.html(data[1].textContent);
+        detail_nama_peserta.html(data[3].textContent);
+        detail_tgl_pemesanan.html(data[4].textContent);
+        detail_status.html(data[5].textContent);
+        detail_pertemuan.html(data[6].textContent);
+        detail_keterangan.html(data[7].textContent);
+        detail_harga.html(data[8].textContent);
+    }
 </script>
