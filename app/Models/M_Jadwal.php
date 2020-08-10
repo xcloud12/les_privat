@@ -30,7 +30,7 @@ class M_Jadwal extends Model
         $db = \Config\Database::connect();
 
         $jadwal = $db->table('jadwal');
-        $result = $jadwal->select('id_jadwal, LES.nama AS les, ' .
+        $result = $jadwal->select('id_jadwal, LES.nama AS les, rating, ' .
             '(SELECT nama FROM USER WHERE USER.id_user = JADWAL.id_peserta) AS peserta,' .
             '(SELECT alamat FROM USER WHERE USER.id_user = JADWAL.id_peserta) AS alamat,' .
             '(SELECT foto FROM USER WHERE USER.id_user = JADWAL.id_peserta) AS foto_peserta,' .
