@@ -14,15 +14,15 @@
                     <table class="table table-bordered bgr table-hover" id="dataTable" width="100%" cellspacing="0">
                         <thead class="thead-light">
                             <tr>
-                                <th style="width: 1%;">#</th>
+                                <th style="width: 1%;" class="text-center">#</th>
                                 <th>Nama Mata Pelajaran</th>
                                 <th>Nama Tentor</th>
                                 <th>Nama Peserta</th>
-                                <th style="width: 11%;" hidden>Rating</th>
+                                <th hidden>Rating</th>
                                 <th>Tanggal Pertemuan</th>
                                 <th style="width: 1%;">Kehadiran</th>
                                 <th hidden>Ulasan</th>
-                                <th style="width: 1%;">Aksi</th>
+                                <th style="width: 1%;" class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,11 +30,11 @@
                             $i = 1;
                             foreach ($jadwal as $u) : ?>
                                 <tr>
-                                    <td><?= $i ?></td>
+                                    <td class="text-center"><?= $i ?></td>
                                     <td><?= $u->les ?></td>
                                     <td><?= $u->tentor ?></td>
                                     <td><?= $u->peserta ?></td>
-                                    <td class="text-center" hidden>
+                                    <td hidden>
                                         <?php
                                         if ($u->rating === '1') : ?>
                                             <div class="text-secondary">
@@ -77,39 +77,33 @@
                                                 <i class="fas fa-star" style="color: deepskyblue;"></i>
                                             </div>
                                         <?php else : ?>
-                                            <div class="text-dark">
+                                            <div class="text-dark font-weight-normal p-0">
                                                 Belum Ada Rating
                                             </div>
                                         <?php endif; ?>
                                     </td>
                                     <td><?= strftime('%d %B %Y', strtotime($u->tgl)) ?></td>
                                     <td hidden><?= $u->ulasan == '' ? 'Belum Ada Ulasan' : $u->ulasan ?></td>
-                                    <td>
+                                    <td class="text-center">
                                         <?php
                                         if ($u->absen === '1') : ?>
-                                            <center>
-                                                <div class="rounded-circle text-center text-white bg-success btn btn-sm">
-                                                    <i class="fas fa-check-circle">
-                                                        <label name="status" hidden>Hadir</label>
-                                                    </i>
-                                                </div>
-                                            </center>
+                                            <div class="rounded-circle text-center text-white bg-success btn btn-sm">
+                                                <i class="fas fa-check-circle">
+                                                    <label name="status" hidden>Hadir</label>
+                                                </i>
+                                            </div>
                                         <?php elseif ($u->absen === '0') : ?>
-                                            <center>
-                                                <div class="rounded-circle text-center text-white bg-danger btn btn-sm">
-                                                    <i class="fas fa-times-circle">
-                                                        <label name="status" hidden>Tidak Hadir</label>
-                                                    </i>
-                                                </div>
-                                            </center>
+                                            <div class="rounded-circle text-center text-white bg-danger btn btn-sm">
+                                                <i class="fas fa-times-circle">
+                                                    <label name="status" hidden>Tidak Hadir</label>
+                                                </i>
+                                            </div>
                                         <?php else : ?>
-                                            <center>
-                                                <div class="rounded-circle text-center text-white bg-warning btn btn-sm">
-                                                    <i class="fas fa-spinner">
-                                                        <label name="status" hidden>Belum Absen</label>
-                                                    </i>
-                                                </div>
-                                            </center>
+                                            <div class="rounded-circle text-center text-white bg-warning btn btn-sm">
+                                                <i class="fas fa-spinner">
+                                                    <label name="status" hidden>Belum Absen</label>
+                                                </i>
+                                            </div>
                                         <?php endif; ?>
                                     </td>
                                     <td>

@@ -31,7 +31,7 @@
                             $i = 1;
                             foreach ($les as $u) : ?>
                                 <tr>
-                                    <td><?= $i ?></td>
+                                    <td class="text-center"><?= $i ?></td>
                                     <td><?= ucfirst($u['kategori']) ?></td>
                                     <td><?= $u['nama'] ?></td>
                                     <td><?= number_to_currency($u['harga'], "IDR", "ID") ?></td>

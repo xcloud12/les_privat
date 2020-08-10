@@ -87,7 +87,7 @@
                                                 <table class="table table-bordered bgr table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
                                                     <thead class="thead-light">
                                                         <tr>
-                                                            <th>#</th>
+                                                            <th style="width: 1%; align-items: center;">#</th>
                                                             <th>Kategori</th>
                                                             <th>Nama Mata Pelajaran</th>
                                                             <th>Banyak Peminat</th>
@@ -95,22 +95,22 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <td>1</td>
+                                                            <td class="text-center">1</td>
                                                             <td>Teori</td>
                                                             <td>Matematika</td>
-                                                            <td>10</td>
+                                                            <td>10 Peserta</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>2</td>
+                                                            <td class="text-center">2</td>
                                                             <td>Teori</td>
                                                             <td>Bahasa Indonesia</td>
-                                                            <td>8</td>
+                                                            <td>8 Peserta</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>3</td>
+                                                            <td class="text-center">3</td>
                                                             <td>Praktek</td>
                                                             <td>Les Piano</td>
-                                                            <td>7</td>
+                                                            <td>7 Peserta</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

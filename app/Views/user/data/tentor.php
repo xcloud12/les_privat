@@ -14,7 +14,7 @@
                     <table class="table table-bordered bgr table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
                         <thead class="thead-light">
                             <tr>
-                                <th>#</th>
+                                <th style="width: 1%;" class="text-center">#</th>
                                 <th>Nama</th>
                                 <th>Username</th>
                                 <th>Email</th>
@@ -26,7 +26,7 @@
                                 <th hidden></th>
                                 <th hidden></th>
                                 <th hidden></th>
-                                <th>Aksi</th>
+                                <th style="width: 8%;" class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,7 +34,7 @@
                             $i = 1;
                             foreach ($user as $u) : ?>
                                 <tr>
-                                    <td><?= $i ?></td>
+                                    <td class="text-center"><?= $i ?></td>
                                     <td><?= $u['nama'] ?></td>
                                     <td><?= $u['username'] ?></td>
                                     <td><?= $u['email'] ?></td>
@@ -54,15 +54,13 @@
                                     <td hidden><?= $u['telp'] ?></td>
                                     <td hidden><?= $u['foto'] ?></td>
                                     <td hidden><?= $u['id_user'] ?></td>
-                                    <td>
-                                        <center>
-                                            <button type="button" class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
-                                                <i class="fas fa-info-circle"></i>
-                                            </button>
-                                            <button class="btn btn-secondary btn-sm btn_edit" onclick="edit(parentElement.parentElement.parentElement)">
-                                                <i class="far fa-edit"></i>
-                                            </button>
-                                        </center>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
+                                        <button class="btn btn-secondary btn-sm btn_edit" onclick="edit(parentElement.parentElement.parentElement)">
+                                            <i class="far fa-edit"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             <?php
