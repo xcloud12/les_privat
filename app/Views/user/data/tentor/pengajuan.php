@@ -83,6 +83,7 @@
                         <h1 class="h3 mb-0 text-gray-800" id="judul_edit_mapel">Ubah Data Mengajar</h1>
                     </div>
                     <div class=" justify-content-end">
+                        <a href="#" class="btn btn-danger mr-2" id="btn_hapus_pengajuan" data-target="#hapusModal" name="hapus_pengajuan"><i class="fas fa-times fa-sm text-white"></i> Hapus Data </a>
                         <a href="#" class="btn btn-secondary" id="btn_ubah"><i class="far fa-edit fa-sm text-white"></i> Ubah Data </a>
                         <button class="btn btn-secondary" id="btn_simpan_perubahan"><i class="fas fa-plus fa-sm text-white"></i> Simpan Perubahan </button>
                         <button class="btn btn-secondary" id="btn_ajukan"><i class="fas fa-plus fa-sm text-white"></i> Ajukan Pengajaran </button>
@@ -172,7 +173,32 @@
         </div>
     </div>
 </div>
-
+<!-- modal ubah password -->
+<div class="modal fade" id="hapusModal" tabindex="-1" role="dialog" aria-labelledby="hapusModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bolder" id="exampleModalLabel">Menghapus Data Pengajaran</h5>
+            </div>
+            <div class="modal-body">
+                <table class="table table-borderless table-responsive-sm">
+                    <tbody>
+                        <tr>
+                            <th class="align-top">Anda yakin ingin menghapus data pengajuan mengajar ?</th>
+                        </tr>
+                        <tr>
+                            <th class="align-top font-weight-light">Setelah anda menghapus data pengajuan mengajar, maka anda harus mengajukan pengajuan mengajar kembali jika ingin mengajar mata pelajaran yang sama</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-danger" href="login.html">Hapus</a>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     const mapel_tentor = $('#mapel_tentor');
     const form_pemilihah = $('#form_pemilihan');
@@ -249,6 +275,7 @@
         btn_kembali_pengajuan.hide()
         btn_kembali_edit_mapel.show()
         btn_simpan_perubahan.hide()
+        $('#btn_hapus_pengajuan').show()
         btn_ubah.show()
         form_pemilihah.hide()
         mapel_tentor.hide()
@@ -268,6 +295,7 @@
     //untuk mengedit data
     function ubahData(idPengajuan) {
         btn_ajukan.hide()
+        $('#btn_hapus_pengajuan').hide()
         btn_simpan_perubahan.show()
         btn_kembali_pengajuan.show()
         btn_kembali_edit_mapel.hide()
@@ -373,4 +401,8 @@
     //         $("input.form-check-input").removeAttr('disabled');
     //     }
     // })
+    // const btn_hapus_ajuan=$('#btn_hapus_pengajuan');
+    $('#btn_hapus_pengajuan').click(() => {
+        $('#hapusModal').modal('show');
+    });
 </script>
