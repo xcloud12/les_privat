@@ -76,22 +76,28 @@
                 <input type="hidden" name="_method" id='rest_method' value="PUT" />
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <div class="justify-content-start">
-                        <a href="#" class="btn btn-secondary mb-2" id="btn_kembali_pengajuan"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</a>
                         <a href="#" class="btn btn-secondary mb-2" id="btn_kembali_edit_mapel"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</a>
                         <h1 class="h3 mb-0 text-gray-800" id="judul_pengajuan">Form Pengajuan</h1>
                         <h1 class="h3 mb-0 text-gray-800" id="judul_mapel">Data Mengajar</h1>
                         <h1 class="h3 mb-0 text-gray-800" id="judul_edit_mapel">Ubah Data Mengajar</h1>
                     </div>
                     <div class=" justify-content-end">
-                        <a href="#" class="btn btn-danger mr-2" id="btn_hapus_pengajuan" data-target="#hapusModal" name="hapus_pengajuan"><i class="fas fa-times fa-sm text-white"></i> Hapus Data </a>
+                        <a href="#" class="btn btn-danger mr-2" id="btn_hapus_pengajuan" data-target="#hapusModal" name="hapus_pengajuan"><i class="fas fa-trash-alt fa-sm text-white"></i> Hapus Data </a>
                         <a href="#" class="btn btn-secondary" id="btn_ubah"><i class="far fa-edit fa-sm text-white"></i> Ubah Data </a>
-                        <button class="btn btn-secondary" id="btn_simpan_perubahan"><i class="fas fa-plus fa-sm text-white"></i> Simpan Perubahan </button>
+                        <button class="btn btn-secondary mr-2" id="btn_simpan_perubahan"><i class="fas fa-plus fa-sm text-white"></i> Simpan Perubahan </button>
                         <button class="btn btn-secondary" id="btn_ajukan"><i class="fas fa-plus fa-sm text-white"></i> Ajukan Pengajaran </button>
+                        <a href="#" class="btn btn-secondary" id="btn_kembali_pengajuan"><i class="fas fa-times fa-sm text-white"></i> Batal</a>
                         <a href="#" class="btn btn-secondary" id="btn_batal"><i class="fas fa-times fa-sm text-white"></i> Batal</a>
                     </div>
                 </div>
                 <!-- Content Row -->
                 <div class="col-11">
+                    <div class="form-group row kode_pengajuan">
+                        <label for="nama" class="col-sm-3 col-form-label">Kode Pengajuan</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="kode" id='kode_pengajuan' placeholder="Tidak Ada Kode Pengajuan" class="text-uppercase form-control font-weight-bold" required disabled>
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label for="nama" class="col-sm-3 col-form-label">Nama Mata Pelajaran</label>
                         <div class="col-sm-9">
@@ -151,7 +157,7 @@
                         <p class="col-sm-3 col-form-label">Jam Kerja</p>
                         <div class="col-sm-9">
                             <select class="form-control" id="jam" name="jam" required disabled>
-                                <option disabled selected>-- Pilih Salah Satu --</option>
+                                <option disabled selected value="">-- Pilih Salah Satu --</option>
                                 <option value="08.00 - 10.00">08.00 - 10.00</option>
                                 <option value="09.00 - 11.00">09.00 - 11.00</option>
                                 <option value="10.00 - 12.00">10.00 - 12.00</option>
@@ -240,6 +246,7 @@
     function showDetails(data) {
         const pengajuan = JSON.parse(data)
 
+        $("#kode_pengajuan").val(pengajuan.kode)
         $("#nama_mapel").val(pengajuan.les)
         $("#deskripsi").val(pengajuan.deskripsi)
         pengajuan.hari.split(',').forEach((p) => {
@@ -254,6 +261,7 @@
 
         $("#rest_method").val('PUT')
         btn_ubah.attr('onclick', `ubahData(${pengajuan.id_pengajuan})`)
+        toggle_form(true)
 
         btn_ajukan.hide()
         btn_kembali_pengajuan.hide()
@@ -266,6 +274,8 @@
             form_pengajuan.fadeIn(300)
         })
 
+        $(".kode_pengajuan").show()
+        $('#btn_hapus_pengajuan').show()
         judul_form_edit_mapel.hide()
         judul_form_pengajuan.hide()
         judul_form_mapel.show()
@@ -328,7 +338,9 @@
         $("#rest_method").val('POST')
 
         btn_ajukan.show()
+        $(".kode_pengajuan").hide()
         btn_simpan_perubahan.hide()
+        $('#btn_hapus_pengajuan').hide()
         btn_ubah.hide()
         btn_kembali_pengajuan.hide()
         btn_kembali_edit_mapel.hide()
@@ -338,6 +350,7 @@
             form_pengajuan.fadeIn(300)
         })
         toggle_form(false)
+        resetform()
         form_nama_mapel.prop('disabled', true);
 
         judul_form_edit_mapel.hide()
@@ -391,6 +404,12 @@
         })
     }
 
+    function resetform() {
+        form_hari.removeAttr('checked');
+        form_jam.val('');
+        form_keterangan.val('');
+
+    }
     //limit checkbox hari
     // form_hari.change(function() {
     //     var max = 3;
