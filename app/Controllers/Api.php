@@ -54,6 +54,23 @@ class Api extends BaseController
         return;
     }
 
+    public function updateProfil($username)
+    {
+        $model = new M_user();
+        $id    = $model->getIdFromUsername($username);
+        $data  = [
+            'nama'         => $this->request->getVar('nama'),
+            'tempat_lahir' => $this->request->getVar('tempat_lahir'),
+            'tgl_lahir'    => $this->request->getVar('tgl_lahir'),
+            'jk'           => $this->request->getVar('jk'),
+            'alamat'       => $this->request->getVar('alamat'),
+            'telp'         => $this->request->getVar('telp'),
+        ];
+
+        echo json_encode($data);
+        $model->update($id, $data);
+    }
+
     public function myJadwal($username)
     {
         $db      = \Config\Database::connect();

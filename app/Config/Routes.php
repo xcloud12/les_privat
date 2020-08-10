@@ -97,6 +97,7 @@ $routes->put('/profil/(\d+)', 'User::update/$1');
 
 // api for android
 $routes->post('/api/login', 'Api::login');
+$routes->post('/api/profil/(.+)', 'Api::updateProfil/$1');
 $routes->get('/api/jadwal/(\d+)', 'Api::detailJadwal/$1');
 $routes->get('/api/jadwal/(.+)', 'Api::myJadwal/$1');
 $routes->get('/api/pesanan/(.+)', 'Api::daftarPesanan/$1');
