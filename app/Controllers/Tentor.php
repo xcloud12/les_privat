@@ -135,6 +135,7 @@ class Tentor extends User
 		];
 		echo view('templates/header', $data);
 		echo view('user/sidebar/tentor', $data);
+		echo view('user/data/tentor/ulasan', $data);
 		echo view('templates/footer');
 	}
 }
