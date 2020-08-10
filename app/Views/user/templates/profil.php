@@ -8,7 +8,7 @@
             <form action="<?= $form_aksi ?>" method="post" id="form_submit" enctype="multipart/form-data">
                 <input type="hidden" name="_method" id='rest_method' value="PUT" />
                 <div class="d-sm-flex flex-row justify-content-end align-items-center mb-4">
-                    <button class="btn btn-danger mr-2" id="btn_reset_password"><i class="fas fa-key"></i> Reset Password</button>
+                    <button class="btn btn-danger mr-2" id="btn_ubah_sandi" data-toggle="modal" data-target="#ubahsandiModal" type="button" name="ubah_password"><i class="fas fa-key"></i> Ubah Kata Sandi</button>
                     <button class="btn btn-primary" id="btn_simpan" type="submit" name="simpan"><i class="fas fa-save"></i> Simpan Data</button>
                 </div>
 
@@ -43,8 +43,12 @@
                             <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-10">
                                 <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
-                                    <option <?php if ($jk == 'L') { echo 'selected'; } ?> value="L">Laki Laki</option>
-                                    <option <?php if ($jk == 'P') { echo 'selected'; } ?> value="P">Perempuan</option>
+                                    <option <?php if ($jk == 'L') {
+                                                echo 'selected';
+                                            } ?> value="L">Laki Laki</option>
+                                    <option <?php if ($jk == 'P') {
+                                                echo 'selected';
+                                            } ?> value="P">Perempuan</option>
                                 </select>
                             </div>
                         </div>
@@ -66,22 +70,62 @@
         </div>
     </div>
 </div>
+
+<!-- modal ubah password -->
+<div class="modal fade" id="ubahsandiModal" tabindex="-1" role="dialog" aria-labelledby="ubahsandiModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bolder" id="exampleModalLabel">Ubah Kata Sandi</h5>
+            </div>
+            <div class="modal-body">
+                <form action="#">
+                    <table class="table table-borderless w-100 table-responsive-sm">
+                        <tbody>
+                            <tr>
+                                <th style="width: 32%; text-align: left;" class="align-top">Kata Sandi Lama</th>
+                                <td class=" align-top" style="width: 78%; text-align: left;">
+                                    <input type="text" name="password_lama" id='password_lama' placeholder="Masukkan kata sandi lama" class="form-control">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="width: 32%; text-align: left;" class="align-top">Kata Sandi Baru</th>
+                                <td class=" align-top" style="width: 78%; text-align: left;">
+                                    <input type="text" name="password_baru" id='password_baru' placeholder="Masukkan kata sandi baru" class="form-control">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class=" align-top text-center" colspan="2" style="width: 60%; text-align: left;">
+                                    <label class="font-weight-light font-italic">Anda yakin mengubah kata sandi ?</label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-primary" href="login.html">Simpan</a>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
-    const foto_img    = $("#foto");
+    const foto_img = $("#foto");
     const foto_dialog = $("#foto_dialog")
 
-    foto_img.click(()=>{
+    foto_img.click(() => {
         foto_dialog.click();
     })
-    
-    function set_img(input){
+
+    function set_img(input) {
         if (input.files && input.files[0]) {
             let reader = new FileReader()
 
-            reader.onload = (x) =>{
+            reader.onload = (x) => {
                 foto_img.attr('src', x.target.result)
             }
-            
+
             reader.readAsDataURL(input.files[0])
         }
     }

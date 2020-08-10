@@ -82,8 +82,7 @@
                     <a class="btn btn-secondary" id="btn_kembali" href="#"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</a>
                     <div class="d-sm-flex justify-content-end">
                         <button class="btn btn-danger" id="btn_hapus"><i class="fas fa-trash-alt"></i> Hapus Data</button>
-                        <button class="btn btn-danger mr-2" id="btn_reset_password"><i class="fas fa-key"></i> Reset Password</button>
-
+                        <button class="btn btn-danger mr-2" id="btn_reset_password" data-toggle="modal" data-target="#resetModal" type="button" name="reset_password"><i class="fas fa-key"></i> Reset Password</button>
                         <button class="btn btn-primary" id="btn_simpan" type="submit" name="simpan"><i class="fas fa-save"></i> Simpan Data</button>
                     </div>
                 </div>
@@ -154,7 +153,21 @@
         </div>
     </div>
 </div>
-
+<!-- modal reset password -->
+<div class="modal fade" id="resetModal" tabindex="-1" role="dialog" aria-labelledby="resetModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Reset Password Peserta</h5>
+            </div>
+            <div class="modal-body">Anda akan mengubah password yang ada menjadi sama dengan username. Anda yakin ?</div>
+            <div class="modal-footer">
+                <a class="btn btn-primary" href="login.html">Ya</a>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     const halaman = $('#halaman');
     const detail = $('#detail');
