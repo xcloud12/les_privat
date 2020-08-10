@@ -41,6 +41,7 @@ class Tentor extends User
 	{
 		$model = new M_Pengajuan();
 		$sesi  = session();
+		helper('text');
 
 		// mendapatkan data hari
 		$hari = [];
@@ -67,16 +68,17 @@ class Tentor extends User
 		}
 
 		// simpan data ke tabel pengajuan_mengajar
+		$kode = random_string('alnum', 12);
 		$data = [
 			'id_tentor' => $sesi->id_user,
 			'id_les'    => $id_les,
 			'hari'      => implode(',', $hari),
 			'jam_kerja' => $this->request->getVar('jam'),
 			'deskripsi' => $this->request->getVar('deskripsi'),
+			'kode'      => $kode,
 			'aktif'     => '0'
 		];
 
-		// dd($data);
 
 		$model->insert($data);
 
