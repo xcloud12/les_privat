@@ -46,7 +46,7 @@
                                         ?>
                                     </td>
                                     <td><?= $p->jam_kerja ?></td>
-                                    <td hidden><?= $p->deskripsi ?></td>
+                                    <td hidden><?= $p->deskripsi==''?'Tidak ada deskripsi': $p->deskripsi ?></td>
                                     <td class="text-center">
                                         <?php
                                         if ($p->aktif === '1') : ?>
