@@ -77,19 +77,13 @@
                                                 <i class="fas fa-star" style="color: deepskyblue;"></i>
                                             </div>
                                         <?php else : ?>
-                                            <p>
+                                            <div class="text-dark">
                                                 Belum Ada Rating
-                                            </p>
+                                            </div>
                                         <?php endif; ?>
                                     </td>
                                     <td><?= strftime('%d %B %Y', strtotime($u->tgl)) ?></td>
-                                    <td hidden>
-                                        <?php if ($u->ulasan === null) : ?>
-                                            <p>Belum Ada Ulasan</p>
-                                        <?php else :
-                                            echo $u->ulasan;
-                                        endif; ?>
-                                    </td>
+                                    <td hidden><?= $u->ulasan == '' ? 'Belum Ada Ulasan' : $u->ulasan ?></td>
                                     <td>
                                         <?php
                                         if ($u->absen === '1') : ?>

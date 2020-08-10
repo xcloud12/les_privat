@@ -46,7 +46,7 @@
                                         ?>
                                     </td>
                                     <td><?= $p->jam_kerja ?></td>
-                                    <td hidden><?= $p->deskripsi==''?'Tidak ada deskripsi': $p->deskripsi ?></td>
+                                    <td hidden><?= $p->deskripsi == '' ? 'Tidak ada deskripsi' : $p->deskripsi ?></td>
                                     <td class="text-center">
                                         <?php
                                         if ($p->aktif === '1') : ?>
@@ -155,7 +155,7 @@
                                                     <th style="width: 20%; text-align: left;" class="align-top">Kode</th>
                                                     <td class=" align-top font-weight-bold" style="width: 60%; text-align: left;">
                                                         <div class="kode_pengajuan">
-                                                            ASDSA5412453
+
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -223,13 +223,13 @@
     }
 
     function fill_form(data) {
-        detail_nama_tentor.html(data[3].textContent);
-        detail_mapel.html(data[2].textContent);
-        detail_hari.html(data[4].textContent);
-        detail_jam.html(data[5].textContent);
-        detail_keterangan.html(data[6].textContent);
-        detail_kode.html(data[1].textContent);
-        detail_status.html(data[7].textContent);
+        detail_nama_tentor.text(data[3].textContent);
+        detail_mapel.text(data[2].textContent);
+        detail_hari.text(data[4].textContent);
+        detail_jam.text(data[5].textContent);
+        detail_keterangan.text(data[6].textContent);
+        detail_kode.text(data[1].textContent);
+        detail_status.text(data[7].textContent);
         detail_foto.attr("src", "/img/img_profil/" + data[8].textContent)
     }
 

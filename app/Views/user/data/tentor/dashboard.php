@@ -23,7 +23,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="h4 font-weight-bolder text-primary text-uppercase mb-3">Peserta (Keseluruhan)</div>
-                                            <div class="mb-0 font-weight-bold text-gray-800 h5">5 Orang</div>
+                                            <div class="mb-0 font-weight-bold text-gray-800 h5">5 Orang <br>
+                                                <div class="text-xs badge badge-primary">
+                                                    1 Orang Menunggu Persetujuan
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user fa-2x text-gray-300 mr-2"></i>
@@ -40,7 +44,9 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="h4 font-weight-bolder text-primary text-uppercase mb-3">Materi Pelajaran (Keseluruhan)</div>
-                                            <div class="mb-0 font-weight-bold text-gray-800 h5">3 Materi</div>
+                                            <div class="mb-0 font-weight-bold text-gray-800 h5">3 Materi <br>
+                                                <div class="text-xs badge badge-primary"> 2 Mapel Masih Diajukan</div>
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-book fa-2x text-gray-300 mr-2"></i>
@@ -51,10 +57,58 @@
                         </div>
                     </div>
 
-                    <!-- Content Row -->
-
+                    <!-- Content jadwal -->
                     <div class="row">
-
+                        <!-- Tabel jadwal pertemuan  -->
+                        <div class="col-xl col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-gray-800">Jadwal Mengajar Terdekat</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="card-body">
+                                        <div class="text-gray">
+                                            <div class="row">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered bgr table-striped table-hover" width="100%" cellspacing="2">
+                                                        <thead class="thead-light">
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th>Nama Mata Pelajaran</th>
+                                                                <th>Nama Murid</th>
+                                                                <th>Tanggal Pertemuan</th>
+                                                                <th>Jam Pertemuan</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1</td>
+                                                                <td>Matematika</td>
+                                                                <td>dolla</td>
+                                                                <td>28 Agustus 2020</td>
+                                                                <td>54.00 - 12.00</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>2</td>
+                                                                <td>Matematika</td>
+                                                                <td>dolla</td>
+                                                                <td>33 Agustus 2020</td>
+                                                                <td>54.00 - 12.00</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Row -->
+                    <div class="row">
                         <!-- Tabel Mmapel terbanyak -->
                         <div class="col-xl col-lg-7">
                             <div class="card shadow mb-4">

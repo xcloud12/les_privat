@@ -41,7 +41,7 @@
                                                             <tr>
                                                                 <td>1</td>
                                                                 <td>Matematika</td>
-                                                                <td>dolla</td>
+                                                                <td>Budai</td>
                                                                 <td>28 Agustus 2020</td>
                                                                 <td>54.00 - 12.00</td>
                                                             </tr>
