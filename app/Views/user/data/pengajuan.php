@@ -23,6 +23,7 @@
                                 <th>Jam</th>
                                 <th hidden>Deskripsi</th>
                                 <th hidden>foto</th>
+                                <th hidden>id_pengajuan</th>
                                 <th style="width: 2%;">Status</th>
                                 <th style="width: 2%;">Aksi</th>
                             </tr>
@@ -70,6 +71,7 @@
                                         <?php endif; ?>
                                     </td>
                                     <td hidden><?= $p->tentor_foto ?></td>
+                                    <td hidden><?= $p->id_pengajuan ?></td>
                                     <td>
                                         <center>
                                             <button class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
@@ -89,13 +91,13 @@
         </div>
         <div class="container-fluid" id="detail">
             <!-- Page Heading -->
-            <form action="/data/les" method="post" id="form_submit">
+            <form action="/data/pengajuan" method="post" id="form_submit">
                 <input type="hidden" name="_method" id='rest_method' value="PUT" />
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <a class="btn btn-secondary" id="btn_kembali" href="#"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</a>
                     <div class="d-sm-flex justify-content-end">
-                        <button class="btn btn-primary" id="btn_terima"><i class="fas fas fa-check"></i> Terima</button>
-                        <button class="btn btn-danger ml-2" id="btn_tolak"><i class="fas fa-times"></i> Tolak</button>
+                        <button class="btn btn-primary" id="btn_terima" name="terima"><i class="fas fas fa-check"></i> Terima</button>
+                        <button class="btn btn-danger ml-2" id="btn_tolak" name="tolak"><i class="fas fa-times"></i> Tolak</button>
                     </div>
                 </div>
 
@@ -217,7 +219,7 @@
         // rest_method.val('DELETE')
 
         fill_form(baris.children)
-        // form_submit.prop('action', `/data/pengajuan/${baris.children[5].textContent}`)
+        form_submit.prop('action', `/data/pengajuan/${baris.children[9].textContent}`)
     }
 
     function fill_form(data) {

@@ -22,4 +22,17 @@ class Pengajuan extends BaseController
         echo view("user/data/pengajuan", $data);
         echo view('templates/footer', $data);
     }
+
+    public function update($id_pengajuan)
+    {
+        $model    = new M_Pengajuan();
+        $diterima = $this->request->getVar('terima') !== null ? '1':'0';
+
+        $data = [
+            'aktif' => $diterima
+        ];
+
+        $model->update($id_pengajuan, $data);
+        return redirect()->to('/data/pengajuan');
+    }
 }
