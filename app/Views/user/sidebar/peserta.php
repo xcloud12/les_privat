@@ -26,13 +26,6 @@
             <span>Kelas</span></a>
     </li>
 
-    <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="/jadwal">
-            <i class="far fa-calendar-plus"></i>
-            <span>Jadwal</span></a>
-    </li>
-
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
