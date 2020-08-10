@@ -94,4 +94,14 @@ class Jadwal extends BaseController
 
         $jadwal->update($id_jadwal, $absen);
     }
+
+    public function rateJadwal($id_jadwal)
+    {
+        $model = new M_Jadwal();
+
+        $data = [
+            'rating' => $this->request->getVar('rating')
+        ];
+        $model->update($id_jadwal, $data);
+    }
 }

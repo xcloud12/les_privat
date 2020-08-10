@@ -109,6 +109,8 @@ $routes->get('/api/terima_pesanan/(\d+)', 'Api::terimaPesanan/$1');
 $routes->get('/api/tolak_pesanan/(\d+)', 'Api::tolakPesanan/$1');
 //struktur rute absensi -> /api/absensi/id_jadwal/boolean-value
 $routes->get('/api/absensi/(\d+)/(true|false)', 'Jadwal::absensi/$1/$2');
+// rating/id_jadwal
+$routes->post('/api/rating/(\d+)', 'Jadwal::rateJadwal/$1');
 
 
 /**
