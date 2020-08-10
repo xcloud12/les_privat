@@ -11,14 +11,29 @@ class User extends Controller
     {
         $sesi = session();
         switch ($sesi->get('level')) {
-            case 'peserta': 
+            case 'peserta':
                 return 'user/sidebar/peserta';
                 break;
-            case 'tentor': 
+            case 'tentor':
                 return 'user/sidebar/tentor';
                 break;
-            case 'admin': 
+            case 'admin':
                 return 'user/sidebar/admin';
+                break;
+        }
+    }
+    public function getDashboard()
+    {
+        $sesi = session();
+        switch ($sesi->get('level')) {
+            case 'peserta':
+                return 'user/data/peserta/dashboard';
+                break;
+            case 'tentor':
+                return 'user/data/tentor/dashboard';
+                break;
+            case 'admin':
+                return 'user/dashboard';
                 break;
         }
     }
@@ -37,7 +52,7 @@ class User extends Controller
 
         echo view('templates/header', $data);
         echo view($this->getsidebar(), $data);
-        echo view('user/dashboard', $data);
+        echo view($this->getDashboard(), $data);
         echo view('templates/footer');
     }
 
@@ -52,7 +67,7 @@ class User extends Controller
             "nama"     => $this->request->getVar('nama'),
             "level"    => $this->request->getVar('level'),
         ]);
-        
+
         return redirect()->to('/');
     }
 
