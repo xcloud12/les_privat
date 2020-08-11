@@ -34,24 +34,19 @@
                                                                 <th>Nama Mata Pelajaran</th>
                                                                 <th>Nama Tentor</th>
                                                                 <th>Tanggal Pertemuan</th>
-                                                                <th>Jam Pertemuan</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Matematika</td>
-                                                                <td>Budai</td>
-                                                                <td>28 Agustus 2020</td>
-                                                                <td>54.00 - 12.00</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>2</td>
-                                                                <td>Matematika</td>
-                                                                <td>dolla</td>
-                                                                <td>33 Agustus 2020</td>
-                                                                <td>54.00 - 12.00</td>
-                                                            </tr>
+                                                            <?php $i = 1;
+                                                            foreach ($dashboard['jadwal'] as $jadwal) : ?>
+                                                                <tr>
+                                                                    <td><?= $i ?></td>
+                                                                    <td><?= $jadwal->les ?></td>
+                                                                    <td><?= $jadwal->tentor ?></td>
+                                                                    <td><?= strftime('%d %B %Y', strtotime($jadwal->tgl)) ?></td>
+                                                                </tr>
+                                                            <?php $i++;
+                                                            endforeach; ?>
                                                         </tbody>
                                                     </table>
                                                 </div>

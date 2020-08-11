@@ -23,7 +23,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bolder text-primary text-uppercase mb-3">Tentor (Keseluruhan)</div>
-                                            <div class="mb-0 font-weight-bold text-gray-800 h5">15 Orang</div>
+                                            <div class="mb-0 font-weight-bold text-gray-800 h5"><?= $dashboard['total']->tentor > 0 ? $dashboard['total']->tentor . " Orang" : "Belum ada Tentor" ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user-graduate fa-2x text-gray-300 mr-2"></i>
@@ -40,7 +40,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bolder text-primary text-uppercase mb-3">Peserta (Keseluruhan)</div>
-                                            <div class="mb-0 font-weight-bold text-gray-800 h5">30 Orang</div>
+                                            <div class="mb-0 font-weight-bold text-gray-800 h5"><?= $dashboard['total']->peserta > 0 ? $dashboard['total']->peserta . " Orang" : "Belum ada peserta" ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user fa-2x text-gray-300 mr-2"></i>
@@ -57,7 +57,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bolder text-primary text-uppercase mb-3">Mata Pelajaran (Keseluruhan)</div>
-                                            <div class="mb-0 font-weight-bold text-gray-800 h5">120 Materi</div>
+                                            <div class="mb-0 font-weight-bold text-gray-800 h5"><?= $dashboard['total']->les > 0 ? $dashboard['total']->les . " Mapel" : "Belum ada Mapel" ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-book fa-2x text-gray-300 mr-2"></i>
@@ -94,24 +94,19 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td class="text-center">1</td>
-                                                            <td>Teori</td>
-                                                            <td>Matematika</td>
-                                                            <td>10 Peserta</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-center">2</td>
-                                                            <td>Teori</td>
-                                                            <td>Bahasa Indonesia</td>
-                                                            <td>8 Peserta</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-center">3</td>
-                                                            <td>Praktek</td>
-                                                            <td>Les Piano</td>
-                                                            <td>7 Peserta</td>
-                                                        </tr>
+                                                        <?php
+                                                        $i = 1;
+                                                        foreach ($dashboard['top'] as $top) : ?>
+                                                            <tr>
+                                                                <td><?= $i ?></td>
+                                                                <td><?= ucfirst($top->kategori)?></td>
+                                                                <td><?= $top->nama?></td>
+                                                                <td><?= $top->peminat?></td>
+                                                            </tr>
+                                                        <?php
+                                                            $i++;
+                                                        endforeach;
+                                                        ?>
                                                     </tbody>
                                                 </table>
                                             </div>

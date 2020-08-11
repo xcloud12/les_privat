@@ -10,7 +10,7 @@ class Admin extends BaseController
 	{
 		$sesi = session();
 		$this->cek_login($sesi);
-		
+
 		$user   = new M_user();
 
 		$data = [
@@ -41,7 +41,7 @@ class Admin extends BaseController
 		}
 	}
 
-	public function update($table, $id )
+	public function update($table, $id)
 	{
 		$model = new M_user();
 
@@ -66,5 +66,34 @@ class Admin extends BaseController
 		$model = new M_user();
 		$model->delete($id);
 		return redirect()->to("/data/$table");
+	}
+
+	public function dashboardData()
+	{
+		$db      = \Config\Database::connect();
+		$user = $db->table('user');
+		$total = $user->select("(select COUNT(*) FROM user WHERE LEVEL='tentor') AS tentor, 
+								(select COUNT(*) FROM user WHERE LEVEL='peserta') AS peserta,
+								(SELECT COUNT(*) FROM les) AS les")
+			->distinct()
+			->get()
+			->getResultObject();
+
+		$les = $db->table('pemesanan_les');
+		$top = $les->select('kategori, nama, count(*) as peminat')
+			->join('pengajuan_mengajar', 'pengajuan_mengajar.id_pengajuan = pemesanan_les.id_pengajuan')
+			->join('les', 'les.id_les = pengajuan_mengajar.id_les')
+			->orderBy('peminat', 'desc')
+			->orderBy('nama','asc')
+			->groupBy('nama')
+			->limit(10)
+			->get()
+			->getResultObject();
+
+		$data = [
+			'total' => $total[0],
+			'top' => $top
+		];
+		return $data;
 	}
 }

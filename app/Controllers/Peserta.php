@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\M_Jadwal;
 use App\Models\M_Pemesanan;
 use App\Models\M_Pengajuan;
 use CodeIgniter\I18n\Time;
@@ -44,5 +45,48 @@ class Peserta extends User
 
         $model->insert($data);
         return redirect()->to('/kelas');
+    }
+
+    public function dashboardData()
+    {
+        $sesi = session();
+        $db      = \Config\Database::connect();
+        $jadwal = $db->table('jadwal');
+        $jadwal = $jadwal->select("les.nama AS les, tgl, tentor.nama as tentor")
+            ->join('les', 'les.id_les = jadwal.id_les')    
+            ->join('user as tentor', 'tentor.id_user = jadwal.id_tentor')
+            ->where('tgl BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 5 DAY)')
+            ->where('id_peserta', $sesi->id_user)
+            ->orderBy('tgl')
+            ->get()
+            ->getResultObject();
+
+        $data = [
+            'jadwal' => $jadwal,
+        ];
+        return $data;
+    }
+
+    public function jadwal()
+    {
+        $sesi   = session();
+        $jadwal = new M_Jadwal();
+        $jd     = $jadwal->myJadwalSummary($sesi->username);
+        
+        $data =[
+            'title'  => 'Jadwal',
+            'jadwal' => $jd,
+        ];
+
+        echo view('templates/header', $data);
+        echo view($this->getsidebar(), $data);
+        echo view('user/data/peserta/jadwal', $data);
+        echo view('templates/footer');
+    }
+
+    public function myJadwal($username, $mapel)
+    {
+        $jadwal = new M_Jadwal();
+        echo json_encode($jadwal->myJadwal($username, $mapel));
     }
 }

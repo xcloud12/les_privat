@@ -138,4 +138,37 @@ class Tentor extends User
 		echo view('user/data/tentor/ulasan', $data);
 		echo view('templates/footer');
 	}
+
+	public function dashboardData()
+	{
+		$sesi = session();
+		$username = $sesi->username;
+
+		$db      = \Config\Database::connect();
+		$dbs = $db->table('user');
+		$peserta = $dbs->select("user.nama AS tentor, count(id_peserta) AS peserta")
+			->join('pengajuan_mengajar', 'pengajuan_mengajar.id_tentor = user.id_user')
+			->join('pemesanan_les', 'pemesanan_les.id_pengajuan = pengajuan_mengajar.id_pengajuan')
+			->where('pemesanan_les.diterima', '1')
+			->where('username', $username)
+			->groupBy('tentor')
+			->distinct()
+			->get()
+			->getResultObject();
+
+		$dbs = $db->table('pengajuan_mengajar');
+		$mapel = $dbs->select('count(*) as mapel')
+			->join('les', 'les.id_les=pengajuan_mengajar.id_les')
+			->where('id_tentor', $sesi->id_user)
+			->where('pengajuan_mengajar.aktif', '1')
+			->distinct()
+			->get()
+			->getResultObject();
+
+		$data = [
+			'peserta' => $peserta[0],
+			'mapel' =>$mapel[0]
+		];
+		return $data;
+	}
 }
