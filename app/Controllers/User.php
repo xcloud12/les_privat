@@ -42,18 +42,35 @@ class User extends Controller
         $session = session();
 
         $this->cek_login($session);
+
+        $user='';
+        switch ($session->level) {
+            case 'admin':
+                $user = new Admin();
+            break;
+            case 'tentor':
+                $user = new Tentor();
+            break;
+            case 'peserta':
+                $user = new Peserta();
+            break;
+        }
+        $dashboard_data = $user->dashboardData();
+        
         $data = [
             'title'    => 'Dashboard',
             'username' => $session->username,
             'nama'     => $session->nama,
             'level'    => $session->level,
-            'email'    => $session->email
+            'email'    => $session->email,
+            'dashboard' => $dashboard_data
         ];
 
         echo view('templates/header', $data);
         echo view($this->getsidebar(), $data);
         echo view($this->getDashboard(), $data);
         echo view('templates/footer');
+        d($data['dashboard']);
     }
 
     public function daftar()

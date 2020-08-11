@@ -45,4 +45,23 @@ class Peserta extends User
         $model->insert($data);
         return redirect()->to('/kelas');
     }
+
+    public function dashboardData()
+    {
+        $sesi = session();
+        $db      = \Config\Database::connect();
+        $jadwal = $db->table('jadwal');
+        $jadwal = $jadwal->select("nama AS les, tgl")
+            ->join('les', 'les.id_les = jadwal.id_les')    
+            ->where('tgl BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 3 DAY)')
+            ->where('id_peserta', $sesi->id_user)
+            ->orderBy('tgl')
+            ->get()
+            ->getResultObject();
+
+        $data = [
+            'jadwal' => $jadwal,
+        ];
+        return $data;
+    }
 }
