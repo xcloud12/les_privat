@@ -51,9 +51,10 @@ class Peserta extends User
         $sesi = session();
         $db      = \Config\Database::connect();
         $jadwal = $db->table('jadwal');
-        $jadwal = $jadwal->select("nama AS les, tgl")
+        $jadwal = $jadwal->select("les.nama AS les, tgl, tentor.nama as tentor")
             ->join('les', 'les.id_les = jadwal.id_les')    
-            ->where('tgl BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 3 DAY)')
+            ->join('user as tentor', 'tentor.id_user = jadwal.id_tentor')
+            ->where('tgl BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 5 DAY)')
             ->where('id_peserta', $sesi->id_user)
             ->orderBy('tgl')
             ->get()

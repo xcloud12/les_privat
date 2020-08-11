@@ -66,11 +66,11 @@ class User extends Controller
             'dashboard' => $dashboard_data
         ];
 
+        setlocale(LC_ALL, "id");
         echo view('templates/header', $data);
         echo view($this->getsidebar(), $data);
         echo view($this->getDashboard(), $data);
         echo view('templates/footer');
-        d($data['dashboard']);
     }
 
     public function daftar()
