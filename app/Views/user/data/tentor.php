@@ -54,13 +54,15 @@
                                     <td hidden><?= $u['telp'] ?></td>
                                     <td hidden><?= $u['foto'] ?></td>
                                     <td hidden><?= $u['id_user'] ?></td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
-                                            <i class="fas fa-info-circle"></i>
-                                        </button>
-                                        <button class="btn btn-secondary btn-sm btn_edit" onclick="edit(parentElement.parentElement.parentElement)">
-                                            <i class="far fa-edit"></i>
-                                        </button>
+                                    <td>
+                                        <center>
+                                            <button type="button" class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
+                                                <i class="fas fa-info-circle"></i>
+                                            </button>
+                                            <button class="btn btn-secondary btn-sm btn_edit" onclick="edit(parentElement.parentElement.parentElement)">
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </center>
                                     </td>
                                 </tr>
                             <?php
@@ -79,7 +81,6 @@
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <a class="btn btn-secondary" id="btn_kembali" href="#"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</a>
                     <div class="d-sm-flex justify-content-end">
-                        <button class="btn btn-danger" id="btn_hapus"><i class="fas fa-trash-alt"></i> Hapus Data</button>
                         <button class="btn btn-danger mr-2" id="btn_reset_password" data-toggle="modal" data-target="#resetModal" type="button" name="reset_password"><i class="fas fa-key"></i> Reset Password</button>
                         <button class="btn btn-primary" id="btn_simpan" type="submit" name="simpan"><i class="fas fa-save"></i> Simpan Data</button>
                     </div>
