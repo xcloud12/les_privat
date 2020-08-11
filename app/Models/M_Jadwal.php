@@ -75,4 +75,38 @@ class M_Jadwal extends Model
 
         return $res->getResult();
     }
+
+    public function myJadwalSummary($username)
+    {
+        $db = $this->builder();
+
+        $jadwal = $db->select('les.nama as les, p.username, p.nama as peserta, t.nama as tentor, les.deskripsi')
+            ->distinct('les.nama')
+            ->join('les', 'les.id_les=jadwal.id_les')
+            ->join('user as p', 'p.id_user=jadwal.id_peserta')
+            ->join('user as t', 't.id_user=jadwal.id_tentor')
+            ->where('p.username', esc($username))
+            ->orderBy('les')
+            ->get();
+
+        return $jadwal->getResultObject();
+    }
+
+    public function myJadwal($username, $mapel)
+    {
+        $db = \Config\Database::connect();
+        $db = $db->table('jadwal as j');
+        $jadwal = $db->select('t.nama as tentor, l.nama as les, j.tgl, j.jam')
+            // ->from('jadwal as j')
+            ->join('les as l', 'l.id_les=j.id_les')
+            ->join('user as t', 't.id_user=j.id_tentor')
+            ->join('user as p', 'p.id_user=j.id_peserta')
+            ->where('p.username', $username)
+            ->where('l.nama', $mapel)
+            ->where('j.tgl >= CURDATE()')
+            ->orderBy('j.tgl', 'asc')
+            ->get();
+
+        return $jadwal->getResultObject();
+    }
 }

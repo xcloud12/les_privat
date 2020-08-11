@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\M_Jadwal;
 use App\Models\M_Pemesanan;
 use App\Models\M_Pengajuan;
 use CodeIgniter\I18n\Time;
@@ -64,5 +65,28 @@ class Peserta extends User
             'jadwal' => $jadwal,
         ];
         return $data;
+    }
+
+    public function jadwal()
+    {
+        $sesi   = session();
+        $jadwal = new M_Jadwal();
+        $jd     = $jadwal->myJadwalSummary($sesi->username);
+        
+        $data =[
+            'title'  => 'Jadwal',
+            'jadwal' => $jd,
+        ];
+
+        echo view('templates/header', $data);
+        echo view($this->getsidebar(), $data);
+        echo view('user/data/peserta/jadwal', $data);
+        echo view('templates/footer');
+    }
+
+    public function myJadwal($username, $mapel)
+    {
+        $jadwal = new M_Jadwal();
+        echo json_encode($jadwal->myJadwal($username, $mapel));
     }
 }
