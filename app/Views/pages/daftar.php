@@ -64,16 +64,16 @@
                             <form class="user" action="/daftar" method="post">
                                 <input type="hidden" value="peserta" name="level">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Masukkan Nama Anda">
+                                    <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Masukkan Nama Anda" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Masukkan Email Anda">
+                                    <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Masukkan Email Anda" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Masukkan Username Anda">
+                                    <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Masukkan Username Anda" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Masukkan Password">
+                                    <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Masukkan Password" required>
                                 </div>
                                 <button class="btn btn-primary btn-user btn-block" id="daftar_tentor">Buat Akun Tentor </button>
                                 <button class="btn btn-primary btn-user btn-block" id="daftar_peserta">Buat Akun Peserta </button>
@@ -106,16 +106,16 @@
     <script>
         const level = $("input[name='level']")
         // untuk murid
-        const foto_peserta   = $('#peserta');
-        const link_peserta   = $('#btn_peserta');
+        const foto_peserta = $('#peserta');
+        const link_peserta = $('#btn_peserta');
         const daftar_peserta = $('#daftar_peserta');
-        const judul_peserta  = $('.peserta');
+        const judul_peserta = $('.peserta');
 
         // untuk tentor
-        const foto_tentor   = $('#tentor');
-        const link_tentor   = $('#btn_tentor');
+        const foto_tentor = $('#tentor');
+        const link_tentor = $('#btn_tentor');
         const daftar_tentor = $('#daftar_tentor');
-        const judul_tentor  = $('.tentor');
+        const judul_tentor = $('.tentor');
 
         foto_tentor.hide()
         link_peserta.hide()
