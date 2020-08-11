@@ -290,6 +290,7 @@
         form_pemilihah.hide()
         mapel_tentor.hide()
         toggle_form(true)
+        resetform()
 
         judul_form_edit_mapel.hide()
         judul_form_pengajuan.hide()
@@ -300,6 +301,7 @@
         form_pengajuan.fadeOut(300, () => {
             mapel_tentor.fadeIn(300)
         })
+        resetform()
     })
 
     //untuk mengedit data
@@ -330,6 +332,8 @@
         form_pemilihah.fadeOut(300, () => {
             mapel_tentor.fadeIn(300)
         })
+
+        resetform()
     })
     //form pengajuan
     function bukaPengajuan(id_les, nama, deskripsi) {

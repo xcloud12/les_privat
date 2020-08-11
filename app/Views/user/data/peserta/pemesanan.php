@@ -131,11 +131,11 @@
                         <label for="nama" class="col-sm-3 col-form-label">Hari Belajar</label>
                         <div class="col-sm-9">
                             <select class="form-control" id="hari_mengajar" name="hari_mengajar" required disabled>
-                                <option selected disabled>-- Pilih Salah Satu --</option>
+                                <option selected disabled value="">-- Pilih Salah Satu --</option>
                                 <option value="senin">Senin</option>
                                 <option value="selasa">Selasa</option>
                                 <option value="rabu">Rabu</option>
-                                <option value="kamis">Minggu</option>
+                                <option value="kamis">Kamis</option>
                                 <option value="jumat">Jumat</option>
                                 <option value="sabtu">Sabtu</option>
                                 <option value="minggu">Minggu</option>
@@ -269,6 +269,7 @@
         halaman_data_les.hide()
         form_detail_jadwal.hide()
         toggle_form(true)
+        resetform()
 
         judul_form_pemesanan.hide()
         judul_form_mapel.show()
@@ -279,6 +280,7 @@
         form_pemesanan.fadeOut(300, () => {
             halaman_data_les.fadeIn(300)
         })
+        resetform()
     })
 
     //untuk mengedit data
@@ -305,6 +307,7 @@
         form_pemilihah.fadeOut(300, () => {
             halaman_data_les.fadeIn(300)
         })
+        resetform()
     })
     //form pemesanan
     function showPengajuan(data_pemesanan) {
@@ -340,6 +343,7 @@
         })
 
         toggle_form(true)
+        resetform()
         form_hari_mengajar.prop('disabled', false);
         form_banyak_pertemuan.prop('disabled', false);
         form_keterangan.prop('disabled', false);
@@ -364,6 +368,7 @@
         form_pemesanan.fadeOut(300, () => {
             form_pemilihah.fadeIn(300)
         })
+        resetform()
     })
 
     function toggle_form(isHide) {
@@ -372,6 +377,12 @@
         form_hari_mengajar.prop('disabled', isHide);
         form_banyak_pertemuan.prop('disabled', isHide);
         form_keterangan.prop('disabled', isHide);
+    }
+
+    function resetform() {
+        form_hari_mengajar.val('')
+        form_banyak_pertemuan.val('')
+        form_keterangan.val('')
     }
 
     pencarian.keyup((key) => {
