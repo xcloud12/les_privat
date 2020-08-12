@@ -72,12 +72,12 @@
 
                 <!-- Content Row -->
 
-                <div class="col-9">
-                    <div class="form-group row">
+                <div class="col-11">
+                    <div class="form-group row ju">
                         <label for="kategori" class="col-sm-2 col-form-label">Kategori</label>
                         <div class="col-sm-10">
                             <select class="form-control" id="kategori" name="kategori" required disabled>
-                                <option selected disabled>-- Pilih Salah Satu --</option>
+                                <option selected disabled value="">-- Pilih Salah Satu --</option>
                                 <option value="praktek">Praktek</option>
                                 <option value="teori">Teori</option>
                             </select>
