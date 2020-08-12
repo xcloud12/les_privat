@@ -300,8 +300,8 @@
         form_pemilihah.hide()
         form_pengajuan.fadeOut(300, () => {
             mapel_tentor.fadeIn(300)
+            resetform()
         })
-        resetform()
     })
 
     //untuk mengedit data

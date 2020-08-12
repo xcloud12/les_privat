@@ -279,8 +279,8 @@
         form_detail_jadwal.hide()
         form_pemesanan.fadeOut(300, () => {
             halaman_data_les.fadeIn(300)
+            resetform()
         })
-        resetform()
     })
 
     //untuk mengedit data
@@ -306,8 +306,8 @@
         form_detail_jadwal.hide()
         form_pemilihah.fadeOut(300, () => {
             halaman_data_les.fadeIn(300)
+            resetform()
         })
-        resetform()
     })
     //form pemesanan
     function showPengajuan(data_pemesanan) {
@@ -326,6 +326,7 @@
         form_detail_jadwal.hide()
         form_pemilihah.fadeOut(300, () => {
             form_pemesanan.fadeIn(300)
+            resetform()
         })
         $("#form_submit").attr('action', `/kelas/${data.id_pengajuan}`)
         $("#rest_method").val('POST')
@@ -343,7 +344,6 @@
         })
 
         toggle_form(true)
-        resetform()
         form_hari_mengajar.prop('disabled', false);
         form_banyak_pertemuan.prop('disabled', false);
         form_keterangan.prop('disabled', false);
@@ -367,8 +367,8 @@
         form_detail_jadwal.hide()
         form_pemesanan.fadeOut(300, () => {
             form_pemilihah.fadeIn(300)
+            resetform()
         })
-        resetform()
     })
 
     function toggle_form(isHide) {
