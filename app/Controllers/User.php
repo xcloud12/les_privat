@@ -43,26 +43,26 @@ class User extends Controller
 
         $this->cek_login($session);
 
-        $user='';
+        $user = '';
         switch ($session->level) {
             case 'admin':
                 $user = new Admin();
-            break;
+                break;
             case 'tentor':
                 $user = new Tentor();
-            break;
+                break;
             case 'peserta':
                 $user = new Peserta();
-            break;
+                break;
         }
         $dashboard_data = $user->dashboardData();
-        
+
         $data = [
-            'title'    => 'Dashboard',
-            'username' => $session->username,
-            'nama'     => $session->nama,
-            'level'    => $session->level,
-            'email'    => $session->email,
+            'title'     => 'Dashboard',
+            'username'  => $session->username,
+            'nama'      => $session->nama,
+            'level'     => $session->level,
+            'email'     => $session->email,
             'dashboard' => $dashboard_data
         ];
 
@@ -80,7 +80,7 @@ class User extends Controller
         $model->save([
             "email"    => $this->request->getVar('email'),
             "username" => $this->request->getVar('username'),
-            "password" => $this->request->getVar('password'),
+            "password" => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             "nama"     => $this->request->getVar('nama'),
             "level"    => $this->request->getVar('level'),
         ]);
@@ -106,7 +106,7 @@ class User extends Controller
             // make sure user exist on database
             if (!is_null($user)) {
                 // check password
-                if ($user['password'] == $password) {
+                if (password_verify($password, $user['password'])) {
                     // set sessions
                     $session->set($user);
 
