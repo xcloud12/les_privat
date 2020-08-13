@@ -166,8 +166,8 @@ class Tentor extends User
 			->getResultObject();
 
 		$data = [
-			'peserta' => $peserta[0],
-			'mapel' =>$mapel[0]
+			'peserta' => $peserta,
+			'mapel' =>$mapel
 		];
 		return $data;
 	}
