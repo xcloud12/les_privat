@@ -15,6 +15,7 @@ class M_Jadwal extends Model
         'id_les',
         'id_peserta',
         'tgl',
+        'jam',
         'absen',
         'rating',
         'ulasan'
