@@ -26,7 +26,7 @@ class Api extends BaseController
             // make sure user exist on database
             if (!is_null($user)) {
                 // check password
-                if ($user['password'] == $password) {
+                if (password_verify($password, $user['password'])) {
                     $respon = [
                         'status' => 'success',
                         'level' => $user['level'],
