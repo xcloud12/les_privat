@@ -77,6 +77,10 @@ class User extends Controller
     {
         $model = new M_User();
 
+        if (! is_null($model->where('username', $this->request->getVar('username'))->first())){
+            return redirect()->to('/daftar');
+        }
+
         $model->save([
             "email"    => $this->request->getVar('email'),
             "username" => $this->request->getVar('username'),
