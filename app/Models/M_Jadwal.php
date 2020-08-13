@@ -35,7 +35,7 @@ class M_Jadwal extends Model
             '(SELECT nama FROM USER WHERE USER.id_user = JADWAL.id_peserta) AS peserta,' .
             '(SELECT alamat FROM USER WHERE USER.id_user = JADWAL.id_peserta) AS alamat,' .
             '(SELECT foto FROM USER WHERE USER.id_user = JADWAL.id_peserta) AS foto_peserta,' .
-            ' tgl, absen, rating')
+            ' tgl, jam, absen, rating')
             ->join('LES', 'LES.id_les = JADWAL.id_les')
             ->join('USER', 'USER.id_user = JADWAL.id_tentor')
             ->where('USER.username', $username)
@@ -54,7 +54,7 @@ class M_Jadwal extends Model
             '(SELECT nama FROM USER WHERE USER.id_user = JADWAL.id_tentor) AS tentor,' .
             '(SELECT alamat FROM USER WHERE USER.id_user = JADWAL.id_tentor) AS alamat,' .
             '(SELECT foto FROM USER WHERE USER.id_user = JADWAL.id_tentor) AS foto_tentor,' .
-            ' tgl, absen, rating')
+            ' tgl, jam, absen, rating')
             ->join('LES', 'LES.id_les = JADWAL.id_les')
             ->join('USER', 'USER.id_user = JADWAL.id_peserta')
             ->where('USER.username', $username)
