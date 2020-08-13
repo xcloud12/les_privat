@@ -193,5 +193,6 @@
         detail_mapel.val('');
         detail_harga.val('');
         detail_desk.val('');
+        form_submit.prop('action', '/data/les/')
     }
 </script>
