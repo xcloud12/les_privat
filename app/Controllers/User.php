@@ -77,7 +77,7 @@ class User extends Controller
     {
         $model = new M_User();
 
-        if (! is_null($model->where('username', $this->request->getVar('username'))->first())){
+        if (!is_null($model->where('username', $this->request->getVar('username'))->first())) {
             return redirect()->to('/daftar');
         }
 
@@ -151,6 +151,7 @@ class User extends Controller
 
         $data = [
             'title'        => 'Profil',
+            'id_user'      => $sesi->id_user,
             'username'     => $sesi->username,
             'nama'         => $sesi->nama,
             'email'        => $sesi->email,
@@ -194,5 +195,22 @@ class User extends Controller
         $sesi->set($data);
 
         return redirect()->to("/dashboard");
+    }
+
+    public function update_pass()
+    {
+        $model = new M_User();
+
+        $id  = $this->request->getVar('_id');
+        $old = $this->request->getVar('password_lama');
+        $new = $this->request->getVar('password_baru');
+
+        $user = $model->where('id_user', $id)->first();
+        if (password_verify($old, $user['password'])) {
+            $model->update($id, ['password' => password_hash($new, PASSWORD_DEFAULT)]);
+        // }else{
+            // todo: tampil eror gagal
+        }
+        return redirect()->to('/profil');
     }
 }

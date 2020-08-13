@@ -74,40 +74,39 @@
 <!-- modal ubah password -->
 <div class="modal fade" id="ubahsandiModal" tabindex="-1" role="dialog" aria-labelledby="ubahsandiModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title font-weight-bolder" id="exampleModalLabel">Ubah Kata Sandi</h5>
+        <form action="/ubah_sandi" method="post">
+            <input type="hidden" name="_method" id='rest_method' value="PUT" />
+            <input type="hidden" name="_id" id='_id' value="<?= $id_user ?>"/>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title font-weight-bolder" id="exampleModalLabel">Ubah Kata Sandi</h5>
+                </div>
+                <div class="modal-body">
+                    <form action="#">
+                        <table class="table table-borderless w-100 table-responsive-sm">
+                            <tbody>
+                                <tr>
+                                    <th style="width: 32%; text-align: left;" class="align-top">Kata Sandi Lama</th>
+                                    <td class=" align-top" style="width: 78%; text-align: left;">
+                                        <input type="password" name="password_lama" id='password_lama' placeholder="Masukkan kata sandi lama" class="form-control">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th style="width: 32%; text-align: left;" class="align-top">Kata Sandi Baru</th>
+                                    <td class=" align-top" style="width: 78%; text-align: left;">
+                                        <input type="password" name="password_baru" id='password_baru' placeholder="Masukkan kata sandi baru" class="form-control">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit">Simpan</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                </div>
             </div>
-            <div class="modal-body">
-                <form action="#">
-                    <table class="table table-borderless w-100 table-responsive-sm">
-                        <tbody>
-                            <tr>
-                                <th style="width: 32%; text-align: left;" class="align-top">Kata Sandi Lama</th>
-                                <td class=" align-top" style="width: 78%; text-align: left;">
-                                    <input type="text" name="password_lama" id='password_lama' placeholder="Masukkan kata sandi lama" class="form-control">
-                                </td>
-                            </tr>
-                            <tr>
-                                <th style="width: 32%; text-align: left;" class="align-top">Kata Sandi Baru</th>
-                                <td class=" align-top" style="width: 78%; text-align: left;">
-                                    <input type="text" name="password_baru" id='password_baru' placeholder="Masukkan kata sandi baru" class="form-control">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class=" align-top text-center" colspan="2" style="width: 60%; text-align: left;">
-                                    <label class="font-weight-light font-italic">Anda yakin mengubah kata sandi ?</label>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-primary" href="login.html">Simpan</a>
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 <script>

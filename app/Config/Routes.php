@@ -96,6 +96,7 @@ $routes->get('/jadwal/(.+)/(.+)', 'Peserta::myJadwal/$1/$2');
 // khusus profil
 $routes->get('/profil', 'User::profil');
 $routes->put('/profil/(\d+)', 'User::update/$1');
+$routes->put('/ubah_sandi', 'User::update_pass');
 
 // api for android
 $routes->post('/api/login', 'Api::login');
