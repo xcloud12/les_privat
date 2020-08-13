@@ -26,7 +26,7 @@
                                 <th hidden></th>
                                 <th hidden></th>
                                 <th hidden></th>
-                                <th style="width: 8%;" class="text-center">Aksi</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -161,32 +161,36 @@
             </div>
             <div class="modal-body">Anda akan mengubah password yang ada menjadi sama dengan username. Anda yakin ?</div>
             <div class="modal-footer">
-                <a class="btn btn-primary" href="login.html">Ya</a>
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                <form action="/1bc851671nc289n" method="post">
+                    <input type="hidden" name="id_reset" value="0">
+                    <button class="btn btn-secondary" type="submit">Reset</button>
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Batal</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
 <script>
-    const halaman = $('#halaman');
-    const detail = $('#detail');
-    const btn_info = $('.btn_info');
-    const btn_edit = $('.btn_edit');
-    const btn_kembali = $('#btn_kembali');
-    const btn_simpan = $('#btn_simpan');
-    const btn_hapus = $('#btn_hapus');
-    const btn_reset_password = $('#btn_reset_password');
-    const detail_nama = $('#nama');
-    const detail_username = $('#username');
-    const detail_email = $('#email');
-    const detail_tempat_lahir = $('#tempat_lahir');
+    const halaman              = $('#halaman');
+    const detail               = $('#detail');
+    const btn_info             = $('.btn_info');
+    const btn_edit             = $('.btn_edit');
+    const btn_kembali          = $('#btn_kembali');
+    const btn_simpan           = $('#btn_simpan');
+    const btn_hapus            = $('#btn_hapus');
+    const btn_reset_password   = $('#btn_reset_password');
+    const detail_nama          = $('#nama');
+    const detail_username      = $('#username');
+    const detail_email         = $('#email');
+    const detail_tempat_lahir  = $('#tempat_lahir');
     const detail_tanggal_lahir = $('#tanggal_lahir');
     const detail_jenis_kelamin = $('#jenis_kelamin');
-    const detail_alamat = $('#alamat');
-    const detail_no_telp = $('#no_telp');
-    const detail_foto = $('#foto');
-    const rest_method = $("#rest_method")
-    const form_submit = $('#form_submit');
+    const detail_alamat        = $('#alamat');
+    const detail_no_telp       = $('#no_telp');
+    const detail_foto          = $('#foto');
+    const rest_method          = $("#rest_method")
+    const form_submit          = $('#form_submit');
+    const id_reset             = $('input[name="id_reset"]');
 
     detail.hide()
 
@@ -208,7 +212,7 @@
         rest_method.val('DELETE')
 
         fill_form(baris.children)
-        form_submit.prop('action', `/data/tentor/${baris.children[10].textContent}`)
+        form_submit.prop('action', `/data/tentor/${baris.children[11].textContent}`)
         toggle_form(true)
     }
 
@@ -223,7 +227,8 @@
         rest_method.val('PUT')
 
         fill_form(baris.children)
-        form_submit.prop('action', `/data/tentor/${baris.children[10].textContent}`)
+        form_submit.prop('action', `/data/tentor/${baris.children[11].textContent}`)
+        id_reset.val(baris.children[11].textContent)
         toggle_form(false)
     }
 

