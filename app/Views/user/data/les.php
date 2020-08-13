@@ -23,7 +23,7 @@
                                 <th hidden>deskripsi</th>
                                 <th hidden>id_les</th>
                                 <th hidden>harga_non_format</th>
-                                <th style="width: 8%;">Aksi</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
