@@ -123,6 +123,17 @@ class Tentor extends User
 		return redirect()->to('/les');
 	}
 
+	public function delete_pengajuan($id)
+	{
+		$model = new M_Pengajuan();
+		$res = $model->find($id);
+		if(!is_null($res)){
+			$model->delete($id);
+		}
+		// todo: show warning
+		return redirect()->to('/les');
+	}
+
 
 	public function kinerja()
 	{

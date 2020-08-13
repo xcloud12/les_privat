@@ -95,7 +95,7 @@
                     <div class="form-group row kode_pengajuan">
                         <label for="nama" class="col-sm-3 col-form-label">Kode Pengajuan</label>
                         <div class="col-sm-9">
-                            <input type="text" name="kode" id='kode_pengajuan' placeholder="Tidak Ada Kode Pengajuan" class="text-uppercase form-control font-weight-bold" required disabled>
+                            <input type="text" name="kode" id='kode_pengajuan' placeholder="Tidak Ada Kode Pengajuan" class="form-control font-weight-bold" required disabled>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -179,7 +179,7 @@
         </div>
     </div>
 </div>
-<!-- modal ubah password -->
+<!-- modal hapus pengajuan -->
 <div class="modal fade" id="hapusModal" tabindex="-1" role="dialog" aria-labelledby="hapusModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -199,8 +199,11 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-danger" href="login.html">Hapus</a>
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                <form action="/" method="post" id="form_batal">
+                    <input type="hidden" name="_method" id='rest_method' value="delete" />
+                    <button class="btn btn-danger" type="submit">Hapus</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                </form>
             </div>
         </div>
     </div>
@@ -220,6 +223,7 @@
     const btn_mapel_ajaran = $('.btn_mapel_ajaran');
     const kategori = $("#kategori")
     const list = $("#listLes")
+    const form_batal = $("#form_batal")
 
     //judul form
     const judul_form_pengajuan = $('#judul_pengajuan');
@@ -261,6 +265,7 @@
 
         $("#rest_method").val('PUT')
         btn_ubah.attr('onclick', `ubahData(${pengajuan.id_pengajuan})`)
+        form_batal.attr('action', `/les/${pengajuan.id_pengajuan}`)
         toggle_form(true)
 
         btn_ajukan.hide()

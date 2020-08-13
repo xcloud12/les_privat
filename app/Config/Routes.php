@@ -84,6 +84,7 @@ $routes->get('/data/pemesanan', 'Pemesanan::index');    // list all
 $routes->get('/les', 'Tentor::les');
 $routes->post('/les/(\d+)', 'Tentor::pengajuan/$1');
 $routes->put('/les/(\d+)', 'Tentor::edit_pengajuan/$1');
+$routes->delete('/les/(\d+)', 'Tentor::delete_pengajuan/$1');
 $routes->get('/kinerja', 'Tentor::kinerja');
 
 // peserta
