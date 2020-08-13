@@ -38,6 +38,13 @@
         button:active {
             color: #2259ab !important;
         }
+
+        .tentor,
+        #tentor,
+        #daftar_tentor,
+        #btn_peserta {
+            display: none;
+        }
     </style>
 
 </head>
@@ -117,11 +124,6 @@
         const daftar_tentor = $('#daftar_tentor');
         const judul_tentor = $('.tentor');
 
-        foto_tentor.hide()
-        link_peserta.hide()
-        judul_tentor.hide()
-        daftar_tentor.hide()
-
         link_tentor.click(() => {
             level.val('tentor')
             link_tentor.fadeOut(200, () => {
@@ -139,7 +141,7 @@
         })
 
         link_peserta.click(() => {
-            level.val('tentor')
+            level.val('peserta')
             link_peserta.fadeOut(200, () => {
                 link_tentor.fadeIn(200)
             })

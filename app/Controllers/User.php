@@ -81,12 +81,14 @@ class User extends Controller
             return redirect()->to('/daftar');
         }
 
+        $level = $this->request->getVar('level')=='admin'?'peserta': $this->request->getVar('level');
+
         $model->save([
             "email"    => $this->request->getVar('email'),
             "username" => $this->request->getVar('username'),
             "password" => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             "nama"     => $this->request->getVar('nama'),
-            "level"    => $this->request->getVar('level'),
+            "level"    => $level,
         ]);
 
         return redirect()->to('/');
