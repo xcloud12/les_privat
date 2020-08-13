@@ -108,7 +108,7 @@
                         <h1 class="h3 mb-2 text-gray-800 mt-3" id="judul_mapel">Data Les Saya</h1>
                     </div>
                     <div class=" justify-content-end">
-                        <button class="btn btn-primary" id="btn_jadwal"><i class="fas fa-calendar-alt fa-sm text-white"></i> Lihat Jadwal </button>
+                        <!-- <button class="btn btn-primary" id="btn_jadwal"><i class="fas fa-calendar-alt fa-sm text-white"></i> Lihat Jadwal </button> -->
                         <button class="btn btn-secondary" id="btn_pesan"><i class="fas fa-plus fa-sm text-white"></i> Pesan Les </button>
                         <a href="#" class="btn btn-secondary" id="btn_batal"><i class="fas fa-times fa-sm text-white"></i> Batal</a>
                     </div>
@@ -146,6 +146,24 @@
                         <label for="nama" class="col-sm-3 col-form-label">Banyak Pertemuan</label>
                         <div class="col-sm-9">
                             <input type="number" name="banyak_pertemuan" id='banyak_pertemuan' placeholder="Banyak Pertemuan" class="form-control" required disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row harga_les">
+                        <label for="nama" class="col-sm-3 col-form-label">Harga Pertemuan</label>
+                        <div class="col-sm-9">
+                            <input type="number" name="harga_les" id='harga_les' placeholder="Biaya Total Pertemuan" class="form-control" required disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nama" class="col-sm-3 col-form-label">Total Biaya</label>
+                        <div class="col-sm-9">
+                            <input type="number" name="biaya_total" id='biaya_total' placeholder="Biaya Total Pertemuan" class="form-control" required disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row pt-5 status_pembayaran">
+                        <label for="nama" class="col-sm-3 col-form-label">Status Pembayaran</label>
+                        <div class="col-sm-9">
+                            <input type="number" name="status_pembayaran" id='status_pembayaran' placeholder="Belum DIbayar" class="form-control" required disabled>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -224,6 +242,14 @@
     const form_hari_mengajar = $('#hari_mengajar');
     const form_banyak_pertemuan = $('#banyak_pertemuan');
     const form_keterangan = $('#deskripsi_peserta');
+    const form_harga = $('#harga_les');
+    const form_biaya_total = $('#biaya_total');
+
+    //attribut div hidden
+    const form_div_status_pembayaran = $('.status_pembayaran');
+    const form_div_harga_les = $('.harga_les');
+
+
 
     form_pemilihah.hide()
     form_detail_jadwal.hide()
@@ -314,6 +340,7 @@
         data = JSON.parse(data_pemesanan);
         form_nama_mapel.val(data.les)
         form_nama_tentor.val(data.tentor)
+        form_harga.val(data.harga);
 
         btn_pesan.show()
         btn_simpan_perubahan.hide()
@@ -350,6 +377,9 @@
 
         judul_form_pemesanan.show()
         judul_form_mapel.hide()
+
+        form_div_status_pembayaran.hide()
+        form_div_harga_les.show()
     }
 
     function showDetail(pesan) {
@@ -360,6 +390,9 @@
         form_hari_mengajar.val(data.hari)
         form_banyak_pertemuan.val(data.banyak_pertemuan)
         form_keterangan.val(data.deskripsi_pesan)
+
+        form_div_harga_les.hide()
+        form_div_status_pembayaran.show()
     }
 
     btn_batal.click(() => {
@@ -423,6 +456,14 @@
         });
     }
 
+
+    form_banyak_pertemuan.keyup(function() {
+        var harga = form_harga.val();
+        var bp = form_banyak_pertemuan.val();
+
+        var total = parseInt(harga) * parseInt(bp);
+        form_biaya_total.val(total);
+    });
     // form_nama_tentor.chang#nama_tentor    var max = 3;
     //limit checkbox hari
     //     if ($("input.form_hari_mengajar-check-hari_mengajar:checked").length == max) {
