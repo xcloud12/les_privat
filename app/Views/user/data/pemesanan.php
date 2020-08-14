@@ -11,7 +11,7 @@
             <!-- Content Row -->
             <div class="row">
                 <div class="table-responsive">
-                    <table class="table table-bordered bgr table-hover" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered bgr table-hover" id="pemesanan" width="100%" cellspacing="0">
                         <thead class="thead-light">
                             <tr>
                                 <th style="width: 1%; align-items: center;">#</th>
@@ -20,9 +20,9 @@
                                 <th>Nama Peserta</th>
                                 <th>Tanggal Pemesanan</th>
                                 <th class="text-center" style="width: 1%;">Status</th>
-                                <th hidden>banyak pertemuan</th>
-                                <th hidden>deskripsi</th>
-                                <th hidden>harga</th>
+                                <th hidden>Banyak Pertemuan</th>
+                                <th hidden>Deskripsi</th>
+                                <th hidden>Harga Total</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -156,8 +156,6 @@
     </div>
 </div>
 </div>
-
-
 
 <script>
     //halaman

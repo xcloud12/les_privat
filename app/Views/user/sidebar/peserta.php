@@ -26,10 +26,10 @@
             <span>Kelas</span></a>
     </li>
 
-    <!-- Nav Item - jadwal -->
+    <!-- Nav Item - Charts -->
     <li class="nav-item">
         <a class="nav-link" href="/jadwal">
-            <i class="fas fa-list"></i>
+            <i class="fas fa-calendar-alt"></i>
             <span>Jadwal</span></a>
     </li>
 
