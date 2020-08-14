@@ -52,7 +52,7 @@ class M_Pemesanan extends Model
         $db        = \Config\Database::connect();
         $pemesanan = $db->table('pemesanan_les');
 
-        $result = $pemesanan->select('id_tentor, id_les, id_peserta, id_pemesanan, tgl_pesan, pemesanan_les.hari as hari, banyak_pertemuan')
+        $result = $pemesanan->select('id_tentor, id_les, id_peserta, id_pemesanan, tgl_pesan, pemesanan_les.hari as hari, banyak_pertemuan, jam_kerja')
             ->join('pengajuan_mengajar', 'pengajuan_mengajar.id_pengajuan = pemesanan_les.id_pengajuan')
             ->where('id_pemesanan', $id_pemesanan)
             ->get();

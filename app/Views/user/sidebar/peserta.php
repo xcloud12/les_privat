@@ -19,7 +19,7 @@
             <span>Profil</span></a>
     </li>
 
-    <!-- Nav Item - Charts -->
+    <!-- Nav Item - kelas -->
     <li class="nav-item">
         <a class="nav-link" href="/kelas">
             <i class="fas fa-list"></i>

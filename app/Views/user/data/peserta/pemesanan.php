@@ -108,7 +108,6 @@
                         <h1 class="h3 mb-2 text-gray-800 mt-3" id="judul_mapel">Data Les Saya</h1>
                     </div>
                     <div class=" justify-content-end">
-                        <!-- <button class="btn btn-primary" id="btn_jadwal"><i class="fas fa-calendar-alt fa-sm text-white"></i> Lihat Jadwal </button> -->
                         <button class="btn btn-secondary" id="btn_pesan"><i class="fas fa-plus fa-sm text-white"></i> Pesan Les </button>
                         <a href="#" class="btn btn-secondary" id="btn_batal"><i class="fas fa-times fa-sm text-white"></i> Batal</a>
                     </div>
@@ -218,7 +217,6 @@
     const form_pemesanan = $('#form_pemesanan');
     const form_detail_jadwal = $('#halaman_detail_jadwal');
 
-    const btn_jadwal = $('#btn_jadwal');
     const btn_tambah_les = $('#btn_tambah_les');
     const btn_kembali = $('#btn_kembali');
     const btn_kembali_pemesanan = $('#btn_kembali_pemesanan');
@@ -262,18 +260,11 @@
             form_pemilihah.fadeIn(300)
         })
     })
-    btn_jadwal.click(() => {
-        form_pemesanan.hide()
-        form_pemilihah.hide()
-        halaman_data_les.fadeOut(300, () => {
-            form_detail_jadwal.fadeIn(300)
-        })
-    })
+   
     btn_detail_les.click(() => {
         btn_pesan.hide()
         btn_kembali_pemesanan.hide()
         btn_kembali_edit_mapel.show()
-        btn_jadwal.show()
         btn_batal.hide()
         btn_simpan_perubahan.hide()
         btn_ubah.show()
@@ -345,7 +336,6 @@
         btn_pesan.show()
         btn_simpan_perubahan.hide()
         btn_ubah.hide()
-        btn_jadwal.hide()
         btn_kembali_pemesanan.hide()
         btn_kembali_edit_mapel.hide()
         btn_batal.show()

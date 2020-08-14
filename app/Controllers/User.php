@@ -43,26 +43,26 @@ class User extends Controller
 
         $this->cek_login($session);
 
-        $user='';
+        $user = '';
         switch ($session->level) {
             case 'admin':
                 $user = new Admin();
-            break;
+                break;
             case 'tentor':
                 $user = new Tentor();
-            break;
+                break;
             case 'peserta':
                 $user = new Peserta();
-            break;
+                break;
         }
         $dashboard_data = $user->dashboardData();
-        
+
         $data = [
-            'title'    => 'Dashboard',
-            'username' => $session->username,
-            'nama'     => $session->nama,
-            'level'    => $session->level,
-            'email'    => $session->email,
+            'title'     => 'Dashboard',
+            'username'  => $session->username,
+            'nama'      => $session->nama,
+            'level'     => $session->level,
+            'email'     => $session->email,
             'dashboard' => $dashboard_data
         ];
 
@@ -77,12 +77,18 @@ class User extends Controller
     {
         $model = new M_User();
 
+        if (!is_null($model->where('username', $this->request->getVar('username'))->first())) {
+            return redirect()->to('/daftar');
+        }
+
+        $level = $this->request->getVar('level')=='admin'?'peserta': $this->request->getVar('level');
+
         $model->save([
             "email"    => $this->request->getVar('email'),
             "username" => $this->request->getVar('username'),
-            "password" => $this->request->getVar('password'),
+            "password" => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             "nama"     => $this->request->getVar('nama'),
-            "level"    => $this->request->getVar('level'),
+            "level"    => $level,
         ]);
 
         return redirect()->to('/');
@@ -106,7 +112,7 @@ class User extends Controller
             // make sure user exist on database
             if (!is_null($user)) {
                 // check password
-                if ($user['password'] == $password) {
+                if (password_verify($password, $user['password'])) {
                     // set sessions
                     $session->set($user);
 
@@ -147,6 +153,7 @@ class User extends Controller
 
         $data = [
             'title'        => 'Profil',
+            'id_user'      => $sesi->id_user,
             'username'     => $sesi->username,
             'nama'         => $sesi->nama,
             'email'        => $sesi->email,
@@ -190,5 +197,22 @@ class User extends Controller
         $sesi->set($data);
 
         return redirect()->to("/dashboard");
+    }
+
+    public function update_pass()
+    {
+        $model = new M_User();
+
+        $id  = $this->request->getVar('_id');
+        $old = $this->request->getVar('password_lama');
+        $new = $this->request->getVar('password_baru');
+
+        $user = $model->where('id_user', $id)->first();
+        if (password_verify($old, $user['password'])) {
+            $model->update($id, ['password' => password_hash($new, PASSWORD_DEFAULT)]);
+        // }else{
+            // todo: tampil eror gagal
+        }
+        return redirect()->to('/profil');
     }
 }

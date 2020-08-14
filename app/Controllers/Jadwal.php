@@ -73,10 +73,11 @@ class Jadwal extends BaseController
         for ($i = 0; $i < $data_pesanan->banyak_pertemuan; $i++) {
             // echo $i+1 . " -> ". $now->format('Y-m-d');
             $data = [
-                'id_tentor' => $data_pesanan->id_tentor,
-                'id_les' => $data_pesanan->id_les,
+                'id_tentor'  => $data_pesanan->id_tentor,
+                'id_les'     => $data_pesanan->id_les,
                 'id_peserta' => $data_pesanan->id_peserta,
-                'tgl' => $now->format('Y-m-d'),
+                'tgl'        => $now->format('Y-m-d'),
+                'jam'        => $data_pesanan->jam_kerja
             ];
             $jadwal = new M_Jadwal();
             $jadwal->insert($data);

@@ -123,6 +123,17 @@ class Tentor extends User
 		return redirect()->to('/les');
 	}
 
+	public function delete_pengajuan($id)
+	{
+		$model = new M_Pengajuan();
+		$res = $model->find($id);
+		if(!is_null($res)){
+			$model->delete($id);
+		}
+		// todo: show warning
+		return redirect()->to('/les');
+	}
+
 
 	public function kinerja()
 	{
@@ -166,8 +177,8 @@ class Tentor extends User
 			->getResultObject();
 
 		$data = [
-			'peserta' => $peserta[0],
-			'mapel' =>$mapel[0]
+			'peserta' => $peserta,
+			'mapel' =>$mapel
 		];
 		return $data;
 	}

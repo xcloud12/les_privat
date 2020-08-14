@@ -38,6 +38,13 @@
         button:active {
             color: #2259ab !important;
         }
+
+        .tentor,
+        #tentor,
+        #daftar_tentor,
+        #btn_peserta {
+            display: none;
+        }
     </style>
 
 </head>
@@ -270,7 +277,7 @@
         })
 
         link_peserta.click(() => {
-            level.val('tentor')
+            level.val('peserta')
             link_peserta.fadeOut(200, () => {
                 link_tentor.fadeIn(200)
             })

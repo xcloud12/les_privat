@@ -23,7 +23,7 @@
                                 <th hidden>deskripsi</th>
                                 <th hidden>id_les</th>
                                 <th hidden>harga_non_format</th>
-                                <th style="width: 8%;">Aksi</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -193,5 +193,6 @@
         detail_mapel.val('');
         detail_harga.val('');
         detail_desk.val('');
+        form_submit.prop('action', '/data/les/')
     }
 </script>

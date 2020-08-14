@@ -26,7 +26,7 @@ class Api extends BaseController
             // make sure user exist on database
             if (!is_null($user)) {
                 // check password
-                if ($user['password'] == $password) {
+                if (password_verify($password, $user['password'])) {
                     $respon = [
                         'status' => 'success',
                         'level' => $user['level'],
@@ -132,5 +132,26 @@ class Api extends BaseController
 
             //todo: send email
         }
+    }
+
+    public function ubahsandi()
+    {
+        $model = new M_User();
+
+        $id   = $model->getIdFromUsername($this->request->getVar('username'));
+        $old  = $this->request->getVar('password_lama');
+        $new  = $this->request->getVar('password_baru');
+        $user = $model->find($id);
+
+        if (password_verify($old, $user['password'])) {
+            $model->update($id, [
+                'password' => password_hash($new, PASSWORD_DEFAULT)
+            ]);
+            echo json_encode(['success' => true]);
+            return;
+        }
+
+        echo json_encode(['success' => false]);
+
     }
 }
