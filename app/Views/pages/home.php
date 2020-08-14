@@ -51,7 +51,7 @@
                     <h2 class="pb-3 display-4">Selamat Datang di LPPK Universitas Nurul Jadid</h2>
                     <div class="mt-2 font-weight-light font-italic pb-5">Sebuah Lembaga Pengembangan Profesionalitas dan Kewirausahaan yang di kembangkan oleh Universitas Nurul Jadid untuk mengembangkan minat dan kemampuan tiap individu </div>
                     <!-- <ul style="list-style-type: circle;" class="pb-4"> -->
-                    <h5 class="pt-2 font-italic font-weight-light"> Mengembangkat Minat Belajar</h5>
+                    <h5 class="pt-2 font-italic font-weight-light"> Mengembangkan Minat Belajar</h5>
                     <h5 class="pt-2 font-italic font-weight-light"> Menyediakan Tenaga Mengajar Yang Profesional</h5>
                     <h5 class="pt-2 font-italic font-weight-light"> Layanan Terbaik Untuk Peserta Didik</h5>
                     <!-- </ul> -->

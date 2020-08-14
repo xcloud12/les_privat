@@ -84,7 +84,7 @@
                                     <div class="text-gray">
                                         <div class="row">
                                             <div class="table-responsive">
-                                                <table class="table table-bordered bgr table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
+                                                <table class="table table-bordered bgr table-striped table-hover" id="dashboardAdmin" width="100%" cellspacing="0">
                                                     <thead class="thead-light">
                                                         <tr>
                                                             <th style="width: 1%; align-items: center;">#</th>
@@ -99,9 +99,9 @@
                                                         foreach ($dashboard['top'] as $top) : ?>
                                                             <tr>
                                                                 <td><?= $i ?></td>
-                                                                <td><?= ucfirst($top->kategori)?></td>
-                                                                <td><?= $top->nama?></td>
-                                                                <td><?= $top->peminat?></td>
+                                                                <td><?= ucfirst($top->kategori) ?></td>
+                                                                <td><?= $top->nama ?></td>
+                                                                <td><?= $top->peminat ?></td>
                                                             </tr>
                                                         <?php
                                                             $i++;

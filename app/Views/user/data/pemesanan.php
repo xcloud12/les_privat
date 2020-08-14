@@ -83,7 +83,10 @@
             <button class="btn btn-secondary mb-3" id="btn_kembali"><i class="fas fa-arrow-left fa-sm text-white"></i> Kembali</button>
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Detail Data Pemesanan</h1>
-                <button class="btn btn-primary mb-3" id="btn_cetak" title="Print Data Pemesanan"><i class="fas fa-print fa-sm text-white"></i> Cetak Pemesanan</button>
+                <div class="d-sm-flex align-items-center justify-content-end">
+                    <button class="btn btn-primary mb-3" id="btn_cetak" title="Print Data Pemesanan"><i class="fas fa-print fa-sm text-white"></i> Cetak Pemesanan</button>
+                    <button class="btn btn-success ml-3 mb-3" id="btn_konfir" title="Print Data Pemesanan"><i class="fas fa-check fa-sm text-white"></i> Konfirmasi Pembayaran</button>
+                </div>
             </div>
             <!-- Content Row -->
             <div class="row justify-content-center">
