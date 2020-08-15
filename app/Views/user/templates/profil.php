@@ -16,7 +16,18 @@
                 <div class="row">
                     <div class="col-3">
                         <center>
-                            <img id="foto" class="rounded" style="max-width: 200px; max-height: 250px; " src="<?= $foto ?>" alt="Profile Picture">
+                            <img id="foto" class="rounded" style="max-width: 200px; max-height: 250px; background-color: ; " src="<?php
+                                                                                                                                    if ($foto === "/img/img_profil/") {
+                                                                                                                                        if ($jk == 'L') {
+                                                                                                                                            echo $foto . 'dfm.png';
+                                                                                                                                        } else if ($jk == 'P') {
+                                                                                                                                            echo $foto . 'dffm.png';
+                                                                                                                                        } else {
+                                                                                                                                            echo $foto . 'npp.png';
+                                                                                                                                        }
+                                                                                                                                    } else {
+                                                                                                                                        echo $foto;
+                                                                                                                                    }   ?>" alt="Profile Picture">
                             <input hidden type="file" id="foto_dialog" name="foto" accept="image/jpeg" onchange="set_img(this)">
                         </center>
                     </div>
@@ -43,6 +54,9 @@
                             <label for="jenis_kelamin" class="col-sm-2 col-form-label">Jenis Kelamin</label>
                             <div class="col-sm-10">
                                 <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
+                                    <option <?php if ($jk == null) {
+                                                echo 'selected';
+                                            } ?> value="L">-- Pilih Salah Satu --</option>
                                     <option <?php if ($jk == 'L') {
                                                 echo 'selected';
                                             } ?> value="L">Laki Laki</option>
@@ -76,7 +90,7 @@
     <div class="modal-dialog" role="document">
         <form action="/ubah_sandi" method="post">
             <input type="hidden" name="_method" id='rest_method' value="PUT" />
-            <input type="hidden" name="_id" id='_id' value="<?= $id_user ?>"/>
+            <input type="hidden" name="_id" id='_id' value="<?= $id_user ?>" />
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title font-weight-bolder" id="exampleModalLabel">Ubah Kata Sandi</h5>

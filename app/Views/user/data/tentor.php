@@ -171,26 +171,26 @@
     </div>
 </div>
 <script>
-    const halaman              = $('#halaman');
-    const detail               = $('#detail');
-    const btn_info             = $('.btn_info');
-    const btn_edit             = $('.btn_edit');
-    const btn_kembali          = $('#btn_kembali');
-    const btn_simpan           = $('#btn_simpan');
-    const btn_hapus            = $('#btn_hapus');
-    const btn_reset_password   = $('#btn_reset_password');
-    const detail_nama          = $('#nama');
-    const detail_username      = $('#username');
-    const detail_email         = $('#email');
-    const detail_tempat_lahir  = $('#tempat_lahir');
+    const halaman = $('#halaman');
+    const detail = $('#detail');
+    const btn_info = $('.btn_info');
+    const btn_edit = $('.btn_edit');
+    const btn_kembali = $('#btn_kembali');
+    const btn_simpan = $('#btn_simpan');
+    const btn_hapus = $('#btn_hapus');
+    const btn_reset_password = $('#btn_reset_password');
+    const detail_nama = $('#nama');
+    const detail_username = $('#username');
+    const detail_email = $('#email');
+    const detail_tempat_lahir = $('#tempat_lahir');
     const detail_tanggal_lahir = $('#tanggal_lahir');
     const detail_jenis_kelamin = $('#jenis_kelamin');
-    const detail_alamat        = $('#alamat');
-    const detail_no_telp       = $('#no_telp');
-    const detail_foto          = $('#foto');
-    const rest_method          = $("#rest_method")
-    const form_submit          = $('#form_submit');
-    const id_reset             = $('input[name="id_reset"]');
+    const detail_alamat = $('#alamat');
+    const detail_no_telp = $('#no_telp');
+    const detail_foto = $('#foto');
+    const rest_method = $("#rest_method")
+    const form_submit = $('#form_submit');
+    const id_reset = $('input[name="id_reset"]');
 
     detail.hide()
 

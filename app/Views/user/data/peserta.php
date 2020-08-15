@@ -50,7 +50,13 @@
                                     <td hidden><?= $u['tgl_lahir'] ?></td>
                                     <td hidden><?= $u['alamat'] ?></td>
                                     <td hidden><?= $u['telp'] ?></td>
-                                    <td hidden><?= $u['foto'] ?></td>
+                                    <td hidden><?php
+                                                if ($u['foto'] === null) {
+                                                    echo 'default.jpg';
+                                                } else {
+                                                    echo $u['foto'];
+                                                }
+                                                ?></td>
                                     <td hidden><?= $u['id_user'] ?></td>
                                     <td>
                                         <center>
@@ -159,8 +165,11 @@
             </div>
             <div class="modal-body">Anda akan mengubah password yang ada menjadi sama dengan username. Anda yakin ?</div>
             <div class="modal-footer">
-                <a class="btn btn-primary" href="login.html">Ya</a>
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
+                <form action="/1bc851671nc289n" method="post">
+                    <input type="hidden" name="id_reset" value="0">
+                    <button class="btn btn-secondary" type="submit">Reset</button>
+                    <button class="btn btn-primary" type="button" data-dismiss="modal">Batal</button>
+                </form>
             </div>
         </div>
     </div>
@@ -187,6 +196,7 @@
     const detail_foto = $('#foto');
     const rest_method = $("#rest_method")
     const form_submit = $('#form_submit');
+    const id_reset = $('input[name="id_reset"]');
 
     detail.hide()
 
@@ -207,7 +217,7 @@
         rest_method.val('DELETE')
 
         fill_form(baris.children)
-        form_submit.prop('action', `/data/peserta/${baris.children[10].textContent}`)
+        form_submit.prop('action', `/data/peserta/${baris.children[11].textContent}`)
         toggle_form(true)
     }
 
@@ -223,7 +233,8 @@
         rest_method.val('PUT')
 
         fill_form(baris.children)
-        form_submit.prop('action', `/data/peserta/${baris.children[10].textContent}`)
+        form_submit.prop('action', `/data/peserta/${baris.children[11].textContent}`)
+        id_reset.val(baris.children[11].textContent)
         toggle_form(false)
     }
 
