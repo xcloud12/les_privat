@@ -16,6 +16,8 @@ class M_Pemesanan extends Model
         'hari',
         'diterima',
         'banyak_pertemuan',
+        'pembayaran',
+        'total_bayar',
         'deskripsi'
     ];
 

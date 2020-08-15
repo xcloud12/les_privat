@@ -13,6 +13,7 @@ class M_Les extends Model
         'nama',
         'kategori',
         'harga',
+        'biaya_daftar',
         'deskripsi'
     ];
     protected $validationRules    = [
