@@ -20,13 +20,13 @@
                                 <th>Email</th>
                                 <th>Jenis Kelamin</th>
                                 <th hidden>Jenis Kelamin ori</th>
-                                <th hidden></th>
-                                <th hidden></th>
-                                <th hidden></th>
-                                <th hidden></th>
-                                <th hidden></th>
-                                <th hidden></th>
-                                <th style="width: 8%;" class="text-center">Aksi</th>
+                                <th hidden>tempat lahir</th>
+                                <th hidden>tgl lahir</th>
+                                <th hidden>alamat</th>
+                                <th hidden>telp</th>
+                                <th hidden>foto</th>
+                                <th hidden>id_user</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
