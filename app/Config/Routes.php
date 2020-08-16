@@ -36,7 +36,6 @@ $routes->get('/', 'Pages::view/home');
 $routes->get('/login', 'Pages::view/login');
 $routes->get('/daftar', 'Pages::index');
 //test tampilan
-$routes->get('/ls', 'Pages::ls');
 $routes->get('/tentor/les', 'Pages::pengajuan');
 $routes->get('/tentor/profil', 'Pages::profil');
 $routes->get('/tentor/kinerja', 'Pages::ulasan');
@@ -98,6 +97,12 @@ $routes->get('/jadwal/(.+)/(.+)', 'Peserta::myJadwal/$1/$2');
 $routes->get('/profil', 'User::profil');
 $routes->put('/profil/(\d+)', 'User::update/$1');
 $routes->put('/ubah_sandi', 'User::update_pass');
+$routes->get('/lupa_password', function(){
+    // echo "ok";
+    echo view("pages/lupa_password");
+});
+$routes->post('/cek_email', "User::cek_email");
+$routes->post('/verifikasi_reset_password', "User::reset_pass");
 
 // api for android
 $routes->post('/api/login', 'Api::login');

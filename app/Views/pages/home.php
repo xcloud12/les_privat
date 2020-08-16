@@ -80,7 +80,7 @@
 
                         <hr>
                         <div class="text-center">
-                            <a class="small text-white text-decoration-none" href="/ls">
+                            <a class="small text-white text-decoration-none" href="/lupa_password">
                                 Lupa Password ?
                             </a>
                         </div>

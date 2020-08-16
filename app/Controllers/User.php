@@ -215,4 +215,50 @@ class User extends Controller
         }
         return redirect()->to('/profil');
     }
+
+    public function cek_email()
+    {
+        $email = $this->request->getVar('email');
+
+        $db   = \Config\Database::connect();
+        $user = $db->table('user');
+        
+        $res = $user->select('email')->where('email', $email)->get()->getResultObject();
+        if (count($res)>0){
+            echo json_encode(['status'=>true]);
+            return;
+        }
+        echo json_encode(['status'=>false]);
+    }
+
+    public function reset_pass()
+    {
+        $email     = $this->request->getVar('email');
+        $username  = $this->request->getVar('username');
+        $tgl_lahir = $this->request->getVar('tgl_lahir');
+        $telp      = $this->request->getVar('telp');
+
+        $db   = \Config\Database::connect();
+        $user = $db->table('user');
+        $res  = $user->select('username, tgl_lahir, telp')->where('email', $email)->get()->getResultObject();
+        if (count($res) > 0) {
+           if (
+               $res[0]->username == $username
+               && $res[0]->tgl_lahir == $tgl_lahir
+               && $res[0]->telp == $telp
+           ){
+                helper('text');
+                $new_pass = random_string('alnum', 16);
+                $user->where('email', $email);
+                $user->update(['password' => password_hash($new_pass, PASSWORD_DEFAULT)]);
+                echo json_encode([
+                    'status'   => true,
+                    'new_pass' => $new_pass
+                ]);
+                return;
+           }
+        }
+
+        echo json_encode(['status'   => false]);
+    }
 }
