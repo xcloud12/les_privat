@@ -114,6 +114,7 @@ $routes->get('/api/pesanan/(.+)', 'Api::daftarPesanan/$1');
 $routes->get('/api/get_les_by_kategori/(.*)', 'Api::getLesByKategori/$1');
 $routes->get('/api/get_les_by_name/(.*)', 'Api::getLesByName/$1');
 $routes->get('/api/pesan_les/(.*)', 'Api::pesanLes/$1');
+$routes->get('/api/kinerja/(.+)', 'Api::kinerja/$1');
 //tentor menerima pesanan & auto buat jadwal sejumlah banyak pertemuan yg diinput siswa
 $routes->get('/api/terima_pesanan/(\d+)', 'Api::terimaPesanan/$1');
 $routes->get('/api/tolak_pesanan/(\d+)', 'Api::tolakPesanan/$1');

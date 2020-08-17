@@ -152,6 +152,29 @@ class Api extends BaseController
         }
 
         echo json_encode(['success' => false]);
+    }
 
+    public function kinerja($username_tentor)
+    {
+        $model     = new M_user();
+        $id_tentor = $model->getIdFromUsername($username_tentor);
+
+        $db        = \Config\Database::connect();
+        $jadwal    = $db->table('jadwal');
+        $data      = $jadwal->select('tgl, rating, l.nama as les, p.nama as peserta, p.foto')
+            ->join('les as l', 'l.id_les = jadwal.id_les')
+            ->join('user as p', 'p.id_user = jadwal.id_peserta')
+            ->join('user as t', 't.id_user = jadwal.id_tentor')
+            ->where('id_tentor', $id_tentor)
+            ->where('rating !=', 'NULL')
+            ->get()
+            ->getResultObject();
+
+        if (count($data)>0){
+            echo json_encode(['status' => 'success', 'kinerja' => $data]);
+            return;
+        }
+
+        echo json_encode(['status' => 'nodata']);
     }
 }

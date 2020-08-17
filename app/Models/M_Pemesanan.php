@@ -75,6 +75,7 @@ class M_Pemesanan extends Model
             ->join('user', 'user.id_user = pengajuan_mengajar.id_tentor')
             ->join('les', 'les.id_les = pengajuan_mengajar.id_les')
             ->where('id_tentor', $id_tentor)
+            ->where('pemesanan_les.pembayaran', '1')
             ->where('diterima', null)
             ->get();
 
