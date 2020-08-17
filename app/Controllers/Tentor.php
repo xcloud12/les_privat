@@ -127,7 +127,7 @@ class Tentor extends User
 	{
 		$model = new M_Pengajuan();
 		$res = $model->find($id);
-		if(!is_null($res)){
+		if (!is_null($res)) {
 			$model->delete($id);
 		}
 		// todo: show warning
@@ -166,6 +166,9 @@ class Tentor extends User
 			->distinct()
 			->get()
 			->getResultObject();
+		if (count($peserta)  > 0) {
+			$peserta = $peserta[0];
+		}
 
 		$dbs = $db->table('pengajuan_mengajar');
 		$mapel = $dbs->select('count(*) as mapel')
@@ -175,10 +178,12 @@ class Tentor extends User
 			->distinct()
 			->get()
 			->getResultObject();
-
+		if (count($mapel)  > 0) {
+			$mapel = $mapel[0];
+		}
 		$data = [
 			'peserta' => $peserta,
-			'mapel' =>$mapel
+			'mapel' => $mapel
 		];
 		return $data;
 	}

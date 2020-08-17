@@ -44,7 +44,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="h4 font-weight-bolder text-primary text-uppercase mb-3">Materi Pelajaran (Keseluruhan)</div>
-                                            <?php if (isset($dashboard['peserta']->mapel)) : ?>
+                                            <?php if (isset($dashboard['mapel']->mapel)) : ?>
                                                 <div class="mb-0 font-weight-bold text-gray-800 h5"><?= $dashboard['mapel']->mapel > 0 ? $dashboard['mapel']->mapel . " Materi" : "Belum ada Materi" ?></div>
                                             <?php else : ?>
                                                 <div class="mb-0 font-weight-bold text-gray-800 h5">Belum ada Materi</div>
