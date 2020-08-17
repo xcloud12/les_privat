@@ -86,7 +86,7 @@ class M_Pemesanan extends Model
         $db        = \Config\Database::connect();
         $pemesanan = $db->table('pemesanan_les');
 
-        $result = $pemesanan->select('tgl_pesan, pemesanan_les.diterima, les.nama as les, user.nama as tentor, p.nama as peserta, banyak_pertemuan, pemesanan_les.deskripsi as deskripsi_pemesanan, les.harga')
+        $result = $pemesanan->select('id_pemesanan, pembayaran, tgl_pesan, pemesanan_les.diterima, les.nama as les, user.nama as tentor, p.nama as peserta, banyak_pertemuan, pemesanan_les.deskripsi as deskripsi_pemesanan, les.harga')
             ->join('pengajuan_mengajar', ' pengajuan_mengajar.id_pengajuan=pemesanan_les.id_pengajuan')
             ->join('les', 'les.id_les = pengajuan_mengajar.id_les')
             ->join('user', 'user.id_user = pengajuan_mengajar.id_tentor')

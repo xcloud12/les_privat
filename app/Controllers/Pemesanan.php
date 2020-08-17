@@ -42,4 +42,14 @@ class Pemesanan extends BaseController
                 exit;
         }
     }
+
+    public function bayar($id_pemesanan)
+    {
+        $db   = \Config\Database::connect();
+        $pesan = $db->table('pemesanan_les');
+        $pesan->where('id_pemesanan', $id_pemesanan);
+        $pesan->update(['pembayaran'=>'1']);
+        
+        return redirect()->to('/data/pemesanan');
+    }
 }

@@ -78,6 +78,7 @@ $routes->delete('/data/jadwal/(\d+)', 'Jadwal::delete'); // menandai bahwa les s
 //master data pemesanan
 $routes->get('/data/pemesanan', 'Pemesanan::index');    // list all
 // $routes->get('/data/pemesanan', 'Admin::index/pemesanan');
+$routes->put('/data/pemesanan/(\d+)', 'Pemesanan::bayar/$1');    // konfirmasi pembayaran
 
 // tentor
 $routes->get('/les', 'Tentor::les');

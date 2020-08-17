@@ -1,3 +1,8 @@
+<style>
+    #halaman_detail_pemesanan{
+        display: none;
+    }
+</style>
 <!-- Content Wrapper -->
 <div id="content-wrapper" class="d-flex flex-column pt-4">
     <!-- Main Content -->
@@ -13,16 +18,18 @@
                 <div class="table-responsive">
                     <table class="table table-bordered bgr table-hover" id="pemesanan" width="100%" cellspacing="0">
                         <thead class="thead-light">
-                            <tr>
+                            <tr class="text-center">
                                 <th style="width: 1%; align-items: center;">#</th>
-                                <th>Nama Mata Pelajaran</th>
-                                <th>Nama Tentor</th>
-                                <th>Nama Peserta</th>
+                                <th>Mata Pelajaran</th>
+                                <th>Tentor</th>
+                                <th>Peserta</th>
                                 <th>Tanggal Pemesanan</th>
-                                <th class="text-center" style="width: 1%;">Status</th>
+                                <th style="width: 1%;">Pembayaran</th>
+                                <th style="width: 1%;">Diterima</th>
                                 <th hidden>Banyak Pertemuan</th>
                                 <th hidden>Deskripsi</th>
                                 <th hidden>Harga Total</th>
+                                <th hidden>id_pesanan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -36,31 +43,26 @@
                                     <td><?= $p->tentor ?></td>
                                     <td><?= $p->peserta ?></td>
                                     <td><?= strftime('%d %B %Y', strtotime($p->tgl_pesan)) ?></td>
-                                    <td class="text-center">
-                                        <?php
-                                        if ($p->diterima === '1') : ?>
-                                            <div class="rounded-circle text-center text-white bg-success btn btn-sm">
-                                                <i class="fas fa-check-circle">
-                                                    <label name="status" hidden>Diterima Untuk Diajar</label>
-                                                </i>
-                                            </div>
+                                    <td class="text-center" style="font-size: 1.5rem;">
+                                        <?php if ($p->pembayaran === '1') : ?>
+                                            <i class="fas fa-check-circle text-success"></i>
+                                        <?php elseif ($p->pembayaran === '0') : ?>
+                                            <i class="fas fa-times-circle text-warning"></i>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td class="text-center" style="font-size: 1.5rem;">
+                                        <?php if ($p->diterima === '1') : ?>
+                                            <i class="fas fa-check-circle text-success"></i>
                                         <?php elseif ($p->diterima === '0') : ?>
-                                            <div class="rounded-circle text-center text-white bg-danger btn btn-sm">
-                                                <i class="fas fa-times-circle">
-                                                    <label name="status" hidden>Ditolak Oleh Tentor</label>
-                                                </i>
-                                            </div>
+                                            <i class="fas fa-times-circle text-danger"></i>
                                         <?php else : ?>
-                                            <div class="rounded-circle text-center text-white bg-warning btn btn-sm">
-                                                <i class="fas fa-spinner">
-                                                    <label name="status" hidden>Pemesanan Masih Ditangguhkan</label>
-                                                </i>
-                                            </div>
+                                            <i class="fas fa-spinner text-warning"></i>
                                         <?php endif; ?>
                                     </td>
                                     <td hidden><?= $p->banyak_pertemuan ?> Pertemuan</td>
                                     <td hidden><?= $p->deskripsi_pemesanan ?></td>
                                     <td hidden><?= number_to_currency($p->harga, "IDR", "id") ?></td>
+                                    <td hidden><?= $p->id_pemesanan ?></td>
                                     <td style="width: 2%;">
                                         <center>
                                             <button type="button" class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
@@ -69,10 +71,8 @@
                                         </center>
                                     </td>
                                 </tr>
-                            <?php
-                                $i++;
-                            endforeach;
-                            ?>
+                            <?php $i++;
+                            endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -84,8 +84,11 @@
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 text-gray-800">Detail Data Pemesanan</h1>
                 <div class="d-sm-flex align-items-center justify-content-end">
-                    <button class="btn btn-primary mb-3" id="btn_cetak" title="Print Data Pemesanan"><i class="fas fa-print fa-sm text-white"></i> Cetak Pemesanan</button>
-                    <button class="btn btn-success ml-3 mb-3" id="btn_konfir" title="Print Data Pemesanan"><i class="fas fa-check fa-sm text-white"></i> Konfirmasi Pembayaran</button>
+                    <form action="/data/pemesanan/" id="form_pesanan" method="POST">
+                        <input type="hidden" name="_method" value="PUT" />
+                        <button class="btn btn-primary mb-3" id="btn_cetak" title="Print Data Pemesanan" type="button"><i class="fas fa-print fa-sm text-white"></i> Cetak Pemesanan</button>
+                        <button class="btn btn-success ml-3 mb-3" id="btn_konfir" title="Print Data Pemesanan" type="submit" name="bayar"><i class="fas fa-check fa-sm text-white"></i> Konfirmasi Pembayaran</button>
+                    </form>
                 </div>
             </div>
             <!-- Content Row -->
@@ -96,16 +99,16 @@
                             <div class="row no-gutters align-items-center">
                                 <table class="table table-borderless w-100 table-responsive-sm">
                                     <tbody>
-                                        <tr class="pb-2">
-                                            <th style="width: 20%; text-align: left;" class="align-top">Nama Tentor</th>
-                                            <td class=" align-top" style="width: 60%; text-align: left;">
-                                                <div class="nama_tentor"></div>
-                                            </td>
-                                        </tr>
                                         <tr>
                                             <th style="width: 20%; text-align: left;" class="align-top">Mata Pelajaran</th>
                                             <td class=" align-top" style="width: 60%; text-align: left;">
                                                 <div class="mapel_pengajuan"></div>
+                                            </td>
+                                        </tr>
+                                        <tr class="pb-2">
+                                            <th style="width: 20%; text-align: left;" class="align-top">Nama Tentor</th>
+                                            <td class=" align-top" style="width: 60%; text-align: left;">
+                                                <div class="nama_tentor"></div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -176,8 +179,7 @@
     const detail_keterangan = $('.keterangan');
     const detail_status = $('.status');
     const detail_harga = $('.harga');
-
-    halaman_detail_pemesanan.hide()
+    const form_pesan = $("#form_pesanan");
 
     btn_kembali.click(() => {
         halaman_detail_pemesanan.fadeOut(300, () => {
@@ -200,8 +202,9 @@
         detail_nama_peserta.html(data[3].textContent);
         detail_tgl_pemesanan.html(data[4].textContent);
         detail_status.html(data[5].textContent);
-        detail_pertemuan.html(data[6].textContent);
-        detail_keterangan.html(data[7].textContent);
-        detail_harga.html(data[8].textContent);
+        detail_pertemuan.html(data[7].textContent);
+        detail_keterangan.html(data[8].textContent);
+        detail_harga.html(data[9].textContent);
+        form_pesan.attr('action', `/data/pemesanan/${data[10].textContent}`)
     }
 </script>
