@@ -141,16 +141,22 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="nama" class="col-sm-3 col-form-label">Banyak Pertemuan</label>
+                    <div class="form-group row harga_les">
+                        <label for="nama" class="col-sm-3 col-form-label">Biaya Pendaftaran</label>
                         <div class="col-sm-9">
-                            <input type="number" name="banyak_pertemuan" id='banyak_pertemuan' placeholder="Banyak Pertemuan" class="form-control" required disabled>
+                            <input type="number" id='biaya_daftar' placeholder="Biaya Pendaftaran" class="form-control" required disabled>
                         </div>
                     </div>
                     <div class="form-group row harga_les">
                         <label for="nama" class="col-sm-3 col-form-label">Harga Pertemuan</label>
                         <div class="col-sm-9">
-                            <input type="number" name="harga_les" id='harga_les' placeholder="Biaya Total Pertemuan" class="form-control" required disabled>
+                            <input type="number" name="harga_les" id='harga_les' placeholder="Harga Pertemuan" class="form-control" required disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="nama" class="col-sm-3 col-form-label">Banyak Pertemuan</label>
+                        <div class="col-sm-9">
+                            <input type="number" name="banyak_pertemuan" id='banyak_pertemuan' placeholder="Banyak Pertemuan" class="form-control" required disabled>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -241,6 +247,7 @@
     const form_banyak_pertemuan = $('#banyak_pertemuan');
     const form_keterangan = $('#deskripsi_peserta');
     const form_harga = $('#harga_les');
+    const form_biaya = $('#biaya_daftar');
     const form_biaya_total = $('#biaya_total');
 
     //attribut div hidden
@@ -260,7 +267,7 @@
             form_pemilihah.fadeIn(300)
         })
     })
-   
+
     btn_detail_les.click(() => {
         btn_pesan.hide()
         btn_kembali_pemesanan.hide()
@@ -300,6 +307,14 @@
         })
     })
 
+    form_banyak_pertemuan.keyup(function(){
+        let biaya = parseInt(form_biaya.val());
+        let harga = parseInt(form_harga.val());
+        let temu = parseInt(form_banyak_pertemuan.val());
+
+        form_biaya_total.val(biaya + (harga * temu))
+    })
+
     //untuk mengedit data
     btn_ubah.click(() => {
         btn_pesan.hide()
@@ -332,6 +347,7 @@
         form_nama_mapel.val(data.les)
         form_nama_tentor.val(data.tentor)
         form_harga.val(data.harga);
+        form_biaya.val(data.biaya_daftar);
 
         btn_pesan.show()
         btn_simpan_perubahan.hide()
@@ -447,21 +463,4 @@
     }
 
 
-    form_banyak_pertemuan.keyup(function() {
-        var harga = form_harga.val();
-        var bp = form_banyak_pertemuan.val();
-
-        var total = parseInt(harga) * parseInt(bp);
-        form_biaya_total.val(total);
-    });
-    // form_nama_tentor.chang#nama_tentor    var max = 3;
-    //limit checkbox hari
-    //     if ($("input.form_hari_mengajar-check-hari_mengajar:checked").length == max) {
-    //     if ($("input.form_tanggal_pemesanan-check-tanggal_pemesanan:checked").length == max) {
-    //         $("input.form-check-input").attr('disabled_peserta', 'disabled');
-    //         $("input.form-check-input:checked").removeAttr('disabled');
-    //     } else {
-    //         $("input.form-check-input").removeAttr('disabled');
-    //     }
-    // })
 </script>
