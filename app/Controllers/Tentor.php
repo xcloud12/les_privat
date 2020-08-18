@@ -137,13 +137,16 @@ class Tentor extends User
 
 	public function kinerja()
 	{
-		// ambil data kinerja dari rating tiap jadwal
-		// tampilkan dalam bentuk chart
+		$sesi   = session();
+		$api    = new Api();
 
 		$data = [
 			'title'      => 'Daftar Les Saya',
-			'nav_active' => current_url(true)->getPath()
+			'nav_active' => current_url(true)->getPath(),
+			'ulasan'     => json_decode($api->kinerja($sesi->username))
 		];
+
+		setlocale(LC_ALL, 'ID');
 		echo view('templates/header', $data);
 		echo view('user/sidebar/tentor', $data);
 		echo view('user/data/tentor/ulasan', $data);

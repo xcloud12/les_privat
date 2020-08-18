@@ -171,10 +171,9 @@ class Api extends BaseController
             ->getResultObject();
 
         if (count($data)>0){
-            echo json_encode(['status' => 'success', 'kinerja' => $data]);
-            return;
+            return json_encode(['status' => 'success', 'kinerja' => $data]);
         }
 
-        echo json_encode(['status' => 'nodata']);
+        return json_encode(['status' => 'nodata']);
     }
 }

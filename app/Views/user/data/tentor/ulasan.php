@@ -10,26 +10,34 @@
             </div>
 
             <!-- Content Row -->
-            <div class="row justify-content-center">
-                <div class="col-xl-10 col-md-6 mb-4">
-                    <div class="card shadow h-100 py-2">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="font-weight-bold text-secondary text-uppercase mb-2">Nama Peserta</div>
-                                    <div class="font-weight-normal text-secondary">Nama Mata Pelajaran </div>
-                                    <div class="font-weight-normal text-secondary mb-2 d-inline small">
-                                        <i class="fas fa-star" style="color: deepskyblue;"></i><i class="fas fa-star" style="color: deepskyblue;"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <?php foreach ($ulasan->kinerja as $k) : ?>
+                <div class="row justify-content-center">
+                    <div class="col-xl-10 col-md-6 mb-4">
+                        <div class="card shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="font-weight-bold text-secondary text-uppercase mb-2"><?= $k->peserta ?></div>
+                                        <div class="font-weight-normal text-secondary"><?= $k->les ?></div>
+                                        <div class="font-weight-normal text-secondary mb-2 d-inline small">
+                                            <?php
+                                            for ($i = 1; $i <= 5; $i++) :
+                                                $star = "";
+                                                if ($k->rating >= $i) {
+                                                    $star = "text-primary";
+                                                } ?>
+                                                <i class="fas fa-star <?= $star ?>"></i>
+                                            <?php endfor; ?>
+                                        </div>
+                                        <div class="font-font-weight-light text-xs font-italic text-gray-500 d-inline"><?= strftime('%d %B %Y', strtotime($k->tgl)) ?></div>
+                                        <!-- <div class="font-weight-light text-secondary mt-2">Ulasan</div> -->
                                     </div>
-                                    <div class="font-font-weight-light text-xs font-italic text-gray-500 d-inline"> 20 September 2020</div>
-                                    <div class="font-weight-light text-secondary mt-2">Ulasan</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
