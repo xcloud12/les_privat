@@ -142,6 +142,7 @@
         detail.fadeOut(300, () => {
             halaman.fadeIn(300)
         })
+        reset_form();
     })
 
     //untuk button info
@@ -154,7 +155,6 @@
         rest_method.val('POST')
 
         toggle_form(false)
-        reset_form()
     }
 
     //untuk button info
@@ -167,7 +167,7 @@
         rest_method.val('DELETE')
 
         fill_form(baris.children)
-        form_submit.prop('action', `/data/les/${baris.children[5].textContent}`)
+        form_submit.prop('action', `/data/les/${baris.children[6].textContent}`)
         toggle_form(true)
     }
 
@@ -181,7 +181,7 @@
         rest_method.val('PUT')
 
         fill_form(baris.children)
-        form_submit.prop('action', `/data/les/${baris.children[5].textContent}`)
+        form_submit.prop('action', `/data/les/${baris.children[6].textContent}`)
         toggle_form(false)
     }
 

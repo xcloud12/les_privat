@@ -43,17 +43,19 @@ class Les extends BaseController
     public function update($id)
     {
         if ($this->validate([
-            'kategori' => 'required',
-            'nama' => 'required',
-            'harga' => 'required',
+            'kategori'     => 'required',
+            'nama'         => 'required',
+            'harga'        => 'required',
+            'biaya_daftar' => 'required',
         ])) {
             $model = new M_Les();
 
             $data = [
-                'kategori' => $this->request->getVar('kategori'),
-                'nama' => $this->request->getVar('nama'),
-                'harga' => $this->request->getVar('harga'),
-                'deskripsi' => $this->request->getVar('deskripsi')
+                'kategori'     => $this->request->getVar('kategori'),
+                'nama'         => $this->request->getVar('nama'),
+                'harga'        => $this->request->getVar('harga'),
+                'biaya_daftar' => $this->request->getVar('biaya_daftar'),
+                'deskripsi'    => $this->request->getVar('deskripsi')
             ];
             $model->update($id, $data);
             return redirect()->to('/data/les');
@@ -63,17 +65,19 @@ class Les extends BaseController
     public function create()
     {
         if ($this->validate([
-            'kategori' => 'required',
-            'nama' => 'required',
-            'harga' => 'required',
+            'kategori'     => 'required',
+            'nama'         => 'required',
+            'harga'        => 'required',
+            'biaya_daftar' => 'required',
         ])) {
             $model = new M_Les();
 
             $data = [
-                'kategori' => $this->request->getVar('kategori'),
-                'nama' => $this->request->getVar('nama'),
-                'harga' => $this->request->getVar('harga'),
-                'deskripsi' => $this->request->getVar('deskripsi')
+                'kategori'     => $this->request->getVar('kategori'),
+                'nama'         => $this->request->getVar('nama'),
+                'harga'        => $this->request->getVar('harga'),
+                'biaya_daftar' => $this->request->getVar('biaya_daftar'),
+                'deskripsi'    => $this->request->getVar('deskripsi')
             ];
             $model->insert($data);
             return redirect()->to('/data/les');
