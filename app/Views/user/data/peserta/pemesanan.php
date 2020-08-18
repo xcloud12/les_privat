@@ -162,7 +162,8 @@
                     <div class="form-group row">
                         <label for="nama" class="col-sm-3 col-form-label">Total Biaya</label>
                         <div class="col-sm-9">
-                            <input type="number" name="biaya_total" id='biaya_total' placeholder="Biaya Total Pertemuan" class="form-control" required disabled>
+                            <input type="number" id='biaya_total' placeholder="Biaya Total" class="form-control" required disabled>
+                            <input type="hidden" name="biaya_total" id='biaya_total_submit' placeholder="Biaya Total" class="form-control">
                         </div>
                     </div>
                     <div class="form-group row pt-5 status_pembayaran">
@@ -249,6 +250,7 @@
     const form_harga = $('#harga_les');
     const form_biaya = $('#biaya_daftar');
     const form_biaya_total = $('#biaya_total');
+    const form_biaya_total_submit = $('#biaya_total_submit');
 
     //attribut div hidden
     const form_div_status_pembayaran = $('.status_pembayaran');
@@ -307,12 +309,13 @@
         })
     })
 
-    form_banyak_pertemuan.keyup(function(){
+    form_banyak_pertemuan.keyup(function() {
         let biaya = parseInt(form_biaya.val());
         let harga = parseInt(form_harga.val());
         let temu = parseInt(form_banyak_pertemuan.val());
 
         form_biaya_total.val(biaya + (harga * temu))
+        form_biaya_total_submit.val(biaya + (harga * temu))
     })
 
     //untuk mengedit data
@@ -370,7 +373,6 @@
         data.hari.split(',').forEach((p) => {
             hari.forEach((h) => {
                 if (h.value == p) {
-                    console.log(h.value);
                     $(h).removeAttr('hidden')
                 }
             })
@@ -461,6 +463,4 @@
             }
         });
     }
-
-
 </script>

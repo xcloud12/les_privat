@@ -40,6 +40,8 @@ class Peserta extends User
             'tgl_pesan'        => $tgl->toDateString(),
             'banyak_pertemuan' => $this->request->getVar('banyak_pertemuan'),
             'hari'             => $this->request->getVar('hari_mengajar'),
+            'pembayaran'       => '0',
+            'total_bayar'      => $this->request->getVar('biaya_total'),
             'deskripsi'        => $this->request->getVar('deskripsi'),
         ];
 
