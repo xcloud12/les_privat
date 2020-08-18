@@ -180,7 +180,9 @@ class User extends Controller
 
         $foto          = $this->request->getFile('foto');
         $foto_new_name = $sesi->username . ".jpg";
-        $foto->move(FCPATH . "img/img_profil", $foto_new_name, true);
+        if ($foto->isValid()){
+            $foto->move(FCPATH . "img/img_profil", $foto_new_name, true);
+        }
 
         $data = [
             'nama'         => $this->request->getVar('nama'),
