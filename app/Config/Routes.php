@@ -92,7 +92,7 @@ $routes->get('/kelas', 'Peserta::kelas');
 $routes->post('/kelas/(\d+)', 'Peserta::ikut_kelas/$1');
 $routes->put('/kelas/(\d+)', 'Peserta::update_kelas/$1');
 $routes->get('/jadwal', 'Peserta::jadwal');
-$routes->get('/jadwal/(.+)/(.+)', 'Peserta::myJadwal/$1/$2');
+$routes->post('/jadwal', 'Peserta::myJadwal');
 
 // khusus profil
 $routes->get('/profil', 'User::profil');

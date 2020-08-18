@@ -70,9 +70,9 @@
 
 <script>
     //halaman
-    const halaman_pilih_jadwal = $('#halaman_pilih_jadwal');
+    const halaman_pilih_jadwal  = $('#halaman_pilih_jadwal');
     const halaman_detail_jadwal = $('#halaman_detail_jadwal');
-    const jadwal_list = $("#table_jadwal");
+    const jadwal_list           = $("#table_jadwal");
     //tombol
     const btn_kembali = $('#btn_kembali');
     halaman_detail_jadwal.hide()
@@ -86,12 +86,16 @@
     function listJadwal(username, les) {
         jadwal_list.html("")
         halaman_pilih_jadwal.fadeOut(300, () => {
-            $.get(`/jadwal/${username}/${les}`, function(data, status){
-                if (status=='success'){
-                    jadwal = JSON.parse(data)
-                    num = 1
-                    jadwal.forEach((e) => {
-                        jadwal_list.append(`
+            $.post("/jadwal", {
+                    username: username,
+                    mapel   : les
+                },
+                function(data, status) {
+                    if (status == 'success') {
+                        jadwal = JSON.parse(data)
+                        num    = 1
+                        jadwal.forEach((e) => {
+                            jadwal_list.append(`
 <tr>
     <td>${num}</td>                
     <td>${e.les}</td>                
@@ -99,10 +103,10 @@
     <td>${e.tgl}</td>                
     <td>${e.jam}</td>                
 </tr>`)
-                        num++
-                    });
-                }
-            })
+                            num++
+                        });
+                    }
+                })
             halaman_detail_jadwal.fadeIn(300)
         })
     }

@@ -86,9 +86,12 @@ class Peserta extends User
         echo view('templates/footer');
     }
 
-    public function myJadwal($username, $mapel)
+    public function myJadwal()
     {
         $jadwal = new M_Jadwal();
-        echo json_encode($jadwal->myJadwal($username, $mapel));
+        $username = $this->request->getVar('username');
+        $mapel = $this->request->getVar('mapel');
+        
+        return json_encode($jadwal->myJadwal($username, $mapel));
     }
 }
