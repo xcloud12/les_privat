@@ -15,14 +15,16 @@
                 <div class="table-responsive">
                     <table class="table table-bordered bgr table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
                         <thead class="thead-light">
-                            <tr>
+                            <tr class="text-center">
                                 <th style="width: 1%;">#</th>
                                 <th>Kategori</th>
                                 <th>Nama Mata Pelajaran</th>
                                 <th>Harga</th>
+                                <th>Biaya Pendaftaran</th>
                                 <th hidden>deskripsi</th>
                                 <th hidden>id_les</th>
                                 <th hidden>harga_non_format</th>
+                                <th hidden>biaya_non_format</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -34,10 +36,12 @@
                                     <td class="text-center"><?= $i ?></td>
                                     <td><?= ucfirst($u['kategori']) ?></td>
                                     <td><?= $u['nama'] ?></td>
-                                    <td><?= number_to_currency($u['harga'], "IDR", "ID") ?></td>
+                                    <td class="text-right"><?= number_to_currency($u['harga'], "IDR", "ID") ?></td>
+                                    <td class="text-right"><?= number_to_currency($u['biaya_daftar'], "IDR", "ID") ?></td>
                                     <td hidden><?= $u['deskripsi'] ?></td>
                                     <td hidden><?= $u['id_les'] ?></td>
                                     <td hidden><?= $u['harga'] ?></td>
+                                    <td hidden><?= $u['biaya_daftar'] ?></td>
                                     <td>
                                         <center>
                                             <button class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
@@ -96,6 +100,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="harga" class="col-sm-2 col-form-label">Biaya Daftar</label>
+                        <div class="col-sm-10">
+                            <input type="number" name="biaya_daftar" id='biaya_daftar' placeholder="Biaya Pendaftaran" class="form-control" required disabled>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="deskripsi" class="col-sm-2 col-form-label">Deskripsi</label>
                         <div class="col-sm-10">
                             <input type="text" name="deskripsi" id='deskripsi' placeholder="Masukkan deskripsi" class="form-control" disabled>
@@ -119,6 +129,7 @@
     const detail_kategori = $('#kategori');
     const detail_mapel = $('#mapel');
     const detail_harga = $('#harga');
+    const detail_biaya = $('#biaya_daftar');
     const detail_desk = $('#deskripsi');
     const rest_method = $("#rest_method")
     const form_submit = $('#form_submit');
@@ -178,20 +189,23 @@
         detail_kategori.prop('disabled', isHide);
         detail_mapel.prop('disabled', isHide);
         detail_harga.prop('disabled', isHide);
+        detail_biaya.prop('disabled', isHide);
         detail_desk.prop('disabled', isHide);
     }
 
     function fill_form(data) {
         detail_kategori.val(data[1].textContent.toLowerCase());
         detail_mapel.val(data[2].textContent);
-        detail_harga.val(data[6].textContent);
-        detail_desk.val(data[4].textContent);
+        detail_harga.val(data[7].textContent);
+        detail_biaya.val(data[8].textContent);
+        detail_desk.val(data[5].textContent);
     }
 
     function reset_form() {
         detail_kategori.val('');
         detail_mapel.val('');
         detail_harga.val('');
+        detail_biaya.val('');
         detail_desk.val('');
         form_submit.prop('action', '/data/les/')
     }
