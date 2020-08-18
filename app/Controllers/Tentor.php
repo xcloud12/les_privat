@@ -184,9 +184,21 @@ class Tentor extends User
 		if (count($mapel)  > 0) {
 			$mapel = $mapel[0];
 		}
+
+		$jadwal = $db->table('jadwal');
+		$jadwal = $jadwal->select("les.nama AS les, tgl, jam, peserta.nama as peserta")
+			->join('les', 'les.id_les = jadwal.id_les')
+			->join('user as peserta', 'peserta.id_user = jadwal.id_peserta')
+			->where('tgl BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 1 WEEK)')
+			->where('id_tentor', $sesi->id_user)
+			->orderBy('tgl')
+			->get()
+			->getResultObject();
+
 		$data = [
 			'peserta' => $peserta,
-			'mapel' => $mapel
+			'mapel' => $mapel,
+			'jadwal' => $jadwal
 		];
 		return $data;
 	}

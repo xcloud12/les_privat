@@ -62,48 +62,39 @@
                     <!-- Content jadwal -->
                     <div class="row">
                         <!-- Tabel jadwal pertemuan  -->
-                        <div class="col-xl col-lg-7">
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Dropdown -->
-                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-gray-800">Jadwal Mengajar Terdekat</h6>
-                                </div>
-                                <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="card-body">
-                                        <div class="text-gray">
-                                            <div class="row">
-                                                <div class="table-responsive">
-                                                    <table class="table table-bordered bgr table-striped table-hover" width="100%" cellspacing="2">
-                                                        <thead class="thead-light">
-                                                            <tr>
-                                                                <th>#</th>
-                                                                <th>Nama Mata Pelajaran</th>
-                                                                <th>Nama Murid</th>
-                                                                <th>Tanggal Pertemuan</th>
-                                                                <th>Jam Pertemuan</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Matematika</td>
-                                                                <td>dolla</td>
-                                                                <td>28 Agustus 2020</td>
-                                                                <td>54.00 - 12.00</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>2</td>
-                                                                <td>Matematika</td>
-                                                                <td>dolla</td>
-                                                                <td>33 Agustus 2020</td>
-                                                                <td>54.00 - 12.00</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
+                        <div class="col-xl col-lg-7 m-3">
+                            <h6 class="font-weight-bold text-gray-800">Jadwal mengajar minggu ini</h6>
+
+                            <!-- Card Body -->
+
+                            <div class="text-gray">
+                                <div class="row">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered bgr table-striped table-hover" width="100%" cellspacing="2">
+                                            <thead class="thead-light">
+                                                <tr class="text-center">
+                                                    <th>#</th>
+                                                    <th>Mata Pelajaran</th>
+                                                    <th>Peserta</th>
+                                                    <th>Tanggal Pertemuan</th>
+                                                    <th>Jam Pertemuan</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $i = 1;
+                                                foreach ($dashboard['jadwal'] as $j) : ?>
+                                                    <tr>
+                                                        <td><?= $i ?></td>
+                                                        <td><?= $j->les ?></td>
+                                                        <td><?= $j->peserta ?></td>
+                                                        <td><?= strftime('%d %B %Y', strtotime($j->tgl)) ?></td>
+                                                        <td><?= $j->jam ?></td>
+                                                    </tr>
+                                                <?php $i++;
+                                                endforeach; ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
