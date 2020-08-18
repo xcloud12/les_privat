@@ -99,7 +99,6 @@ $routes->get('/profil', 'User::profil');
 $routes->put('/profil/(\d+)', 'User::update/$1');
 $routes->put('/ubah_sandi', 'User::update_pass');
 $routes->get('/lupa_password', function(){
-    // echo "ok";
     echo view("pages/lupa_password");
 });
 $routes->post('/cek_email', "User::cek_email");
