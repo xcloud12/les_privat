@@ -170,10 +170,20 @@ class Api extends BaseController
             ->get()
             ->getResultObject();
 
-        if (count($data)>0){
+        if (count($data) > 0) {
             return json_encode(['status' => 'success', 'kinerja' => $data]);
         }
 
         return json_encode(['status' => 'nodata']);
+    }
+
+    public function ubahProfilImg()
+    {
+        $sesi          = session();
+        $foto          = $this->request->getFile('foto');
+        if ($foto->isValid()) {
+            $foto->move(FCPATH . "img/img_profil", null, true);
+        }
+        return json_encode(['status' => true]);
     }
 }

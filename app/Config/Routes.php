@@ -122,6 +122,7 @@ $routes->get('/api/absensi/(\d+)/(true|false)', 'Jadwal::absensi/$1/$2');
 // rating/id_jadwal
 $routes->post('/api/rating/(\d+)', 'Jadwal::rateJadwal/$1');
 $routes->post('/api/ubah_sandi', 'Api::ubahSandi');
+$routes->post('/api/upload_img', 'Api::ubahProfilImg');
 
 
 /**
