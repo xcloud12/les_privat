@@ -104,5 +104,6 @@ class Jadwal extends BaseController
             'rating' => $this->request->getVar('rating')
         ];
         $model->update($id_jadwal, $data);
+        return json_encode(['status'=>true]);
     }
 }
