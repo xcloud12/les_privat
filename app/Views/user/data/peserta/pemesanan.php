@@ -23,7 +23,14 @@
                                         <div class="col">
                                             <div class="font-weight-bold text-uppercase text-secondary mb-2"><?= $p->les ?></div>
                                             <div class="font-weight-normal text-secondary mb-0 mt-2 "><?= ucfirst($p->hari) . " ($p->jam_kerja)" ?></div>
-                                            <div class="font-weight-light text-secondary mt-0">Keterangan : <?= $p->deskripsi_pesan ?></div>
+                                            <div class="font-weight-light text-secondary mt-0" hidden>Keterangan : <?= $p->deskripsi_pesan ?></div>
+                                            <div class="font-weight-normal text-secondary mb-0 mt-0">
+                                                <?php if ($p->pembayaran === '1') : ?>
+                                                    <label name="status" class="badge badge-success text-white text-xs">Sudah Melakukan Pembayaran</label>
+                                                <?php elseif ($p->pembayaran === '0') : ?>
+                                                    <label name="status" class="badge badge-danger text-white text-xs">Belum Melakukan Pembayaran</label>
+                                                <?php endif; ?>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row align-items-center pesan-text-info">
@@ -250,6 +257,7 @@
     const form_harga = $('#harga_les');
     const form_biaya = $('#biaya_daftar');
     const form_biaya_total = $('#biaya_total');
+    const form_status_pembayaran = $('#status_pembayaran');
     const form_biaya_total_submit = $('#biaya_total_submit');
 
     //attribut div hidden
@@ -397,10 +405,12 @@
         form_nama_tentor.val(data.tentor)
         form_hari_mengajar.val(data.hari)
         form_banyak_pertemuan.val(data.banyak_pertemuan)
+        form_biaya_total.val(data.total_bayar)
+        form_status_pembayaran.val(data.pembayaran)
         form_keterangan.val(data.deskripsi_pesan)
 
         form_div_harga_les.hide()
-        form_div_status_pembayaran.show()
+        form_div_status_pembayaran.hide()
     }
 
     btn_batal.click(() => {
