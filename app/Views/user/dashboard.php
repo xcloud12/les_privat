@@ -101,7 +101,7 @@
                                                                 <td><?= $i ?></td>
                                                                 <td><?= ucfirst($top->kategori) ?></td>
                                                                 <td><?= $top->nama ?></td>
-                                                                <td><?= $top->peminat ?></td>
+                                                                <td><?= $top->peminat ?> Peserta</td>
                                                             </tr>
                                                         <?php
                                                             $i++;
