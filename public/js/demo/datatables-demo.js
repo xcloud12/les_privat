@@ -18,7 +18,7 @@ $(document).ready(function () {
           //$('row c[r^="A"]', sheet).attr('s', '2'); //untuk mempertebal satu garis kebawah atau row
 
           // Loop over the cells in column `C`
-          $('row c[r^="G"]', sheet).each(function () {
+          $('row c[r^="F"]', sheet).each(function () {
             // Get the value
             if ($('is t', this).text() == 'Sudah Diterima Oleh Tentor') {
               $(this).attr('s', '40');
@@ -31,7 +31,7 @@ $(document).ready(function () {
             }
           });
           // Loop over the cells in column `C`
-          $('row c[r^="F"]', sheet).each(function () {
+          $('row c[r^="E"]', sheet).each(function () {
             // Get the value
             if ($('is t', this).text() == 'Sudah Melakukan Pembayaran') {
               $(this).attr('s', '40');
@@ -69,16 +69,16 @@ $(document).ready(function () {
           doc.styles.title.fontSize = 20;
           doc.content[1].layout = "Borders";
           doc.content[1].table.widths = [
-            '4%',
-            '22%',
+
+            '18%',
             '20%',
             '20%',
-            '22%',
-            '12%'
+            '20%',
+            '22%'
           ];
         },
         exportOptions: {
-          columns: [0, 1, 2, 3, 4, 8] //membatasi kolom yang akan di output
+          columns: [1, 2, 3, 4, 8] //membatasi kolom yang akan di output
         },
         orientation: 'landscape',
         messageBottom: '\n\n Seluruh Data Pemesanan Dicetak Oleh Bagian Administrasi LPPK Universitas Nurul Jadid'

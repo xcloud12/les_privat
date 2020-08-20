@@ -46,26 +46,20 @@
                                     </td>
                                     <td class="text-right"><?= strftime('%d %B %Y', strtotime($u->tgl)) ?></td>
                                     <td hidden><?= $u->ulasan == '' ? 'Belum Ada Ulasan' : $u->ulasan ?></td>
-                                    <td class="text-center">
+                                    <td class="text-center" style="font-size: 1.5rem;">
                                         <?php
                                         if ($u->absen === '1') : ?>
-                                            <div class="rounded-circle text-center text-white bg-success btn btn-sm">
-                                                <i class="fas fa-check-circle">
-                                                    <label name="status" hidden>Hadir</label>
-                                                </i>
-                                            </div>
+                                            <i class="fas fa-check-circle text-success">
+                                                <label name="status" hidden>Hadir</label>
+                                            </i>
                                         <?php elseif ($u->absen === '0') : ?>
-                                            <div class="rounded-circle text-center text-white bg-danger btn btn-sm">
-                                                <i class="fas fa-times-circle">
-                                                    <label name="status" hidden>Tidak Hadir</label>
-                                                </i>
-                                            </div>
+                                            <i class="fas fa-times-circle text-danger">
+                                                <label name="status" hidden>Tidak Hadir</label>
+                                            </i>
                                         <?php else : ?>
-                                            <div class="rounded-circle text-center text-white bg-warning btn btn-sm">
-                                                <i class="fas fa-spinner">
-                                                    <label name="status" hidden>Belum Absen</label>
-                                                </i>
-                                            </div>
+                                            <i class="fas fa-spinner text-warning">
+                                                <label name="status" hidden>Belum Absen</label>
+                                            </i>
                                         <?php endif; ?>
                                     </td>
                                     <td>
@@ -140,7 +134,7 @@
                                                 <div class="rating"></div>
                                             </td>
                                         </tr>
-                                        <tr>
+                                        <tr hidden>
                                             <th style="width: 20%; text-align: left;" class="align-top">Ulasan</th>
                                             <td class=" align-top" style="width: 60%; text-align: left;">
                                                 <div class="ulasan"></div>

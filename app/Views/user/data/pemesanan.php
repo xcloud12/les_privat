@@ -119,7 +119,7 @@
                                                 <label name="status" hidden>Sudah Melakukan Pembayaran</label>
                                             </i>
                                         <?php elseif ($p->pembayaran === '0') : ?>
-                                            <i class="fas fa-times-circle text-warning">
+                                            <i class="fas fa-times-circle text-danger">
                                                 <label name="status" hidden>Belum Melakukan Pembayaran</label>
                                             </i>
                                         <?php endif; ?>

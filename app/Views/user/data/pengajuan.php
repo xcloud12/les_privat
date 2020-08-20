@@ -47,27 +47,21 @@
                                     </td>
                                     <td><?= $p->jam_kerja ?></td>
                                     <td hidden><?= $p->deskripsi == '' ? 'Tidak ada deskripsi' : $p->deskripsi ?></td>
-                                    <td class="text-center">
+                                    <td class="text-center" style="font-size: 1.5rem;">
                                         <?php
                                         if ($p->aktif === '1') : ?>
-                                            <div class="rounded-circle text-center text-white bg-success btn btn-sm">
-                                                <i class="fas fa-check-circle">
-                                                    <label name="status" hidden>Pengajuan Mengajar Diterima</label>
-                                                </i>
-                                            </div>
+                                            <i class="fas fa-check-circle text-success">
+                                                <label name="status" hidden>Pengajuan Mengajar Diterima</label>
+                                            </i>
                                         <?php elseif ($p->aktif === '0') : ?>
-                                            <div class="rounded-circle text-center text-white bg-danger btn btn-sm">
-                                                <i class="fas fa-times-circle">
-                                                    <label name="status" hidden>Pengajuan Mengajar Ditangguhkan</label>
-                                                </i>
-                                            </div>
+                                            <i class="fas fa-times-circle text-danger">
+                                                <label name="status" hidden>Pengajuan Mengajar Ditangguhkan</label>
+                                            </i>
                                         <?php else : ?>
-                                            <input type="hidden" name="status" value="Anjay"></input>
-                                            <div class="rounded-circle text-center text-white bg-warning btn btn-sm">
-                                                <i class="fas fa-spinner">
-                                                    <label name="status" hidden>Pengajuan Mengajar Menunggu Persetujuan</label>
-                                                </i>
-                                            </div>
+                                            <!-- <input type="hidden" name="status" value="Anjay"></input> -->
+                                            <i class="fas fa-spinner text-warning">
+                                                <label name="status" hidden>Pengajuan Mengajar Menunggu Persetujuan</label>
+                                            </i>
                                         <?php endif; ?>
                                     </td>
                                     <td hidden><?= $p->tentor_foto ?></td>
