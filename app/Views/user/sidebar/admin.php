@@ -11,7 +11,13 @@
 
     <!-- Divider -->
     <hr class="sidebar-divider">
+    <li class="nav-item  ">
+        <a class="nav-link" href="/profil">
+            <i class="fas fa-address-card"></i>
+            <span>Profil</span></a>
+    </li>
 
+    <hr class="sidebar-divider">
     <!-- Heading -->
     <div class="sidebar-heading">
         Data Master
