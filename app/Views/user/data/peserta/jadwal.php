@@ -44,7 +44,7 @@
                 <div class="table-responsive">
                     <table class="table table-bordered bgr table-hover" width="100%" cellspacing="0">
                         <thead class="thead-light">
-                            <tr>
+                            <tr class="text-center">
                                 <th>#</th>
                                 <th>Mata Pelajaran</th>
                                 <th>Tentor</th>
@@ -70,9 +70,10 @@
 
 <script>
     //halaman
-    const halaman_pilih_jadwal  = $('#halaman_pilih_jadwal');
+    const halaman_pilih_jadwal = $('#halaman_pilih_jadwal');
     const halaman_detail_jadwal = $('#halaman_detail_jadwal');
-    const jadwal_list           = $("#table_jadwal");
+    const jadwal_list = $("#table_jadwal");
+    const bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
     //tombol
     const btn_kembali = $('#btn_kembali');
     halaman_detail_jadwal.hide()
@@ -83,25 +84,27 @@
         })
     })
 
+
     function listJadwal(username, les) {
         jadwal_list.html("")
         halaman_pilih_jadwal.fadeOut(300, () => {
             $.post("/jadwal", {
                     username: username,
-                    mapel   : les
+                    mapel: les
                 },
                 function(data, status) {
                     if (status == 'success') {
                         jadwal = JSON.parse(data)
-                        num    = 1
+                        num = 1
                         jadwal.forEach((e) => {
+                            let b = new Date(e.tgl);
                             jadwal_list.append(`
 <tr>
     <td>${num}</td>                
     <td>${e.les}</td>                
     <td>${e.tentor}</td>                
-    <td>${e.tgl}</td>                
-    <td>${e.jam}</td>                
+    <td class="text-right">${b.getDate()} ${bulan[b.getMonth()]} ${b.getFullYear()}</td>                
+    <td class="text-center">${e.jam}</td>                
 </tr>`)
                             num++
                         });
