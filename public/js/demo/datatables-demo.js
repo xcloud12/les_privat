@@ -15,17 +15,30 @@ $(document).ready(function () {
         customize: function (xlsx) {
           var sheet = xlsx.xl.worksheets['sheet1.xml'];
           // $('row:first c', sheet).attr('s', '51');
-          $('row c[r^="B"]', sheet).attr('s', '2'); //untuk mempertebal satu garis kebawah atau row
+          //$('row c[r^="A"]', sheet).attr('s', '2'); //untuk mempertebal satu garis kebawah atau row
 
           // Loop over the cells in column `C`
-          $('row c[r^="F"]', sheet).each(function () {
+          $('row c[r^="G"]', sheet).each(function () {
             // Get the value
-            if ($('is t', this).text() == 'Diterima Untuk Diajar') {
+            if ($('is t', this).text() == 'Sudah Diterima Oleh Tentor') {
               $(this).attr('s', '40');
             } else if ($('is t', this).text() == 'Ditolak Oleh Tentor') {
               $(this).attr('s', '35');
-            } else {
+            } else if ($('is t', this).text() == 'Masih Ditangguhkan') {
               $(this).attr('s', '30');
+            } else {
+              // $(this).attr('s', '30');
+            }
+          });
+          // Loop over the cells in column `C`
+          $('row c[r^="F"]', sheet).each(function () {
+            // Get the value
+            if ($('is t', this).text() == 'Sudah Melakukan Pembayaran') {
+              $(this).attr('s', '40');
+            } else if ($('is t', this).text() == 'Belum Melakukan Pembayaran') {
+              $(this).attr('s', '35');
+            } else {
+              // $(this).attr('s', '30');
             }
           });
 
@@ -36,7 +49,7 @@ $(document).ready(function () {
           }
         },
         exportOptions: {
-          columns: [0, 1, 2, 3, 4, 5, 6, 7, 8] //membatasi kolom yang akan di output
+          columns: [1, 2, 3, 4, 5, 6, 7, 8, 9] //membatasi kolom yang akan di output
         }
 
       },
