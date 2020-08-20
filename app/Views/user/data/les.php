@@ -19,13 +19,13 @@
                                 <th style="width: 1%;">#</th>
                                 <th>Kategori</th>
                                 <th>Nama Mata Pelajaran</th>
-                                <th>Harga</th>
-                                <th>Biaya Pendaftaran</th>
+                                <th style="width: 15%;">Biaya</th>
+                                <th style="width: 18%">Biaya Pendaftaran</th>
                                 <th hidden>deskripsi</th>
                                 <th hidden>id_les</th>
                                 <th hidden>harga_non_format</th>
                                 <th hidden>biaya_non_format</th>
-                                <th>Aksi</th>
+                                <th style="width: 8%;">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>

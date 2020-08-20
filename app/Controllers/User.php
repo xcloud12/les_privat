@@ -81,7 +81,7 @@ class User extends Controller
             return redirect()->to('/daftar');
         }
 
-        $level = $this->request->getVar('level')=='admin'?'peserta': $this->request->getVar('level');
+        $level = $this->request->getVar('level') == 'admin' ? 'peserta' : $this->request->getVar('level');
 
         $model->save([
             "email"    => $this->request->getVar('email'),
@@ -180,7 +180,7 @@ class User extends Controller
 
         $foto          = $this->request->getFile('foto');
         $foto_new_name = $sesi->username . ".jpg";
-        if ($foto->isValid()){
+        if ($foto->isValid()) {
             $foto->move(FCPATH . "img/img_profil", $foto_new_name, true);
         }
 
@@ -212,7 +212,7 @@ class User extends Controller
         $user = $model->where('id_user', $id)->first();
         if (password_verify($old, $user['password'])) {
             $model->update($id, ['password' => password_hash($new, PASSWORD_DEFAULT)]);
-        // }else{
+            // }else{
             // todo: tampil eror gagal
         }
         return redirect()->to('/profil');
@@ -224,13 +224,13 @@ class User extends Controller
 
         $db   = \Config\Database::connect();
         $user = $db->table('user');
-        
+
         $res = $user->select('email')->where('email', $email)->get()->getResultObject();
-        if (count($res)>0){
-            echo json_encode(['status'=>true]);
+        if (count($res) > 0) {
+            echo json_encode(['status' => true]);
             return;
         }
-        echo json_encode(['status'=>false]);
+        echo json_encode(['status' => false]);
     }
 
     public function reset_pass()
@@ -244,11 +244,11 @@ class User extends Controller
         $user = $db->table('user');
         $res  = $user->select('username, tgl_lahir, telp')->where('email', $email)->get()->getResultObject();
         if (count($res) > 0) {
-           if (
-               $res[0]->username == $username
-               && $res[0]->tgl_lahir == $tgl_lahir
-               && $res[0]->telp == $telp
-           ){
+            if (
+                $res[0]->username == $username
+                && $res[0]->tgl_lahir == $tgl_lahir
+                && $res[0]->telp == $telp
+            ) {
                 helper('text');
                 $new_pass = random_string('alnum', 16);
                 $user->where('email', $email);
@@ -258,7 +258,7 @@ class User extends Controller
                     'new_pass' => $new_pass
                 ]);
                 return;
-           }
+            }
         }
 
         echo json_encode(['status'   => false]);

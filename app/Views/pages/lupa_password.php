@@ -43,7 +43,7 @@
                             <p class="text-center">Silahkan masukkan email akun anda untuk kami cek</p>
                             <div class="form-group">
                                 <label>Email address</label>
-                                <input type="email" class="rounded-pill form-control" id="email" />
+                                <input type="email" class="rounded-pill form-control" id="email" required oninvalid="this.setCustomValidity('Email Tidak Boleh Kosong');" oninput="this.setCustomValidity('')" />
                                 <small class="form-text text-danger fail-text" id="email-fail">Akun tidak ditemukan.</small>
                             </div>
                             <button type="button" class="btn btn-primary" onclick="cek_email()" id="btn_email">Cek Email</button>
