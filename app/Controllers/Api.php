@@ -5,13 +5,13 @@ namespace App\Controllers;
 use App\Models\M_Jadwal;
 use App\Models\M_Les;
 use App\Models\M_Pemesanan;
-use App\Models\M_user;
+use App\Models\M_User;
 
 class Api extends BaseController
 {
     public function login()
     {
-        $model = new M_user();
+        $model = new M_User();
 
         // form is filled
         if ($this->validate([
@@ -56,7 +56,7 @@ class Api extends BaseController
 
     public function updateProfil($username)
     {
-        $model = new M_user();
+        $model = new M_User();
         $id    = $model->getIdFromUsername($username);
         $data  = [
             'nama'         => $this->request->getVar('nama'),
@@ -98,7 +98,7 @@ class Api extends BaseController
     public function daftarPesanan($username)
     {
         $pesanan = new M_Pemesanan();
-        $user = new M_user();
+        $user = new M_User();
         $id_tentor = $user->getIdFromUsername($username);
         $result = $pesanan->daftarPesanan($id_tentor);
         echo json_encode($result);
@@ -156,7 +156,7 @@ class Api extends BaseController
 
     public function kinerja($username_tentor)
     {
-        $model     = new M_user();
+        $model     = new M_User();
         $id_tentor = $model->getIdFromUsername($username_tentor);
 
         $db        = \Config\Database::connect();

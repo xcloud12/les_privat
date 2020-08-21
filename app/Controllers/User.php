@@ -175,7 +175,7 @@ class User extends Controller
 
     public function update($id)
     {
-        $model = new M_user();
+        $model = new M_User();
         $sesi  = session();
 
         $foto          = $this->request->getFile('foto');

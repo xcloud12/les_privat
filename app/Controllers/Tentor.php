@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\M_Les;
 use App\Models\M_Pengajuan;
-use App\Models\M_user;
+use App\Models\M_User;
 
 class Tentor extends User
 {

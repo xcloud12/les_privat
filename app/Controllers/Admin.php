@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\M_user;
+use App\Models\M_User;
 
 class Admin extends BaseController
 {
@@ -11,7 +11,7 @@ class Admin extends BaseController
 		$sesi = session();
 		$this->cek_login($sesi);
 
-		$user   = new M_user();
+		$user   = new M_User();
 
 		$data = [
 			'title' => "Data " . ucfirst($master),
@@ -43,7 +43,7 @@ class Admin extends BaseController
 
 	public function update($table, $id)
 	{
-		$model = new M_user();
+		$model = new M_User();
 
 		$data = [
 			'nama' => $this->request->getVar('nama'),
@@ -63,7 +63,7 @@ class Admin extends BaseController
 
 	public function delete($table, $id)
 	{
-		$model = new M_user();
+		$model = new M_User();
 		$model->delete($id);
 		return redirect()->to("/data/$table");
 	}
@@ -108,7 +108,7 @@ class Admin extends BaseController
 			'password' => password_hash($user->username, PASSWORD_DEFAULT)
 		];
 
-		$model = new M_user();
+		$model = new M_User();
 		$model->update($id, $data);
 		return redirect()->to(previous_url());
 	}

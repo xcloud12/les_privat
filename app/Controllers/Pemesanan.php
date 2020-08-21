@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\M_Pengajuan;
-use App\Models\M_user;
+use App\Models\M_User;
 use App\Models\M_Pemesanan;
 
 class Pemesanan extends BaseController
