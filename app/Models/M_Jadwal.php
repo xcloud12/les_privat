@@ -31,16 +31,16 @@ class M_Jadwal extends Model
         $db = \Config\Database::connect();
 
         $jadwal = $db->table('jadwal');
-        $result = $jadwal->select('id_jadwal, LES.nama AS les, ' .
-            '(SELECT nama FROM USER WHERE USER.id_user = JADWAL.id_peserta) AS peserta,' .
-            '(SELECT alamat FROM USER WHERE USER.id_user = JADWAL.id_peserta) AS alamat,' .
-            '(SELECT foto FROM USER WHERE USER.id_user = JADWAL.id_peserta) AS foto_peserta,' .
+        $result = $jadwal->select('id_jadwal, les.nama as les, ' .
+            '(select nama from user where user.id_user = jadwal.id_peserta) as peserta,' .
+            '(select alamat from user where user.id_user = jadwal.id_peserta) as alamat,' .
+            '(select foto from user where user.id_user = jadwal.id_peserta) as foto_peserta,' .
             ' tgl, jam, absen, rating')
-            ->join('LES', 'LES.id_les = JADWAL.id_les')
-            ->join('USER', 'USER.id_user = JADWAL.id_tentor')
-            ->where('USER.username', $username)
+            ->join('les', 'les.id_les = jadwal.id_les')
+            ->join('user', 'user.id_user = jadwal.id_tentor')
+            ->where('user.username', $username)
             ->orderBy('jadwal.tgl')
-            ->where('JADWAL.tgl >= CURRENT_DATE')
+            ->where('jadwal.tgl >= current_date')
             ->get();
 
         return $result->getResultArray();
@@ -50,16 +50,16 @@ class M_Jadwal extends Model
         $db = \Config\Database::connect();
 
         $jadwal = $db->table('jadwal');
-        $result = $jadwal->select('id_jadwal, LES.nama AS les, ' .
-            '(SELECT nama FROM USER WHERE USER.id_user = JADWAL.id_tentor) AS tentor,' .
-            '(SELECT alamat FROM USER WHERE USER.id_user = JADWAL.id_tentor) AS alamat,' .
-            '(SELECT foto FROM USER WHERE USER.id_user = JADWAL.id_tentor) AS foto_tentor,' .
+        $result = $jadwal->select('id_jadwal, les.nama as les, ' .
+            '(select nama from user where user.id_user = jadwal.id_tentor) as tentor,' .
+            '(select alamat from user where user.id_user = jadwal.id_tentor) as alamat,' .
+            '(select foto from user where user.id_user = jadwal.id_tentor) as foto_tentor,' .
             ' tgl, jam, absen, rating')
-            ->join('LES', 'LES.id_les = JADWAL.id_les')
-            ->join('USER', 'USER.id_user = JADWAL.id_peserta')
-            ->where('USER.username', $username)
-            ->orderBy('jadwal.tgl')
-            ->where('JADWAL.tgl >= CURRENT_DATE')
+            ->join('les', 'les.id_les = jadwal.id_les')
+            ->join('user', 'user.id_user = jadwal.id_peserta')
+            ->where('user.username', $username)
+            ->orderby('jadwal.tgl')
+            ->where('jadwal.tgl >= current_date')
             ->get();
 
         return $result->getResultArray();
@@ -70,7 +70,7 @@ class M_Jadwal extends Model
         $db = \Config\Database::connect();
 
         $jadwal = $db->table('jadwal');
-        $res = $jadwal->select('biaya_daftar, tgl, absen, rating, ulasan, les.nama as les, id_jadwal, (SELECT nama FROM user where jadwal.id_tentor=user.id_user) as tentor, (SELECT nama FROM user where jadwal.id_peserta=user.id_user) as peserta')
+        $res = $jadwal->select('biaya_daftar, tgl, absen, rating, ulasan, les.nama as les, id_jadwal, (select nama from user where jadwal.id_tentor=user.id_user) as tentor, (select nama from user where jadwal.id_peserta=user.id_user) as peserta')
             ->join('les', 'les.id_les = jadwal.id_les')
             ->get();
 
