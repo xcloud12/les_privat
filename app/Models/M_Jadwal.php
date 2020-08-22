@@ -18,7 +18,6 @@ class M_Jadwal extends Model
         'jam',
         'absen',
         'rating',
-        'ulasan'
     ];
 
     public function create($data)
@@ -70,7 +69,7 @@ class M_Jadwal extends Model
         $db = \Config\Database::connect();
 
         $jadwal = $db->table('jadwal');
-        $res = $jadwal->select('biaya_daftar, tgl, absen, rating, ulasan, les.nama as les, id_jadwal, (select nama from user where jadwal.id_tentor=user.id_user) as tentor, (select nama from user where jadwal.id_peserta=user.id_user) as peserta')
+        $res = $jadwal->select('biaya_daftar, tgl, absen, rating, les.nama as les, id_jadwal, (select nama from user where jadwal.id_tentor=user.id_user) as tentor, (select nama from user where jadwal.id_peserta=user.id_user) as peserta')
             ->join('les', 'les.id_les = jadwal.id_les')
             ->get();
 

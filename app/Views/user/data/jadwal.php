@@ -21,7 +21,6 @@
                                 <th hidden>Rating</th>
                                 <th>Tanggal Pertemuan</th>
                                 <th style="width: 1%;">Kehadiran</th>
-                                <th hidden>Ulasan</th>
                                 <th style="width: 1%;" class="text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -46,7 +45,6 @@
                                         <?php endfor; ?>
                                     </td>
                                     <td class="text-right"><?= strftime('%d %B %Y', strtotime($u->tgl)) ?></td>
-                                    <td hidden><?= $u->ulasan == '' ? 'Belum Ada Ulasan' : $u->ulasan ?></td>
                                     <td class="text-center" style="font-size: 1.5rem;">
                                         <?php
                                         if ($u->absen === '1') : ?>
