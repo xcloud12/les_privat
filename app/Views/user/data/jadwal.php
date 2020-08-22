@@ -46,7 +46,6 @@
                                         <?php endfor; ?>
                                     </td>
                                     <td class="text-right"><?= strftime('%d %B %Y', strtotime($u->tgl)) ?></td>
-                                    <td hidden><?= $u->ulasan == '' ? 'Belum Ada Ulasan' : $u->ulasan ?></td>
                                     <td class="text-center" style="font-size: 1.5rem;">
                                         <?php
                                         if ($u->absen === '1') : ?>
