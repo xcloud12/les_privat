@@ -21,9 +21,10 @@
                                         <div class="font-weight-normal text-secondary"><?= $k->les ?></div>
                                         <div class="font-weight-normal text-secondary mb-2 d-inline small">
                                             <?php
+                                            $rating = json_decode($k->rating, true);
                                             for ($i = 1; $i <= 5; $i++) :
                                                 $star = "";
-                                                if ($k->rating >= $i) {
+                                                if ($rating['rata-rata'] >= $i) {
                                                     $star = "text-primary";
                                                 } ?>
                                                 <i class="fas fa-star <?= $star ?>"></i>
