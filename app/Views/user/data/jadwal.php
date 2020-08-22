@@ -36,9 +36,10 @@
                                     <td><?= $u->peserta ?></td>
                                     <td hidden>
                                         <?php
+                                        $rating = json_decode($u->rating, true);
                                         for ($n = 1; $n <= 5; $n++) :
                                             $star = "";
-                                            if ($u->rating >= $n) {
+                                            if ($rating['rata-rata'] >= $n) {
                                                 $star = "text-primary";
                                             } ?>
                                             <i class="fas fa-star <?= $star ?>"></i>
