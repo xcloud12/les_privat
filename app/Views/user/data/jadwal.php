@@ -21,7 +21,6 @@
                                 <th hidden>Rating</th>
                                 <th>Tanggal Pertemuan</th>
                                 <th style="width: 1%;">Kehadiran</th>
-                                <th hidden>Ulasan</th>
                                 <th style="width: 1%;" class="text-center">Aksi</th>
                             </tr>
                         </thead>
