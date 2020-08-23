@@ -71,16 +71,16 @@
                             <form class="user" action="/daftar" method="post" id="pendaftaran">
                                 <input type="hidden" value="peserta" name="level">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="name" name="nama" placeholder="Masukkan Nama Anda" oninvalid="this.setCustomValidity('Nama Tidak Boleh Kosong');" oninput="this.setCustomValidity('')" title="Isi Nama sesuai nama anda" pattern="[A-Za-z]{1,20}" maxlength="35" required>
+                                    <input type="text" class="form-control form-control-user" id="name" name="nama" placeholder="Masukkan Nama Anda" oninvalid="this.setCustomValidity('Nama Tidak Boleh Kosong');" oninput="this.setCustomValidity('')" title="Isi Nama sesuai nama anda" maxlength="35" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Masukkan Email Anda">
+                                    <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Masukkan Email Anda" oninvalid="this.setCustomValidity('Email Tidak Boleh Kosong');" oninput="this.setCustomValidity('')" title="Isi email sesuai email anda" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Masukkan Username Anda" required>
+                                    <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Masukkan Username Anda" oninvalid="this.setCustomValidity('Username Tidak Boleh Kosong');" oninput="this.setCustomValidity('')" title="Isi username sesuai username anda" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Masukkan Password" required>
+                                    <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Masukkan Password" oninvalid="this.setCustomValidity('Password Tidak Boleh Kosong');" oninput="this.setCustomValidity('')" title="Isi password sesuai password anda" required>
                                 </div>
                                 <button class="btn btn-primary btn-user btn-block" id="daftar_tentor">Buat Akun Tentor </button>
                                 <button class="btn btn-primary btn-user btn-block" id="daftar_peserta">Buat Akun Peserta </button>
