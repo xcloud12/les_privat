@@ -14,24 +14,18 @@
 
                 <!-- Content Row -->
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-lg-3 pb-3">
                         <center>
                             <img id="foto" class="rounded" style="max-width: 200px; max-height: 250px; background-color: ; " src="<?php
                                                                                                                                     if ($foto === "/img/img_profil/") {
-                                                                                                                                        if ($jk == 'L') {
-                                                                                                                                            echo $foto . 'dfm.png';
-                                                                                                                                        } else if ($jk == 'P') {
-                                                                                                                                            echo $foto . 'dffm.png';
-                                                                                                                                        } else {
-                                                                                                                                            echo $foto . 'npp.png';
-                                                                                                                                        }
+                                                                                                                                        echo $foto . 'npp.png';
                                                                                                                                     } else {
                                                                                                                                         echo $foto;
                                                                                                                                     }   ?>" alt="Profile Picture">
                             <input hidden type="file" id="foto_dialog" name="foto" accept="image/jpeg" onchange="set_img(this)">
                         </center>
                     </div>
-                    <div class="col-9">
+                    <div class="col-lg-9">
                         <div class="form-group row">
                             <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                             <div class="col-sm-10">
