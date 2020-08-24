@@ -98,8 +98,10 @@
                                 <th style="width: 1%;">Status</th>
                                 <th hidden>Banyak Pertemuan</th>
                                 <th hidden>Deskripsi</th>
-                                <th hidden>Biaya Total</th>
+                                <th hidden>Biaya Tota</th>
                                 <th hidden>id_pesanan</th>
+                                <th hidden>Biaya</th>
+                                <th hidden>Pertemuan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -143,6 +145,8 @@
                                     <td hidden><?= $p->deskripsi_pemesanan ?></td>
                                     <td hidden><?= number_to_currency($p->total_bayar, "IDR", "id") ?></td>
                                     <td hidden><?= $p->id_pemesanan ?></td>
+                                    <td hidden><?= $p->total_bayar ?></td>
+                                    <td hidden><?= $p->banyak_pertemuan ?></td>
                                     <td style="width: 2%;">
                                         <center>
                                             <button type="button" class="btn btn-info btn-sm btn_info" onclick="info(parentElement.parentElement.parentElement)">
