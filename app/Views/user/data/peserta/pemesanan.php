@@ -71,34 +71,7 @@
                 <div class="form-group">
                     <!-- Content Row -->
                     <div class="row" id="listLes">
-                        <?php foreach ($daftar_les as $p) : ?>
-                            <div class="col-xl-5 col-md-6 mb-4" data-pesan="<?= htmlspecialchars(json_encode($p)) ?>" onclick="showPengajuan(this.dataset.pesan)">
-                                <a href="#" class="text-decoration-none text-gray-800 ">
-                                    <div class="my-card shadow d-flex ">
-                                        <img src="<?= "/img/img_profil/" . $p->tentor_foto ?>" alt="tentor" class="img-fluid rounded float-left pesan-img">
-                                        <div class="card-body">
-                                            <div class="row align-items-center pesan-text-main">
-                                                <div class="col mr-4">
-                                                    <div class="font-weight-bold text-uppercase text-dark"><?= "$p->les" ?></div>
-                                                    <div class="mt-1 text-gray-800 font-weight-lighter"><?= "$p->tentor" ?></div>
-                                                    <div class="mt-1 text-gray-800 font-weight-lighter"><?= number_to_currency($p->harga, "IDR", "ID") ?></div>
-                                                </div>
-                                            </div>
-                                            <div class="row align-items-center pesan-text-info">
-                                                <div class="col mr-4">
-                                                    <div class="text-dark">
-                                                        <?php foreach (explode(',', $p->hari) as $hari) : ?>
-                                                            <span class="badge badge-pill badge-primary pt-1 pb-1"><?= ucfirst($hari) ?></span>
-                                                        <?php endforeach; ?>
-                                                    </div>
-                                                    <div class="mt-1 text-gray-800 font-weight-lighter"><?= "$p->jam_kerja" ?></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        <?php endforeach; ?>
+                        <!-- diisi dengan melakukan pencarian -->
                     </div>
                 </div>
             </div>
@@ -355,7 +328,7 @@
     //form pemesanan
     function showPengajuan(data_pemesanan) {
         data = JSON.parse(data_pemesanan);
-        form_nama_mapel.val(data.les)
+        form_nama_mapel.val(data.mapel)
         form_nama_tentor.val(data.tentor)
         form_harga.val(data.harga);
         form_biaya.val(data.biaya_daftar);
@@ -446,28 +419,42 @@
         $.get("/api/get_les_by_name/" + pencarian, (data, status) => {
             if (status == "success") {
                 const les = JSON.parse(data);
-                console.log(data);
-                list.html("");
-
+                list.empty();
                 les.forEach((l) => {
+                    let hari = "";
+                    l.hari.split(',').forEach((h) => {
+                        hari += `<span class="badge badge-pill badge-primary pt-1 pb-1">${h.toUpperCase()}</span>\n`
+                    });
+                    const harga = new Intl.NumberFormat('id', {
+                        style: 'currency',
+                        currency: 'IDR',
+                        maximumSignificantDigits: 3
+                    }).format(l.harga);
                     list.append(`
-<div class="col-xl-5 col-md-6 mb-4 mt-3" onclick="showPengajuan()">
-    <a href="#" class="text-decoration-none text-gray-800 pilih_mapel">
-        <div class="card shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-4">
-                        <div class="font-weight-bold text-uppercase text-dark">${l.nama} (${l.kategori})</div>
-                        <div class=" mt-1 text-gray-800 font-weight-lighter">${l.deskripsi}</div>
-                    </div>
-                    <div class="col-auto justify-content-center">
-                        <div class=" mt-2 text-gray-800">${l.harga}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>`);
+<div class="col-xl-5 col-md-6 mb-4" data-pesan='${JSON.stringify(l)}' onclick="showPengajuan(this.dataset.pesan)">
+                                <a href="#" class="text-decoration-none text-gray-800 ">
+                                    <div class="my-card shadow d-flex ">
+                                        <img src="/img/img_profil/${l.foto}" alt="tentor" class="img-fluid rounded float-left pesan-img">
+                                        <div class="card-body">
+                                            <div class="row align-items-center pesan-text-main">
+                                                <div class="col mr-4">
+                                                    <div class="font-weight-bold text-uppercase text-dark">${l.mapel}</div>
+                                                    <div class="mt-1 text-gray-800 font-weight-lighter">${l.tentor}</div>
+                                                    <div class="mt-1 text-gray-800 font-weight-lighter">${harga}</div>
+                                                </div>
+                                            </div>
+                                            <div class="row align-items-center pesan-text-info">
+                                                <div class="col mr-4">
+                                                    <div class="text-dark">
+                                                        ${hari}
+                                                    </div>
+                                                    <div class="mt-1 text-gray-800 font-weight-lighter">${l.jam_kerja}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>`);
                 });
                 return JSON.parse(data)
             }
