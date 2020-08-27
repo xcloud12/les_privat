@@ -59,7 +59,7 @@
                 <div class="col-sm-4 pt-5">
                     <form action="/" method="POST" class="user">
                         <?php if (isset($failed)) : ?>
-                            <div class="alert alert-danger" role="alert"> Username/password salah! </div>
+                            <div class="alert alert-danger" role="alert"> Username/password Salah! </div>
                         <?php endif; ?>
                         <div class="input-group mb-3 ">
                             <input type="text" class="form-control tf rounded-left bg-white border-right-0" placeholder="Masukkan Username" aria-label="Username" aria-describedby="basic-addon1" name="username" autofocus=true>

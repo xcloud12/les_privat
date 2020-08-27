@@ -449,6 +449,7 @@
                                                         ${hari}
                                                     </div>
                                                     <div class="mt-1 text-gray-800 font-weight-lighter">${l.jam_kerja}</div>
+                                                    <div class="mt-1 text-gray-800 font-weight-lighter">${l.deskripsi_mengajar}</div>
                                                 </div>
                                             </div>
                                         </div>

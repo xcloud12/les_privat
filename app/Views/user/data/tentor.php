@@ -54,7 +54,13 @@
                                     <td hidden><?= $u['tgl_lahir'] ?></td>
                                     <td hidden><?= $u['alamat'] ?></td>
                                     <td hidden><?= $u['telp'] ?></td>
-                                    <td hidden><?= $u['foto'] ?></td>
+                                    <td hidden><?php
+                                                if ($u['foto'] === null) {
+                                                    echo 'npp.png';
+                                                } else {
+                                                    echo $u['foto'];
+                                                }
+                                                ?></td>
                                     <td hidden><?= $u['id_user'] ?></td>
                                     <td>
                                         <center>

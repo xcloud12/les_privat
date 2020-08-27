@@ -41,7 +41,7 @@
                         <div class="form-group row">
                             <label for="tanggal_lahir" class="col-sm-2 col-form-label">Tanggal lahir</label>
                             <div class="col-sm-10">
-                                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" min="1970-01-01" required value="<?= $tgl_lahir ?>">
+                                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" min="1970-01-01" data-date-format="dd/mm/yyyy" required value="<?= $tgl_lahir ?>">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -50,7 +50,7 @@
                                 <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
                                     <option <?php if ($jk == null) {
                                                 echo 'selected';
-                                            } ?> value="L">-- Pilih Salah Satu --</option>
+                                            } ?> value="" disabled>-- Pilih Salah Satu --</option>
                                     <option <?php if ($jk == 'L') {
                                                 echo 'selected';
                                             } ?> value="L">Laki Laki</option>
@@ -69,7 +69,7 @@
                         <div class="form-group row">
                             <label for="no_telp" class="col-sm-2 col-form-label">No Telp</label>
                             <div class="col-sm-10">
-                                <input type="text" name="no_telp" id='no_telp' placeholder="Masukkan No Telp" class="form-control" required value="<?= $telp ?>">
+                                <input type="number" name="no_telp" id='no_telp' placeholder="Masukkan No Telp" class="form-control" required value="<?= $telp ?>" onKeyPress="if(this.value.length==12) return false;">
                             </div>
                         </div>
                     </div>

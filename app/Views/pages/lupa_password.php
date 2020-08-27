@@ -60,7 +60,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Nomor Telepon</label>
-                                <input type="number" class="rounded-pill form-control" id="telp" />
+                                <input type="number" class="rounded-pill form-control" id="telp" onKeyPress="if(this.value.length==12) return false;" />
                             </div>
                             <button type="button" class="btn btn-primary" onclick="verifikasi()" id="btn_kirim">Kirim</button>
                             <br>
@@ -70,6 +70,8 @@
                             <p class="mb-0">Password anda berhasil direset.</p>
                             <p>Silahkan gunakan password berikut untuk login</p>
                             <h2 id="new_pass">1c7856178c6820</h2>
+                            <br><br><br>
+                            <a class="text-primary text-decoration-none" href="/">Kembali ke Halaman Awal</a>
                         </div>
                     </div>
                 </div>

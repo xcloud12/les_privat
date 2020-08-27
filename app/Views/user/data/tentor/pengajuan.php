@@ -357,9 +357,9 @@
         mapel_tentor.hide()
         form_pemilihah.fadeOut(300, () => {
             form_pengajuan.fadeIn(300)
+            resetform()
         })
         toggle_form(false)
-        resetform()
         form_nama_mapel.prop('disabled', true);
 
         judul_form_edit_mapel.hide()
@@ -370,6 +370,7 @@
         mapel_tentor.hide()
         form_pengajuan.fadeOut(300, () => {
             form_pemilihah.fadeIn(300)
+            resetform()
         })
     })
 
@@ -389,7 +390,6 @@
             if (status == 'success') {
                 const les = JSON.parse(data);
                 list.html("")
-
                 les.forEach(l => {
                     list.append(
                         `
@@ -401,6 +401,7 @@
                     <div class="col mr-2">
                         <div class="font-weight-bold text-uppercase text-black">${l.nama}</div>
                         <div class=" mt-1 text-gray-800 small">${l.deskripsi}</div>
+                        <div class=" mt-1 text-gray-800 small">Rp. ${l.harga}</div>
                     </div>
                 </div>
             </div>

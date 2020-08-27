@@ -54,7 +54,7 @@
                                     <td hidden><?= $u['telp'] ?></td>
                                     <td hidden><?php
                                                 if ($u['foto'] === null) {
-                                                    echo 'default.jpg';
+                                                    echo 'npp.png';
                                                 } else {
                                                     echo $u['foto'];
                                                 }
