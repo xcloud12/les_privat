@@ -29,9 +29,9 @@
                                         </div>
                                         <div class="col-auto">
                                             <?php if ($p->aktif == 1) : ?>
-                                                <i class="fas fa-check-circle fa-2x text-success"></i>
+                                                <i class="fas fa-check-circle fa-2x text-success" title="Pengajuan Diterima"></i>
                                             <?php else : ?>
-                                                <i class="fas fa-spinner fa-2x text-danger"></i>
+                                                <i class="fas fa-spinner fa-2x text-danger" title="Pengajuan Masih Ditangguhkan"></i>
                                             <?php endif; ?>
                                         </div>
                                     </div>

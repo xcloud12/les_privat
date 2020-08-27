@@ -6,6 +6,8 @@ $(document).ready(function () {
       "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
       "<'row'<'col-sm-12'tr>>" +
       "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+    serverside: true,
+    processing: true,
     buttons: [{
         "extend": 'excel',
         autoFilter: true,
