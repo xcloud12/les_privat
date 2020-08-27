@@ -92,6 +92,7 @@
                                                         <?php endforeach; ?>
                                                     </div>
                                                     <div class="mt-1 text-gray-800 font-weight-lighter"><?= "$p->jam_kerja" ?></div>
+                                                    <div class="mt-1 text-gray-800 font-weight-lighter"><?= "$p->deskripsi" ?></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -439,6 +440,7 @@
     pencarian.keyup((key) => {
         if (key.key == 'Enter') {
             getLes(pencarian.val())
+
         }
     })
 
