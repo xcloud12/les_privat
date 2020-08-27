@@ -2,17 +2,25 @@
 $(document).ready(function () {
 
   var table = $('#pemesanan').DataTable({
+
     "dom": "<'row'<'col-sm-12 col-md-6'B >>" +
       "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
       "<'row'<'col-sm-12'tr>>" +
       "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+    'columnDefs': [ // see https://datatables.net/reference/option/columns.searchable
+      {
+        'searchable': false,
+        'targets': [0, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+      },
+    ],
     buttons: [{
+
         "extend": 'excel',
         autoFilter: true,
         "text": '<i class="fas fa-file-excel"></i>  Simpan Sebagai Excel',
         "title": 'Data Pemesanan Keseluruhan',
         "className": 'btn btn-success rounded mb-3 mr-3 ',
-        "messageBottom": 'Seluruh Data Pemesanan LPPK Universitas Nurul Jadid',
+        "messageBottom": 'Seluruh Data Pemesanan LPPK(Lembaga Pengembangan Profesionalitas dan Kewirausahaan) Universitas Nurul Jadid',
         customize: function (xlsx) {
           var sheet = xlsx.xl.worksheets['sheet1.xml'];
           // $('row:first c', sheet).attr('s', '51');
