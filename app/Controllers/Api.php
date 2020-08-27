@@ -186,4 +186,18 @@ class Api extends BaseController
         }
         return json_encode(['status' => true]);
     }
+
+    public function getLesByName($nama='')
+    {
+        $db   = \Config\Database::connect();
+        $les  = $db->table('les as l');
+        $data = $les->select('l.nama as mapel, l.biaya_daftar, l.harga, p.id_pengajuan, p.hari, p.jam_kerja, p.deskripsi, t.nama as tentor, t.foto as foto ')
+            ->join('pengajuan_mengajar as p', 'p.id_les=l.id_les')
+            ->join('user as t', 't.id_user=p.id_tentor')
+            ->where("l.nama REGEXP '.*" . esc($nama) . ".*'")
+            ->get()
+            ->getResultObject();
+
+        return json_encode($data);
+    }
 }

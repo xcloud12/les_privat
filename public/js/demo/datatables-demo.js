@@ -8,6 +8,7 @@ $(document).ready(function () {
       "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
     buttons: [{
         "extend": 'excel',
+        autoFilter: true,
         "text": '<i class="fas fa-file-excel"></i>  Simpan Sebagai Excel',
         "title": 'Data Pemesanan Keseluruhan',
         "className": 'btn btn-success rounded mb-3 mr-3 ',
@@ -49,7 +50,7 @@ $(document).ready(function () {
           }
         },
         exportOptions: {
-          columns: [1, 2, 3, 4, 5, 6, 7, 8, 9] //membatasi kolom yang akan di output
+          columns: [1, 2, 3, 4, 5, 6, 12, 8, 11] //membatasi kolom yang akan di output
         }
 
       },

@@ -41,8 +41,10 @@
                                     <td><?php
                                         if ($u['jk'] == 'L') {
                                             echo 'Laki-Laki';
-                                        } else {
+                                        } elseif ($u['jk'] == 'P') {
                                             echo 'Perempuan';
+                                        } else {
+                                            echo 'Belum Memilih';
                                         }
                                         ?></td>
                                     <td hidden><?= $u['jk'] ?></td>
@@ -92,12 +94,12 @@
 
                 <!-- Content Row -->
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-lg-3">
                         <center>
                             <img id="foto" class="rounded" style="max-width: 200px; max-height: 250px; " src="/img/images.png" alt="Profile Picture">
                         </center>
                     </div>
-                    <div class="col-9">
+                    <div class="col-lg-9">
                         <div class="form-group row">
                             <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                             <div class="col-sm-10">
@@ -133,6 +135,7 @@
                             <div class="col-sm-10">
                                 <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required disabled>
                                     <option disabled selected>-- Pilih Salah Satu --</option>
+                                    <option value="" disabled>Belum Memilih Jenis Kelamin</option>
                                     <option value="L">Laki Laki</option>
                                     <option value="P">Perempuan</option>
                                 </select>

@@ -111,6 +111,7 @@ $routes->get('/api/jadwal/(\d+)', 'Api::detailJadwal/$1');
 $routes->get('/api/jadwal/(.+)', 'Api::myJadwal/$1');
 $routes->get('/api/pesanan/(.+)', 'Api::daftarPesanan/$1');
 $routes->get('/api/get_les_by_kategori/(.*)', 'Api::getLesByKategori/$1');
+$routes->get('/api/get_les_by_name/', 'Api::getLesByName');
 $routes->get('/api/get_les_by_name/(.*)', 'Api::getLesByName/$1');
 $routes->get('/api/pesan_les/(.*)', 'Api::pesanLes/$1');
 $routes->get('/api/kinerja/(.+)', 'Api::kinerja/$1');

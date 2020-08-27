@@ -29,9 +29,9 @@
                                         </div>
                                         <div class="col-auto">
                                             <?php if ($p->aktif == 1) : ?>
-                                                <i class="fas fa-check-circle fa-2x text-primary"></i>
+                                                <i class="fas fa-check-circle fa-2x text-success"></i>
                                             <?php else : ?>
-                                                <i class="fas fa-history fa-2x text-dark"></i>
+                                                <i class="fas fa-spinner fa-2x text-danger"></i>
                                             <?php endif; ?>
                                         </div>
                                     </div>
@@ -52,11 +52,11 @@
             </div>
 
             <!-- Content Row -->
-            <div class="col-9">
+            <div class="col-lg-12">
                 <form action="">
                     <div class="form-group row">
-                        <label for="nama" class="col-sm-4 col-form-label font-weight-normal">Kategori Mata Pelajaran </label>
-                        <div class="col-sm-8">
+                        <label for="nama" class="col-sm-3 col-form-label font-weight-normal text-center pl-5">Kategori Mata Pelajaran </label>
+                        <div class="col-sm-6">
                             <select class="form-control" id="kategori" name="kategori">
                                 <option value="Praktek" selected>Praktek</option>
                                 <option value="Teori">Teori</option>
